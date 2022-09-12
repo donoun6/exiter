@@ -16,9 +16,8 @@
 </head>
 <body>
   <div id="wrap">
-    <header>
+  	<!-- header top-nav -->
     <jsp:include page="common/header.jsp"></jsp:include>
-    </header>
     <!-- main -->
     <main>
       <article class="main-img"></article>
@@ -61,9 +60,8 @@
         </div>
       </section>
     </main>
-    <footer>
+    <!-- footer bottom-nav -->
     <jsp:include page="common/footer.jsp"></jsp:include>
-    </footer>
   </div>
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
