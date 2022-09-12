@@ -45,4 +45,5 @@ footer {
   height: 30px;
   left: calc(50% - 15px);
   bottom: calc(50% - 8px);
+  z-index:-1;
 }
