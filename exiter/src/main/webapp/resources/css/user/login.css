@@ -1,0 +1,120 @@
+@charset "UTF-8";
+
+/* common 영역 */
+html, body {
+  background: #1b1b1b;
+  color: #e6e6e6;
+}
+
+/* 헤더 영역 */
+header {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 15px 20px;
+  z-index: 100;
+}
+
+.logo-img {
+  font-size: 50px;
+  font-weight: 700;
+}
+
+/* 로그인 영역 */
+main {
+  min-height: calc(100vh - 280px);
+  padding: 0 20px;
+  margin-top: 80px;
+}
+
+h3.title {
+  margin: 50px 0;
+  font-size: 48px;
+}
+
+.login-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-box form {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+label.login-item {
+  position: relative;
+  display: block;
+}
+
+label.passwd {
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+input[type="text"], input[type="password"] {
+  width: 100%;
+  height: 50px;
+  padding: 2px 20px 0;
+  border: 0;
+  border-radius: 4px;
+  color: white;
+  font-size: 16px;
+  background: #333;
+  line-height: 50px;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+  outline: none;
+}
+
+p.msg {
+	font-size: 12px;
+    margin-top: 10px;
+    font-weight: 400;
+    color: #737373;
+}
+
+.g-btn {
+  display: block;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  margin: 24px 0 12px;
+  border: 0;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  background: #008000;
+  cursor: pointer;
+}
+
+/* 링크 넘어가기 */
+.sign-up, .find-idpw {
+  width: 100%;
+  text-align: left;
+  color: #737373;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.sign-up a, .find-idpw a {
+  margin-left: 3px;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.find-idpw {
+  margin-top: 10px;
+}
+
+/* 푸터 영역 */
+footer {
+  height: 120px;
+  text-align: center;
+  color: #737373;
+  font-size: 12px;
+}
