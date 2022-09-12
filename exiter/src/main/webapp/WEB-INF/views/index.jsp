@@ -18,7 +18,7 @@
 </head>
 <body>
   <div id="wrap"> 
-  	<!-- header top-nav -->
+  	<!-- header top-nav --> 
     <jsp:include page="common/header.jsp"></jsp:include>
     <!-- main -->
     <main>
