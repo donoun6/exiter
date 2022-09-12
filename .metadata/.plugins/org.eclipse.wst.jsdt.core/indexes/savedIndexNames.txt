@@ -1,7 +1,7 @@
-<<<<<<< HEAD
-INDEX VERSION 1.4+C:\NCS\escape\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-=======
-INDEX VERSION 1.4+C:\NCSDongHwan\escape\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+INDEX VERSION 1.4+C:\NCSDongHwan\eclipse workspace\escape\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
 1540726445.index
-2745874268.index
->>>>>>> 684a1aaac890fc931394253a811dc83d0263da93
+1805389577.index
+2881756317.index
+1864717792.index
+4103311427.index
+1712084266.index
