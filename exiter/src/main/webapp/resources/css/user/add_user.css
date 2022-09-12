@@ -63,37 +63,6 @@ input[type="text"], input[type="password"], .phone-box {
   box-sizing: border-box;
 }
 
-label.signUp-item.uPhone {
-  position: relative;
-  height: 50px;
-  margin-bottom: 50px;
-}
-
-.phone-box {
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 0;
-}
-
-input[type="text"].uPhone {
-  width: 30%;
-  height: 40px;
-  margin-top: -5px;
-  padding: 0 20px;
-  text-align: center;
-}
-
-input[type="text"]#uPhone2 {
-  margin-left: 2.3%;
-  padding: 0 10px;
-}
-
-input[type="text"]#uPhone3 {
-  margin-left: 2.3%;
-  padding: 0 10px;
-}
-
 input[type="text"]:focus, input[type="password"]:focus {
   outline: none;
 }
@@ -125,3 +94,10 @@ footer {
   font-size: 12px;
 }
 
+/* input 값입력시 배경색 안바뀌게 설정 */
+input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-transition: background-color 9999s ease-out;
+  -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+  -webkit-text-fill-color: #fff !important;
+}

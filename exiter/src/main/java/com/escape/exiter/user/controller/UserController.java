@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/user/add_user")
 public class UserController {
 	
+	/**
+	 * 회원가입 페이지 접속
+	 * @return
+	 */
 	@GetMapping
 	public String addUserForm() {
 		return "user/add_user";

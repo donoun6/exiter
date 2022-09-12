@@ -15,7 +15,7 @@
 	<div id="wrap">
       <!-- header 영역 -->
       <header>
-        <div class="logo-img"><a href="/exiter">E</a></div>
+        <div class="logo-img"><a href="<c:url value='/'/>">E</a></div>
       </header>
       <main>
         <h3 class="title">로그인</h3>
@@ -25,7 +25,7 @@
               <input type="text" id="userId" name="userId" placeholder="아이디">
             </label>
             <label class="login-item passwd">
-              <input type="password" id="passwd" name="passwd" placeholder="비밀번호" min="8" max="16">
+              <input type="password" id="passwd" name="passwd" placeholder="비밀번호" minlength="8" maxlength="16">
               <p class="msg">* 8~16자리 비밀번호 입력</p>
             </label>
             <input type="submit" name="login" value="로그인" class="g-btn login-btn">
