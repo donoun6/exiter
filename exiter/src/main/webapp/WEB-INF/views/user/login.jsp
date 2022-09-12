@@ -15,7 +15,7 @@
 	<div id="wrap">
       <!-- header 영역 -->
       <header>
-        <div class="logo-img"><a href="#">E</a></div>
+        <div class="logo-img"><a href="/exiter">E</a></div>
       </header>
       <main>
         <h3 class="title">로그인</h3>
