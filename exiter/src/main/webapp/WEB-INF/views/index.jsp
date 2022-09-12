@@ -17,7 +17,7 @@
   <title>main</title>
 </head>
 <body>
-  <div id="wrap">
+  <div id="wrap"> 
   	<!-- header top-nav -->
     <jsp:include page="common/header.jsp"></jsp:include>
     <!-- main -->
