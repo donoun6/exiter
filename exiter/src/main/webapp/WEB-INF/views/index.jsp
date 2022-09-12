@@ -8,6 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
   <link rel="stylesheet" href="<c:url value='/resources/css/common/initial.css'/>">
   <link rel="stylesheet" href="<c:url value='/resources/css/common/default.css'/>">
+  <link rel="stylesheet" href="<c:url value='/resources/css/common/header.css'/>">
+  <link rel="stylesheet" href="<c:url value='/resources/css/common/footer.css'/>">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
   <link rel="stylesheet" href="<c:url value='/resources/css/style.css'/>">
   <script type="text/javascript" src="<c:url value='/resources/js/common/jquery.js'/>"></script>

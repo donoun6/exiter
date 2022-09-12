@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+/* header top-nav */
+header {
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  padding: 15px 20px;
+  z-index: 100;
+}
+
+#top-nav {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#top-nav .logo-img {
+  font-size: 50px;
+  line-height: 50px;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+
+#top-nav .right-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5px;
+}
+
+#top-nav .right-img a {
+  display: block;
+  width: 25px;
+  height: 25px;
+}
+
+#top-nav .right-img .search-img, #top-nav .right-img .login-img  {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  filter:invert();
+  width: 25px;
+  height: 25px;
+}
+
+#top-nav .right-img .search-img {
+  background-image: url("../../images/icon/search_FILL0_wght400_GRAD0_opsz48.png");
+}
+
+#top-nav .right-img .login-img {
+  background-image: url("../../images/icon/login_FILL0_wght400_GRAD0_opsz48.png");
+  margin-left: 10px;
+}
