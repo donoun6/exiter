@@ -1,0 +1,29 @@
+※ git bash 주의사항 ※
+* 매일 개발 시작 전 git pull 먼저 하고 시작하기!
+* git push 하기 전에 pull 먼저 하기!
+* 다른 사람 파일 수정할 때는 미리 얘기하고 상대방이 pull 해준 다음에 수정하기! ( 수정 후에는 반드시 git push 진행! )
+* 에러 뜨면 에러메시지 확인하고 경로에 뜬 에러파일을 다른 곳에 옮긴 다음 git push 해보기
+
+----------------------------------------------------------------------
+
+※ 제일 먼저 ※
+1. 각자 폴더에서 git clone하기
+git clone https://github.com/donoun6/exiter.git escape
+
+2. 브런치 main으로 변경하기 (한번 변경하면 계속 변경되어있음!)
+git branch -m master main
+
+----------------------------------------------------------------------
+
+※ git pull / push 하기 ※
+
+1. git pull 명령어
+git pull origin mian
+
+2. git push 명령어
+git add .
+git commit -m "커밋메시지 입력"
+git push origin main
+
+----------------------------------------------------------------------
+
