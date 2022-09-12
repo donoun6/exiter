@@ -1,9 +1,9 @@
 cmd에서 root로 mysql 접속한 다음 아래 과정 진행해주세요!
 
-1. exit 유저 생성
+1. exiter 유저 생성
 create user 'exiter'@localhost identified by 'exiter';
 
-2. exit 테이블 생성
+2. exiter 테이블 생성
 create database exiter default character set utf8;
 
 3. 권한 설정
