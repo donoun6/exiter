@@ -22,7 +22,7 @@ main .main-img {
        rgba(27, 27, 27, 0) 5%,
        rgba(27, 27, 27, 0) ,
        rgba(27, 27, 27, 1)),
-   url("../images/theme/img.jpg");
+   url("../images/theme/img4.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -74,7 +74,7 @@ main .main-img {
 #section > h2 {
   padding: 10px 10px;
   font-size: 18px;
-  font-weight: normal;
+  font-weight: 700;
 }
 
 #section:last-child {

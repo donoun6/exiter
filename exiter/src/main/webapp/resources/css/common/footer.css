@@ -26,6 +26,16 @@ footer {
   line-height: 60px;
 }
 
+#bottom-nav div > img {
+  position: absolute;
+  filter:invert();
+  width: 30px;
+  height: 30px;
+  left: calc(50% - 15px);
+  bottom: calc(50% - 8px);
+  z-index:-1;
+}
+
 #bottom-nav > div > a {
   display: block;
   width: 100%;
@@ -38,12 +48,4 @@ footer {
   padding-top: 15px;
 }
 
-#bottom-nav div > img {
-  position: absolute;
-  filter:invert();
-  width: 30px;
-  height: 30px;
-  left: calc(50% - 15px);
-  bottom: calc(50% - 8px);
-  z-index:-1;
-}
+
