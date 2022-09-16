@@ -21,11 +21,9 @@
       <jsp:include page="../common/only_logo_header.jsp"></jsp:include> 
       <!-- 메인 영역 -->
       <main>
-        <h3 class="subtitle">아이디 찾기</h3>
-        <p class="result">찾으시는 아이디는<br><span>userid</span> 입니다.</p>
-        <button class="common-btn mid-btn" onclick="location.href='<c:url value="login"/>'">로그인 하기</button>
-        <button class="common-btn mid-btn" onclick="location.href='<c:url value="find_IdPw"/>'">비밀번호 찾기</button>
-        <!-- 나중에 비밀번호찾기 활성화되는 걸로 바꾸기 -->
+        <h3 class="subtitle">비밀번호 찾기</h3>
+        <p class="result change"><span>비밀번호</span>가 변경되었습니다.<br><span>로그인</span>을 해주세요.</p>
+        <button class="common-btn" onclick="location.href='<c:url value="login"/>'">로그인 하기</button>
       </main>
     </div>
     <!-- 푸터 영역 -->

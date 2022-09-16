@@ -144,3 +144,80 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
   -webkit-box-shadow: 0 0 0px 1000px white inset !important;
   -webkit-text-fill-color: #fff !important;
 }
+
+/* success_findId 페이지 */
+h3.subtitle {
+	margin: 50px 0;
+	font-size: 32px;
+}
+
+p.result {
+	margin-top: 100px;
+	margin-bottom: 80px;
+	line-height: 45px;
+	font-size: 24px;
+	font-weight: 700;
+	color: #737373;
+}
+
+p.result span {
+	font-size: 28px;
+	font-weight: 700;
+	color: rgba(255, 255, 255, .9);
+}
+
+.mid-btn {
+	display: inline-block;
+	width: 48%;
+	margin: 0;
+}
+
+.mid-btn + .mid-btn {
+	margin-left: 2%;
+}
+
+/* success-findPw 페이지 */
+input[type="password"] {
+  width: 100%;
+  height: 50px;
+  padding: 2px 20px 0;
+  border: 0;
+  border-radius: 4px;
+  color: white;
+  font-size: 16px;
+  background: #333;
+  line-height: 50px;
+  box-sizing: border-box;
+}
+
+input[type="password"]:focus {
+  outline: none;
+}
+
+label.change-item {
+  position: relative;
+  display: block;
+}
+
+label.change-item + .change-item {
+  margin-top: 30px;
+}
+
+p.changeMsg {
+	margin-top: -35px;
+    margin-bottom: 50px;
+}
+
+.change-btn {
+	margin-top: 50px;
+}
+
+/* success-changePw 페이지 */
+.result.change {
+	font-size: 24px;
+}
+
+.result.change span {
+	font-size: 28px;
+	color: rgba(255, 255, 255, .9);
+}

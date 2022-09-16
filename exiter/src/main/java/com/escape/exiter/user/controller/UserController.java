@@ -44,4 +44,14 @@ public class UserController {
 		// 확인 작업 후 이동
 		return "user/success_findPw";
 	}
+	
+	/**
+	 * 비밀번호 변경 후 페이지 이동
+	 * @return
+	 */
+	@PostMapping("/user/changePw")
+	public String changePw() {
+		// 확인 작업 후 이동
+		return "user/success_changePw";
+	}
 }

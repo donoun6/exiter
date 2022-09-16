@@ -21,10 +21,17 @@
       <jsp:include page="../common/only_logo_header.jsp"></jsp:include> 
       <!-- 메인 영역 -->
       <main>
-        <h3 class="subtitle">아이디 찾기</h3>
-        <p class="result">찾으시는 아이디는<br><span>userid</span> 입니다.</p>
-        <button class="common-btn mid-btn" onclick="location.href='<c:url value="login"/>'">로그인 하기</button>
-        <button class="common-btn mid-btn" onclick="location.href='<c:url value="find_IdPw"/>'">비밀번호 찾기</button>
+        <h3 class="subtitle">비밀번호 찾기</h3>
+        <p class="msg changeMsg">* 비밀번호 찾기에서는 비밀번호 변경만 가능합니다.</p>
+        <form class="change-Pw" action="changePw" method="post">
+        	<label class="change-item uPasswd1">
+              <input type="password" id="uPasswd1" name="uPasswd1" placeholder="8~16자리 새 비밀번호 입력" minlength="8" maxlength="16">
+            </label>
+            <label class="change-item uPasswd2">
+              <input type="password" id="uPasswd2" name="uPasswd2" placeholder="비밀번호 확인" minlength="8" maxlength="16">
+            </label>
+            <input type="submit" name="change" value="비밀번호 변경" class="common-btn change-btn">
+        </form>
         <!-- 나중에 비밀번호찾기 활성화되는 걸로 바꾸기 -->
       </main>
     </div>
