@@ -39,7 +39,7 @@
             <label class="signUp-item uPhone">
               <input type="text" id="uPhone" name="uPhone" class="uPhone" placeholder="전화번호 ex) 010-0000-0000" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{3,4}">
             </label>
-            <input type="submit" name="signUp" value="회원가입" class="submit-btn signUp-btn">
+            <input type="submit" name="signUp" value="회원가입" class="common-btn signUp-btn">
           </form>
         </div>
       </main>

@@ -30,7 +30,7 @@
               <input type="password" id="passwd" name="passwd" placeholder="비밀번호" minlength="8" maxlength="16">
               <p class="msg">* 8~16자리 비밀번호 입력</p>
             </label>
-            <input type="submit" name="login" value="로그인" class="submit-btn login-btn">
+            <input type="submit" name="login" value="로그인" class="common-btn login-btn">
           </form>
           <div class="sign-up">
             EXITER 회원이 아닌가요? <a href="<c:url value='add_user'/>">지금 가입하세요!</a>
