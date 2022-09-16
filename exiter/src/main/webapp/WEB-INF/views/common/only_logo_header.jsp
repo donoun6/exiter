@@ -5,7 +5,7 @@
 	<nav id="top-nav">
 	  <div class="logo-img"><a href="/exiter">E</a></div>
 	  <div class="right-img">
-	  <% if ( url.contains("http://localhost:8080/exiter/user/login")){%>  		
+	   <% if ( url.contentEquals("http://localhost:8080/exiter/user/login")){%>  		
 	  		<div class="undo-img"><a href="<%=request.getHeader("referer")%>"></a></div>
 	   <% }else {%>
 		  	<div class="undo-img"><a href="/exiter"></a></div>
