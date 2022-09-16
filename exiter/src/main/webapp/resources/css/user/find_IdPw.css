@@ -45,6 +45,7 @@ h3.title:before {
 	height: 2px;
 	background: #737373;
 }
+
 h3.title:last-child:before {
 	left: 50%;
 }
