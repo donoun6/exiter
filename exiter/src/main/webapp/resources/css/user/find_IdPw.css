@@ -1,0 +1,158 @@
+@charset "UTF-8";
+
+/* common 영역 */
+html, body {
+    background: #1b1b1b;
+    color: #e6e6e6;
+}
+
+/* 헤더 영역 */
+header {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 15px 20px;
+    z-index: 100;
+}
+
+.logo-img {
+    font-size: 50px;
+    font-weight: 700;
+}
+
+/* 상단탭 영역 */
+main {
+    min-height: calc(100vh - 141px);
+    padding: 80px 20px 0;
+}
+
+main .title-tab {
+	position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+main .title-tab:before {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 30px;
+	content: "";
+	height: 2px;
+	background: #333;
+}
+
+
+h3.title {
+    margin: 50px 0;
+    font-size: 20px;
+    color: #737373;
+}
+
+h3.title:before {
+	position: absolute;
+	left: 0;
+	bottom: 30px;
+	content: "";
+	width: 50%;
+	height: 2px;
+	background: #737373;
+}
+h3.title:last-child:before {
+	left: 50%;
+}
+
+h3.title.on {
+	color: #fff;
+}
+
+h3.title.on:before {
+	background: #fff;
+}
+
+/* 찾기 폼 영역 */
+.find-wrap {
+	position: relative;
+	margin-top: 30px;
+}
+
+.find-box {
+	position: absolute;
+	display: none;
+	flex-direction: column;
+  	justify-content: center;
+  	align-items: center;
+  	width: 100%;
+}
+
+.find-box.on {
+	display: flex;
+}
+
+.find-box form {
+  width: 100%;
+}
+
+.find-box p {
+	color: #737373;
+}
+
+label.find-item + label.find-item {
+  margin-top: 30px;
+}
+
+label.find-item {
+  position: relative;
+  display: block;
+}
+
+input[type="text"] {
+  width: 100%;
+  height: 50px;
+  padding: 2px 20px 0;
+  border: 0;
+  border-radius: 4px;
+  color: white;
+  font-size: 16px;
+  background: #333;
+  line-height: 50px;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus {
+  outline: none;
+}
+
+p.msg {
+	font-size: 14px;
+    margin-top: 10px;
+    font-weight: 400;
+    color: #737373;
+}
+
+.g-btn {
+  display: block;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  margin: 24px 0 12px;
+  border: 0;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  background: #008000;
+  cursor: pointer;
+}
+
+.find-btn {
+  margin-top: 50px;
+}
+
+/* input 값입력시 배경색 안바뀌게 설정 */
+input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-transition: background-color 9999s ease-out;
+  -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+  -webkit-text-fill-color: #fff !important;
+}

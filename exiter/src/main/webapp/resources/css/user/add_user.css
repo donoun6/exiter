@@ -22,7 +22,7 @@ header {
 /* 회원가입 영역 */
 main {
   min-height: calc(100vh - 200px);
-  padding: 0 20px;
+  padding: 80px 20px 0;
 }
 
 h3.title {
@@ -89,6 +89,7 @@ input[type="text"]:focus, input[type="password"]:focus {
 /* 푸터 영역 */
 footer {
   height: 70px;
+  line-height: 70px;
   text-align: center;
   color: #737373;
   font-size: 12px;
