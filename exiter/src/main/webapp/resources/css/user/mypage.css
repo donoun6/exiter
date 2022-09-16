@@ -1,0 +1,124 @@
+@charset "UTF-8";
+.mypage-container {
+  padding-top: 50px;
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+}
+.top-container {
+  position: absolute;
+  width: 400px;
+  height: 32%;
+  background: rgb(111,140,255);
+  background: linear-gradient(90deg, rgba(111,140,255,1) 0%, rgba(90,122,255,1) 4%, rgba(79,110,255,1) 22%, rgba(71,108,255,1) 48%, rgba(79,110,255,1) 82%, rgba(90,122,255,1) 96%, rgba(111,140,255,1) 100%);
+  border-radius: 0 0 40px 40px;
+}
+.name-box {
+  display: flex;
+  margin-bottom: 20px;
+  padding: 0 10px;
+}
+.name {
+  width: 100%;
+  left: 0;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  display: block;
+}
+.id {
+  display: block;
+  color: #c2c2c2;
+  font-size: 14px;
+  font-weight: lighter;
+  margin-top: 5px;
+}
+.profile {
+  right: 0;
+}
+.profile img {
+  border-radius: 50%;
+  width: 80px;
+}
+.top-list-box {
+  display: block;
+  color: white;
+  font-weight: bold;
+  padding: 0 20px;
+}
+.top-list {
+  display:flex;
+  border-bottom: 0.5px solid #a3b3ff;
+}
+.top-list span{
+  line-height: 53px;
+  margin-right: 10px;
+  font-size: 20px;
+}
+.top-list p {
+  width: 100%;
+}
+.top-list p:last-child {
+  text-align: right;
+}
+
+.middle-box {
+  height: 120px;
+  background-color: #1b1b1b;
+  border-radius: 10px;
+}
+
+.bottom-box {
+  height: 100px;
+  display: flex;
+  margin-top: 10px;
+  text-align: center;
+  justify-content: center;
+  line-height: 100px;
+  margin-bottom: 10px;
+}
+.bottom-box img {
+  padding: 10px 0 0 0;
+  height: 35px;
+  display: block;
+  margin: 0 auto;
+}
+.bottom-box h4 {
+  padding: 0;
+  margin: 0 auto;
+  line-height: 50px;
+  bottom: 0;
+}
+.reservation {
+  color: #F74B64;
+}
+.record {
+  color: #109110;
+}
+.ranking {
+  color: #FFE000;
+}
+.bottom-box div {
+  background-color: #1b1b1b;
+  height: 100%;
+  width: 33%;
+  margin-right: 8px;
+  border-radius: 10px;
+}
+.bottom-box div:last-child {
+  margin: 0;
+}
+.bottom-list-box {
+  height: 200px;
+  width: 100%;
+  background-color: #1b1b1b;
+  border-radius: 10px;
+}
+.bottom-list-box td {
+  border-bottom: 1px solid #757575;
+  padding-left: 20px;
+  color: white;
+}
+.bottom-list-box tr:last-child td {
+  border-bottom: none;
+}

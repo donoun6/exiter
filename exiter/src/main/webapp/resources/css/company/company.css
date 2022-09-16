@@ -1,0 +1,33 @@
+body{
+  color: white;
+  box-sizing: border-box;
+}
+.com-container {
+  height: 100%;
+  width: 93%;
+  margin: 0 auto;
+  bottom: 0;
+}
+.com-box {
+  border: 1px solid #4a4a4a;
+  background-color: #1b1b1b;
+  margin: 10px 0;
+}
+.res-info {
+  height: 200px;
+}
+.theme {
+  display: flex;
+}
+.theme-box {
+  height: 50px;
+  width: 45%;
+  border: 1px solid #4a4a4a;
+  margin: 0 auto;
+  background-color: #1b1b1b;
+  text-align: center;
+  line-height: 50px;
+}
+.question {
+  height: 300px;
+}
