@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
-<link rel="shortcut icon" href="<c:url value='/resources/images/icon/exiter.ico'/>">
+<link rel="shortcut icon" href="<c:url value='/exiter.ico'/>">
 <link rel="stylesheet" href="<c:url value='/resources/css/common/initial.css'/>">
 <link rel="stylesheet" href="<c:url value='/resources/css/common/default.css'/>">
 <link rel="stylesheet" href="<c:url value='/resources/css/common/header.css'/>">

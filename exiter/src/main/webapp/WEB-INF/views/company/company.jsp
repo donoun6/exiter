@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
+<link rel="shortcut icon" href="<c:url value='/exiter.ico'/>">
 <link rel="stylesheet" href="<c:url value='/resources/css/common/initial.css'/>">
 <link rel="stylesheet" href="<c:url value='/resources/css/common/default.css'/>">
 <link rel="stylesheet" href="<c:url value='/resources/css/common/header.css'/>">
