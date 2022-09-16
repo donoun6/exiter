@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="<c:url value='/resources/css/common/initial.css'/>">
 <link rel="stylesheet" href="<c:url value='/resources/css/common/default.css'/>">
 <link rel="stylesheet" href="<c:url value='/resources/css/common/header.css'/>">
-<link rel="stylesheet" href="<c:url value='/resources/css/common/footer.css'/>">
+<link rel="stylesheet" href="<c:url value='/resources/css/common/copyright.css'/>">
 <link rel="stylesheet" href="<c:url value='/resources/css/user/find_IdPw.css'/>">
 <script type="text/javascript" src="<c:url value='/resources/js/common/jquery.js'/>"></script>
 <title>Exiter</title>
@@ -36,7 +36,7 @@
                 <input type="text" id="uPhone" name="uPhone" class="uPhone" placeholder="가입시 등록한 전화번호 입력" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{3,4}">
                 <p class="msg">* ex) 010-0000-0000</p>
               </label>
-              <input type="submit" name="findId" value="아이디 찾기" class="g-btn find-btn">
+              <input type="submit" name="findId" value="아이디 찾기" class="submit-btn find-btn">
             </form>
           </div>
           <div class="find-box find-pw">
@@ -51,14 +51,14 @@
                 <input type="text" id="uPhone" name="uPhone" class="uPhone" placeholder="가입시 등록한 전화번호 입력" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{3,4}">
                 <p class="msg">* ex) 010-0000-0000</p>
               </label>
-              <input type="submit" name="findPw" value="비밀번호 찾기" class="g-btn find-btn">
+              <input type="submit" name="findPw" value="비밀번호 찾기" class="submit-btn find-btn">
             </form>
           </div>
         </div>
       </main>
     </div>
     <!-- 푸터 영역 -->
-    <jsp:include page="../common/footer.jsp"></jsp:include>
+    <jsp:include page="../common/copyright.jsp"></jsp:include>
     
     <!-- 스크립트 영역 -->
     <script type="text/javascript">

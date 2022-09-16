@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="<c:url value='/resources/css/common/initial.css'/>">
 <link rel="stylesheet" href="<c:url value='/resources/css/common/default.css'/>">
 <link rel="stylesheet" href="<c:url value='/resources/css/common/header.css'/>">
+<link rel="stylesheet" href="<c:url value='/resources/css/common/copyright.css'/>">
 <link rel="stylesheet" href="<c:url value='/resources/css/user/add_user.css'/>">
 <title>Exiter</title>
 </head>
@@ -37,7 +38,7 @@
             <label class="signUp-item uPhone">
               <input type="text" id="uPhone" name="uPhone" class="uPhone" placeholder="전화번호 ex) 010-0000-0000" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{3,4}">
             </label>
-            <input type="submit" name="signUp" value="회원가입" class="g-btn signUp-btn">
+            <input type="submit" name="signUp" value="회원가입" class="submit-btn signUp-btn">
           </form>
         </div>
       </main>
