@@ -1,5 +1,54 @@
 @charset "UTF-8";
 
+/* -------------로고-----------------------------------*/
+@keyframes turn {
+  from{
+    transform: rotate3d(0, 0, 0, 0);
+  }
+  to {
+    transform: rotate3d(1, 1, 0, 360deg);
+  }
+}
+.cube {
+  width: 20px;
+  height: 20px;
+  transform-style: preserve-3d;
+  animation: turn 5s ease-in-out infinite;
+  margin: 10px;
+  animation-delay: 2s;
+}
+.face {
+  width: 25px;
+  height: 25px;
+  background: #000;
+  border: 2px solid #fff;
+  position: absolute;
+  opacity: 0.75;
+  transform: translateZ(12.5px);
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+}
+.front {
+  transform: translateZ(12.5px);
+}
+.back {
+ transform: translateZ(-12.5px) rotateY(180deg);
+}
+.left {
+  transform: translateX(-12.5px) rotateY(-90deg);
+}
+.right {
+  transform: translateX(12.5px) rotateY(90deg);
+}
+.top {
+  transform: translateY(-12.5px) rotateX(90deg);
+}
+.bottom {
+  transform: translateY(12.5px) rotateX(-90deg);
+}
+/* ---------------------------------------------------*/
+
 /* header top-nav */
 header {
   box-sizing: border-box;
@@ -14,13 +63,6 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-#top-nav .logo-img {
-  font-size: 50px;
-  line-height: 50px;
-  font-weight: bold;
-  color: #f1f1f1;
 }
 
 #top-nav .right-img {

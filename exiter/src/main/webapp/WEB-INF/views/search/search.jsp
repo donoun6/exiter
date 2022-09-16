@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+<link rel="shortcut icon" href="<c:url value='/resources/images/icon/exiter.ico'/>">
 <link rel="stylesheet" href="<c:url value='/resources/css/common/initial.css'/>">
 <link rel="stylesheet" href="<c:url value='/resources/css/common/default.css'/>">
 <link rel="stylesheet" href="<c:url value='/resources/css/common/header.css'/>">
@@ -15,23 +16,8 @@
 <title>search</title>
 </head>
 <body>
-  <header>
-    <nav id="top-nav">
-      <div class="cube">
-        <div class="face top"><a href="#">E</a></div>
-        <div class="face bottom"><a href="#">E</a></div>
-        <div class="face left"><a href="#">E</a></div>
-        <div class="face right"><a href="#">E</a></div>
-        <div class="face front"><a href="#">E</a></div>
-        <div class="face back"><a href="#">E</a></div>
-      </div>
-
-      <div class="right-img">
-        <div class="search-img"><a href="#"></a></div>
-        <div class="login-img"><a href="user/login"></a></div>
-      </div>
-    </nav>
-      </header>
+  <!-- 헤더 -->
+    <jsp:include page="../common/header.jsp"></jsp:include>
 
 	<!-- 메인 -->
   <div class="subtitle" style="display:flex;">

@@ -6,6 +6,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+  <link rel="shortcut icon" href="<c:url value='/resources/images/icon/exiter.ico'/>">
   <link rel="stylesheet" href="<c:url value='/resources/css/common/initial.css'/>">
   <link rel="stylesheet" href="<c:url value='/resources/css/common/default.css'/>">
   <link rel="stylesheet" href="<c:url value='/resources/css/common/header.css'/>">
@@ -17,9 +18,11 @@
   <title>main</title>
 </head>
 <body>
-  <div id="wrap"> 
-  	<!-- header top-nav --> 
+  <div id="wrap">
+    
+    <!-- 헤더 -->
     <jsp:include page="common/header.jsp"></jsp:include>
+    
     <!-- main -->
     <main>
       <article class="main-img"></article>
