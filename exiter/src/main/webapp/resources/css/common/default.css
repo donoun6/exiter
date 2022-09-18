@@ -1,7 +1,12 @@
 @charset "UTF-8";
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@font-face {
+  font-family: "twayFly";
+  src: url("../../font/tway_fly.ttf") format("truetype");
+  font-weight: normal;
+}
+
 html,body { height: 100%; box-sizing: border-box; }
-body { font-family: 'Noto Sans KR', sans-serif; color:#fff; }
+body { font-family: "twayFly"; color:#fff; }
 ul,ol { list-style: none; }
 a { color: #fff; }
 h1,h2,h3,h4,h5,h6 { line-height: 1; }
