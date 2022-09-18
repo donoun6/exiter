@@ -46,6 +46,7 @@ CREATE TABLE Company (
 	comId			VARCHAR(20)			NOT NULL,
 	comPasswd		VARCHAR(16)			NOT NULL,
 	comName			VARCHAR(20)			NOT NULL,
+	comPocus		VARCHAR(20)			NULL,
 	comNum			VARCHAR(12)			NOT NULL,
 	comAddress		VARCHAR(100)		NOT NULL,
 	comTel			VARCHAR(13)			NOT NULL,
