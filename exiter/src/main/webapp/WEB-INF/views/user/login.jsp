@@ -27,9 +27,14 @@
               <input type="text" id="userId" name="userId" placeholder="아이디">
             </label>
             <label class="login-item passwd">
-              <input type="password" id="passwd" name="passwd" placeholder="비밀번호" minlength="8" maxlength="16">
+              <input type="password" id="uPasswd" name="uPasswd" placeholder="비밀번호" minlength="8" maxlength="16">
               <p class="msg">* 8~16자리 비밀번호 입력</p>
             </label>
+            
+            <c:if test="${errMsg.length() > 0}">
+				<p style="color:red">${errMsg}</p>
+			</c:if>
+			
             <input type="submit" name="login" value="로그인" class="common-btn login-btn">
           </form>
           <div class="sign-up">
