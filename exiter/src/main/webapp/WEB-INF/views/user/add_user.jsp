@@ -34,7 +34,7 @@
               <p class="msg" id="checkPw"></p>
             </label>
             <label class="signUp-item uPasswd2">
-              <input type="password" id="uPasswd2" name="uPasswd2" placeholder="비밀번호 확인" minlength="8" maxlength="16">
+              <input type="password" id="uPasswd2" name="uPasswd2" placeholder="비밀번호 확인">
               <p class="msg" id="checkPw2"></p>
             </label>
             <label class="signUp-item uName">

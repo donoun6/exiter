@@ -31,6 +31,11 @@ public class UserServiceImpl implements UserService {
 	public User getUserByUid(long uid) {
 		return userDao.findUserByUid(uid);
 	}
+	
+	@Override
+	public long checkUser(String userId, String uPasswd) {
+		return userDao.checkUser(userId, uPasswd);
+	}
 
 	@Override
 	public boolean isValidUser(String userId, String uPasswd) {

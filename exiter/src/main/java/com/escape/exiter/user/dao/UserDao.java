@@ -66,6 +66,18 @@ public class UserDao {
 		return jdbcTemplate.queryForObject(sql, new UserRowMapper(), uid);
 	}
 	
+	public long checkUser(String userId, String uPasswd) {
+		String sql = "SELECT Count(*) as cnt FROM User WHERE userId = ? and uPasswd = ?";
+		return jdbcTemplate.queryForObject(sql, new RowMapper<Long>() {
+
+			@Override
+			public Long mapRow(ResultSet rs, int rowNum) throws SQLException {
+				return rs.getLong("cnt");
+			}
+			
+		}, userId, uPasswd);
+	}
+	
 	/**
 	 * 회원 존재 유무 확인하기
 	 * @param userId

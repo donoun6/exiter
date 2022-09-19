@@ -9,5 +9,6 @@ public interface UserService {
 	User getUserByUserId(String userId);
 	long getUserCountByUserId(String userId);
 	User getUserByUid(long uid);
+	long checkUser(String userId, String uPasswd);
 	boolean isValidUser(String userId, String uPasswd);
 }

@@ -69,6 +69,20 @@ p.errMsg {
     font-size: 15px;
 }
 
+.checkMsg {
+	margin-top: 8px;
+    margin-left: 5px;
+    font-size: 14px;
+}
+
+.checkMsg.suc {
+	color: skyblue;
+}
+
+.checkMsg.err {
+	color: tomato;
+}
+
 .common-btn {
   display: block;
   width: 100%;

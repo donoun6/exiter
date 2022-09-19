@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -31,7 +32,7 @@ public class UserController {
 	}
 	
 	/**
-	 * 회원가입시 아이디 유효성 검사(ajax 활용)
+	 * 회원가입 및 로그인시 아이디 유효성 검사(ajax 활용)
 	 * @param userId
 	 * @return
 	 */
@@ -39,6 +40,21 @@ public class UserController {
 	@ResponseBody
 	public Map<Object, Object> idCheck(@RequestBody String userId) {
 		long cnt = userService.getUserCountByUserId(userId);
+		Map<Object, Object> map = new HashMap<Object, Object>();
+		map.put("cnt", cnt);
+		
+		return map;
+	}
+	
+	/**
+	 * 로그인 아이디 비밀번호 존재 확인(ajax 활용)
+	 * @param allData
+	 * @return
+	 */
+	@RequestMapping(value="/user/checkIdPw")
+	@ResponseBody
+	public Map<Object, Object> idPwCheck(@RequestBody Map<String, Object> allData) {
+		long cnt = userService.checkUser((String)allData.get("userId"), (String)allData.get("uPasswd"));
 		Map<Object, Object> map = new HashMap<Object, Object>();
 		map.put("cnt", cnt);
 		
