@@ -23,8 +23,8 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
-	public long getUserCountByIserId(String userId) {
-		return userDao.findUserCountByIserId(userId);
+	public long getUserCountByUserId(String userId) {
+		return userDao.findUserCountByUserId(userId);
 	}
 
 	@Override

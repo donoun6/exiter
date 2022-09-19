@@ -34,7 +34,7 @@ label.signUp-item {
 }
 
 label.signUp-item + .signUp-item {
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 input[type="text"], input[type="password"], .phone-box {

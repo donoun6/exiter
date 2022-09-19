@@ -44,7 +44,7 @@ public class UserDao {
 	 * @param userId
 	 * @return
 	 */
-	public long findUserCountByIserId(String userId) {
+	public long findUserCountByUserId(String userId) {
 		String sql = "SELECT COUNT(*) as cnt FROM User WHERE userId = ?";
 		return jdbcTemplate.queryForObject(sql, new RowMapper<Long>() {
 

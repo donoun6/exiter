@@ -24,7 +24,7 @@
       <main>
         <h3 class="title">회원가입</h3>
         <div class="signUp-box">
-          <form class="signUp" action="" method="post">
+          <form class="signUp" id="signUp" action="" method="post">
             <label class="signUp-item userId">
               <input type="text" id="userId" name="userId" placeholder="아이디">
               <p class="msg" id="checkId"></p>
@@ -35,16 +35,17 @@
             </label>
             <label class="signUp-item uPasswd2">
               <input type="password" id="uPasswd2" name="uPasswd2" placeholder="비밀번호 확인" minlength="8" maxlength="16">
-              <p class="msg suc" id="pwSuccess">비밀번호가 일치합니다.</p>
-              <p class="msg err" id="pwError">비밀번호가 일치하지 않습니다.</p>
+              <p class="msg" id="checkPw2"></p>
             </label>
             <label class="signUp-item uName">
               <input type="text" id="uName" name="uName" placeholder="이름">
+              <p class="msg" id="checkName"></p>
             </label>
             <label class="signUp-item uPhone">
               <input type="text" id="uPhone" name="uPhone" class="uPhone" placeholder="전화번호 ex) 010-0000-0000" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{3,4}">
+              <p class="msg" id="checkPhone"></p>
             </label>
-            <input type="submit" name="signUp" value="회원가입" class="common-btn signUp-btn">
+            <input type="button" name="signUp" value="회원가입" class="common-btn signUp-btn">
           </form>
         </div>
         
@@ -83,9 +84,9 @@
 							$('.signUp-btn').attr('disabled', 'disabled');
 						} else {
 							// 아이디가 존재하지 않을 경우
-							$('#checkId').text('사용 가능한 아이디입니다.');
 							$('#checkId').removeClass('err');
 							$('#checkId').addClass('suc');
+							$('#checkId').text('사용 가능한 아이디입니다.');
 							$('.signUp-btn').removeAttr('disabled');
 						}
 					}
@@ -93,42 +94,107 @@
 			});
     		
     		// 비밀번호 입력 제한 실시간 체크
-    		var pw1 = $('#uPasswd1').val();
-    		var pw2 = $('#uPasswd2').val();
     		$('#uPasswd1').keyup(function() {
     			var pw1 = $('#uPasswd1').val();
     			if(pw1.length < 8) {
     				$('#checkPw').text('비밀번호는 8자 이상으로 입력해주세요.');
+    				$('#checkPw').removeClass('suc');
     				$('#checkPw').addClass('err');
     				$('.signUp-btn').attr('disabled', 'disabled');
     			} else if(pw1.length > 16) {
     				$('#checkPw').text('비밀번호는 16자 이내로 입력해주세요.');
+    				$('#checkPw').removeClass('suc');
     				$('#checkPw').addClass('err');
     				$('.signUp-btn').attr('disabled', 'disabled');
-    			} else {
+    			} else if(pw1.length > 7 && pw1.length < 17) {
     				$('#checkPw').text('사용가능한 비밀번호입니다.');
     				$('#checkPw').removeClass('err');
 					$('#checkPw').addClass('suc');
-    				$('.signUp-btn').removeAttr('disabled');
+					$('.signUp-btn').removeAttr('disabled');
     			}
     		})
     		
     		// 비밀번호 확인 실시간 체크
-    		$('#pwSuccess').hide();
-    		$('#pwError').hide();
     		$('#uPasswd2').keyup(function() {
     			var pw1 = $('#uPasswd1').val();
         		var pw2 = $('#uPasswd2').val();
     			if(pw1 != '' || pw2 != '') {
     				if(pw1 == pw2) {
-    					$('#pwSuccess').show();
-    					$('#pwError').hide();
-    					$('.signUp-btn').removeAttr('disabled');
+    					$('#checkPw2').text('비밀번호가 일치합니다.');
+						$('#checkPw2').removeClass('err');
+						$('#checkPw2').addClass('suc');
+						$('.signUp-btn').removeAttr('disabled');
     				} else {
-    					$('#pwSuccess').hide();
-    					$('#pwError').show();
-    					$('.signUp-btn').attr('disabled', 'disabled');
+    					$('#checkPw2').text('비밀번호가 일치하지 않습니다.');
+    					$('#checkId').removeClass('suc');
+        				$('#checkPw2').addClass('err');
+        				$('.signUp-btn').attr('disabled', 'disabled');
     				}
+    			}
+    		});
+    		
+    		// 회원가입 버튼 클릭시 공백 검사
+    		$('.signUp-btn').on("click", function() {
+    			var userId = $('#userId').val();
+    			var uPasswd1 = $('#uPasswd1').val();
+    			var uPasswd2 = $('#uPasswd2').val();
+    			var uName = $('#uName').val();
+    			var uPhone = $('#uPhone').val();
+    			var phoneregex = /^\d{3}-\d{3,4}-\d{4}$/;
+    			
+    			if(userId == null || userId == "") {
+    				$('#checkId').text('아이디를 입력해주세요.');
+					$('#checkId').removeClass('suc');
+					$('#checkId').addClass('err');
+					return;
+    			}
+    			
+    			if(uPasswd1 == null || uPasswd1 == "") {
+    				$('#checkPw').text('비밀번호를 입력해주세요.');
+    				$('#checkPw').addClass('err');
+    				return;
+    			}
+    			
+    			if(uPasswd2 == null || uPasswd2 == "") {
+    				console.log("진입");
+    				$('#checkPw2').text('비밀번호를 한번 더 입력해주세요.');
+    				$('#checkPw2').addClass('err');
+					return;
+    			}
+    			
+    			if(uName == null || uName == "") {
+    				$('#checkName').show();
+    				$('#checkName').text('이름을 입력해주세요.');
+					$('#checkName').removeClass('suc');
+					$('#checkName').addClass('err');
+					return;
+    			}
+    			
+    			var phoneregex = phoneregex.exec(uPhone);
+    			console.log(phoneregex);
+    			if(phoneregex == null || phoneregex == "") {
+    				$('#checkPhone').show();
+    				$('#checkPhone').text('전화번호를 양식에 맞게 입력해주세요.');
+					$('#checkPhone').removeClass('suc');
+					$('#checkPhone').addClass('err');
+					return;
+    			}
+    			
+    			// 빈칸 없을 때 제출
+    			$('#signUp').submit();
+    		});
+    		
+    		// 공백 없을 때 에러메시지 삭제
+    		$('#uName').keyup(function() {
+    			var uName = $('#uName').val();
+    			if(uName.length > 0) {
+    				$('#checkName').hide();
+    			}
+    		});
+    		$('#uPhone').keyup(function() {
+    			var uPhone = $('#uPhone').val();
+    			if(uPhone.length > 0) {
+    				$('#checkPhone').hide();
     			}
     		});
     	});

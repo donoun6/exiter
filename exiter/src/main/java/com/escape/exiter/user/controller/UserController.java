@@ -38,7 +38,7 @@ public class UserController {
 	@RequestMapping(value="/user/checkId")
 	@ResponseBody
 	public Map<Object, Object> idCheck(@RequestBody String userId) {
-		long cnt = userService.getUserCountByIserId(userId);
+		long cnt = userService.getUserCountByUserId(userId);
 		Map<Object, Object> map = new HashMap<Object, Object>();
 		map.put("cnt", cnt);
 		
