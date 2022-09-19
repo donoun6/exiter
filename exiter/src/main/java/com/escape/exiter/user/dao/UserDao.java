@@ -40,6 +40,23 @@ public class UserDao {
 	}
 	
 	/**
+	 * userId 유효성 검사
+	 * @param userId
+	 * @return
+	 */
+	public long findUserCountByIserId(String userId) {
+		String sql = "SELECT COUNT(*) as cnt FROM User WHERE userId = ?";
+		return jdbcTemplate.queryForObject(sql, new RowMapper<Long>() {
+
+			@Override
+			public Long mapRow(ResultSet rs, int rowNum) throws SQLException {
+				return rs.getLong("cnt");
+			}
+			
+		}, userId);
+	}
+	
+	/**
 	 * uid로 user 찾기
 	 * @param uid
 	 * @return

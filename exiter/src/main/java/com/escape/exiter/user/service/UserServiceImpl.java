@@ -21,6 +21,11 @@ public class UserServiceImpl implements UserService {
 	public User getUserByUserId(String userId) {
 		return userDao.findUserByUserId(userId);
 	}
+	
+	@Override
+	public long getUserCountByIserId(String userId) {
+		return userDao.findUserCountByIserId(userId);
+	}
 
 	@Override
 	public User getUserByUid(long uid) {

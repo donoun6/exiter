@@ -8,7 +8,7 @@ html, body {
 
 /* 회원가입 영역 */
 main {
-  min-height: calc(100vh - 201px);
+  min-height: calc(100vh - 140px);
   padding: 80px 20px 0;
 }
 
@@ -54,6 +54,21 @@ input[type="text"]:focus, input[type="password"]:focus {
   outline: none;
 }
 
+.msg {
+	margin-top: 8px;
+    margin-left: 5px;
+    font-size: 14px;
+}
+
+.msg.suc {
+	color: skyblue;
+}
+
+.msg.err {
+	color: tomato;
+}
+	
+
 .common-btn {
   display: block;
   width: 100%;
@@ -73,10 +88,54 @@ input[type="text"]:focus, input[type="password"]:focus {
   margin-top: 50px;
 }
 
+/* 팝업창 */
+.popUp-box {
+	position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    background: rgba(0, 0, 0, .7);
+    align-items: flex-start;
+}
+
+.popUp-item {
+	width: 300px;
+    height: 200px;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: calc(100vw - 100px);
+    background: white;
+    border-radius: 25px;
+    color: #666;
+    font-size: 20px;
+}
+
+.s-btn {
+	width: 120px;
+    height: 35px;
+    margin-top: 30px;
+    background: #414aea;
+	border: 0;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+}
+
+footer {
+	height: 60px;
+	line-height: 60px;
+}
+
 /* input 값입력시 배경색 안바뀌게 설정 */
 input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active {
   transition: background-color 5000s ease-in-out 0s;
   -webkit-transition: background-color 9999s ease-out;
-  -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+  /*-webkit-box-shadow: 0 0 0px 1000px white inset !important;*/
   -webkit-text-fill-color: #fff !important;
 }

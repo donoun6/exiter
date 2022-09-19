@@ -32,7 +32,7 @@
             </label>
             
             <c:if test="${errMsg.length() > 0}">
-				<p style="color:red">${errMsg}</p>
+				<p class="errMsg" style="color:red">${errMsg}</p>
 			</c:if>
 			
             <input type="submit" name="login" value="로그인" class="common-btn login-btn">

@@ -8,7 +8,7 @@ html, body {
 
 /* 로그인 영역 */
 main {
-  min-height: calc(100vh - 201px);
+  min-height: calc(100vh - 200px);
   padding: 80px 20px 0;
 }
 
@@ -63,6 +63,12 @@ p.msg {
     color: #737373;
 }
 
+p.errMsg {
+	margin: -30px 0 50px;
+    line-height: 20px;
+    font-size: 15px;
+}
+
 .common-btn {
   display: block;
   width: 100%;
@@ -101,6 +107,6 @@ p.msg {
 input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active {
   transition: background-color 5000s ease-in-out 0s;
   -webkit-transition: background-color 9999s ease-out;
-  -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+  /*-webkit-box-shadow: 0 0 0px 1000px white inset !important;*/
   -webkit-text-fill-color: #fff !important;
 }
