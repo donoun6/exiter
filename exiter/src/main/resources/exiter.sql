@@ -50,7 +50,7 @@ CREATE TABLE Company (
 	comAddress2		VARCHAR(50)			NOT NULL,
 	comAddress3		VARCHAR(50)			NOT NULL,
 	comAddress4		VARCHAR(50)			NOT NULL,
-	comNum			VARCHAR(12)			NOT NULL,
+	comNum			VARCHAR(10)			NOT NULL,
 	comName			VARCHAR(20)			NOT NULL,
 	comPocus		VARCHAR(20)			NULL,
 	comX			DOUBLE				NULL,

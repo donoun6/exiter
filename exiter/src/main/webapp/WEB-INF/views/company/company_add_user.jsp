@@ -98,8 +98,8 @@
             <ul>
               <li>
               </li>
-              <h2>사업자 등록</h2>
-              <input type="text" id="b_no" name="" value=""><br><br>
+              <h2>사업자 등록 번호</h2>
+              <input type="text" id="b_no" name="" value="" placeholder="사업자 등록 번호를 입력해주세요."><span class="def">ex) (-)를 제외한 10자리 입력</span><br><br>
               <input type="button" id="ss" name="button" value="조회하기">
             </ul>
           </td>
@@ -110,8 +110,8 @@
               <li>
                 <h2>매장 정보</h2>
               </li>
-              <input type="text" placeholder="점포명"><span class="def">ex) 엑시터방탈출카페</span><br><br>
-              <input type="text" placeholder="지점명"><span class="def">ex) 대구동성로점</span>
+              <input type="text" placeholder="점포명을 입력해 주세요."><span class="def">ex) 엑시터방탈출카페</span><br><br>
+              <input type="text" placeholder="지점명을 입력해 주세요."><span class="def">ex) 대구동성로점</span>
             </ul>
           </td>
         </tr>
