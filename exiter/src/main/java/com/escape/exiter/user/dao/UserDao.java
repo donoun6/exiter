@@ -105,4 +105,27 @@ public class UserDao {
 		}
 		return true;
 	}
+	
+	/**
+	 * 이름, 전화번호로 아이디 찾기
+	 * @param uName
+	 * @param uPhone
+	 * @return
+	 */
+	public String findUserIdByUNameAndUPhone(String uName, String uPhone) {
+		String sql = "SELECT userId FROM User WHERE uName = ? and uPhone = ?";
+		try {
+			return jdbcTemplate.queryForObject(sql, new RowMapper<String>() {
+
+				@Override
+				public String mapRow(ResultSet rs, int rowNum) throws SQLException {
+					String userId = rs.getString("userId");
+					return userId;
+				}
+				
+			}, uName, uPhone);
+		} catch(Exception e) {
+			return "";
+		}
+	}
 }

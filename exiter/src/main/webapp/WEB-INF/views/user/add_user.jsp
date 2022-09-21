@@ -156,7 +156,6 @@
     			}
     			
     			if(uPasswd2 == null || uPasswd2 == "") {
-    				console.log("진입");
     				$('#checkPw2').text('비밀번호를 한번 더 입력해주세요.');
     				$('#checkPw2').addClass('err');
 					return;
@@ -171,7 +170,6 @@
     			}
     			
     			var phoneregex = phoneregex.exec(uPhone);
-    			console.log(phoneregex);
     			if(phoneregex == null || phoneregex == "") {
     				$('#checkPhone').show();
     				$('#checkPhone').text('전화번호를 양식에 맞게 입력해주세요.');

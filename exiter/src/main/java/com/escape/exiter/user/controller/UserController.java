@@ -3,9 +3,12 @@ package com.escape.exiter.user.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -84,19 +87,27 @@ public class UserController {
 	 * 아이디/비밀번호 찾기 페이지 접속
 	 * @return
 	 */
-	@GetMapping("/user/find_IdPw")
-	public String findIdPwFrom() {
+	@GetMapping("/user/find_IdPw/{idOrPw}")
+	public String findIdPwFrom(@PathVariable("idOrPw") String idOrPw, HttpServletRequest request) {
+		String on = idOrPw + "-on";
+		request.setAttribute("on", on);
 		return "user/find_IdPw";
 	}
 	
 	/**
-	 * 아이디 찾은 후 페이지 이동
+	 * 아이디 찾기
 	 * @return
 	 */
 	@PostMapping("/user/findId")
-	public String findId() {
-		// 확인 작업 후 이동
-		return "user/success_findId";
+	public String findId(@RequestParam("uName") String uName, @RequestParam("uPhone") String uPhone, RedirectAttributes redirectAttributes) {
+		String userId = userService.getUserIdByUNameAndUPhone(uName, uPhone);
+		if(userId == "") {
+			redirectAttributes.addFlashAttribute("idErr", "idErr");
+			return "redirect:find_IdPw/id";
+		}
+		redirectAttributes.addFlashAttribute("userId", userId);
+		redirectAttributes.addFlashAttribute("idSuc", "idSuc");
+		return "redirect:find_IdPw/id";
 	}
 	
 	/**
