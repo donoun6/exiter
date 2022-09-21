@@ -12,40 +12,29 @@
 <link rel="stylesheet" href="<c:url value='/resources/css/common/default.css'/>">
 <link rel="stylesheet" href="<c:url value='/resources/css/common/header.css'/>">
 <link rel="stylesheet" href="<c:url value='/resources/css/common/copyright.css'/>">
-<link rel="stylesheet" href="<c:url value='/resources/css/company/company.css'/>">
+<link rel="stylesheet" href="<c:url value='/resources/css/company/company_login.css'/>">
   <script type="text/javascript" src="<c:url value='/resources/js/common/jquery.js'/>"></script>
-  <title>Exiter Company main</title>
+  <title>Exiter Company</title>
 </head>
 
 <body>
   <!-- header nav -->
   <jsp:include page="../common/company_header.jsp"></jsp:include>
   <!-- side nav -->
-  <aside>
-    <nav id="aside-nav">
-      <ul>
-        <li><a href="#">사업자메인</a></li>
-        <li><a href="#">테마관리</a></li>
-        <li><a href="#">예약확인</a></li>
-        <li><a href="#">QnA</a></li>
-        <li><a href="#">정보변경</a></li>
-      </ul>
-    </nav>
-  </aside>
-  <!-- main section -->
-  <main>
-    <div id="main-wrap">
-      <section class="section1">
-        section 1 <br>
-      </section>
-      <section class="section2">
-        section 2 <br>
-      </section>
-      <section class="section3">
-        section 3 <br>
-      </section>
+  <div id="wrap">
+    <div class="login-wrap">
+      <form class="login-form" action="index.html" method="post">
+        <h1>Exiter</h1>
+        <label for="id">ID</label><input type="text" id="id" name="" value="" placeholder="아이디를 입력해주세요."><br>
+        <label for="passWord">PassWord</label><input type="passWord" id="passWord" name="" value="" placeholder="비밀번호를 입력해주세요."><br>
+        <input type="submit" id="submit" name="" value="Login">
+      </form>
+      <div class="login-text">
+        <span><a href="<c:url value='/company/company_add_user'/>">회원가입</a></span>
+        <span><a href="#">계정찾기</a></span>
+      </div>
     </div>
-  </main>
+  </div>
   <!-- footer -->
   <jsp:include page="../common/copyright.jsp"></jsp:include>
 </body>
