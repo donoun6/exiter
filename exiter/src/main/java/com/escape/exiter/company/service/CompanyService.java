@@ -1,5 +1,7 @@
 package com.escape.exiter.company.service;
 
-public interface CompanyService {
+import com.escape.exiter.company.domain.Company;
 
+public interface CompanyService {
+	void addUser(Company company);
 }

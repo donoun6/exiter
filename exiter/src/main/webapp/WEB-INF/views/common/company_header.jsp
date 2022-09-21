@@ -12,7 +12,7 @@
         <div class="face back"><a href="<c:url value='/company/company_login'/>">E</a></div>
       </div>
       <div class="top-title">
-        <h1>Exiter <br>Company</h1>
+        <h1><a href="<c:url value='/company/company_login'/>">Exiter <br>Company</a></h1>
       </div>
     </nav>
   </header>

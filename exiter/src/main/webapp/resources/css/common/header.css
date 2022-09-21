@@ -99,3 +99,13 @@ header {
 #top-nav .right-img .undo-img {
   background-image: url("../../images/icon/undo_FILL0_wght400_GRAD0_opsz48.png");
 }
+
+#top-nav .top-title {
+  position: absolute;
+  margin-left: 55px;
+  margin-top: 10px;
+}
+
+#top-nav .top-title a{
+  color: black;
+}

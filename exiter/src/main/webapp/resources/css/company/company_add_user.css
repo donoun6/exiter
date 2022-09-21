@@ -3,13 +3,6 @@ body {
   color: black;
 }
 
-/* header cover */
-#top-nav .top-title {
-  position: absolute;
-  margin-left: 55px;
-  margin-top: 10px;
-}
-
 /* input style */
 input {
   width: 100%;

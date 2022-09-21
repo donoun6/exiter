@@ -114,12 +114,6 @@ body {
   transition: .3s;
 }
 
-#top-nav .top-title {
-  position: absolute;
-  margin-left: 55px;
-  margin-top: 10px;
-}
-
 /* footer cover */
 footer {
   position: absolute;
