@@ -100,7 +100,7 @@
               </li>
               <h2>사업자등록번호</h2>&nbsp<span id="checkComNum" class="err">${err7 }${err8 } 조회를 눌러서 확인하세요.</span><br>
               <input type="hidden" value="" class="checkComNum" name="checkComNum"/>
-              <form:input path="comNum" type="text" id="b_no" value="" placeholder="사업자 등록 번호를 입력해주세요."/><span class="def">ex) (-)를 제외한 10자리 입력</span><br><br>
+              <form:input path="comNum" type="text" id="b_no" value="" placeholder="사업자 등록 번호를 입력해주세요." minlength="10" maxlength="10"/><span class="def">ex) (-)를 제외한 10자리 입력</span><br><br>
               <form:input path="" type="button" id="b_no_btn" value="조회하기"/>
             </ul>
           </td>
