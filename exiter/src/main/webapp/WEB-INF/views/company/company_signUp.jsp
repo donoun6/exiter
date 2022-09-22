@@ -51,7 +51,7 @@
           <td>
             <ul>
               <li>
-                <h2>전화번호</h2>&nbsp<span class="err">${err2 }${err3 }${err4 }</span><br>
+                <h2>전화번호</h2>&nbsp<span class="err">${err2 }</span><br>
               </li>
               <form:select path="comTel1" class="tel">
                 <option value="02">02 </option>
@@ -81,7 +81,7 @@
           <td>
             <ul>
               <li>
-                <h2>주소</h2>&nbsp<span class="err">${err5 }${err6 }</span><br>
+                <h2>주소</h2>&nbsp<span class="err">${err3 }</span><br>
               </li>
               <form:input path="comAddress1" type="text" id="sample4_postcode" class="small" placeholder="우편번호"/>
               <form:input path="comAddress2" type="text" id="sample4_roadAddress" class="small" placeholder="도로명주소"/>
@@ -98,8 +98,9 @@
             <ul>
               <li>
               </li>
-              <h2>사업자등록번호</h2>&nbsp<span id="checkComNum" class="err">${err7 }${err8 } 조회를 눌러서 확인하세요.</span><br>
-              <input type="hidden" value="" class="checkComNum" name="checkComNum"/>
+              <h2>사업자등록번호</h2>&nbsp<span id="checkComNum" class="err">${err4 }${err5 } 조회를 눌러서 확인하세요.</span><br>
+              <input type="hidden" value="" class="checkComNum" name="checkComNum"/> 
+              <!-- 히든 input의 value 통하여 조회여부를 controller에 전달 -->
               <form:input path="comNum" type="text" id="b_no" value="" placeholder="사업자 등록 번호를 입력해주세요." minlength="10" maxlength="10"/><span class="def">ex) (-)를 제외한 10자리 입력</span><br><br>
               <form:input path="" type="button" id="b_no_btn" value="조회하기"/>
             </ul>
@@ -109,7 +110,7 @@
           <td>
             <ul>
               <li>
-                <h2>매장 정보</h2>&nbsp<span class="err">${err9 }</span><br>
+                <h2>매장 정보</h2>&nbsp<span class="err">${err6 }</span><br>
               </li>
               <form:input path="comName" type="text" placeholder="점포명을 입력해 주세요."/><span class="def">ex) 엑시터방탈출카페</span><br><br>
               <form:input path="comPocus" type="text" placeholder="지점명을 입력해 주세요."/><span class="def">ex) 대구동성로점</span>
@@ -207,6 +208,7 @@
   				$('#checkComNum').removeClass('suc');
 				$('#checkComNum').addClass('err');
 				$('.checkComNum').val('no');
+				// 등록되지 않은 번호이면 hidden input에 value를 no라고준다. submit 이후 request parm을 통하여 컨트롤러에서 값을 받고 페이지 이동여부를 확인
               }else {
             	$('#checkComNum').text('국세청에 등록된 사업자등록번호입니다.');
             	$('#checkComNum').removeClass('err');
