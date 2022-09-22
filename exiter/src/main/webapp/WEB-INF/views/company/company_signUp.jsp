@@ -31,7 +31,7 @@
           <td>
             <ul class="id">
               <li>
-                <h2>아이디</h2>
+                <h2>아이디</h2>&nbsp<span class="err">${err }</span><br>
               </li>
               <li><form:input path="comId" type="text" placeholder="5~20자의 영문 소문자,숫자와 사용가능합니다." minlength="5" maxlength="20" pattern="^[a-zA-Z0-9]+$"/></li>
             </ul>
@@ -41,7 +41,7 @@
           <td>
             <ul>
               <li>
-                <h2>비밀번호</h2>
+                <h2>비밀번호</h2>&nbsp<span class="err">${err1 }</span><br>
               </li>
               <form:input path="comPasswd" type="password" placeholder="8~16자의 영문 대 소문자,숫자를 사용하세요." minlength="8" maxlength="16" pattern="^[a-zA-Z0-9]+$"/>
             </ul>
@@ -51,7 +51,7 @@
           <td>
             <ul>
               <li>
-                <h2>전화번호</h2>
+                <h2>전화번호</h2>&nbsp<span class="err">${err2 }${err3 }${err4 }</span><br>
               </li>
               <form:select path="comTel1" class="tel">
                 <option value="02">02 </option>
@@ -81,7 +81,7 @@
           <td>
             <ul>
               <li>
-                <h2>주소</h2>
+                <h2>주소</h2>&nbsp<span class="err">${err5 }${err6 }</span><br>
               </li>
               <form:input path="comAddress1" type="text" id="sample4_postcode" class="small" placeholder="우편번호"/>
               <form:input path="comAddress2" type="text" id="sample4_roadAddress" class="small" placeholder="도로명주소"/>
@@ -98,7 +98,8 @@
             <ul>
               <li>
               </li>
-              <h2>사업자등록번호</h2>&nbsp<span id="checkComNum"></span><br>
+              <h2>사업자등록번호</h2>&nbsp<span id="checkComNum" class="err">${err7 }${err8 } 조회를 눌러서 확인하세요.</span><br>
+              <input type="hidden" value="" class="checkComNum" name="checkComNum"/>
               <form:input path="comNum" type="text" id="b_no" value="" placeholder="사업자 등록 번호를 입력해주세요."/><span class="def">ex) (-)를 제외한 10자리 입력</span><br><br>
               <form:input path="" type="button" id="b_no_btn" value="조회하기"/>
             </ul>
@@ -108,7 +109,7 @@
           <td>
             <ul>
               <li>
-                <h2>매장 정보</h2>
+                <h2>매장 정보</h2>&nbsp<span class="err">${err9 }</span><br>
               </li>
               <form:input path="comName" type="text" placeholder="점포명을 입력해 주세요."/><span class="def">ex) 엑시터방탈출카페</span><br><br>
               <form:input path="comPocus" type="text" placeholder="지점명을 입력해 주세요."/><span class="def">ex) 대구동성로점</span>
@@ -205,10 +206,12 @@
             	$('#checkComNum').text('국세청에 등록되지 않은 사업자등록번호입니다.');
   				$('#checkComNum').removeClass('suc');
 				$('#checkComNum').addClass('err');
+				$('.checkComNum').val('no');
               }else {
             	$('#checkComNum').text('국세청에 등록된 사업자등록번호입니다.');
             	$('#checkComNum').removeClass('err');
   				$('#checkComNum').addClass('suc');
+  				$('.checkComNum').val('ok');
               }
             },
             error: function(result) {

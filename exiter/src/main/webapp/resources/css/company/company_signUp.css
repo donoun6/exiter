@@ -122,11 +122,12 @@ h2 {
   font-size: 12px;
 }
 
-#checkComNum.err {
+.err {
 	color:red;
+	font-size: 12px;
 }
 
-#checkComNum.suc {
+.suc {
 	color:blue;
 }
 

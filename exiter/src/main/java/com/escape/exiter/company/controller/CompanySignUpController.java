@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.escape.exiter.company.domain.CompanyUserCommand;
 import com.escape.exiter.company.service.CompanyService;
@@ -32,10 +33,52 @@ public class CompanySignUpController {
 	 * @param model : 위와 같은 이유
 	 */
 	@PostMapping
-	public String CompanySignUp(@ModelAttribute("company") CompanyUserCommand company, Model model) {
+	public String CompanySignUp(@ModelAttribute("company") CompanyUserCommand company, Model model,
+			@RequestParam("checkComNum") String checkComNum) {
 		model.addAttribute("company",company);
 		
-		
+		//form 입력값이 없거나 잘못되었을때 다시 회원가입페이지로
+		if(company.getComId() == null || company.getComId().length() == 0 ) {
+			String err = "아이디는 필수입력 정보입니다.";
+			model.addAttribute("err",err);
+			return "company/company_signUp";
+		}if(company.getComPasswd() == null || company.getComPasswd().length() == 0 ) {
+			String err1 = "비밀번호는 필수입력 정보입니다.";
+			model.addAttribute("err1",err1);
+			return "company/company_signUp";
+		}if(company.getComTel1() == null || company.getComTel1().length() == 0 ) {
+			String err2 = "전화번호는 필수입력 정보입니다.";
+			model.addAttribute("err2",err2);
+			return "company/company_signUp";
+		}if(company.getComTel2() == null || company.getComTel2().length() == 0 ) {
+			String err3 = "전화번호는 필수입력 정보입니다.";
+			model.addAttribute("err3",err3);
+			return "company/company_signUp";
+		}if(company.getComTel3() == null || company.getComTel3().length() == 0 ) {
+			String err4 = "전화번호는 필수입력 정보입니다.";
+			model.addAttribute("err4",err4);
+			return "company/company_signUp";
+		}if(company.getComAddress1() == null || company.getComAddress1().length() == 0 ) {
+			String err5 = "주소는 필수입력 정보입니다.";
+			model.addAttribute("err5",err5);
+			return "company/company_signUp";
+		}if(company.getComAddress4() == null || company.getComAddress4().length() == 0 ) {
+			String err6 = "상세주소는 필수입력 정보입니다.";
+			model.addAttribute("err6",err6);
+			return "company/company_signUp";
+		}if(company.getComNum() == null || company.getComNum().length() == 0 ) {
+			String err7 = "사업자등록번호는 필수입력 정보입니다.";
+			model.addAttribute("err7",err7);
+			return "company/company_signUp";
+		}if(!checkComNum.contentEquals("ok")) {
+			String err8 = "등록되지 않은 사업자등록번호입니다.";
+			model.addAttribute("err8",err8);
+			return "company/company_signUp";
+		}if(company.getComName() == null || company.getComName().length() == 0 ) {
+			String err9 = "점포명은 필수입력 정보입니다.";
+			model.addAttribute("err9",err9);
+			return "company/company_signUp";
+		}
 		
 		companyService.addUser(company);
 		return "company/company_login";
