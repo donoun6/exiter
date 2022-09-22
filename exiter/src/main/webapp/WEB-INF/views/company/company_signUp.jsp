@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="<c:url value='/resources/css/common/default.css'/>">
 <link rel="stylesheet" href="<c:url value='/resources/css/common/header.css'/>">
 <link rel="stylesheet" href="<c:url value='/resources/css/common/copyright.css'/>">
-<link rel="stylesheet" href="<c:url value='/resources/css/company/company_add_user.css'/>">
+<link rel="stylesheet" href="<c:url value='/resources/css/company/company_signUp.css'/>">
   <script type="text/javascript" src="<c:url value='/resources/js/common/jquery.js'/>"></script>
   <title>Exiter Company main</title>
 </head>
@@ -72,8 +72,8 @@
                 <option value="063">063 </option>
                 <option value="064">064 </option>
               </form:select>
-              <form:input path="comTel2" type="tel" class="small" maxlength="3"/>
-              <form:input path="comTel3" type="tel" class="small" maxlength="4"/>
+              <form:input path="comTel2" type="tel" class="small" minlength="3" maxlength="3"/>
+              <form:input path="comTel3" type="tel" class="small" minlength="4" maxlength="4"/>
             </ul>
           </td>
         </tr>
@@ -98,9 +98,9 @@
             <ul>
               <li>
               </li>
-              <h2>사업자 등록 번호</h2>
+              <h2>사업자등록번호</h2>&nbsp<span id="checkComNum"></span><br>
               <form:input path="comNum" type="text" id="b_no" value="" placeholder="사업자 등록 번호를 입력해주세요."/><span class="def">ex) (-)를 제외한 10자리 입력</span><br><br>
-              <form:input path="" type="button" id="ss" value="조회하기"/>
+              <form:input path="" type="button" id="b_no_btn" value="조회하기"/>
             </ul>
           </td>
         </tr>
@@ -132,7 +132,7 @@
   
   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   <script>
-    // Daum,Kakao Adrress API //
+    // Daum,Kakao 주소 찾기 API //
     function sample4_execDaumPostcode() {
       new daum.Postcode({
         oncomplete: function(data) {
@@ -186,8 +186,9 @@
       }).open();
     }
     
+    // 사업자 등록 조회 API
     $(function() {
-        $("#ss").click(function() {
+        $("#b_no_btn").click(function() {
           var data = {
             "b_no": [$("#b_no").val()] // 사업자번호 "xxxxxxx" 로 조회 시,
           };
@@ -200,8 +201,15 @@
             contentType: "application/json",
             accept: "application/json",
             success: function(result) {
-              console.log(result);
-              console.log(result[2]);
+              if (result.data[0].tax_type == '국세청에 등록되지 않은 사업자등록번호입니다.'){
+            	$('#checkComNum').text('국세청에 등록되지 않은 사업자등록번호입니다.');
+  				$('#checkComNum').removeClass('suc');
+				$('#checkComNum').addClass('err');
+              }else {
+            	$('#checkComNum').text('국세청에 등록된 사업자등록번호입니다.');
+            	$('#checkComNum').removeClass('err');
+  				$('#checkComNum').addClass('suc');
+              }
             },
             error: function(result) {
               console.log(result.responseText); //responseText의 에러메세지 확인

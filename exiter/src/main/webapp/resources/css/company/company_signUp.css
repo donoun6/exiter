@@ -73,9 +73,10 @@ button:focus {
 }
 
 h2 {
-margin: 19px 0 8px 0;
-font-size: 14px;
-font-weight: 700px;
+	display:inline-block;
+	margin: 19px 0 8px 0;
+	font-size: 14px;
+	font-weight: 700px;
 }
 
 .small {
@@ -115,6 +116,18 @@ font-weight: 700px;
 
 .def {
   font-size: 12px;
+}
+
+#checkComNum {
+  font-size: 12px;
+}
+
+#checkComNum.err {
+	color:red;
+}
+
+#checkComNum.suc {
+	color:blue;
 }
 
 button {

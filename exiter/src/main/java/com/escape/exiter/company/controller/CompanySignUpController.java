@@ -35,6 +35,8 @@ public class CompanySignUpController {
 	public String CompanySignUp(@ModelAttribute("company") CompanyUserCommand company, Model model) {
 		model.addAttribute("company",company);
 		
+		
+		
 		companyService.addUser(company);
 		return "company/company_login";
 	}
