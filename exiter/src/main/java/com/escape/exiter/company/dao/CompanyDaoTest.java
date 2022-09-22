@@ -2,7 +2,7 @@ package com.escape.exiter.company.dao;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.escape.exiter.company.domain.Company;
+import com.escape.exiter.company.domain.CompanyUserCommand;
 import com.escape.exiter.config.DataSourceConfig;
 
 public class CompanyDaoTest {
@@ -10,12 +10,14 @@ public class CompanyDaoTest {
 	public static void main(String[] args) {
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(DataSourceConfig.class);
 		CompanyDao dao = context.getBean("companyDao", CompanyDao.class);
-		Company company = new Company();
+		CompanyUserCommand company = new CompanyUserCommand();
 		
 //	company add user test
 		company.setComId("testId");
 		company.setComPasswd("testPw");
-		company.setComTel("053-793-5686");
+		company.setComTel1("053-793-5686");
+		company.setComTel2("793");
+		company.setComTel3("5686");
 		company.setComAddress1("testaddr");
 		company.setComAddress2("testaddr");
 		company.setComAddress3("testaddr");

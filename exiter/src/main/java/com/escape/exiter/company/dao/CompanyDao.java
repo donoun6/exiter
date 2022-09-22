@@ -1,12 +1,11 @@
 package com.escape.exiter.company.dao;
 
 import org.apache.tomcat.jdbc.pool.DataSource;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+import com.escape.exiter.company.domain.CompanyUserCommand;
 
-import com.escape.exiter.company.domain.Company;
-import com.escape.exiter.user.dao.UserDao;
-
+@Repository
 public class CompanyDao {
 	private JdbcTemplate jdbcTemplate;
 	
@@ -16,12 +15,13 @@ public class CompanyDao {
 	}
 
 //	사업자 회원 등록
-	public void addUser(Company company) {
+	public void addUser(CompanyUserCommand company) {
 		String sql = "INSERT INTO Company (comId, comPasswd, comTel, comAddress1, comAddress2, "
 				+ "comAddress3, comAddress4, comNum, comName, comPocus)"
 				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";	
 		System.out.println("사업자 회원 등록\n" + company.toString() + "\n");
-		jdbcTemplate.update(sql, company.getComId(), company.getComPasswd(), company.getComTel(), 
+		jdbcTemplate.update(sql, company.getComId(), company.getComPasswd(), 
+				(company.getComTel1() + "-" + company.getComTel2() + "-" + company.getComTel3()), 
 				company.getComAddress1(), company.getComAddress2(), company.getComAddress3(), 
 				company.getComAddress4(), company.getComNum(), company.getComName(), 
 				company.getComPocus());

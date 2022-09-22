@@ -1,19 +1,18 @@
 package com.escape.exiter.company.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.escape.exiter.company.dao.CompanyDao;
-import com.escape.exiter.company.domain.Company;
-import com.escape.exiter.user.dao.UserDao;
+import com.escape.exiter.company.domain.CompanyUserCommand;
 
+@Service
 public class CompanyServiceImpl implements CompanyService{
-	CompanyDao companyDao = null;
-	
-//	@Autowired
-//	UserDao userDao;
+	@Autowired
+	CompanyDao companyDao;
 
 	@Override
-	public void addUser(Company company) {
+	public void addUser(CompanyUserCommand company) {
 		companyDao.addUser(company);
 	}
 

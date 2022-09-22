@@ -30,7 +30,7 @@
         <input type="submit" id="submit" name="" value="Login">
       </form>
       <div class="login-text">
-        <span><a href="<c:url value='/company/company_add_user'/>">회원가입</a></span>
+        <span><a href="<c:url value='/company/company_signUp'/>">회원가입</a></span>
         <span><a href="#">계정찾기</a></span>
       </div>
     </div>

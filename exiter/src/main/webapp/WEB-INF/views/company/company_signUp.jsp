@@ -25,7 +25,7 @@
     <div class="title">
       <h2><a href="<c:url value='/company/company_login'/>">Exiter</a></h2>
     </div>
-    <form action="adduser" method="post">
+    <form:form modelAttribute="company" method="post">
       <table class="table">
         <tr>
           <td>
@@ -33,7 +33,7 @@
               <li>
                 <h2>아이디</h2>
               </li>
-              <li><input type="text" placeholder="5~20자의 영문 소문자,숫자와 사용가능합니다." name="" minlength="5" maxlength="20" pattern="^[a-zA-Z0-9]+$"></li>
+              <li><form:input path="comId" type="text" placeholder="5~20자의 영문 소문자,숫자와 사용가능합니다." minlength="5" maxlength="20" pattern="^[a-zA-Z0-9]+$"/></li>
             </ul>
           </td>
         </tr>
@@ -43,7 +43,7 @@
               <li>
                 <h2>비밀번호</h2>
               </li>
-              <input type="password" placeholder="8~16자의 영문 대 소문자,숫자를 사용하세요." name="userPassWd" minlength="8" maxlength="16" pattern="^[a-zA-Z0-9]+$">
+              <form:input path="comPasswd" type="password" placeholder="8~16자의 영문 대 소문자,숫자를 사용하세요." minlength="8" maxlength="16" pattern="^[a-zA-Z0-9]+$"/>
             </ul>
           </td>
         </tr>
@@ -53,7 +53,7 @@
               <li>
                 <h2>전화번호</h2>
               </li>
-              <select class="tel" name="">
+              <form:select path="comTel1" class="tel">
                 <option value="02">02 </option>
                 <option value="031">031 </option>
                 <option value="032">032 </option>
@@ -71,9 +71,9 @@
                 <option value="062">062 </option>
                 <option value="063">063 </option>
                 <option value="064">064 </option>
-              </select>
-              <input type="tel" class="small" maxlength="3" name="tel">
-              <input type="tel" class="small" maxlength="4" name="tel">
+              </form:select>
+              <form:input path="comTel2" type="tel" class="small" maxlength="3"/>
+              <form:input path="comTel3" type="tel" class="small" maxlength="4"/>
             </ul>
           </td>
         </tr>
@@ -83,13 +83,13 @@
               <li>
                 <h2>주소</h2>
               </li>
-              <input type="text" id="sample4_postcode" class="small" placeholder="우편번호">
-              <input type="text" id="sample4_roadAddress" class="small" placeholder="도로명주소">
-              <input type="text" id="sample4_jibunAddress" class="small" placeholder="지번주소"><br><br>
-              <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br><br>
-              <span id="guide" style="color:#999;display:none"></span>
-              <input type="text" id="sample4_detailAddress" placeholder="상세주소"><br><br>
-              <input type="hidden" id="sample4_extraAddress" placeholder="참고항목">
+              <form:input path="comAddress1" type="text" id="sample4_postcode" class="small" placeholder="우편번호"/>
+              <form:input path="comAddress2" type="text" id="sample4_roadAddress" class="small" placeholder="도로명주소"/>
+              <form:input path="comAddress3" type="text" id="sample4_jibunAddress" class="small" placeholder="지번주소"/><br><br>
+              <form:input path="" type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"/><br><br>
+              <span id="guide" style="color:#999;display:none"/></span>
+              <form:input path="comAddress4" type="text" id="sample4_detailAddress" placeholder="상세주소"/><br><br>
+              <form:input path="" type="hidden" id="sample4_extraAddress" placeholder="참고항목"/>
             </ul>
           </td>
         </tr>
@@ -99,8 +99,8 @@
               <li>
               </li>
               <h2>사업자 등록 번호</h2>
-              <input type="text" id="b_no" name="" value="" placeholder="사업자 등록 번호를 입력해주세요."><span class="def">ex) (-)를 제외한 10자리 입력</span><br><br>
-              <input type="button" id="ss" name="button" value="조회하기">
+              <form:input path="comNum" type="text" id="b_no" value="" placeholder="사업자 등록 번호를 입력해주세요."/><span class="def">ex) (-)를 제외한 10자리 입력</span><br><br>
+              <form:input path="" type="button" id="ss" value="조회하기"/>
             </ul>
           </td>
         </tr>
@@ -110,8 +110,8 @@
               <li>
                 <h2>매장 정보</h2>
               </li>
-              <input type="text" placeholder="점포명을 입력해 주세요."><span class="def">ex) 엑시터방탈출카페</span><br><br>
-              <input type="text" placeholder="지점명을 입력해 주세요."><span class="def">ex) 대구동성로점</span>
+              <form:input path="comName" type="text" placeholder="점포명을 입력해 주세요."/><span class="def">ex) 엑시터방탈출카페</span><br><br>
+              <form:input path="comPocus" type="text" placeholder="지점명을 입력해 주세요."/><span class="def">ex) 대구동성로점</span>
             </ul>
           </td>
         </tr>
@@ -125,7 +125,7 @@
           </td>
         </tr>
       </table>
-    </form>
+    </form:form>
   </div>
   <!-- footer -->
   <jsp:include page="../common/copyright.jsp"></jsp:include>
