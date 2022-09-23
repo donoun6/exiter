@@ -31,7 +31,7 @@
           <td>
             <ul class="id">
               <li>
-                <h2>아이디</h2>&nbsp<span id="checkComNum" class="err">${err }${err0 }</span><br>
+                <h2>아이디</h2>&nbsp<span id="checkComId" class="err">${err }${err0 }</span><br>
               </li>
               <li><form:input id="comId" path="comId" type="text" placeholder="5~20자의 영문 소문자,숫자와 사용가능합니다." minlength="5" maxlength="20" pattern="^[a-zA-Z0-9]+$"/></li>
             </ul>
@@ -98,7 +98,7 @@
             <ul>
               <li>
               </li>
-              <h2>사업자등록번호</h2>&nbsp<span id="checkComNum" class="err">${err4 }${err5 } 조회를 눌러서 확인하세요.</span><br>
+              <h2>사업자등록번호</h2>&nbsp<span id="checkComNum" class="err">${err4 }${err5 }${err6 } 조회를 눌러서 확인하세요.</span><br>
               <input type="hidden" value="" class="checkComNum" name="checkComNum"/> 
               <!-- 히든 input의 value 통하여 조회여부를 controller에 전달 -->
               <form:input path="comNum" type="text" id="b_no" value="" placeholder="사업자 등록 번호를 입력해주세요." minlength="10" maxlength="10"/><span class="def">ex) (-)를 제외한 10자리 입력</span><br><br>
@@ -110,7 +110,7 @@
           <td>
             <ul>
               <li>
-                <h2>매장 정보</h2>&nbsp<span class="err">${err6 }</span><br>
+                <h2>매장 정보</h2>&nbsp<span class="err">${err7 }</span><br>
               </li>
               <form:input path="comName" type="text" placeholder="점포명을 입력해 주세요."/><span class="def">ex) 엑시터방탈출카페</span><br><br>
               <form:input path="comPocus" type="text" placeholder="지점명을 입력해 주세요."/><span class="def">ex) 대구동성로점</span>
@@ -131,7 +131,7 @@
   </div>
   <!-- footer -->
   <jsp:include page="../common/copyright.jsp"></jsp:include>
-  
+  <!-- Script area -->
   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   <script>
     // Daum,Kakao 주소 찾기 API //
@@ -198,7 +198,6 @@
           $.ajax({
             url: "https://api.odcloud.kr/api/nts-businessman/v1/status?serviceKey=NzqAAE9arI91NEUdHAKEv0M2wa637iVpyauJecBY0Xm8ZMLoKICJUXZ9NnL9/PWxHIe7rGuX6hj6sMpSfgYToA==", // serviceKey 값을 xxxxxx에 입력
             type: "POST",
-
             data: JSON.stringify(data), // json 을 string으로 변환하여 전송
             dataType: "JSON",
             contentType: "application/json",
@@ -230,7 +229,7 @@
 			$.ajax({
 				async: true,
 				type: 'POST',
-				data: comId,
+				data: comId, //id가 comId인 input태그의 value값을 비동기통신 데이터로 전달
 				url: "company_signUp/checkId",
 				dataType: "json",
 				contentType: "application/json; charset=UTF-8",
@@ -238,14 +237,14 @@
 					console.log(data);
 					if(data) {
 						// 아이디가 존재할 경우
-						$('#checkComNum').text('해당 아이디는 중복된 아이디입니다.');
-		  				$('#checkComNum').removeClass('suc');
-						$('#checkComNum').addClass('err');
+						$('#checkComId').text('해당 아이디는 중복된 아이디입니다.');
+		  				$('#checkComId').removeClass('suc');
+						$('#checkComId').addClass('err');
 					}else {
 						// 아이디가 존재하지 않을 경우
-						$('#checkComNum').text('사용 가능한 아이디.');
-		            	$('#checkComNum').removeClass('err');
-		  				$('#checkComNum').addClass('suc');
+						$('#checkComId').text('사용 가능한 아이디.');
+		            	$('#checkComId').removeClass('err');
+		  				$('#checkComId').addClass('suc');
 					}
 				}
 			});

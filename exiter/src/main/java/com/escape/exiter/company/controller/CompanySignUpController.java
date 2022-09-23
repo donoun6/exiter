@@ -41,7 +41,7 @@ public class CompanySignUpController {
 	 * @return 가져온 값을 service의 매개변수에 넣어 값을 되돌려준다.
 	 */
 	@RequestMapping("checkId")
-	@ResponseBody // http통신을 이용해 비동기 통신을 할때에 body공간에 데이터를 담는다.
+	@ResponseBody // HTTP(Hyper Text Transfer Protocol)통신을 이용해 비동기 통신을 할때에 body공간에 데이터를 담는다.
 	public boolean idCheck(@RequestBody String comId) {
 		return companyService.checkUser(comId);
 	}
@@ -55,14 +55,13 @@ public class CompanySignUpController {
 	public String CompanySignUp(@ModelAttribute("company") CompanyUserCommand company, Model model,
 			@RequestParam("checkComNum") String checkComNum) {
 		model.addAttribute("company",company);
-		String comId = company.getComId();
 		
 		//form 입력값이 없거나 잘못되었을때 다시 회원가입페이지로 / JavaScript에 의존하기보다는 가능하면 Java로 처리
 		if(company.getComId() == null || company.getComId().length() == 0 ) {
 			String err = "아이디는 필수입력 정보입니다.";
 			model.addAttribute("err",err);
 			return "company/company_signUp";
-		}if(companyService.checkUser(comId)) { //아이디 중복체크 후 페이지 이동 여부 확인
+		}if(companyService.checkUser(company.getComId())) { //아이디 중복체크 후 페이지 이동 여부 확인
 			String err0 = "해당 아이디는 중복된 아이디입니다.";
 			model.addAttribute("err0",err0);
 			return "company/company_signUp";
@@ -86,9 +85,13 @@ public class CompanySignUpController {
 			String err5 = "등록되지 않은 사업자등록번호입니다.";
 			model.addAttribute("err5",err5);
 			return "company/company_signUp";
-		}if(company.getComName() == null || company.getComName().length() == 0 ) {
-			String err6 = "점포명은 필수입력 정보입니다.";
+		}if(companyService.checkComNum(company.getComNum())) { //사업자 등록 번호 중복 조회후 페이지 이동 여부 확인
+			String err6 = "중복된 사업자등록번호입니다.";
 			model.addAttribute("err6",err6);
+			return "company/company_signUp";
+		}if(company.getComName() == null || company.getComName().length() == 0 ) {
+			String err7 = "점포명은 필수입력 정보입니다.";
+			model.addAttribute("err7",err7);
 			return "company/company_signUp";
 		}
 		

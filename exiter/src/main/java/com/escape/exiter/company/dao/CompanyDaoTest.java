@@ -15,7 +15,7 @@ public class CompanyDaoTest {
 //	company add user test
 //		company.setComId("testId");
 //		company.setComPasswd("testPw");
-//		company.setComTel1("053-793-5686");
+//		company.setComTel1("053");
 //		company.setComTel2("793");
 //		company.setComTel3("5686");
 //		company.setComAddress1("testaddr");
@@ -26,9 +26,13 @@ public class CompanyDaoTest {
 //		company.setComName("대구점");
 //		company.setComPocus("반월당");
 //		dao.addUser(company);
-//		
-//	company checkUser
-		dao.checkUser("donoun23");
+		
+//	company checkUser test
+		dao.checkUser("testId");
+		
+//	company checkComNum test
+		dao.checkComNum("0000000000");
+		
 		context.close();
 	}
 }

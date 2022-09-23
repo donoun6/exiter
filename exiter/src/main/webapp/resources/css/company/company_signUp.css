@@ -35,8 +35,8 @@ input[type="button"] {
   font-size: 15px;
   cursor: pointer;
 }
-/* button style */
 
+/* button style */
 button:focus {
   outline: none;
 }
@@ -47,14 +47,12 @@ button:focus {
   font-weight: 700;
 }
 
-/* button color style */
 .button-group {
   text-align: center;
 }
 
 
 /* form */
-
 #wrap {
   width: 100%;
   margin: 0 auto;
@@ -68,15 +66,15 @@ button:focus {
 }
 
 #wrap .title h2 a{
-    font-size: 50px;
-    color: black;
+  font-size: 50px;
+  color: black;
 }
 
 h2 {
-	display:inline-block;
-	margin: 19px 0 8px 0;
-	font-size: 14px;
-	font-weight: 700px;
+  display:inline-block;
+  margin: 19px 0 8px 0;
+  font-size: 14px;
+  font-weight: 700px;
 }
 
 .small {
@@ -110,8 +108,8 @@ h2 {
   margin: 10px 0 10px 0;
 }
 .gbtn {
-	width: 100%;
-	cursor: pointer;
+  width: 100%;
+  cursor: pointer;
 }
 
 .def {
@@ -123,12 +121,13 @@ h2 {
 }
 
 .err {
-	color:red;
-	font-size: 12px;
+  color:red;
+  font-size: 12px;
 }
 
 .suc {
-	color:blue;
+  color:blue;
+  font-size: 12px;
 }
 
 button {
