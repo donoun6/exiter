@@ -31,9 +31,9 @@
           <td>
             <ul class="id">
               <li>
-                <h2>아이디</h2>&nbsp<span class="err">${err }</span><br>
+                <h2>아이디</h2>&nbsp<span id="checkComNum" class="err">${err }${err0 }</span><br>
               </li>
-              <li><form:input path="comId" type="text" placeholder="5~20자의 영문 소문자,숫자와 사용가능합니다." minlength="5" maxlength="20" pattern="^[a-zA-Z0-9]+$"/></li>
+              <li><form:input id="comId" path="comId" type="text" placeholder="5~20자의 영문 소문자,숫자와 사용가능합니다." minlength="5" maxlength="20" pattern="^[a-zA-Z0-9]+$"/></li>
             </ul>
           </td>
         </tr>
@@ -188,8 +188,9 @@
       }).open();
     }
     
-    // 사업자 등록 조회 API
+		//JQuery area
     $(function() {
+    	// 사업자 등록 조회 API
         $("#b_no_btn").click(function() {
           var data = {
             "b_no": [$("#b_no").val()] // 사업자번호 "xxxxxxx" 로 조회 시,
@@ -221,6 +222,35 @@
             }
           });
         });
+        
+		// 아이디 실시간 중복 체크(ajax 활용)
+		$('#comId').keyup(function() {
+			if($('#comId').val().length > 5 ) {
+			var comId = $('#comId').val();
+			$.ajax({
+				async: true,
+				type: 'POST',
+				data: comId,
+				url: "company_signUp/checkId",
+				dataType: "json",
+				contentType: "application/json; charset=UTF-8",
+				success: function(data) {
+					console.log(data);
+					if(data) {
+						// 아이디가 존재할 경우
+						$('#checkComNum').text('해당 아이디는 중복된 아이디입니다.');
+		  				$('#checkComNum').removeClass('suc');
+						$('#checkComNum').addClass('err');
+					}else {
+						// 아이디가 존재하지 않을 경우
+						$('#checkComNum').text('사용 가능한 아이디.');
+		            	$('#checkComNum').removeClass('err');
+		  				$('#checkComNum').addClass('suc');
+					}
+				}
+			});
+		  }
+		});
       });
   </script>
 </body>

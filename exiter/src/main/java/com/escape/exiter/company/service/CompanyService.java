@@ -5,4 +5,5 @@ import com.escape.exiter.company.domain.CompanyUserCommand;
 
 public interface CompanyService {
 	void addUser(CompanyUserCommand company);
+	boolean checkUser(String comId);
 }

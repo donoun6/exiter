@@ -16,4 +16,9 @@ public class CompanyServiceImpl implements CompanyService{
 		companyDao.addUser(company);
 	}
 
+	@Override
+	public boolean checkUser(String comId) {
+		return companyDao.checkUser(comId);
+	}
+
 }

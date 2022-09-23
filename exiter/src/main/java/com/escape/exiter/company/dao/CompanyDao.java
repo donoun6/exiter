@@ -1,7 +1,12 @@
 package com.escape.exiter.company.dao;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import org.apache.tomcat.jdbc.pool.DataSource;
+import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import com.escape.exiter.company.domain.CompanyUserCommand;
 
@@ -26,4 +31,27 @@ public class CompanyDao {
 				company.getComAddress4(), company.getComNum(), company.getComName(), 
 				company.getComPocus());
 	}
+	
+//	아이디 중복 확인
+	public boolean checkUser(String comId) {
+		try {
+			
+		String sql = "SELECT comId FROM Company WHERE comId = ?";
+		return jdbcTemplate.queryForObject(sql, new RowMapper<Boolean>() {
+
+			@Override
+			public Boolean mapRow(ResultSet rs, int rowNum) throws SQLException {
+				if(rs.getString("comId").contentEquals(comId)) {
+					System.out.println("중복된 아이디");
+					return true;
+				}
+				return null;
+			}
+		},comId);
+	}catch (IncorrectResultSizeDataAccessException error) {
+		System.out.println("중복되지 않은 아이디");
+	    return false;
+	}
+  }
+	
 }

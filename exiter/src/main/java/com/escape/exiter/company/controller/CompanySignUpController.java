@@ -1,13 +1,18 @@
 package com.escape.exiter.company.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.escape.exiter.company.domain.CompanyUserCommand;
 import com.escape.exiter.company.service.CompanyService;
@@ -31,6 +36,17 @@ public class CompanySignUpController {
 	}
 	
 	
+	/** 아이디 중복 체크 Ajax/Json
+	 * @param comId : jsp에서 id가 comId의 value 값을 ajax finction을 통해 가져온다 
+	 * @return 가져온 값을 service의 매개변수에 넣어 값을 되돌려준다.
+	 */
+	@RequestMapping("checkId")
+	@ResponseBody // http통신을 이용해 비동기 통신을 할때에 body공간에 데이터를 담는다.
+	public boolean idCheck(@RequestBody String comId) {
+		return companyService.checkUser(comId);
+	}
+	
+	
 	/**	회원가입 처리 화면 POST 방식
 	 * @param company : 회원가입에 필요한 domain만 가져와 Command클래스를 만들어 변수로 지정
 	 * @param model : 위와 같은 이유
@@ -39,11 +55,16 @@ public class CompanySignUpController {
 	public String CompanySignUp(@ModelAttribute("company") CompanyUserCommand company, Model model,
 			@RequestParam("checkComNum") String checkComNum) {
 		model.addAttribute("company",company);
+		String comId = company.getComId();
 		
 		//form 입력값이 없거나 잘못되었을때 다시 회원가입페이지로 / JavaScript에 의존하기보다는 가능하면 Java로 처리
 		if(company.getComId() == null || company.getComId().length() == 0 ) {
 			String err = "아이디는 필수입력 정보입니다.";
 			model.addAttribute("err",err);
+			return "company/company_signUp";
+		}if(companyService.checkUser(comId)) { //아이디 중복체크 후 페이지 이동 여부 확인
+			String err0 = "해당 아이디는 중복된 아이디입니다.";
+			model.addAttribute("err0",err0);
 			return "company/company_signUp";
 		}if(company.getComPasswd() == null || company.getComPasswd().length() == 0 ) {
 			String err1 = "비밀번호는 필수입력 정보입니다.";
@@ -74,4 +95,6 @@ public class CompanySignUpController {
 		companyService.addUser(company);
 		return "company/company_login";
 	}
+
+	
 }
