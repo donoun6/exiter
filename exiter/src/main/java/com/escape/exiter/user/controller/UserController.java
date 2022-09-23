@@ -101,10 +101,12 @@ public class UserController {
 	@PostMapping("/user/findId")
 	public String findId(@RequestParam("uName") String uName, @RequestParam("uPhone") String uPhone, RedirectAttributes redirectAttributes) {
 		String userId = userService.getUserIdByUNameAndUPhone(uName, uPhone);
+		// 해당 정보를 가진 사용자 아이디가 존재하지 않는다면
 		if(userId == "") {
 			redirectAttributes.addFlashAttribute("idErr", "idErr");
 			return "redirect:find_IdPw/id";
 		}
+		// 존재한다면
 		redirectAttributes.addFlashAttribute("userId", userId);
 		redirectAttributes.addFlashAttribute("idSuc", "idSuc");
 		return "redirect:find_IdPw/id";
@@ -115,8 +117,15 @@ public class UserController {
 	 * @return
 	 */
 	@PostMapping("/user/findPw")
-	public String findPw() {
-		// 확인 작업 후 이동
+	public String findPw(@RequestParam("userId") String userId, @RequestParam("uName") String uName, 
+			@RequestParam("uPhone") String uPhone, RedirectAttributes redirectAttributes) {
+		long checkUser = userService.checkUser(userId, uName, uPhone);
+		// 해당 정보를 가진 사용자가 존재하지 않는다면
+		if(checkUser == 0) {
+			redirectAttributes.addFlashAttribute("pwErr", "pwErr");
+			return "redirect:find_IdPw/pw";
+		}
+		// 존재한다면
 		return "user/success_findPw";
 	}
 	

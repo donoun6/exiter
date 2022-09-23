@@ -49,13 +49,13 @@
                 <p class="checkMsg" id="checkId"></p>
               </label>
               <label class="find-item uName">
-                <input type="text" id="uName" name="uName" placeholder="가입시 등록한 이름 입력">
-                <p class="checkMsg" id="checkName"></p>
+                <input type="text" id="uName2" name="uName" placeholder="가입시 등록한 이름 입력">
+                <p class="checkMsg" id="checkName2"></p>
               </label>
               <label class="find-item uPhone">
-                <input type="text" id="uPhone" name="uPhone" class="uPhone" placeholder="가입시 등록한 전화번호 입력" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{3,4}">
+                <input type="text" id="uPhone2" name="uPhone" class="uPhone" placeholder="가입시 등록한 전화번호 입력" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{3,4}">
                 <p class="msg">* ex) 010-0000-0000</p>
-                <p class="checkMsg" id="checkPhone"></p>
+                <p class="checkMsg" id="checkPhone2"></p>
               </label>
               <input type="button" name="findPw" value="비밀번호 찾기" class="common-btn find-btn findPw-btn">
             </form>
@@ -79,8 +79,17 @@
         <c:if test="${idErr.length() > 0}">
 	        <div class="popUp-box">
 	        	<div class="popUp-item">
-	        		등록된 아이디가 없습니다.<br>다시 시도해 주세요.
+	        		등록된 회원정보가 없습니다.<br>다시 시도해 주세요.
 	        		<button class="s-btn" onclick="location.href='<c:url value='/user/find_IdPw/id'/>'">아이디 찾기</button>
+	        	</div>
+	        </div>
+        </c:if>
+        <!-- 비밀번호찾기 실패 팝업창 -->
+        <c:if test="${pwErr.length() > 0}">
+	        <div class="popUp-box">
+	        	<div class="popUp-item">
+	        		등록된 회원정보가 없습니다.<br>다시 시도해 주세요.
+	        		<button class="s-btn" onclick="location.href='<c:url value='/user/find_IdPw/pw'/>'">비밀번호 찾기</button>
 	        	</div>
 	        </div>
         </c:if>
@@ -116,7 +125,6 @@
     			var phoneregex = /^\d{3}-\d{3,4}-\d{4}$/;
     			
     			if(uName == null || uName == "") {
-    				console.log("이름 진입");
     				$('#checkName').show();
     				$('#checkName').text('이름을 입력해주세요.');
 					$('#checkName').removeClass('suc');
@@ -126,7 +134,6 @@
     			
     			var phoneregex = phoneregex.exec(uPhone);
     			if(phoneregex == null || phoneregex == "") {
-    				console.log("연락처 진입");
     				$('#checkPhone').show();
     				$('#checkPhone').text('전화번호를 양식에 맞게 입력해주세요.');
 					$('#checkPhone').removeClass('suc');
@@ -138,7 +145,7 @@
     			$('#findId').submit();
     		});
     		
-    		// 공백 없을 때 에러메시지 삭제
+    		// 공백 없을 때 에러메시지 삭제(아이디 폼)
     		$('#uName').keyup(function() {
     			var uName = $('#uName').val();
     			if(uName.length > 0) {
@@ -150,6 +157,60 @@
     			if(uPhone.length > 0) {
     				$('#checkPhone').hide();
     			}
+    		});
+    		// 공백 없을 때 에러메시지 삭제(비밀번호 폼)
+    		$('#userId').keyup(function() {
+    			var userId = $('#userId').val();
+    			if(userId.length > 0) {
+    				$('#checkId').hide();
+    			}
+    		});
+    		$('#uName2').keyup(function() {
+    			var uName2 = $('#uName2').val();
+    			if(uName2.length > 0) {
+    				$('#checkName2').hide();
+    			}
+    		});
+    		$('#uPhone2').keyup(function() {
+    			var uPhone2 = $('#uPhone2').val();
+    			if(uPhone2.length > 0) {
+    				$('#checkPhone2').hide();
+    			}
+    		});
+    		
+    		$('.findPw-btn').on('click', function() {
+    			var userId = $('#userId').val();
+    			var uName2 = $('#uName2').val();
+    			var uPhone2 = $('#uPhone2').val();
+    			var phoneregex = /^\d{3}-\d{3,4}-\d{4}$/;
+    			
+    			if(userId == null || userId == "") {
+    				$('#checkId').show();
+    				$('#checkId').text('아이디를 입력해주세요.');
+					$('#checkId').removeClass('suc');
+					$('#checkId').addClass('err');
+					return;
+    			}
+    			
+    			if(uName2 == null || uName2 == "") {
+    				$('#checkName2').show();
+    				$('#checkName2').text('이름을 입력해주세요.');
+					$('#checkName2').removeClass('suc');
+					$('#checkName2').addClass('err');
+					return;
+    			}
+    			
+    			var phoneregex = phoneregex.exec(uPhone2);
+    			if(phoneregex == null || phoneregex == "") {
+    				$('#checkPhone2').show();
+    				$('#checkPhone2').text('전화번호를 양식에 맞게 입력해주세요.');
+					$('#checkPhone2').removeClass('suc');
+					$('#checkPhone2').addClass('err');
+					return;
+    			}
+    			
+    			// 빈칸 없을 때 제출
+    			$('#findPw').submit();
     		});
     	});
     </script>

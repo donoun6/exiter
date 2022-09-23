@@ -128,4 +128,23 @@ public class UserDao {
 			return "";
 		}
 	}
+	
+	/**
+	 * 유저아이디, 이름, 전화번호로 회원 존재 확인
+	 * @param userId
+	 * @param uName
+	 * @param uPhone
+	 * @return
+	 */
+	public long checkUser(String userId, String uName, String uPhone) {
+		String sql = "SELECT Count(*) as cnt FROM User WHERE userId = ? and uName = ? and uPhone = ?";
+		return jdbcTemplate.queryForObject(sql, new RowMapper<Long>() {
+
+			@Override
+			public Long mapRow(ResultSet rs, int rowNum) throws SQLException {
+				return rs.getLong("cnt");
+			}
+			
+		}, userId, uName, uPhone);
+	}
 }

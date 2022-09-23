@@ -1,7 +1,5 @@
 package com.escape.exiter.user.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -47,6 +45,11 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public String getUserIdByUNameAndUPhone(String uName, String uPhone) {
 		return userDao.findUserIdByUNameAndUPhone(uName, uPhone);
+	}
+
+	@Override
+	public long checkUser(String userId, String uName, String uPhone) {
+		return userDao.checkUser(userId, uName, uPhone);
 	}
 
 }
