@@ -136,7 +136,7 @@ public class UserDao {
 	 * @param uPhone
 	 * @return
 	 */
-	public long checkUser(String userId, String uName, String uPhone) {
+	public long checkUserForFindPw(String userId, String uName, String uPhone) {
 		String sql = "SELECT Count(*) as cnt FROM User WHERE userId = ? and uName = ? and uPhone = ?";
 		return jdbcTemplate.queryForObject(sql, new RowMapper<Long>() {
 

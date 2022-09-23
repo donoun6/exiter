@@ -48,8 +48,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public long checkUser(String userId, String uName, String uPhone) {
-		return userDao.checkUser(userId, uName, uPhone);
+	public long checkUserForFindPw(String userId, String uName, String uPhone) {
+		return userDao.checkUserForFindPw(userId, uName, uPhone);
 	}
 
 }

@@ -119,7 +119,7 @@ public class UserController {
 	@PostMapping("/user/findPw")
 	public String findPw(@RequestParam("userId") String userId, @RequestParam("uName") String uName, 
 			@RequestParam("uPhone") String uPhone, RedirectAttributes redirectAttributes) {
-		long checkUser = userService.checkUser(userId, uName, uPhone);
+		long checkUser = userService.checkUserForFindPw(userId, uName, uPhone);
 		// 해당 정보를 가진 사용자가 존재하지 않는다면
 		if(checkUser == 0) {
 			redirectAttributes.addFlashAttribute("pwErr", "pwErr");
