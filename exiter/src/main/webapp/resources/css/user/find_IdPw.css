@@ -184,6 +184,26 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 }
 
 /* success-findPw 페이지 */
+h3.subtitle {
+	margin: 50px 0;
+	font-size: 32px;
+}
+
+p.result {
+	margin-top: 100px;
+	margin-bottom: 80px;
+	line-height: 45px;
+	font-size: 24px;
+	font-weight: 700;
+	color: #737373;
+}
+
+p.result span {
+	font-size: 28px;
+	font-weight: 700;
+	color: rgba(255, 255, 255, .9);
+}
+
 input[type="password"] {
   width: 100%;
   height: 50px;
@@ -227,6 +247,20 @@ p.changeMsg {
 .result.change span {
 	font-size: 28px;
 	color: rgba(255, 255, 255, .9);
+}
+
+.checkMsg {
+	margin-top: 8px;
+    margin-left: 5px;
+    font-size: 14px;
+}
+
+.checkMsg.suc {
+	color: skyblue;
+}
+
+.checkMsg.err {
+	color: tomato;
 }
 
 /* 팝업창 */

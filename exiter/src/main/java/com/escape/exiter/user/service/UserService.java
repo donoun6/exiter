@@ -15,4 +15,6 @@ public interface UserService {
 	boolean isValidUser(String userId, String uPasswd);
 	String getUserIdByUNameAndUPhone(String uName, String uPhone);
 	long checkUserForFindPw(String userId, String uName, String uPhone);
+	void changePasswd(String userId, String uPasswd);
+	String getUPasswdByUserId(String userId);
 }

@@ -147,4 +147,31 @@ public class UserDao {
 			
 		}, userId, uName, uPhone);
 	}
+	
+	/**
+	 * 비밀번호 변경하기
+	 * @param userId
+	 * @param uPasswd
+	 */
+	public void changePasswd(String userId, String uPasswd) {
+		String sql = "UPDATE User SET uPasswd = ? WHERE userId = ?";
+		jdbcTemplate.update(sql, uPasswd, userId);
+	}
+	
+	/**
+	 * 유저아이디로 비밀번호 찾기
+	 * @param userId
+	 * @return
+	 */
+	public String findUPasswdByUserId(String userId) {
+		String sql = "SELECT uPasswd FROM User WHERE userId = ?";
+		return jdbcTemplate.queryForObject(sql, new RowMapper<String>() {
+
+			@Override
+			public String mapRow(ResultSet rs, int rowNum) throws SQLException {
+				return rs.getString("uPasswd");
+			}
+			
+		}, userId);
+	}
 }

@@ -112,7 +112,7 @@
 					$('#checkPw').addClass('suc');
 					$('.signUp-btn').removeAttr('disabled');
     			}
-    		})
+    		});
     		
     		// 비밀번호 확인 실시간 체크
     		$('#uPasswd2').keyup(function() {
