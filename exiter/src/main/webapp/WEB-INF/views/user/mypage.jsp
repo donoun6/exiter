@@ -1,10 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
-<html>
+<html lang="ko" dir="ltr">
 <head>
-<meta charset="EUC-KR">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
 <link rel="shortcut icon" href="<c:url value='/exiter.ico'/>">
 <link rel="stylesheet" href="<c:url value='/resources/css/common/initial.css'/>">
 <link rel="stylesheet" href="<c:url value='/resources/css/common/default.css'/>">
@@ -14,6 +15,10 @@
 <title>mypage</title>
 </head>
 <body>
+<div id="wrap">
+ <!-- header 영역 -->
+      <jsp:include page="../common/only_logo_header.jsp"></jsp:include> 
+    
     <div class="content">
       <div class="top-container">
       </div>
@@ -21,8 +26,8 @@
         <!--상단-->
           <div class="name-box">
             <div class="name">
-              윤정짱
-              <span class="id">dbswjsWkd</span>
+              ${uName }
+              <span class="id">${userId }</span>
             </div>
             <div class="profile">
               <img src="./img/key.png" alt="man">
@@ -34,7 +39,7 @@
               <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
               <span class="material-symbols-outlined">stars</span>
               <p>등급</p>
-              <p>방린이</p>
+              <p>${uGrade }</p>
             </div>
             <div class="top-list">
               <span class="material-symbols-outlined">book_online</span>
@@ -73,5 +78,6 @@
 
       </div>
     </div>
+ </div></div>
 </body>
 </html>

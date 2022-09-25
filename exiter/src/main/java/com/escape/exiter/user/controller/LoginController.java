@@ -44,6 +44,8 @@ public class LoginController {
 		
 		session = request.getSession(true);
 		session.setAttribute("userId", userId);
+		session.setAttribute("uName", user.getUName());
+		session.setAttribute("uGrade", user.getUGrade());
 		
 		return "redirect:/";
 	}

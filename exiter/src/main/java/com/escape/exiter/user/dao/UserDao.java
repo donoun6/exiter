@@ -105,6 +105,7 @@ public class UserDao {
 		}
 		return true;
 	}
+<<<<<<< Updated upstream
 	
 	/**
 	 * 이름, 전화번호로 아이디 찾기
@@ -174,4 +175,7 @@ public class UserDao {
 			
 		}, userId);
 	}
+=======
+
+>>>>>>> Stashed changes
 }

@@ -1,8 +1,11 @@
 package com.escape.exiter.user.service;
 
 import java.util.List;
+<<<<<<< Updated upstream
 
 import org.springframework.stereotype.Service;
+=======
+>>>>>>> Stashed changes
 
 import com.escape.exiter.user.domain.User;
 
