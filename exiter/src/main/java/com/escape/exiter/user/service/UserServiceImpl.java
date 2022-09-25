@@ -44,7 +44,6 @@ public class UserServiceImpl implements UserService {
 		return userDao.isValidUser(userId, uPasswd);
 	}
 
-<<<<<<< Updated upstream
 	@Override
 	public String getUserIdByUNameAndUPhone(String uName, String uPhone) {
 		return userDao.findUserIdByUNameAndUPhone(uName, uPhone);
@@ -64,7 +63,6 @@ public class UserServiceImpl implements UserService {
 	public String getUPasswdByUserId(String userId) {
 		return userDao.findUPasswdByUserId(userId);
 	}
-=======
->>>>>>> Stashed changes
+
 
 }

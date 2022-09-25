@@ -7,3 +7,5 @@ function area() {
   document.getElementById("areawrap").style.display = "block";
   document.getElementById("themewrap").style.display = "none";
 }
+
+

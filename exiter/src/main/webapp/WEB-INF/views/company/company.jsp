@@ -23,7 +23,7 @@ if (comId == null){
 }%>
 <body>
   <!-- header nav -->
-  <jsp:include page="../common/company_header.jsp"></jsp:include>
+<!--    <jsp:include page="../common/company_header.jsp"></jsp:include> -->
   <!-- side nav -->
   <aside>
     <nav id="aside-nav">
