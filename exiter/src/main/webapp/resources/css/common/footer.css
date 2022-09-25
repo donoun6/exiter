@@ -7,7 +7,7 @@ footer {
   bottom: 0;
   background: black;
   border-top: 1px solid #222324;
-  z-index: 999;
+  z-index: 998;
 }
 
 #bottom-nav {
