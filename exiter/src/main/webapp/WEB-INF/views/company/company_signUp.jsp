@@ -14,10 +14,15 @@
 <link rel="stylesheet" href="<c:url value='/resources/css/common/copyright.css'/>">
 <link rel="stylesheet" href="<c:url value='/resources/css/company/company_signUp.css'/>">
   <script type="text/javascript" src="<c:url value='/resources/js/common/jquery.js'/>"></script>
-  <title>Exiter Company main</title>
+  <title>Exiter Company signUp</title>
 </head>
 
 <body>
+<% String comId = (String)session.getAttribute("comId");
+if (comId != null){
+	response.sendRedirect("/exiter/company");
+	return;
+}%>
   <!-- header nav -->
   <jsp:include page="../common/company_header.jsp"></jsp:include>
   <!-- main -->

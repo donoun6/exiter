@@ -10,7 +10,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class CompanyUserCommand {
+public class CompanySignUpCommand {
 	private String comId;
 	private String comPasswd;
 	private String comTel1;
@@ -25,6 +25,6 @@ public class CompanyUserCommand {
 	private String comPocus;
 	
 //	생성자
-	public CompanyUserCommand() {
+	public CompanySignUpCommand() {
 	}
 }

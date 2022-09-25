@@ -8,7 +8,8 @@ import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
-import com.escape.exiter.company.domain.CompanyUserCommand;
+
+import com.escape.exiter.company.domain.CompanySignUpCommand;
 
 @Repository
 public class CompanyDao {
@@ -19,8 +20,9 @@ public class CompanyDao {
 		jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 
+// ====================	Company SignUp Dao
 //	사업자 회원 등록
-	public void addUser(CompanyUserCommand company) {
+	public void addUser(CompanySignUpCommand company) {
 		String sql = "INSERT INTO Company (comId, comPasswd, comTel, comAddress1, comAddress2, "
 				+ "comAddress3, comAddress4, comNum, comName, comPocus)"
 				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";	
@@ -31,7 +33,7 @@ public class CompanyDao {
 				company.getComPocus());
 		System.out.println("[사업자 회원 등록]\n" + company.toString() + "\n");
 	}
-	
+
 //	아이디 중복 확인
 	public boolean checkUser(String comId) {
 		try {
@@ -53,7 +55,7 @@ public class CompanyDao {
 	    return false;
 	}
   }
-	
+
 //	사업자등록번호 중복 확인
 	public boolean checkComNum(String comNum) {
 		try {
@@ -75,5 +77,31 @@ public class CompanyDao {
 	    return false;
 	}
   }
-	
+
+
+// ====================	Company Login Dao
+//	로그인 검사
+	public boolean login(String comId,String comPasswd) {
+		try {
+			String sql = "SELECT comPasswd FROM Company WHERE comId = ?";
+			return jdbcTemplate.queryForObject(sql, new RowMapper<Boolean>() {
+
+				@Override
+				public Boolean mapRow(ResultSet rs, int rowNum) throws SQLException {
+					if(rs.getString("comPasswd").contentEquals(comPasswd)) {
+						System.out.println("[로그인 : 정보 확인]");
+						return true;
+					}
+					return null;
+				}
+			},comId);
+		} catch (NullPointerException error) {
+			System.out.println("[로그인 : 잘못된 정보]");
+			return false;
+		} catch (IncorrectResultSizeDataAccessException error) {
+			System.out.println("[로그인 : 잘못된 정보]");
+			return false;
+		}
+		
+	}
 }

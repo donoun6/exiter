@@ -1,8 +1,5 @@
 package com.escape.exiter.company.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.escape.exiter.company.domain.CompanyUserCommand;
+import com.escape.exiter.company.domain.CompanySignUpCommand;
 import com.escape.exiter.company.service.CompanyService;
 
 @Controller
@@ -27,11 +24,11 @@ public class CompanySignUpController {
 	
 	
 	/**	회원가입 폼 화면 GET 방식
-	 * @param model : form:form 태그 modelAttribute 의 변수를 지정하기 위해 사용
+	 * @param model : form:form태그 안의 path값을 Command에 맞게 지정
 	 */
 	@GetMapping
 	public String CompanySignUpForm(Model model) {
-		model.addAttribute("company", new CompanyUserCommand()); 
+		model.addAttribute("company", new CompanySignUpCommand()); 
 		return "company/company_signUp";
 	}
 	
@@ -47,12 +44,12 @@ public class CompanySignUpController {
 	}
 	
 	
-	/**	회원가입 처리 화면 POST 방식
-	 * @param company : 회원가입에 필요한 domain만 가져와 Command클래스를 만들어 변수로 지정
-	 * @param model : 위와 같은 이유
+	/**	회원가입 처리 POST 방식
+	 * @param company : modelAttribute 의 변수를 지정하기 위해 사용. 회원가입에 필요한 domain만 가져와 Command클래스를 만들어 변수로 지정
+	 * @param model : Model 객체를 파라미터로 받아서 데이터를 뷰로 넘길 수 있다.
 	 */
 	@PostMapping
-	public String CompanySignUp(@ModelAttribute("company") CompanyUserCommand company, Model model,
+	public String CompanySignUp(@ModelAttribute("company") CompanySignUpCommand company, Model model,
 			@RequestParam("checkComNum") String checkComNum) {
 		model.addAttribute("company",company);
 		
@@ -99,5 +96,4 @@ public class CompanySignUpController {
 		return "company/company_login";
 	}
 
-	
 }

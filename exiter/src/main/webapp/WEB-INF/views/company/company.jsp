@@ -16,7 +16,11 @@
   <script type="text/javascript" src="<c:url value='/resources/js/common/jquery.js'/>"></script>
   <title>Exiter Company main</title>
 </head>
-
+<% String comId = (String)session.getAttribute("comId");
+if (comId == null){
+	response.sendRedirect("company/company_login");
+	return;
+}%>
 <body>
   <!-- header nav -->
   <jsp:include page="../common/company_header.jsp"></jsp:include>
@@ -24,11 +28,13 @@
   <aside>
     <nav id="aside-nav">
       <ul>
+      ${comId } 님
         <li><a href="#">사업자메인</a></li>
         <li><a href="#">테마관리</a></li>
         <li><a href="#">예약확인</a></li>
         <li><a href="#">QnA</a></li>
         <li><a href="#">정보변경</a></li>
+        <li><a href="<c:url value='/company/company_logout'/>">로그아웃</a></li>
       </ul>
     </nav>
   </aside>
