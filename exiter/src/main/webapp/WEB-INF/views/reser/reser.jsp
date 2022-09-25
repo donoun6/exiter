@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="<c:url value='/resources/css/common/footer.css'/>">
 <link rel="stylesheet" href="<c:url value='/resources/css/reser/reser.css'/>">
 <script type="text/javascript" src="<c:url value='/resources/js/common/common.js'/>"></script>
-<title>search</title>
+<title>reservation</title>
 </head>
 <body>
   <!-- 헤더 -->

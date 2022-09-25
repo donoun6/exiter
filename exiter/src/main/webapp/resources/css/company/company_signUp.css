@@ -1,0 +1,141 @@
+body {
+  background: #F3F1F5;
+  color: black;
+}
+
+/* input style */
+input {
+  width: 100%;
+  height: 47px;
+  border: 1px solid #dadada;
+  padding-left: 20px;
+  box-sizing: border-box;
+  font-family: "twayFly";
+}
+
+input[type="password"]{
+  font-family: none;
+}
+
+input[type="password"]::placeholder {
+  font-family: "twayFly";
+}
+
+input::placeholder {
+  font-size: 15px;
+  color: #8e8e8e;
+}
+
+input[type="button"] {
+  height: 50px;
+  background-color: #a9b9d1;
+  border: solid 1px rgba(0,0,0,.08);
+  color: white;
+  padding: 0;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* button style */
+button:focus {
+  outline: none;
+}
+
+.gbtn {
+  padding: 8.5px 15px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.button-group {
+  text-align: center;
+}
+
+
+/* form */
+#wrap {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  font-family: "twayFly";
+}
+
+#wrap .title {
+  text-align: center;
+  padding-top: 70px;
+}
+
+#wrap .title h2 a{
+  font-size: 50px;
+  color: black;
+}
+
+h2 {
+  display:inline-block;
+  margin: 19px 0 8px 0;
+  font-size: 14px;
+  font-weight: 700px;
+}
+
+.small {
+  width: 144px;
+  height: 51px;
+  border: 1px solid #dadada;
+}
+
+.table {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tel {
+  width: 144px;
+  height: 51px;
+  margin: 0px;
+  padding-left: 20px;
+}
+
+.select {
+  font-size: 12px;
+  font-weight: 400;
+  color: #8e8e8e;
+}
+
+.tel2 {
+  width: 68%;
+  height: 47px;
+  margin: 10px 0 10px 0;
+}
+.gbtn {
+  width: 100%;
+  cursor: pointer;
+}
+
+.def {
+  font-size: 12px;
+}
+
+#checkComNum {
+  font-size: 12px;
+}
+
+.err {
+  color:red;
+  font-size: 12px;
+}
+
+.suc {
+  color:blue;
+  font-size: 12px;
+}
+
+button {
+  height: 50px;
+  background-color: #a9b9d1;
+  border: solid 1px rgba(0,0,0,.08);
+  color: white;
+  padding: 0;
+  margin-top: 20px;
+  font-size: 15px;
+}

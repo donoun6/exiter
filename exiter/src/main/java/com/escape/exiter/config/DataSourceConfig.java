@@ -2,14 +2,14 @@ package com.escape.exiter.config;
 
 import org.apache.tomcat.jdbc.pool.DataSource;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 
+import com.escape.exiter.company.dao.CompanyDao;
+
 @Configuration
-@ComponentScan(basePackages = "com.escape.exiter")
 public class DataSourceConfig {
 	
 	@Bean(destroyMethod = "close")
@@ -36,5 +36,11 @@ public class DataSourceConfig {
 	@Bean
 	public JdbcTemplate jdbcTemplate() {
 		return new JdbcTemplate(dataSource());
+	}
+	
+//	main test bean name 등록 (@Autowired 를 main에서 사용이 안돼서 혹시나 아시는분 말씀좀!)
+	@Bean
+	public CompanyDao companyDao() {
+		return new CompanyDao(dataSource());
 	}
 }

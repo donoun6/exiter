@@ -39,7 +39,7 @@
             EXITER 회원이 아닌가요? <a href="<c:url value='add_user'/>">지금 가입하세요!</a>
           </div>
           <div class="find-idpw">
-            아이디/비밀번호를 잊으셨나요? <a href="<c:url value='find_IdPw'/>">아이디/비밀번호 찾기</a>
+            아이디/비밀번호를 잊으셨나요? <a href="<c:url value='find_IdPw/id'/>">아이디/비밀번호 찾기</a>
           </div>
         </div>
       </main>

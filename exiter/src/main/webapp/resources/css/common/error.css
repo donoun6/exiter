@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+/* 누가 error/no_session 페이지 예쁘게 꾸며주실 분... 제발 건드려주세요! */
+
+#wrap {
+	backdrop-filter: blur(5px);
+}
+
+.popUp-box {
+	position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    /*background: #1b1b1b;*/
+    background: rgba(0, 0, 0, .8);
+    align-items: flex-start;
+}
+
+.popUp-item {
+	width: 300px;
+    height: 200px;
+    line-height: 25px;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: calc(100vw - 100px);
+    background: white;
+    border-radius: 25px;
+    color: #666;
+    font-size: 20px;
+    text-align: center;
+}
+
+.popUp-item p span {
+	color: #333;
+	font-size: 22px;
+    font-weight: 700;
+}
+
+.s-btn {
+	width: 120px;
+    height: 40px;
+    margin-top: 30px;
+    background: #414aea;
+	border: 0;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+    box-shadow: 0px 2px 10px 0px #999;
+}

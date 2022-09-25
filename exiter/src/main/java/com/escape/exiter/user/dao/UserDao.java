@@ -105,4 +105,73 @@ public class UserDao {
 		}
 		return true;
 	}
+	
+	/**
+	 * 이름, 전화번호로 아이디 찾기
+	 * @param uName
+	 * @param uPhone
+	 * @return
+	 */
+	public String findUserIdByUNameAndUPhone(String uName, String uPhone) {
+		String sql = "SELECT userId FROM User WHERE uName = ? and uPhone = ?";
+		try {
+			return jdbcTemplate.queryForObject(sql, new RowMapper<String>() {
+
+				@Override
+				public String mapRow(ResultSet rs, int rowNum) throws SQLException {
+					String userId = rs.getString("userId");
+					return userId;
+				}
+				
+			}, uName, uPhone);
+		} catch(Exception e) {
+			return "";
+		}
+	}
+	
+	/**
+	 * 유저아이디, 이름, 전화번호로 회원 존재 확인
+	 * @param userId
+	 * @param uName
+	 * @param uPhone
+	 * @return
+	 */
+	public long checkUserForFindPw(String userId, String uName, String uPhone) {
+		String sql = "SELECT Count(*) as cnt FROM User WHERE userId = ? and uName = ? and uPhone = ?";
+		return jdbcTemplate.queryForObject(sql, new RowMapper<Long>() {
+
+			@Override
+			public Long mapRow(ResultSet rs, int rowNum) throws SQLException {
+				return rs.getLong("cnt");
+			}
+			
+		}, userId, uName, uPhone);
+	}
+	
+	/**
+	 * 비밀번호 변경하기
+	 * @param userId
+	 * @param uPasswd
+	 */
+	public void changePasswd(String userId, String uPasswd) {
+		String sql = "UPDATE User SET uPasswd = ? WHERE userId = ?";
+		jdbcTemplate.update(sql, uPasswd, userId);
+	}
+	
+	/**
+	 * 유저아이디로 비밀번호 찾기
+	 * @param userId
+	 * @return
+	 */
+	public String findUPasswdByUserId(String userId) {
+		String sql = "SELECT uPasswd FROM User WHERE userId = ?";
+		return jdbcTemplate.queryForObject(sql, new RowMapper<String>() {
+
+			@Override
+			public String mapRow(ResultSet rs, int rowNum) throws SQLException {
+				return rs.getString("uPasswd");
+			}
+			
+		}, userId);
+	}
 }

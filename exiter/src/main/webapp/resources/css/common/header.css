@@ -78,7 +78,7 @@ header {
   height: 25px;
 }
 
-#top-nav .right-img .search-img, #top-nav .right-img .login-img, #top-nav .right-img .undo-img  {
+#top-nav .right-img .search-img, #top-nav .right-img .login-img, #top-nav .right-img .undo-img {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -98,4 +98,14 @@ header {
 
 #top-nav .right-img .undo-img {
   background-image: url("../../images/icon/undo_FILL0_wght400_GRAD0_opsz48.png");
+}
+
+#top-nav .top-title {
+  position: absolute;
+  margin-left: 55px;
+  margin-top: 10px;
+}
+
+#top-nav .top-title a{
+  color: black;
 }

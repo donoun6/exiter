@@ -42,4 +42,24 @@ public class UserServiceImpl implements UserService {
 		return userDao.isValidUser(userId, uPasswd);
 	}
 
+	@Override
+	public String getUserIdByUNameAndUPhone(String uName, String uPhone) {
+		return userDao.findUserIdByUNameAndUPhone(uName, uPhone);
+	}
+
+	@Override
+	public long checkUserForFindPw(String userId, String uName, String uPhone) {
+		return userDao.checkUserForFindPw(userId, uName, uPhone);
+	}
+
+	@Override
+	public void changePasswd(String userId, String uPasswd) {
+		userDao.changePasswd(userId, uPasswd);
+	}
+
+	@Override
+	public String getUPasswdByUserId(String userId) {
+		return userDao.findUPasswdByUserId(userId);
+	}
+
 }

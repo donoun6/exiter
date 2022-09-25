@@ -1,0 +1,132 @@
+body {
+  color: black;
+}
+
+#wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: #F3F1F5;
+}
+
+.login-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 35%;
+  width: 25%;
+  background: #fff;
+  border-radius: 40px;
+  box-shadow: 0 7px 20px rgb(0 0 0 / 30%);
+  margin-bottom: 100px;
+}
+
+.login-form {
+  position: relative;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.login-form h1 {
+  font-size: 25px;
+  display: block;
+  text-align: center;
+}
+
+.login-form .err {
+	display: inline-block;
+	font-size: 12px;
+	color: red;
+}
+
+.login-form label {
+  display: block;
+  font-size: 20px;
+}
+
+.login-form input {
+  font-family: "twayFly";
+  width: 100%;
+  height: 40px;
+  padding: 2px 20px 0;
+  border: 0;
+  border-radius: 8px;
+  font-size: 16px;
+  line-height: 30px;
+  box-sizing: border-box;
+  outline: 2px solid black;
+  transition: .3s;
+  color: black;
+}
+
+.login-form input[type="passWord"] {
+  font-family: none;
+}
+
+.login-form input[type="passWord"]::placeholder {
+  font-family: "twayFly";
+}
+
+.login-form input:focus {
+  outline: 2px solid #72b2e8;
+  transition: .3s;
+}
+
+.login-form input:focus::placeholder {
+  color: #a9b9d1;
+  transition: .3s;
+}
+
+.login-form #submit {
+  width: 90%;
+  height: 45px;
+  background: #a9b9d1;
+  border-radius: 20px;
+  text-align: center;
+  margin-left: 5%;
+  border: none;
+  font-size: 25px;
+  line-height: 25px;
+  font-family: "twayFly";
+  cursor: pointer;
+  transition: .5s;
+  color: #fff;
+  outline: none;
+}
+
+.login-form #submit:hover {
+  background: #72b2e8;
+  transition: .3s;
+}
+
+.login-text {
+  font-size: 15px;
+}
+
+.login-text a {
+  color: black;
+  margin: 0 10px;
+ }
+
+.login-text a:hover {
+  color: #a9b9d1;
+  transition: .3s;
+}
+
+/* footer cover */
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  margin: 0 auto;
+  height: 120px;
+  line-height: 120px;
+  text-align: center;
+  color: #737373;
+  font-size: 12px;
+}

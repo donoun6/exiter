@@ -8,6 +8,7 @@ DROP TABLE Theme;
 DROP TABLE Company;
 DROP TABLE User;
 
+
 -- 테이블 비우기
 DELETE FROM Answer;
 DELETE FROM Question;
@@ -18,6 +19,7 @@ DELETE FROM Theme;
 DELETE FROM Company;
 DELETE FROM User;
 
+
 -- 테이블 보기
 SELECT * FROM Answer;
 SELECT * FROM Question;
@@ -27,6 +29,10 @@ SELECT * FROM Reservation;
 SELECT * FROM Theme;
 SELECT * FROM Company;
 SELECT * FROM User;
+
+
+--임시데이터 등록
+
 
 -- 테이블 생성
 CREATE TABLE User (
@@ -43,15 +49,18 @@ CREATE TABLE User (
 
 CREATE TABLE Company (
 	cid				BIGINT				NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	comId			VARCHAR(20)			NOT NULL,
+	comId			VARCHAR(20)			NOT NULL UNIQUE KEY,
 	comPasswd		VARCHAR(16)			NOT NULL,
+	comTel			VARCHAR(13)			NOT NULL,
+	comAddress1		VARCHAR(10)			NOT NULL,
+	comAddress2		VARCHAR(50)			NOT NULL,
+	comAddress3		VARCHAR(50)			NOT NULL,
+	comAddress4		VARCHAR(50)			NOT NULL,
+	comNum			VARCHAR(10)			NOT NULL UNIQUE KEY,
 	comName			VARCHAR(20)			NOT NULL,
 	comPocus		VARCHAR(20)			NULL,
-	comNum			VARCHAR(12)			NOT NULL,
-	comAddress		VARCHAR(100)		NOT NULL,
-	comTel			VARCHAR(13)			NOT NULL,
-	comX			DOUBLE				NOT NULL,
-	comY			DOUBLE				NOT NULL,
+	comX			DOUBLE				NULL,
+	comY			DOUBLE				NULL,
 	regDate			TIMESTAMP			NOT NULL DEFAULT	CURRENT_TIMESTAMP
 )AUTO_INCREMENT = 1;
 
