@@ -7,6 +7,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 
+import com.escape.exiter.company.dao.CompanyDao;
+
 
 @Configuration
 public class DataSourceConfig {
@@ -38,8 +40,8 @@ public class DataSourceConfig {
 	}
 	
 //	main test bean name 등록 (@Autowired 를 main에서 사용이 안돼서 혹시나 아시는분 말씀좀!)
-//	@Bean
-//	public CompanyDao companyDao() {
-//		return new CompanyDao(dataSource());
-//	}
+	@Bean
+	public CompanyDao companyDao() {
+		return new CompanyDao(dataSource());
+	}
 }

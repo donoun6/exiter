@@ -1,7 +1,5 @@
 package com.escape.exiter.company.domain;
 
-import java.util.Date;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,8 +7,9 @@ import lombok.ToString;
 
 @Getter
 @Setter
+@AllArgsConstructor
 @ToString
-public class CompanySignUpCommand {
+public class CompanyCommand {
 	private String comId;
 	private String comPasswd;
 	private String comTel1;
@@ -25,6 +24,6 @@ public class CompanySignUpCommand {
 	private String comPocus;
 	
 //	생성자
-	public CompanySignUpCommand() {
+	public CompanyCommand() {
 	}
 }

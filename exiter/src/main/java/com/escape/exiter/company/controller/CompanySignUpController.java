@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.escape.exiter.company.domain.CompanySignUpCommand;
+import com.escape.exiter.company.domain.CompanyCommand;
 import com.escape.exiter.company.service.CompanyService;
 
 @Controller
@@ -28,7 +28,7 @@ public class CompanySignUpController {
 	 */
 	@GetMapping
 	public String CompanySignUpForm(Model model) {
-		model.addAttribute("company", new CompanySignUpCommand()); 
+		model.addAttribute("company", new CompanyCommand()); 
 		return "company/company_signUp";
 	}
 	
@@ -49,7 +49,7 @@ public class CompanySignUpController {
 	 * @param model : Model 객체를 파라미터로 받아서 데이터를 뷰로 넘길 수 있다.
 	 */
 	@PostMapping
-	public String CompanySignUp(@ModelAttribute("company") CompanySignUpCommand company, Model model,
+	public String CompanySignUp(@ModelAttribute("company") CompanyCommand company, Model model,
 			@RequestParam("checkComNum") String checkComNum) {
 		model.addAttribute("company",company);
 		

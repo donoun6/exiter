@@ -59,10 +59,12 @@ CREATE TABLE Company (
 	comNum			VARCHAR(10)			NOT NULL UNIQUE KEY,
 	comName			VARCHAR(20)			NOT NULL,
 	comPocus		VARCHAR(20)			NULL,
-	comX			DOUBLE				NULL,
-	comY			DOUBLE				NULL,
+	-- comX			DOUBLE				NULL,
+	-- comY			DOUBLE				NULL,
 	regDate			TIMESTAMP			NOT NULL DEFAULT	CURRENT_TIMESTAMP
 )AUTO_INCREMENT = 1;
+
+SELECT cid,comPasswd FROM Company WHERE comId = 'donoun3'
 
 CREATE TABLE Theme (
 	tid				BIGINT				NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -78,6 +80,11 @@ CREATE TABLE Theme (
 	regDate			TIMESTAMP			NOT NULL DEFAULT	CURRENT_TIMESTAMP,
 	CONSTRAINT Theme_cid_FK FOREIGN KEY (cid) REFERENCES Company(cid)
 )AUTO_INCREMENT = 1;
+
+INSERT INTO Theme (cid,tName,tCategory,tLevel,tNum,tPrice,tDef,tTime,tImage)
+VALUES (1,'테마이름','테마카테고리',1,1,1,'테마설명',1,'테마사진');
+
+SELECT * FROM Theme t INNER JOIN Company c ON t.cid = c.cid WHERE c.cid = 1;
 
 CREATE TABLE Reservation (
 	rid				BIGINT				NOT NULL PRIMARY KEY AUTO_INCREMENT,

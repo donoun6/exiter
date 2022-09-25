@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.escape.exiter.company.dao.CompanyDao;
-import com.escape.exiter.company.domain.CompanySignUpCommand;
+import com.escape.exiter.company.domain.Company;
+import com.escape.exiter.company.domain.CompanyCommand;
+import com.escape.exiter.company.domain.CompanyThemeCommand;
 
 @Service
 public class CompanyServiceImpl implements CompanyService{
@@ -13,7 +15,7 @@ public class CompanyServiceImpl implements CompanyService{
 
 //	Company SignUp Dao
 	@Override
-	public void addUser(CompanySignUpCommand company) {
+	public void addUser(CompanyCommand company) {
 		companyDao.addUser(company);
 	}
 
@@ -31,6 +33,17 @@ public class CompanyServiceImpl implements CompanyService{
 	@Override
 	public boolean login(String comId, String comPasswd) {
 		return companyDao.login(comId, comPasswd);
+	}
+
+	@Override
+	public Company CompanyInfo(String comId) {
+		return companyDao.CompanyInfo(comId);
+	}
+
+//	Company Theme Dao
+	@Override
+	public void addTheme(CompanyThemeCommand companyTheme) {
+		companyDao.addTheme(companyTheme);
 	}
 
 }
