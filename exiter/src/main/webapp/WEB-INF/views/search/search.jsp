@@ -66,7 +66,7 @@
   <div class="container active3" id="themewrap">
     <form class="searchBar" action="index.html" method="post">
         <input type="text" placeholder="테마검색" class="searchBarInput" maxlength="12">
-        <img src="<c:url value='/resources/images/icon/search.png'/>" alt="" class="searchImg">
+        <img src="<c:url value='/resources/images/icon/search_FILL0_wght400_GRAD0_opsz48.png'/>" alt="" class="searchImg">
     </form>
     <br/>
 
