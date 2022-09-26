@@ -88,16 +88,16 @@ header {
 }
 
 #top-nav .right-img .search-img {
-  background-image: url("../../images/icon/search_FILL0_wght400_GRAD0_opsz48.png");
+  background-image: url("../../images/icon/search.png");
 }
 
 #top-nav .right-img .login-img {
-  background-image: url("../../images/icon/login_FILL0_wght400_GRAD0_opsz48.png");
+  background-image: url("../../images/icon/login_logout.png");
   margin-left: 10px;
 }
 
 #top-nav .right-img .undo-img {
-  background-image: url("../../images/icon/undo_FILL0_wght400_GRAD0_opsz48.png");
+  background-image: url("../../images/icon/undo.png");
 }
 
 #top-nav .top-title {

@@ -31,12 +31,11 @@
         	<div class="search-theme">
 	        	<form class="search-bar" action="index.html" method="post">
 			        <input type="text" placeholder="테마검색" id="tName" class="searchBarInput" maxlength="12">
-			        <img src="<c:url value='/resources/images/icon/search_FILL0_wght400_GRAD0_opsz48.png'/>" alt="검색이미지" class="search-img">
+			        <img src="<c:url value='/resources/images/icon/search.png'/>" alt="검색이미지" class="search-img">
 			    </form>
 			    <ul class="search-ul">
 			    	<!-- ajax에서 받아온 값 출력 -->
 			    </ul>
-			    <p class="lastMsg">더이상의 검색결과가 없습니다.</p>
         	</div>
         </main>
 	</div>
@@ -69,6 +68,9 @@
 							});
     					}
     					$('.search-ul').html(list);
+    				},
+    				error: function(data) {
+
     				}
     			});
     		});

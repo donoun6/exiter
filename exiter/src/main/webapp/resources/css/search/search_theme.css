@@ -138,10 +138,3 @@ h3.title.on:before {
 	font-size: 24px;
     color: #414aea;
 }
-
-.lastMsg {
-	margin-top: -110px;
-    text-align: center;
-    font-size: 15px;
-    color: #737373;
-}

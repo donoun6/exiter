@@ -13,8 +13,15 @@
       </div>
 
       <div class="right-img">
-        <div class="search-img"><a href="<c:url value='/search/search'/>"></a></div>
-        <div class="login-img"><a href="<c:url value='/user/login'/>"></a></div>
+        <div class="search-img"><a href="<c:url value='/search/search_theme'/>"></a></div>
+        <c:choose>
+        	<c:when test="${sessionScope.userId eq null}">
+        		<div class="login-img"><a href="<c:url value='/user/login'/>"></a></div>
+        	</c:when>
+        	<c:otherwise>
+        		<div class="login-img"><a href="<c:url value='/user/logout'/>"></a></div>
+        	</c:otherwise>
+        </c:choose>
       </div>
     </nav>
   </header>

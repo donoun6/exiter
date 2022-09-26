@@ -45,6 +45,11 @@ public class SearchController {
 		return "search/search_locagen";
 	}
 	
+	/**
+	 * 테마 검색 (ajax 활용)
+	 * @param tName
+	 * @return
+	 */
 	@RequestMapping(value="/search/checkTName")
 	@ResponseBody
 	public List<Map<Object, Object>> tNameCheck(@RequestBody String tName) {
