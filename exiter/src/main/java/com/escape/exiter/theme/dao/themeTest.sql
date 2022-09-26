@@ -19,3 +19,9 @@ INSERT INTO Theme (cid, tName, tCategory, tLevel, tNum, tPrice, tDef, tTime, tIm
 VALUES (2, '우리 아빠', '공포', 4, 3, 10000, '어느 날 아빠가 나에게 물었다. 내 딸, 기분이 어떠니? 나는 대답했다. 너무 행복해요 아빠. * 이 테마는 자극적이고 불편한 요소가 포함되어 있습니다.', 70, '/resources/images/theme/img3.jpg');
 INSERT INTO Theme (cid, tName, tCategory, tLevel, tNum, tPrice, tDef, tTime, tImage) 
 VALUES (3, '삼덕반점', '공포', 6, 7, 10000, '김반장의 네번째 의뢰, 새로 생긴 중국집 하나가 주변 중국집들을 초토화 시킨다고 한다. 그들의 비법을 훔쳐오라는 다소 위험하고 식상한 의뢰, 그리고 이곳은 김반장의 단골집이기도 하다.', 60, '/resources/images/theme/img3.png');
+
+
+SELECT c.comName, c.comPocus, t.tName, t.tImage FROM Theme t INNER JOIN Company c ON t.cid = c.cid WHERE tName LIKE '%리%';
+
+SELECT c.comName, c.comPocus, t.tName, t.tImage FROM Theme t
+INNER JOIN Company c ON t.cid = c.cid WHERE tName LIKE '%리%';

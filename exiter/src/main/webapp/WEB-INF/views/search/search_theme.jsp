@@ -30,45 +30,11 @@
         	<!-- 검색 -->
         	<div class="search-theme">
 	        	<form class="search-bar" action="index.html" method="post">
-			        <input type="text" placeholder="테마검색" class="searchBarInput" maxlength="12">
+			        <input type="text" placeholder="테마검색" id="tName" class="searchBarInput" maxlength="12">
 			        <img src="<c:url value='/resources/images/icon/search_FILL0_wght400_GRAD0_opsz48.png'/>" alt="검색이미지" class="search-img">
 			    </form>
 			    <ul class="search-ul">
-			    	<li class="search-li">
-			    		<div class="search-item">
-			    			<span class="comName">지구별 방탈출 - 홍대어드벤처점</span>
-			    			<span class="tName">미스터리</span>
-			    		</div>
-			    		<img class="tImg" src="<c:url value='/resources/images/theme/img2.png'/>" alt="미스터리">
-			    	</li>
-			    	<li class="search-li">
-			    		<div class="search-item">
-			    			<span class="comName">지구별 방탈출 - 홍대어드벤처점</span>
-			    			<span class="tName">퀘스트 : 여정의 시작</span>
-			    		</div>
-			    		<img class="tImg" src="<c:url value='/resources/images/theme/img4.png'/>" alt="퀘스트:여정의 시작">
-			    	</li>
-			    	<li class="search-li">
-			    		<div class="search-item">
-			    			<span class="comName">지구별 방탈출 - 대구점</span>
-			    			<span class="tName">사명 : 투쟁의 노래</span>
-			    		</div>
-			    		<img class="tImg" src="<c:url value='/resources/images/theme/img.jpg'/>" alt="사명:투쟁의 노래">
-			    	</li>
-			    	<li class="search-li">
-			    		<div class="search-item">
-			    			<span class="comName">지구별 방탈출 - 대구점</span>
-			    			<span class="tName">펭귄키우기</span>
-			    		</div>
-			    		<img class="tImg" src="<c:url value='/resources/images/theme/img6.jpg'/>" alt="펭귄키우기">
-			    	</li>
-			    	<li class="search-li">
-			    		<div class="search-item">
-			    			<span class="comName">지구별 방탈출 - 대구점</span>
-			    			<span class="tName">우리 아빠</span>
-			    		</div>
-			    		<img class="tImg" src="<c:url value='/resources/images/theme/img3.jpg'/>" alt="우리아빠">
-			    	</li>
+			    	<!-- ajax에서 받아온 값 출력 -->
 			    </ul>
 			    <p class="lastMsg">더이상의 검색결과가 없습니다.</p>
         	</div>
@@ -76,5 +42,37 @@
 	</div>
 	<!-- 푸터 영역 -->
     <jsp:include page="../common/footer.jsp"></jsp:include>
+    
+    <!-- 스크립트 -->
+    <script type="text/javascript">
+    	$(function() {
+    		$('#tName').keyup(function() {
+    			var tName = $('#tName').val();
+    			$.ajax({
+    				async: true,
+    				type: 'POST',
+    				data: tName,
+    				url: 'checkTName',
+    				dataType: 'json',
+    				contentType: 'application/json; charset=UTF-8',
+    				success: function(data) {
+    					let list = "";
+    					for(let i = 0; i < data.length; i++) {
+    						let map = data[i];
+    						$(map).each(function() {
+								list += '<li class="search-li">'
+						    		+ '<div class="search-item">'
+				    				+ '<span class="comName">' + map.comName + '</span>'
+				    				+ '<span class="tName">' + map.tName + '</span></div>'
+				    				+ '<img class="tImg" src="/exiter' + map.tImage + '" alt="' + map.tName + '">';
+				    				+ '</li>';
+							});
+    					}
+    					$('.search-ul').html(list);
+    				}
+    			});
+    		});
+    	});
+    </script>
 </body>
 </html>
