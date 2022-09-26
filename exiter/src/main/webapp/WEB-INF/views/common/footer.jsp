@@ -3,7 +3,7 @@
 <footer>
 	<nav id="bottom-nav">
 	  <div><img src="<c:url value='/resources/images/icon/home_FILL0_wght400_GRAD0_opsz48.png'/>" alt=""><a href="<c:url value='/'/>"><span>홈</span></a></div>
-	  <div><img src="<c:url value='/resources/images/icon/search_FILL0_wght400_GRAD0_opsz48.png'/>" alt=""><a href="<c:url value='/search/search'/>"><span>검색</span></a></div>
+	  <div><img src="<c:url value='/resources/images/icon/search_FILL0_wght400_GRAD0_opsz48.png'/>" alt=""><a href="<c:url value='/search/search_theme'/>"><span>검색</span></a></div>
 	  <div><img src="<c:url value='/resources/images/icon/person_add_FILL0_wght400_GRAD0_opsz48.png'/>" alt=""><a href="<c:url value='/user/add_user'/>"><span>회원가입</span></a></div>
 	  <div><img src="<c:url value='/resources/images/icon/login_FILL0_wght400_GRAD0_opsz48.png'/>" alt=""><a href="<c:url value='/user/login'/>"><span>로그인</span></a></div>
 	  <div class="hidden"><img src="<c:url value='/resources/images/icon/account.png'/>" alt=""><a href="<c:url value='/user/mypage'/>"><span>마이페이지</span></a></div>

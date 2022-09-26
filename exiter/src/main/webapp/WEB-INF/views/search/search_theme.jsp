@@ -36,40 +36,41 @@
 			    <ul class="search-ul">
 			    	<li class="search-li">
 			    		<div class="search-item">
-			    			<span class="comName">홍대어드벤처점</span>
+			    			<span class="comName">지구별 방탈출 - 홍대어드벤처점</span>
 			    			<span class="tName">미스터리</span>
 			    		</div>
 			    		<img class="tImg" src="<c:url value='/resources/images/theme/img2.png'/>" alt="미스터리">
 			    	</li>
 			    	<li class="search-li">
 			    		<div class="search-item">
-			    			<span class="comName">홍대어드벤처점</span>
+			    			<span class="comName">지구별 방탈출 - 홍대어드벤처점</span>
 			    			<span class="tName">퀘스트 : 여정의 시작</span>
 			    		</div>
 			    		<img class="tImg" src="<c:url value='/resources/images/theme/img4.png'/>" alt="퀘스트:여정의 시작">
 			    	</li>
 			    	<li class="search-li">
 			    		<div class="search-item">
-			    			<span class="comName">대구점</span>
+			    			<span class="comName">지구별 방탈출 - 대구점</span>
 			    			<span class="tName">사명 : 투쟁의 노래</span>
 			    		</div>
 			    		<img class="tImg" src="<c:url value='/resources/images/theme/img.jpg'/>" alt="사명:투쟁의 노래">
 			    	</li>
 			    	<li class="search-li">
 			    		<div class="search-item">
-			    			<span class="comName">대구점</span>
+			    			<span class="comName">지구별 방탈출 - 대구점</span>
 			    			<span class="tName">펭귄키우기</span>
 			    		</div>
 			    		<img class="tImg" src="<c:url value='/resources/images/theme/img6.jpg'/>" alt="펭귄키우기">
 			    	</li>
 			    	<li class="search-li">
 			    		<div class="search-item">
-			    			<span class="comName">대구점</span>
+			    			<span class="comName">지구별 방탈출 - 대구점</span>
 			    			<span class="tName">우리 아빠</span>
 			    		</div>
 			    		<img class="tImg" src="<c:url value='/resources/images/theme/img3.jpg'/>" alt="우리아빠">
 			    	</li>
 			    </ul>
+			    <p class="lastMsg">더이상의 검색결과가 없습니다.</p>
         	</div>
         </main>
 	</div>

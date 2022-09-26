@@ -24,7 +24,7 @@
       <main>
         <h3 class="title">회원가입</h3>
         <div class="signUp-box">
-          <form class="signUp" id="signUp" action="" method="post">
+          <form class="signUp" id="signUp" action="add_user" method="post">
             <label class="signUp-item userId">
               <input type="text" id="userId" name="userId" placeholder="아이디">
               <p class="msg" id="checkId"></p>
