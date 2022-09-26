@@ -40,6 +40,21 @@ if (comId == null){
   </aside>
   <!-- main section -->
   <main>
+	<form:form modelAttribute="company" method="post" style="margin-top:200px;">
+		<input type="hidden" name="cid" value="${cid }">
+		<form:input path="tName"/>
+		<form:input path="tCategory"/>
+		<form:input path="tLevel"/>
+		<form:input path="tNum"/>
+		<form:input path="tPrice"/>
+		<form:input path="tDef"/>
+		<form:input path="tTime"/>
+		<form:input path="tImage"/>
+		<button type="submit">등록</button>
+		<c:forEach var="companyInfo" items="${companyInfo }">
+			<h1>${companyInfo }</h1>
+		</c:forEach>
+	</form:form>
 	
   </main>
   <!-- footer -->

@@ -82,9 +82,9 @@ CREATE TABLE Theme (
 )AUTO_INCREMENT = 1;
 
 INSERT INTO Theme (cid,tName,tCategory,tLevel,tNum,tPrice,tDef,tTime,tImage)
-VALUES (1,'테마이름','테마카테고리',1,1,1,'테마설명',1,'테마사진');
+VALUES (1,'','테마카테고리',1,1,1,'테마설명',1,'테마사진');
 
-SELECT * FROM Theme t INNER JOIN Company c ON t.cid = c.cid WHERE c.cid = 1;
+SELECT * FROM Theme t INNER JOIN Company c ON t.cid = c.cid WHERE c.cid = 2;
 
 CREATE TABLE Reservation (
 	rid				BIGINT				NOT NULL PRIMARY KEY AUTO_INCREMENT,

@@ -37,8 +37,11 @@ public class CompanyDaoTest {
 		
 //	company login test
 //		dao.login("testId", "testPw");
-//		dao.CompanyInfo("testId");
 		
+//		company companyInfo test
+//		dao.companyInfo("testId");
+		
+
 //	company add theme test
 //		companyTheme.setCid(1);
 //		companyTheme.setTName("테스트이름");
@@ -50,6 +53,9 @@ public class CompanyDaoTest {
 //		companyTheme.setTTime(60);
 //		companyTheme.setTImage("테스트이미지");
 //		dao.addTheme(companyTheme);
+		
+//		company theme info test
+		dao.themeInfo(2);
 		context.close();
 	}
 }

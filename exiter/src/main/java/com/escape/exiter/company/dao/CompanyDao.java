@@ -2,6 +2,7 @@ package com.escape.exiter.company.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import org.apache.tomcat.jdbc.pool.DataSource;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import com.escape.exiter.company.domain.Company;
 import com.escape.exiter.company.domain.CompanyCommand;
+import com.escape.exiter.company.domain.CompanyTheme;
 import com.escape.exiter.company.domain.CompanyThemeCommand;
 import com.escape.exiter.user.dao.UserRowMapper;
 import com.escape.exiter.user.domain.User;
@@ -109,7 +111,7 @@ public class CompanyDao {
 	}
 	
 //	사업자 정보
-	public Company CompanyInfo(String comId) {
+	public Company companyInfo(String comId) {
 		String sql = "SELECT * FROM Company WHERE comId = ?";
 		return jdbcTemplate.queryForObject(sql, new RowMapper<Company>() {
 
@@ -118,15 +120,15 @@ public class CompanyDao {
 				Company company = new Company();
 				company.setCid(rs.getLong("cid"));
 				company.setComId(rs.getString("comId"));
-				company.setComPasswd(rs.getNString("comPasswd"));
-				company.setComTel(rs.getNString("comTel"));
-				company.setComAddress1(rs.getNString("comAddress1"));
-				company.setComAddress2(rs.getNString("comAddress2"));
-				company.setComAddress3(rs.getNString("comAddress3"));
-				company.setComAddress4(rs.getNString("comAddress4"));
-				company.setComNum(rs.getNString("comNum"));
-				company.setComName(rs.getNString("comName"));
-				company.setComPocus(rs.getNString("comPocus"));
+				company.setComPasswd(rs.getString("comPasswd"));
+				company.setComTel(rs.getString("comTel"));
+				company.setComAddress1(rs.getString("comAddress1"));
+				company.setComAddress2(rs.getString("comAddress2"));
+				company.setComAddress3(rs.getString("comAddress3"));
+				company.setComAddress4(rs.getString("comAddress4"));
+				company.setComNum(rs.getString("comNum"));
+				company.setComName(rs.getString("comName"));
+				company.setComPocus(rs.getString("comPocus"));
 				company.setRegDate(rs.getDate("regDate"));
 				System.out.println("[사업자 정보]\n" + company.toString() + "\n");
 				return company;
@@ -146,5 +148,31 @@ public class CompanyDao {
 				companyTheme.getTPrice(), companyTheme.getTDef(), companyTheme.getTTime(), 
 				companyTheme.getTImage());
 		System.out.println("[사업자 테마 등록]\n" + companyTheme.toString() + "\n");
+	}
+	
+//	테마 정보
+	public List<CompanyTheme> themeInfo(long cid) {
+
+			String sql = "SELECT * FROM Theme t INNER JOIN Company c ON t.cid = c.cid WHERE c.cid = ?";
+			return jdbcTemplate.query(sql, new RowMapper<CompanyTheme>() {
+
+				@Override
+				public CompanyTheme mapRow(ResultSet rs, int rowNum) throws SQLException {
+					CompanyTheme company = new CompanyTheme();
+					company.setTid(rs.getLong("tid"));
+					company.setCid(rs.getLong("cid"));
+					company.setTName(rs.getString("tName"));
+					company.setTCategory(rs.getString("tCategory"));
+					company.setTLevel(rs.getInt("tLevel"));
+					company.setTNum(rs.getInt("tNum"));
+					company.setTPrice(rs.getInt("tPrice"));
+					company.setTDef(rs.getString("tDef"));
+					company.setTTime(rs.getInt("tTime"));
+					company.setTImage(rs.getString("tImage"));
+					company.setRegDate(rs.getDate("regDate"));
+					System.out.println("[테마 정보]\n" + company.toString() + "\n");
+					return company;
+				}
+			},cid);
 	}
 }

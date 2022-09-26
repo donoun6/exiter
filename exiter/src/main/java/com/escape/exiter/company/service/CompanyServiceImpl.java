@@ -1,11 +1,14 @@
 package com.escape.exiter.company.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.escape.exiter.company.dao.CompanyDao;
 import com.escape.exiter.company.domain.Company;
 import com.escape.exiter.company.domain.CompanyCommand;
+import com.escape.exiter.company.domain.CompanyTheme;
 import com.escape.exiter.company.domain.CompanyThemeCommand;
 
 @Service
@@ -36,14 +39,19 @@ public class CompanyServiceImpl implements CompanyService{
 	}
 
 	@Override
-	public Company CompanyInfo(String comId) {
-		return companyDao.CompanyInfo(comId);
+	public Company companyInfo(String comId) {
+		return companyDao.companyInfo(comId);
 	}
 
 //	Company Theme Dao
 	@Override
 	public void addTheme(CompanyThemeCommand companyTheme) {
 		companyDao.addTheme(companyTheme);
+	}
+
+	@Override
+	public List<CompanyTheme> themeInfo(long cid) {
+		return companyDao.themeInfo(cid);
 	}
 
 }

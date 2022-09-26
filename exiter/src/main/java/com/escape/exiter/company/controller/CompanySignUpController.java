@@ -93,7 +93,7 @@ public class CompanySignUpController {
 		}
 		
 		companyService.addUser(company);
-		return "company/company_login";
+		return "redirect:/company/company_login";
 	}
 
 }

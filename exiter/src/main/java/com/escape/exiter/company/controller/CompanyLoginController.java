@@ -57,10 +57,10 @@ public class CompanyLoginController {
 			return "company/company_login";
 		}
 		
-		company = companyService.CompanyInfo(company.getComId()); //사업자 정보를 도메인에 저장
+		company = companyService.companyInfo(company.getComId()); //사업자 정보를 도메인에 저장
 		session = request.getSession(true); //세션 호출
 		session.setAttribute("comId", company.getComId()); //세션에 담을 데이터
 		session.setAttribute("cid", company.getCid());
-		return "company/company";
+		return "redirect:/company";
 	}
 }

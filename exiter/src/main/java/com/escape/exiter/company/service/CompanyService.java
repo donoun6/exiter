@@ -1,7 +1,10 @@
 package com.escape.exiter.company.service;
 
+import java.util.List;
+
 import com.escape.exiter.company.domain.Company;
 import com.escape.exiter.company.domain.CompanyCommand;
+import com.escape.exiter.company.domain.CompanyTheme;
 import com.escape.exiter.company.domain.CompanyThemeCommand;
 
 public interface CompanyService {
@@ -16,8 +19,10 @@ public interface CompanyService {
 //	Company Login Dao
 	boolean login(String comId,String comPasswd);
 	
-	Company CompanyInfo(String comId);
+	Company companyInfo(String comId);
 	
 //	Company Theme Dao
 	void addTheme(CompanyThemeCommand companyTheme);
+	
+	List<CompanyTheme> themeInfo(long cid);
 }
