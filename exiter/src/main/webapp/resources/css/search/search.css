@@ -48,6 +48,7 @@
   transform: translateY(12.5px) rotateX(-90deg);
 }
 /* ------------------------------------------------------- */
+
 @media (min-width:1024px) {
   .theme-item {
     border-top: .104vw solid #888;
