@@ -40,7 +40,7 @@ if (comId == null){
   </aside>
   <!-- main section -->
   <main>
-	<form:form modelAttribute="company" method="post" style="margin-top:200px;">
+	<form:form modelAttribute="company" method="post" enctype="multipart/form-data" style="margin-top:200px;">
 		<input type="hidden" name="cid" value="${cid }">
 		<form:input path="tName"/>
 		<form:input path="tCategory"/>
@@ -49,13 +49,13 @@ if (comId == null){
 		<form:input path="tPrice"/>
 		<form:input path="tDef"/>
 		<form:input path="tTime"/>
-		<form:input path="tImage"/>
+		file :    <input type="file" name="file"><br>
+		<form:input path="tImage" type="hidden" value="dd" />
 		<button type="submit">등록</button>
 		<c:forEach var="companyInfo" items="${companyInfo }">
 			<h1>${companyInfo }</h1>
 		</c:forEach>
 	</form:form>
-	
   </main>
   <!-- footer -->
   <jsp:include page="../common/copyright.jsp"></jsp:include>

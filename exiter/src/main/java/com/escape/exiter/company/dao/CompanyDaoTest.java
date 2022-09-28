@@ -55,7 +55,7 @@ public class CompanyDaoTest {
 //		dao.addTheme(companyTheme);
 		
 //		company theme info test
-		dao.themeInfo(2);
+//		dao.themeInfo(2);
 		context.close();
 	}
 }
