@@ -51,6 +51,7 @@ public class CompanyThemeController {
 		String PathSpl = request.getSession().getServletContext().getRealPath("/").split(".metadata")[0];
 		String addPath = "exiter\\src\\main\\webapp\\resources\\images\\theme\\";
 		String path = PathSpl + addPath;
+		company.setTImage(file.getOriginalFilename());
 		try(
 				FileOutputStream fos = new FileOutputStream(path + file.getOriginalFilename());
                 InputStream is = file.getInputStream();

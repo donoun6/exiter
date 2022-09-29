@@ -19,7 +19,6 @@ main > h1 {
 
 #themeFormWrap {
 	background: red;
-	height: 20vh;
 	padding: 50px 20px;
 	box-sizing: border-box;
 	border-radius: 30px 30px 0 0;
@@ -28,7 +27,6 @@ main > h1 {
 #themeWrap {
 	background: yellow;
 	widows: 100%;
-	height: 70vh;
 	overflow: scroll;
 	scrollbar-width: none;
 	border-radius: 0 0 30px 30px;
