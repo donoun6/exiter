@@ -49,14 +49,14 @@ CREATE TABLE User (
 
 CREATE TABLE Company (
 	cid				BIGINT				NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	comId			VARCHAR(20)			NOT NULL UNIQUE KEY,
+	comId			VARCHAR(20)			NOT NULL,
 	comPasswd		VARCHAR(16)			NOT NULL,
 	comTel			VARCHAR(13)			NOT NULL,
 	comAddress1		VARCHAR(10)			NOT NULL,
 	comAddress2		VARCHAR(50)			NOT NULL,
 	comAddress3		VARCHAR(50)			NOT NULL,
 	comAddress4		VARCHAR(50)			NOT NULL,
-	comNum			VARCHAR(10)			NOT NULL UNIQUE KEY,
+	comNum			VARCHAR(10)			NOT NULL,
 	comName			VARCHAR(20)			NOT NULL,
 	comPocus		VARCHAR(20)			NULL,
 	-- comX			DOUBLE				NULL,

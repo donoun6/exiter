@@ -1,0 +1,39 @@
+@charset "EUC-KR";
+main {
+	position: relative;
+	z-index: 999;
+}
+
+main > h1 {
+	position: absolute;
+	font-size: 50px;
+	padding: 20px 0 0 30px;
+}
+
+#wrap {
+	display: block;
+	width: 90%;
+	margin: 0 auto;
+	padding-top: 10vh;
+}
+
+#themeFormWrap {
+	background: red;
+	height: 20vh;
+	padding: 50px 20px;
+	box-sizing: border-box;
+	border-radius: 30px 30px 0 0;
+}
+
+#themeWrap {
+	background: yellow;
+	widows: 100%;
+	height: 70vh;
+	overflow: scroll;
+	scrollbar-width: none;
+	border-radius: 0 0 30px 30px;
+}
+
+#themeWrap::-webkit-scrollbar {
+	display: none;
+}
