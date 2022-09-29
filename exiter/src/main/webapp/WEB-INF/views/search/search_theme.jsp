@@ -66,7 +66,7 @@
 						    		+ '<div class="search-item">'
 				    				+ '<span class="comName">' + map.comName + '</span>'
 				    				+ '<span class="tName">' + map.tName + '</span></div>'
-				    				+ '<img class="tImg" src="/exiter' + map.tImage + '" alt="' + map.tName + '">';
+				    				+ '<img class="tImg" src="/exiter/resources/images/theme/' + map.tImage + '" alt="' + map.tName + '">';
 				    				+ '</li>';
 							});
     					}
@@ -80,6 +80,7 @@
     		
     		// 테마 팝업창
     		$('.search-ul').on('click', '.search-li', function() {
+    			$('.detail-pop').removeClass('on');
     			var company = $(this).find('.comName').text();
     			var tName = $(this).find('.tName').text();
     			var allData = {"company": company, "tName": tName};
@@ -92,8 +93,17 @@
     				contentType: 'application/json; charset=UTF-8',
     				success: function(data) {
     					$('.detail-pop').html(data);
+    					if($('.search-ul').outerHeight() > 500) {
+    						$('.search-ul').css('padding-bottom', '350px');
+    					}
+    					$('.detail-pop').addClass('on');
     				}
     			});
+    		});
+    		
+    		// detail-pop 클래스에 on 삭제
+    		$('main').click(function() {
+    			$('.detail-pop').removeClass('on');
     		});
     	});
     </script>

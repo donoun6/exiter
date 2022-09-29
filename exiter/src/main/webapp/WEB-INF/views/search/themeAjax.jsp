@@ -15,23 +15,23 @@
 			<div class="detail-box">
 				<table>
 					<tr>
-						<th>장르</th>
+						<th>장&nbsp;&nbsp;&nbsp;르</th>
 						<td>${theme.getTCategory()}</td>
-						<th>시간</th>
-						<td>${theme.getTTime()}</td>
+						<th>시&nbsp;&nbsp;&nbsp;간</th>
+						<td>${theme.getTTime()}분</td>
 					</tr>
 					<tr>
-						<th>인원</th>
-						<td>${theme.getTNum()}</td>
+						<th>인&nbsp;&nbsp;&nbsp;원</th>
+						<td>${theme.getTNum()}명</td>
 						<th>난이도</th>
 						<td>${theme.getTLevel()}</td>
 					</tr>
 				</table>
+				<button class="s-btn">상세보기</button>
 			</div>
 		</div>
 		<div class="right-box">
-			<img alt="${theme.getTName()}" src="/exiter${theme.getTImage()}">
-			<button class="s-btn">상세보기</button>
+			<img alt="${theme.getTName()}" src="/exiter/resources/images/theme/${theme.getTImage()}">
 		</div>
 	</div>
 </html>

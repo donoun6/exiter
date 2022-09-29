@@ -75,9 +75,6 @@ public class SearchController {
 		String company = (String)allData.get("company");
 		String tName = (String)allData.get("tName");
 		
-		System.out.println(company);
-		System.out.println(tName);
-		
 		String comName = company.split("-")[0].trim();
 		String comPocus = "";
 		Theme theme;
