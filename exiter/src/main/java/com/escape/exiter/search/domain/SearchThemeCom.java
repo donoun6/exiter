@@ -8,7 +8,8 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class SearchThemeCom {
-	private String comName; // 매장명 - 지점명
+	private String comName;
+	private String comPocus;
 	private String tName;
 	private String tImage;
 	

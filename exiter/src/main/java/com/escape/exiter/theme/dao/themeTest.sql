@@ -25,3 +25,6 @@ SELECT c.comName, c.comPocus, t.tName, t.tImage FROM Theme t INNER JOIN Company 
 
 SELECT c.comName, c.comPocus, t.tName, t.tImage FROM Theme t
 INNER JOIN Company c ON t.cid = c.cid WHERE tName LIKE '%리%';
+
+SELECT t.* FROM Theme t INNER JOIN Company c ON t.cid = c.cid
+WHERE c.comName = '지구별 방탈출' AND c.comPocus = '홍대어드벤처점' AND t.tName = '미스터리';

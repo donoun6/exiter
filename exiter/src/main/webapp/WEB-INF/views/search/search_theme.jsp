@@ -31,12 +31,14 @@
         	<div class="search-theme">
 	        	<form class="search-bar" action="index.html" method="post">
 			        <input type="text" placeholder="테마검색" id="tName" class="searchBarInput" maxlength="12">
-			        <img src="<c:url value='/resources/images/icon/search.png'/>" alt="검색이미지" class="search-img">
+			        <img src="<c:url value='/resources/images/icon/search.png'/>" alt="검색이미지" class="search-image">
 			    </form>
 			    <ul class="search-ul">
 			    	<!-- ajax에서 받아온 값 출력 -->
 			    </ul>
         	</div>
+        	<!-- 상세 팝업창 -->
+        	<div class="detail-pop"></div>
         </main>
 	</div>
 	<!-- 푸터 영역 -->
@@ -45,6 +47,7 @@
     <!-- 스크립트 -->
     <script type="text/javascript">
     	$(function() {
+    		// 테마 검색
     		$('#tName').keyup(function() {
     			var tName = $('#tName').val();
     			$.ajax({
@@ -71,6 +74,24 @@
     				},
     				error: function(data) {
 
+    				}
+    			});
+    		});
+    		
+    		// 테마 팝업창
+    		$('.search-ul').on('click', '.search-li', function() {
+    			var company = $(this).find('.comName').text();
+    			var tName = $(this).find('.tName').text();
+    			var allData = {"company": company, "tName": tName};
+    			$.ajax({
+    				async: true,
+    				type: 'POST',
+    				data: JSON.stringify(allData),
+    				url: 'themeDetail',
+    				dataType: 'html',
+    				contentType: 'application/json; charset=UTF-8',
+    				success: function(data) {
+    					$('.detail-pop').html(data);
     				}
     			});
     		});

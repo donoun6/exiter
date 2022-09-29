@@ -12,7 +12,8 @@ public class SearchThemeRowMapper implements RowMapper<SearchThemeCom> {
 	@Override
 	public SearchThemeCom mapRow(ResultSet rs, int rowNum) throws SQLException {
 		SearchThemeCom stc = new SearchThemeCom();
-		stc.setComName(rs.getString("comName") + " - " + rs.getString("comPocus"));
+		stc.setComName(rs.getString("comName"));
+		stc.setComPocus(rs.getString("comPocus"));
 		stc.setTName(rs.getString("tName"));
 		stc.setTImage(rs.getString("tImage"));
 		return stc;
