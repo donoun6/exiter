@@ -42,6 +42,11 @@ public class CompanyServiceImpl implements CompanyService{
 	public Company companyInfo(String comId) {
 		return companyDao.companyInfo(comId);
 	}
+	
+	@Override
+	public Company companyInfo(long cid) {
+		return companyDao.companyInfo(cid);
+	}
 
 //	Company Theme Dao
 	@Override

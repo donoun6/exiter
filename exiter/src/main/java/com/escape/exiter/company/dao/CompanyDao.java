@@ -136,6 +136,31 @@ public class CompanyDao {
 		},comId);
 	}
 	
+	public Company companyInfo(long cid) {
+		String sql = "SELECT * FROM Company WHERE cid = ?";
+		return jdbcTemplate.queryForObject(sql, new RowMapper<Company>() {
+
+			@Override
+			public Company mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Company company = new Company();
+				company.setCid(rs.getLong("cid"));
+				company.setComId(rs.getString("comId"));
+				company.setComPasswd(rs.getString("comPasswd"));
+				company.setComTel(rs.getString("comTel"));
+				company.setComAddress1(rs.getString("comAddress1"));
+				company.setComAddress2(rs.getString("comAddress2"));
+				company.setComAddress3(rs.getString("comAddress3"));
+				company.setComAddress4(rs.getString("comAddress4"));
+				company.setComNum(rs.getString("comNum"));
+				company.setComName(rs.getString("comName"));
+				company.setComPocus(rs.getString("comPocus"));
+				company.setRegDate(rs.getDate("regDate"));
+				System.out.println("[사업자 정보]\n" + company.toString() + "\n");
+				return company;
+			}
+		},cid);
+	}
+	
 	
 // ====================	Company Theme Dao
 //	테마 등록

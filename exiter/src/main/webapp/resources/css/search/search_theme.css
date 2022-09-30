@@ -236,6 +236,7 @@ h3.title.on:before {
     font-family: "twayFly";
 }
 
+/* input 값입력시 배경색 안바뀌게 설정 */
 input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active {
   transition: background-color 5000s ease-in-out 0s;
   -webkit-transition: background-color 9999s ease-out;

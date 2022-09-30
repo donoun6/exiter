@@ -10,6 +10,7 @@
 				<span class="comName">
 					${company}
 				</span>
+				<br>
 				<span class="tName">${theme.getTName()}</span>
 			</div>
 			<div class="detail-box">
@@ -27,7 +28,7 @@
 						<td>${theme.getTLevel()}</td>
 					</tr>
 				</table>
-				<button class="s-btn">상세보기</button>
+				<button class="s-btn" onclick="location.href='/exiter/theme/theme/${theme.getTid()}'">상세보기</button>
 			</div>
 		</div>
 		<div class="right-box">

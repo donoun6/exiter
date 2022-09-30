@@ -21,6 +21,8 @@ public interface CompanyService {
 	
 	Company companyInfo(String comId);
 	
+	public Company companyInfo(long cid);
+	
 //	Company Theme Dao
 	void addTheme(CompanyThemeCommand companyTheme);
 	

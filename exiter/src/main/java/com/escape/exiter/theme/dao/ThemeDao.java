@@ -1,14 +1,11 @@
 package com.escape.exiter.theme.dao;
 
-import java.util.List;
-
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.escape.exiter.search.dao.SearchThemeRowMapper;
-import com.escape.exiter.search.domain.SearchThemeCom;
+import com.escape.exiter.theme.domain.Theme;
 
 @Repository
 public class ThemeDao {
@@ -18,4 +15,8 @@ public class ThemeDao {
 		jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 	
+	public Theme findThemeByTid(long tid) {
+		String sql = "SELECT * FROM Theme WHERE tid = ?";
+		return jdbcTemplate.queryForObject(sql, new ThemeRowMapper(), tid);
+	}
 }

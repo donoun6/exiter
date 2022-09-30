@@ -1,0 +1,123 @@
+@charset "UTF-8";
+
+
+/* common 영역 */
+html, body {
+    background: #1b1b1b;
+    color: #e6e6e6;
+}
+
+main {
+    min-height: calc(100vh - 200px);
+    padding: 80px 20px 0;
+}
+
+/* 테마 영역 */
+h5.info {
+	position: relative;
+	margin-bottom: 28px;
+	font-size: 14px;
+	font-weight: 400;
+    color: #d9d9d9;
+}
+
+h5.info:after {
+	content: '';
+	width: 58px;
+    height: 2px;
+    position: absolute;
+    left: -1px;
+    bottom: -5px;
+    background: #414aea;
+}
+
+h3.tName {
+    margin-bottom: 15px;
+	color: #414aea;
+    font-size: 38px;
+}
+
+.title {
+	margin-top: 30px
+}
+
+.title .companyName {
+	padding: 5px 5px;
+	background: #414aea;
+	color: white;
+}
+
+.title .companyPocus {
+	font-size: 14px;
+    color: #414aea;
+}
+
+.theme-info {
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.theme-info .left-box .theme-detail {
+	width: 160px;
+	font-size: 14px;
+}
+
+.theme-info .left-box .theme-detail tr {
+	height: 35px;
+}
+
+.theme-info .left-box .theme-detail tr th {
+	width: 45%;
+    text-align: left;
+    font-weight: 400;
+    color: #aaa;
+}
+
+.theme-info .left-box .theme-detail tr td > span {
+	display: inline-block;
+	padding-top: 4px;
+	font-size: 12px;
+	color: #aaa;
+}
+
+.theme-info .right-box img {
+	height: 250px;
+	border-radius: 25px;
+}
+
+.def-box {
+	margin-bottom: 60px;
+	line-height: 18px;
+	font-size: 14px;
+    color: #aaa;
+}
+
+.company-info {
+	position: relative;
+	padding-bottom: 90px;
+}
+
+.company-info:before {
+	content: '';
+	position: absolute;
+	top: -30px;
+	left: 0;
+	right: 0;
+	height: 1px;
+	background: #737373;
+}
+
+.company-info .comName, .company-info .comPocus {
+    display: inline-block;
+    height: 25px;
+    font-size: 18px;
+}
+
+.company-info .comAddr, .company-info .comTel {
+	font-size: 14px;
+    color: #aaa;
+    height: 18px;
+}
