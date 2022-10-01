@@ -37,7 +37,7 @@ public class CompanyDao {
 				company.getComAddress1(), company.getComAddress2(), company.getComAddress3(), 
 				company.getComAddress4(), company.getComNum(), company.getComName(), 
 				company.getComPocus());
-		System.out.println("[사업자 회원 등록]\n" + company.toString() + "\n");
+//		System.out.println("[사업자 회원 등록]\n" + company.toString() + "\n");
 	}
 
 //	아이디 중복 확인
@@ -50,14 +50,14 @@ public class CompanyDao {
 			@Override
 			public Boolean mapRow(ResultSet rs, int rowNum) throws SQLException {
 				if(rs.getString("comId").contentEquals(comId)) {
-					System.out.println("[중복된 아이디]"+ "\n");
+//					System.out.println("[중복된 아이디]"+ "\n");
 					return true;
 				}
 				return null;
 			}
 		},comId);
 	}catch (IncorrectResultSizeDataAccessException error) {
-		System.out.println("[중복되지 않은 아이디]"+ "\n");
+//		System.out.println("[중복되지 않은 아이디]"+ "\n");
 	    return false;
 	}
   }
@@ -72,14 +72,14 @@ public class CompanyDao {
 			@Override
 			public Boolean mapRow(ResultSet rs, int rowNum) throws SQLException {
 				if(rs.getString("comNum").contentEquals(comNum)) {
-					System.out.println("[중복된 사업자등록번호]"+ "\n");
+//					System.out.println("[중복된 사업자등록번호]"+ "\n");
 					return true;
 				}
 				return null;
 			}
 		},comNum);
 	}catch (IncorrectResultSizeDataAccessException error) {
-		System.out.println("[중복되지 않은 사업자등록번호]"+ "\n");
+//		System.out.println("[중복되지 않은 사업자등록번호]"+ "\n");
 	    return false;
 	}
   }
@@ -95,17 +95,17 @@ public class CompanyDao {
 				@Override
 				public Boolean mapRow(ResultSet rs, int rowNum) throws SQLException {
 					if(rs.getString("comPasswd").contentEquals(comPasswd)) {
-						System.out.println("[로그인 : 정보 확인]"+ "\n");
+//						System.out.println("[로그인 : 정보 확인]"+ "\n");
 						return true;
 					}
 					return null;
 				}
 			},comId);
 		} catch (NullPointerException error) {
-			System.out.println("[로그인 : 잘못된 정보]"+ "\n");
+//			System.out.println("[로그인 : 잘못된 정보]"+ "\n");
 			return false;
 		} catch (IncorrectResultSizeDataAccessException error) {
-			System.out.println("[로그인 : 잘못된 정보]"+ "\n");
+//			System.out.println("[로그인 : 잘못된 정보]"+ "\n");
 			return false;
 		}
 	}
@@ -130,7 +130,7 @@ public class CompanyDao {
 				company.setComName(rs.getString("comName"));
 				company.setComPocus(rs.getString("comPocus"));
 				company.setRegDate(rs.getDate("regDate"));
-				System.out.println("[사업자 정보]\n" + company.toString() + "\n");
+//				System.out.println("[사업자 정보]\n" + company.toString() + "\n");
 				return company;
 			}
 		},comId);
@@ -155,7 +155,7 @@ public class CompanyDao {
 				company.setComName(rs.getString("comName"));
 				company.setComPocus(rs.getString("comPocus"));
 				company.setRegDate(rs.getDate("regDate"));
-				System.out.println("[사업자 정보]\n" + company.toString() + "\n");
+//				System.out.println("[사업자 정보]\n" + company.toString() + "\n");
 				return company;
 			}
 		},cid);
@@ -166,13 +166,43 @@ public class CompanyDao {
 //	테마 등록
 	public void addTheme(CompanyThemeCommand companyTheme) {
 		String sql = "INSERT INTO Theme (cid, tName, tCategory, tLevel, tNum, "
-				+ "tPrice, tDef, tTime, tImage)"
-				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ? )";	
+				+ "tTime, tDef, tImage)"
+				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";	
 		jdbcTemplate.update(sql, companyTheme.getCid(), companyTheme.getTName(), 
 				companyTheme.getTCategory(), companyTheme.getTLevel(), companyTheme.getTNum(),
-				companyTheme.getTPrice(), companyTheme.getTDef(), companyTheme.getTTime(), 
-				companyTheme.getTImage());
-		System.out.println("[사업자 테마 등록]\n" + companyTheme.toString() + "\n");
+				companyTheme.getTTime(), companyTheme.getTDef(), companyTheme.getTImage());
+//		System.out.println("[사업자 테마 등록]\n" + companyTheme.toString() + "\n");
+	}
+	
+//	tid 가져오기
+	public Long getTid(String tName) {
+		String sql = "SELECT tid FROM Theme WHERE tName = ?";
+		return jdbcTemplate.queryForObject(sql, new RowMapper<Long>() {
+
+			@Override
+			public Long mapRow(ResultSet rs, int rowNum) throws SQLException {
+				CompanyTheme company = new CompanyTheme();
+				company.setTid(rs.getLong("tid"));
+//				System.out.println("[해당 테마 이름의 Tid]\n" + rs.getLong("tid") + "\n");
+				return rs.getLong("tid");
+			}
+		},tName);
+	}
+	
+//	인원별 가격
+	public void addThemePrice(Long tid,int tPrice) {
+		String sql = "INSERT INTO ThemePrice (tid, tPrice)"
+				+ "VALUES (?, ?)";	
+		jdbcTemplate.update(sql, tid, tPrice);
+		System.out.println("[테마 tid:"+ tid +"에 인원별 가격 등록]\n" + tPrice + "\n");
+	}
+	
+//	예약시간 등록
+	public void addThemeReservationTime(Long tid,String trTime) {
+		String sql = "INSERT INTO ThemeReservationTime (tid, trTime)"
+				+ "VALUES (?, ?)";	
+		jdbcTemplate.update(sql, tid, trTime);
+		System.out.println("[테마 tid:"+ tid +"에 예약시간 등록]\n" + trTime + "\n");
 	}
 	
 //	테마 정보
@@ -190,14 +220,14 @@ public class CompanyDao {
 					company.setTCategory(rs.getString("tCategory"));
 					company.setTLevel(rs.getInt("tLevel"));
 					company.setTNum(rs.getInt("tNum"));
-					company.setTPrice(rs.getInt("tPrice"));
 					company.setTDef(rs.getString("tDef"));
 					company.setTTime(rs.getInt("tTime"));
 					company.setTImage(rs.getString("tImage"));
 					company.setRegDate(rs.getDate("regDate"));
-					System.out.println("[테마 정보]\n" + company.toString() + "\n");
+//					System.out.println("[테마 정보]\n" + company.toString() + "\n");
 					return company;
 				}
 			},cid);
 	}
+	
 }

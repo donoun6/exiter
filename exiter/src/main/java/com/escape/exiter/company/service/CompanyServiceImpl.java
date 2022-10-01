@@ -55,8 +55,24 @@ public class CompanyServiceImpl implements CompanyService{
 	}
 
 	@Override
+	public Long getTid(String tName) {
+		return companyDao.getTid(tName);
+	}
+	
+	@Override
+	public void addThemePrice(Long tid,int tPrice) {
+		companyDao.addThemePrice(tid, tPrice);
+	}
+	
+	@Override
+	public void addThemeReservationTime(Long tid, String trTime) {
+		companyDao.addThemeReservationTime(tid, trTime);
+	}
+	
+	@Override
 	public List<CompanyTheme> themeInfo(long cid) {
 		return companyDao.themeInfo(cid);
 	}
+
 
 }

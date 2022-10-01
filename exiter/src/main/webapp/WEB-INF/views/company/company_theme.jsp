@@ -49,17 +49,15 @@ if (comId == null){
     <div id="themeFormWrap">
   	<form:form modelAttribute="company" method="post" enctype="multipart/form-data" class="themeForm">
 		<input type="hidden" name="cid" value="${cid }">
-		테마이름 : <form:input path="tName" placeholder="장르를 입력하세요."/><br>
+		테마이름 : <form:input path="tName" placeholder="테마 이름을 입력하세요."/><br>
 		테마장르 : <form:input path="tCategory" placeholder="카테고리를 입력하세요."/><br>
 		난이도 : <input type="number" id="tLevel" name="tLevel" placeholder="0단계"/><br>
 		<div class="addForm")>
 		최대인원 : <input type="number" id="tNum" name="tNum" placeholder="0명"/><br>
 		</div>
 		<div class="addForm2")>
-		예약시간 : <input id="trTime" class="timepicker trTime" name="trTime"/><br>
+		예약시간 : <input type="number" id="trNum" name="trNum" placeholder="추가할 예약시간 갯수"/><br>
 		</div>
-		<p id="addBtn">추가하기</p>
-		<p id="removeBtn">제거하기</p>
 		테마설명 : <form:input path="tDef"/><br>
 		이용시간 : <form:input path="tTime"/><br>
 		테마사진 : <input id="file" type="file" name="file"><br>
@@ -82,48 +80,34 @@ if (comId == null){
   $(function(){
 	  $("#tNum").change(function(){
 		  $("[class*='tPrice']").remove();
-		  $("#text:contains(인가격)").remove();
 		  for(var i = 0; i < $("#tNum").val(); i++) {
-			  $(".addForm").append(+ i+1 +'인가격 : <input id="tPrice'+ (i+1) +'" class="tPrice'+ (i+1) +'" name="tPrice" placeholder="25000원">');
+			  $(".addForm").append(+ i+1 +'인가격 : <input id="tPrice'+ (i+1) +'" class="tPrice'+ (i+1) +'" name="tPrice'+ (i+1) +'" placeholder="25000원">');
 		}
 	  });
 	  
-	  var i = 0;
-	  $("#addBtn").click(function(){
-		  i++;
-		$(".addForm2").append('<input id="trTime'+ i +'" class="timepicker trTime'+ i +'" name="trTime'+ i +'"/>');
-		$(document).ready(function(){
-				 $('input.timepicker').timepicker({
-				  timeFormat: 'h:mm p',
-				     interval: 10,
-				     minTime: '10',
-				     maxTime: '11:00pm',
-				     defaultTime: '10',
-				     startTime: '10:00',
-				     dynamic: false,
-				     dropdown: true,
-				     scrollbar: true
-				 });
-		});
-	  });
-	  
-	  $("#removeBtn").click(function(){
-		  $("[class*='trTime']").last().remove();
+	  $("#trNum").change(function(){
+		  $("[class*='trTime']").remove();
+		  for(var i = 0; i < $("#trNum").val(); i++) {
+			  $(".addForm2").append(+ i+1 +'번째 예약시간<input id="trTime'+ (i+1) +'" class="timepicker trTime'+ (i+1) +'" name="trTime'+ (i+1) +'"/>');
+			  <!-- Time Picker-->
+				$(document).ready(function(){
+					 $('input.timepicker').timepicker({
+					  timeFormat: 'h:mm p',
+					     interval: 10,
+					     minTime: '10',
+					     maxTime: '11:00pm',
+					     defaultTime: '10',
+					     startTime: '10:00',
+					     dynamic: false,
+					     dropdown: true,
+					     scrollbar: true
+					 });
+			});
+		}
 	  });
   });
   
-  <!-- Time Picker-->
-  $('input.timepicker').timepicker({
-  	timeFormat: 'h:mm p',
-      interval: 10,
-      minTime: '10',
-      maxTime: '11:00pm',
-      defaultTime: '10',
-      startTime: '10:00',
-      dynamic: false,
-      dropdown: true,
-      scrollbar: true
-  });
+
   </script>
 </body>
 

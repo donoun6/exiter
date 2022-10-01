@@ -18,7 +18,6 @@ public class CompanyTheme {
 	private String tCategory;
 	private int tLevel;
 	private int tNum;
-	private int tPrice;
 	private String tDef;
 	private int tTime;
 	private String tImage;

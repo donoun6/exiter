@@ -26,5 +26,11 @@ public interface CompanyService {
 //	Company Theme Dao
 	void addTheme(CompanyThemeCommand companyTheme);
 	
+	Long getTid(String tName);
+	
+	void addThemePrice(Long tid, int tPrice);
+	
+	void addThemeReservationTime(Long tid,String trTime);
+	
 	List<CompanyTheme> themeInfo(long cid);
 }

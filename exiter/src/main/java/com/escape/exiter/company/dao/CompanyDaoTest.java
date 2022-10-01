@@ -48,12 +48,22 @@ public class CompanyDaoTest {
 //		companyTheme.setTCategory("테스트카테고리");
 //		companyTheme.setTLevel(1);
 //		companyTheme.setTNum(1);
-//		companyTheme.setTPrice(1000);
-//		companyTheme.setTDef("테스트설명");
 //		companyTheme.setTTime(60);
+//		companyTheme.setTDef("테스트설명");
 //		companyTheme.setTImage("테스트이미지");
 //		dao.addTheme(companyTheme);
 		
+//	company theme getTid test	
+//		dao.getTid("테스트이름");
+		
+//	company theme price test
+//		long tid = 1;
+//		dao.addThemePrice(tid, 6000);
+		
+//		company theme price test
+//		long tid = 1;
+//		dao.addThemeReservationTime(tid, "AM 06:00");
+			
 //		company theme info test
 //		dao.themeInfo(2);
 		context.close();

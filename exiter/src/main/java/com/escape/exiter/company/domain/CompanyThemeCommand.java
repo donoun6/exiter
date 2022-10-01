@@ -11,11 +11,11 @@ import lombok.ToString;
 @ToString
 public class CompanyThemeCommand {
 	private long cid;
+	private long tid;
 	private String tName;
 	private String tCategory;
 	private int tLevel;
 	private int tNum;
-	private int tPrice;
 	private String tDef;
 	private int tTime;
 	private String tImage;

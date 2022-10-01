@@ -4,6 +4,8 @@ DROP TABLE Question;
 DROP TABLE BoardComment;
 DROP TABLE Board;
 DROP TABLE Reservation;
+DROP TABLE ThemePrice;
+DROP TABLE ThemeReservationTime;
 DROP TABLE Theme;
 DROP TABLE Company;
 DROP TABLE User;
@@ -15,6 +17,8 @@ DELETE FROM Question;
 DELETE FROM BoardComment;
 DELETE FROM Board;
 DELETE FROM Reservation;
+DELETE FROM ThemePrice;
+DELETE FROM ThemeReservationTime;
 DELETE FROM Theme;
 DELETE FROM Company;
 DELETE FROM User;
@@ -26,6 +30,8 @@ SELECT * FROM Question;
 SELECT * FROM BoardComment;
 SELECT * FROM Board;
 SELECT * FROM Reservation;
+SELECT * FROM ThemePrice;
+SELECT * FROM ThemeReservationTime;
 SELECT * FROM Theme;
 SELECT * FROM Company;
 SELECT * FROM User;
@@ -64,8 +70,6 @@ CREATE TABLE Company (
 	regDate			TIMESTAMP			NOT NULL DEFAULT	CURRENT_TIMESTAMP
 )AUTO_INCREMENT = 1;
 
-SELECT cid,comPasswd FROM Company WHERE comId = 'donoun3'
-
 CREATE TABLE Theme (
 	tid				BIGINT				NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	cid				BIGINT				NOT NULL,
@@ -73,7 +77,6 @@ CREATE TABLE Theme (
 	tCategory		VARCHAR(10)			NOT NULL,
 	tLevel			INT					NOT NULL,
 	tNum			INT					NOT NULL,
-	tPrice			INT					NOT NULL,
 	tDef			VARCHAR(500)		NOT NULL,
 	tTime			INT					NOT NULL,
 	tImage			VARCHAR(100)		NOT NULL,
@@ -81,10 +84,17 @@ CREATE TABLE Theme (
 	CONSTRAINT Theme_cid_FK FOREIGN KEY (cid) REFERENCES Company(cid)
 )AUTO_INCREMENT = 1;
 
-INSERT INTO Theme (cid,tName,tCategory,tLevel,tNum,tPrice,tDef,tTime,tImage)
-VALUES (1,'','테마카테고리',1,1,1,'테마설명',1,'테마사진');
+CREATE TABLE ThemePrice (
+	tid				BIGINT				NOT NULL,
+	tPrice			INT					NOT NULL,
+	CONSTRAINT ThemePrice_tid_FK FOREIGN KEY (tid) REFERENCES Theme(tid)
+)
 
-SELECT * FROM Theme t INNER JOIN Company c ON t.cid = c.cid WHERE c.cid = 2;
+CREATE TABLE ThemeReservationTime (
+	tid				BIGINT				NOT NULL,
+	trTime			VARCHAR(10)			NOT NULL,
+	CONSTRAINT ThemeThemeReservationTime_tid_FK FOREIGN KEY (tid) REFERENCES Theme(tid)
+)
 
 CREATE TABLE Reservation (
 	rid				BIGINT				NOT NULL PRIMARY KEY AUTO_INCREMENT,

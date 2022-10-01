@@ -66,6 +66,20 @@ public class CompanyThemeController {
         }
 		
 		companyService.addTheme(company);
+		
+		for (int i = 0; i < company.getTNum(); i++) {
+			int tPrice = Integer.parseInt(request.getParameter("tPrice"+(i+1)));
+			Long tid = companyService.getTid(company.getTName());
+			companyService.addThemePrice(tid, tPrice);
+		}
+		
+		int j = Integer.parseInt(request.getParameter("trNum"));
+		for (int i = 0; i < j; i++) {
+			String trTime = request.getParameter("trTime"+(i+1));
+			Long tid = companyService.getTid(company.getTName());
+			companyService.addThemeReservationTime(tid, trTime);
+		}
+		
 		return "redirect:/company/company_theme";
 	}
 }
