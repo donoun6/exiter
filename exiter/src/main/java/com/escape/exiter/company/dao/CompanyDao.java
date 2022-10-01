@@ -202,7 +202,7 @@ public class CompanyDao {
 		String sql = "INSERT INTO ThemeReservationTime (tid, trTime)"
 				+ "VALUES (?, ?)";	
 		jdbcTemplate.update(sql, tid, trTime);
-		System.out.println("[테마 tid:"+ tid +"에 예약시간 등록]\n" + trTime + "\n");
+//		System.out.println("[테마 tid:"+ tid +"에 예약시간 등록]\n" + trTime + "\n");
 	}
 	
 //	테마 정보

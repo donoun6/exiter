@@ -18,7 +18,6 @@ public class ThemeRowMapper implements RowMapper<Theme>{
 		t.setTCategory(rs.getString("tCategory"));
 		t.setTLevel(rs.getInt("tLevel"));
 		t.setTNum(rs.getInt("tNum"));
-		t.setTPrice(rs.getInt("tPrice"));
 		t.setTDef(rs.getString("tDef"));
 		t.setTTime(rs.getInt("tTime"));
 		t.setTImage(rs.getString("tImage"));
