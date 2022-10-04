@@ -110,7 +110,7 @@ public class CompanyDao {
 		}
 	}
 	
-//	사업자 정보
+//	사업자 정보 id
 	public Company companyInfo(String comId) {
 		String sql = "SELECT * FROM Company WHERE comId = ?";
 		return jdbcTemplate.queryForObject(sql, new RowMapper<Company>() {
@@ -136,6 +136,7 @@ public class CompanyDao {
 		},comId);
 	}
 	
+//	사업자 정보 cid
 	public Company companyInfo(long cid) {
 		String sql = "SELECT * FROM Company WHERE cid = ?";
 		return jdbcTemplate.queryForObject(sql, new RowMapper<Company>() {
@@ -194,7 +195,7 @@ public class CompanyDao {
 		String sql = "INSERT INTO ThemePrice (tid ,tpNum ,tPrice)"
 				+ "VALUES (?, ?, ?)";	
 		jdbcTemplate.update(sql, tid, tpNum, tPrice);
-		System.out.println("[테마 tid:"+ tid +"에 인원별 가격 등록]\n" + tpNum + "인 가격 : "+ tPrice + "\n");
+//		System.out.println("[테마 tid:"+ tid +"에 인원별 가격 등록]\n" + tpNum + "인 가격 : "+ tPrice + "\n");
 	}
 	
 //	예약시간 등록
