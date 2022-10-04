@@ -61,8 +61,8 @@ public class CompanyDaoTest {
 //		dao.addThemePrice(tid, 6000);
 		
 //		company theme price test
-//		long tid = 1;
-//		dao.addThemeReservationTime(tid, "AM 06:00");
+		long tid = 1;
+		dao.addThemeReservationTime(tid, "AM 06:00");
 			
 //		company theme info test
 //		dao.themeInfo(2);

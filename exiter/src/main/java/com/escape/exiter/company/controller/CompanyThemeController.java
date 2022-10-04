@@ -70,7 +70,7 @@ public class CompanyThemeController {
 		for (int i = 0; i < company.getTNum(); i++) {
 			int tPrice = Integer.parseInt(request.getParameter("tPrice"+(i+1)));
 			Long tid = companyService.getTid(company.getTName());
-			companyService.addThemePrice(tid, tPrice);
+			companyService.addThemePrice(tid, i+1 ,tPrice);
 		}
 		
 		int j = Integer.parseInt(request.getParameter("trNum"));

@@ -60,8 +60,8 @@ public class CompanyServiceImpl implements CompanyService{
 	}
 	
 	@Override
-	public void addThemePrice(Long tid,int tPrice) {
-		companyDao.addThemePrice(tid, tPrice);
+	public void addThemePrice(Long tid, int tpNum , int tPrice) {
+		companyDao.addThemePrice(tid, tpNum, tPrice);
 	}
 	
 	@Override

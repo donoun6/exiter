@@ -28,7 +28,7 @@ public interface CompanyService {
 	
 	Long getTid(String tName);
 	
-	void addThemePrice(Long tid, int tPrice);
+	void addThemePrice(Long tid, int tpNum, int tPrice);
 	
 	void addThemeReservationTime(Long tid,String trTime);
 	

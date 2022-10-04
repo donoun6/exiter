@@ -49,27 +49,24 @@ if (comId == null){
     <div id="themeFormWrap">
   	<form:form modelAttribute="company" method="post" enctype="multipart/form-data" class="themeForm">
 		<input type="hidden" name="cid" value="${cid }">
-		테마이름 : <form:input path="tName" placeholder="테마 이름을 입력하세요."/><br>
-		테마장르 : <form:input path="tCategory" placeholder="카테고리를 입력하세요."/><br>
-		난이도 : <input type="number" id="tLevel" name="tLevel" placeholder="0단계"/><br>
+		<label>테마이름 : <form:input path="tName" placeholder="테마 이름을 입력하세요."/></label>
+		<label>테마장르 : <form:input path="tCategory" placeholder="카테고리를 입력하세요."/></label>
+		<label>난이도 : <input type="number" id="tLevel" name="tLevel" placeholder="0단계"/></label>
 		<div class="addForm")>
-		최대인원 : <input type="number" id="tNum" name="tNum" placeholder="0명"/><br>
+		<label>최대인원 : <input type="number" id="tNum" name="tNum" placeholder="0명"/></label><br>
 		</div>
 		<div class="addForm2")>
-		예약시간 : <input type="number" id="trNum" name="trNum" placeholder="추가할 예약시간 갯수"/><br>
+		<label>예약시간 : <input type="number" id="trNum" name="trNum" placeholder="추가할 예약시간 갯수"/></label><br>
 		</div>
-		테마설명 : <form:input path="tDef"/><br>
-		이용시간 : <form:input path="tTime"/><br>
-		테마사진 : <input id="file" type="file" name="file"><br>
-		<button id="submitBtn" type="submit">등록</button>
+		<label>테마설명 : <form:input path="tDef"/><br></label>
+		<label>이용시간 : <input id="tTime" name="tTime" type="number" placeholder="60분"/></label>
+		<label>테마사진 : <input id="file" type="file" name="file"></label><br>
+		<button id="submitBtn" type="submit">등록</button></label>
 	</form:form>
   </div>
-  <div id="themeWrap">
-    <h1>등록테마</h1>
-  		<c:forEach var="companyInfo" items="${companyInfo }">
+  <c:forEach var="companyInfo" items="${companyInfo }">
 			<h1>${companyInfo }</h1>
 		</c:forEach>
-  </div>
   </div>
   </main>
   <!-- footer -->
@@ -79,16 +76,16 @@ if (comId == null){
   <script>
   $(function(){
 	  $("#tNum").change(function(){
-		  $("[class*='tPrice']").remove();
+		  $("[class*='tpriceDef']").remove();
 		  for(var i = 0; i < $("#tNum").val(); i++) {
-			  $(".addForm").append(+ i+1 +'인가격 : <input id="tPrice'+ (i+1) +'" class="tPrice'+ (i+1) +'" name="tPrice'+ (i+1) +'" placeholder="25000원">');
+			  $(".addForm").append('<label class="tpriceDef">'+ (i+1) +'인가격 : <input id="tPrice'+ (i+1) +'" class="tPrice'+ (i+1) +'" name="tPrice'+ (i+1) +'" placeholder="25000원"></label>');
 		}
 	  });
 	  
 	  $("#trNum").change(function(){
-		  $("[class*='trTime']").remove();
+		  $("[class*='trTimeDef']").remove();
 		  for(var i = 0; i < $("#trNum").val(); i++) {
-			  $(".addForm2").append(+ i+1 +'번째 예약시간<input id="trTime'+ (i+1) +'" class="timepicker trTime'+ (i+1) +'" name="trTime'+ (i+1) +'"/>');
+			  $(".addForm2").append('<label class="trTimeDef">'+ (i+1) +'번째 예약시간<input id="trTime'+ (i+1) +'" class="timepicker trTime'+ (i+1) +'" name="trTime'+ (i+1) +'"/></label>');
 			  <!-- Time Picker-->
 				$(document).ready(function(){
 					 $('input.timepicker').timepicker({
@@ -106,8 +103,6 @@ if (comId == null){
 		}
 	  });
   });
-  
-
   </script>
 </body>
 

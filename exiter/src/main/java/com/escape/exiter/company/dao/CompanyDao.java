@@ -190,11 +190,11 @@ public class CompanyDao {
 	}
 	
 //	인원별 가격
-	public void addThemePrice(Long tid,int tPrice) {
-		String sql = "INSERT INTO ThemePrice (tid, tPrice)"
-				+ "VALUES (?, ?)";	
-		jdbcTemplate.update(sql, tid, tPrice);
-		System.out.println("[테마 tid:"+ tid +"에 인원별 가격 등록]\n" + tPrice + "\n");
+	public void addThemePrice(Long tid,int tpNum,int tPrice) {
+		String sql = "INSERT INTO ThemePrice (tid ,tpNum ,tPrice)"
+				+ "VALUES (?, ?, ?)";	
+		jdbcTemplate.update(sql, tid, tpNum, tPrice);
+		System.out.println("[테마 tid:"+ tid +"에 인원별 가격 등록]\n" + tpNum + "인 가격 : "+ tPrice + "\n");
 	}
 	
 //	예약시간 등록

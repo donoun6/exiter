@@ -10,6 +10,10 @@ main > h1 {
 	padding: 20px 0 0 30px;
 }
 
+label {
+	display: inline-block;
+}
+
 #wrap {
 	display: block;
 	width: 90%;
@@ -18,20 +22,7 @@ main > h1 {
 }
 
 #themeFormWrap {
-	background: red;
 	padding: 50px 20px;
 	box-sizing: border-box;
 	border-radius: 30px 30px 0 0;
-}
-
-#themeWrap {
-	background: yellow;
-	widows: 100%;
-	overflow: scroll;
-	scrollbar-width: none;
-	border-radius: 0 0 30px 30px;
-}
-
-#themeWrap::-webkit-scrollbar {
-	display: none;
 }
