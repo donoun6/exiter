@@ -46,8 +46,8 @@ if (comId == null){
   <main>
   <h1>테마관리</h1>
   <div id="wrap">
-    <div id="themeFormWrap">
-    <h2>테마등록</h2>
+    <fieldset id="themeFormWrap">
+    <legend>테마추가</legend>
   	<form:form modelAttribute="company" method="post" enctype="multipart/form-data" class="themeForm">
 		<input type="hidden" name="cid" value="${cid }">
 		<label>테마이름 : <form:input path="tName" placeholder="테마 이름을 입력하세요."/></label>
@@ -58,13 +58,14 @@ if (comId == null){
 		<label>최대인원 : <input type="number" id="tNum" name="tNum" placeholder="0명"/></label><br>
 		</div>
 		<div class="addForm2">
-		<label>예약시간 : <input type="number" id="trNum" name="trNum" placeholder="추가할 예약시간 갯수"/></label><br>
+		<label>예약시간 : <input type="number" id="trNum" name="trNum" placeholder="추가할 예약시간 개수"/></label><br>
 		</div>
 		<label>테마설명 : <br><form:textarea path="tDef" style="width: 70vw; height: 150px;"/><br></label><br>
 		<label>테마사진 : <input id="file" type="file" name="file" style="width: 500px;"></label>
 		<button id="submitBtn" type="submit">등록</button>
+		<button id="submitBtn" type="reset">초기화</button>
 	</form:form>
-  </div>
+	</fieldset>
   <ul>
   	<c:forEach var="companyInfo" items="${companyInfo }">
   		<li>

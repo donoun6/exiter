@@ -86,14 +86,14 @@ public class CompanyThemeController {
 		
 		companyService.addTheme(company);
 		
-		for (int i = 0; i < company.getTNum(); i++) {	//추가될 갯수만큼 for문을 돌려
+		for (int i = 0; i < company.getTNum(); i++) {	//추가될 개수만큼 for문을 돌려
 			int tPrice = Integer.parseInt(request.getParameter("tPrice"+(i+1))); //int타입으로 캐스팅
 			Long tid = companyService.getTid(company.getTName()); //테마의 이름을 가지고 tid 추출
 			companyService.addThemePrice(tid, i+1 ,tPrice); //인원별 가격 등록
 		}
 		
 		int j = Integer.parseInt(request.getParameter("trNum"));
-		for (int i = 0; i < j; i++) {	//추가될 갯수만큼 for문을 돌려
+		for (int i = 0; i < j; i++) {	//추가될 개수만큼 for문을 돌려
 			String trTime = request.getParameter("trTime"+(i+1));
 			Long tid = companyService.getTid(company.getTName());
 			companyService.addThemeReservationTime(tid, trTime); //예약시간대 등록
