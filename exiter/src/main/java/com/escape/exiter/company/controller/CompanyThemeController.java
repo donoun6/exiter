@@ -2,6 +2,7 @@ package com.escape.exiter.company.controller;
 
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartResolver;
 
+import com.escape.exiter.company.domain.CompanyTheme;
 import com.escape.exiter.company.domain.CompanyThemeCommand;
 import com.escape.exiter.company.service.CompanyService;
 
@@ -36,11 +38,10 @@ public class CompanyThemeController {
 	 */
 	@GetMapping
 	public String companyThemeForm(Model model, HttpServletRequest request) {
-		model.addAttribute("company", new CompanyThemeCommand());
 		session = request.getSession(false);
 		long cid = (long) session.getAttribute("cid");
-		companyService.themeInfo(cid);
-		model.addAttribute("companyInfo",companyService.themeInfo(cid));
+		model.addAttribute("companyInfo", companyService.themeInfo(cid));
+		model.addAttribute("company", new CompanyThemeCommand());
 		return "company/company_theme";
 }
 	

@@ -2,16 +2,28 @@
 main {
 	position: relative;
 	z-index: 999;
+	overflow: scroll;
+}
+
+main{
+	-ms-overflow-style:none; /* IE and Edge */
+    scrollbar-width:none; /* Firefox */
+}
+
+main::-webkit-scrollbar {
+	display:none; /* Chrome , Safari , Opera */
 }
 
 main > h1 {
 	position: absolute;
 	font-size: 50px;
-	padding: 20px 0 0 30px;
+	padding: 40px 0 0 40px;
 }
 
 label {
 	display: inline-block;
+	width: 300px;
+	margin-bottom: 20px;
 }
 
 #wrap {
@@ -25,4 +37,14 @@ label {
 	padding: 50px 20px;
 	box-sizing: border-box;
 	border-radius: 30px 30px 0 0;
+}
+
+#themeFormWrap h2 {
+	font-size: 25px;
+	padding: 10px;
+	margin-bottom: 25px;
+}
+
+img {
+	width: 100px;
 }

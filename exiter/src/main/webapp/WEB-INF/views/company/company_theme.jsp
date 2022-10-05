@@ -47,26 +47,37 @@ if (comId == null){
   <h1>테마관리</h1>
   <div id="wrap">
     <div id="themeFormWrap">
+    <h2>테마등록</h2>
   	<form:form modelAttribute="company" method="post" enctype="multipart/form-data" class="themeForm">
 		<input type="hidden" name="cid" value="${cid }">
 		<label>테마이름 : <form:input path="tName" placeholder="테마 이름을 입력하세요."/></label>
 		<label>테마장르 : <form:input path="tCategory" placeholder="카테고리를 입력하세요."/></label>
 		<label>난이도 : <input type="number" id="tLevel" name="tLevel" placeholder="0단계"/></label>
-		<div class="addForm")>
+		<label>이용시간 : <input id="tTime" name="tTime" type="number" placeholder="60분"/></label><br>
+		<div class="addForm">
 		<label>최대인원 : <input type="number" id="tNum" name="tNum" placeholder="0명"/></label><br>
 		</div>
-		<div class="addForm2")>
+		<div class="addForm2">
 		<label>예약시간 : <input type="number" id="trNum" name="trNum" placeholder="추가할 예약시간 갯수"/></label><br>
 		</div>
-		<label>테마설명 : <form:input path="tDef"/><br></label>
-		<label>이용시간 : <input id="tTime" name="tTime" type="number" placeholder="60분"/></label>
-		<label>테마사진 : <input id="file" type="file" name="file"></label><br>
-		<button id="submitBtn" type="submit">등록</button></label>
+		<label>테마설명 : <br><form:textarea path="tDef" style="width: 70vw; height: 150px;"/><br></label><br>
+		<label>테마사진 : <input id="file" type="file" name="file" style="width: 500px;"></label>
+		<button id="submitBtn" type="submit">등록</button>
 	</form:form>
   </div>
-  <c:forEach var="companyInfo" items="${companyInfo }">
-			<h1>${companyInfo }</h1>
-		</c:forEach>
+  <ul>
+  	<c:forEach var="companyInfo" items="${companyInfo }">
+  		<li>
+  			<img src="<c:url value='/resources/images/theme/${companyInfo.TImage }'/>" alt="">
+  			<sapn>이름: ${companyInfo.TName }</sapn>
+  			<sapn>장르: ${companyInfo.TCategory }</sapn>
+  			<sapn>난이도: ${companyInfo.TLevel }</sapn>
+  			<sapn>최대인원: ${companyInfo.TNum }</sapn>
+  			<sapn>이용시간: ${companyInfo.TTime }</sapn>
+  			<sapn>테마설명: ${companyInfo.TDef }</sapn>
+  		</li>
+  	</c:forEach>
+  </ul>
   </div>
   </main>
   <!-- footer -->
@@ -85,7 +96,7 @@ if (comId == null){
 	  $("#trNum").change(function(){
 		  $("[class*='trTimeDef']").remove();
 		  for(var i = 0; i < $("#trNum").val(); i++) {
-			  $(".addForm2").append('<label class="trTimeDef">'+ (i+1) +'번째 예약시간<input id="trTime'+ (i+1) +'" class="timepicker trTime'+ (i+1) +'" name="trTime'+ (i+1) +'"/></label>');
+			  $(".addForm2").append('<label class="trTimeDef">'+ (i+1) +'번째 예약시간 : <input style="width: 150px;" id="trTime'+ (i+1) +'" class="timepicker trTime'+ (i+1) +'" name="trTime'+ (i+1) +'"/></label>');
 			  <!-- Time Picker-->
 				$(document).ready(function(){
 					 $('input.timepicker').timepicker({
