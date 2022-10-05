@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.escape.exiter.search.domain.SearchThemeCom;
 import com.escape.exiter.theme.dao.ThemeDao;
 import com.escape.exiter.theme.domain.Theme;
+import com.escape.exiter.theme.domain.ThemePrice;
 
 @Service
 public class ThemeServiceImpl implements ThemeService {
@@ -21,6 +22,21 @@ public class ThemeServiceImpl implements ThemeService {
 	@Override
 	public Theme getThemeByTid(long tid) {
 		return themeDao.findThemeByTid(tid);
+	}
+
+	@Override
+	public List<ThemePrice> getThemePriceByTid(long tid) {
+		return themeDao.findThemePriceByTid(tid);
+	}
+
+	@Override
+	public long getTpCntByTid(long tid) {
+		return themeDao.findTpCntByTid(tid);
+	}
+
+	@Override
+	public int getTPriceByTidAndTNum(long tid, int tpNum) {
+		return themeDao.findTPriceByTidAndTNum(tid, tpNum);
 	}
 
 }

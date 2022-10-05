@@ -1,10 +1,10 @@
--- company 임시 데이ㅓ
+-- company 임시 데이터
 INSERT INTO Company (comId, comPasswd, comTel, comAddress1, comAddress2, comAddress3, comAddress4, comNum, comName, comPocus) 
-VALUES ('earth1', '1111', '02-111-1111', '서울', '홍대', '주소3', '주소4', '1111111111', '지구별 방탈출', '홍대어드벤처점');
+VALUES ('earth1', '1111', '02-111-1111', '서울', '서울특별시 마포구 와우산로21길 31', '주소3', '주소4', '1111111111', '지구별 방탈출', '홍대어드벤처점');
 INSERT INTO Company (comId, comPasswd, comTel, comAddress1, comAddress2, comAddress3, comAddress4, comNum, comName, comPocus) 
-VALUES ('earth2', '2222', '053-222-2222', '대구', '동성로', '주소3', '주소4', '2222222222', '지구별 방탈출', '대구점');
+VALUES ('earth2', '2222', '053-222-2222', '대구', '대구광역시 중구 동성로 15-1', '주소3', '주소4', '2222222222', '지구별 방탈출', '대구점');
 INSERT INTO Company (comId, comPasswd, comTel, comAddress1, comAddress2, comAddress3, comAddress4, comNum, comName, comPocus) 
-VALUES ('escafeV1', '3333', '053-333-3333', '대구', '동성로', '주소3', '주소4', '3333333333', '방탈출 브이', '삼덕점');
+VALUES ('escafeV1', '3333', '053-333-3333', '대구', '대구광역시 중구 동성로5길 50', '주소3', '주소4', '3333333333', '방탈출 브이', '삼덕점');
 
 -- theme 임시 데이터
 INSERT INTO Theme (cid, tName, tCategory, tLevel, tNum, tDef, tTime, tImage) 
@@ -19,6 +19,87 @@ INSERT INTO Theme (cid, tName, tCategory, tLevel, tNum, tDef, tTime, tImage)
 VALUES (2, '우리 아빠', '공포', 4, 3, '어느 날 아빠가 나에게 물었다. 내 딸, 기분이 어떠니? 나는 대답했다. 너무 행복해요 아빠. * 이 테마는 자극적이고 불편한 요소가 포함되어 있습니다.', 70, 'img3.jpg');
 INSERT INTO Theme (cid, tName, tCategory, tLevel, tNum, tDef, tTime, tImage) 
 VALUES (3, '삼덕반점', '공포', 6, 7, '김반장의 네번째 의뢰, 새로 생긴 중국집 하나가 주변 중국집들을 초토화 시킨다고 한다. 그들의 비법을 훔쳐오라는 다소 위험하고 식상한 의뢰, 그리고 이곳은 김반장의 단골집이기도 하다.', 60, 'img3.png');
+
+-- themePrice 임시 데이터
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (1, 1, 10000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (1, 2, 20000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (1, 3, 30000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (1, 4, 35000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (1, 5, 40000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (1, 6, 50000);
+
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (2, 1, 10000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (2, 2, 20000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (2, 3, 30000);
+
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (3, 1, 10000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (3, 2, 20000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (3, 3, 30000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (3, 4, 35000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (3, 5, 40000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (3, 6, 50000);
+
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (4, 1, 10000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (4, 2, 20000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (4, 3, 30000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (4, 4, 35000);
+
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (5, 1, 10000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (5, 2, 20000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (5, 3, 30000);
+
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (6, 1, 10000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (6, 2, 20000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (6, 3, 30000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (6, 4, 35000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (6, 5, 40000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (6, 6, 50000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (6, 7, 60000);
+
+-- ThemeReservationTime 임시 데이터
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (1, '10:00 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (1, '11:00 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (1, '12:00 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (1, '01:00 PM');
+
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (2, '10:00 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (2, '11:00 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (2, '12:00 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (2, '01:00 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (2, '02:00 PM');
+
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (3, '10:00 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (3, '11:00 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (3, '12:00 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (3, '01:00 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (3, '02:00 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (3, '03:00 PM');
+
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (4, '10:00 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (4, '11:00 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (4, '12:00 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (4, '01:00 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (4, '02:00 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (4, '03:00 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (4, '04:00 PM');
+
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (5, '10:00 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (5, '11:00 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (5, '12:00 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (5, '01:00 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (5, '02:00 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (5, '03:00 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (5, '04:00 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (5, '05:00 PM');
+
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (6, '10:00 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (6, '11:00 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (6, '12:00 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (6, '01:00 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (6, '02:00 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (6, '03:00 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (6, '04:00 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (6, '06:00 PM');
 
 
 SELECT c.comName, c.comPocus, t.tName, t.tImage FROM Theme t INNER JOIN Company c ON t.cid = c.cid WHERE tName LIKE '%리%';
