@@ -47,11 +47,11 @@ if (comId == null){
   <h1>테마관리</h1>
   <div id="wrap">
     <fieldset id="themeFormWrap">
-    <legend>테마추가</legend>
+    <h1>테마추가</h1>
   	<form:form modelAttribute="company" method="post" enctype="multipart/form-data" class="themeForm">
 		<input type="hidden" name="cid" value="${cid }">
-		<label>테마이름 : <form:input path="tName" placeholder="테마 이름을 입력하세요."/></label>
-		<label>테마장르 : <form:input path="tCategory" placeholder="카테고리를 입력하세요."/></label>
+		<label>테마이름 : <form:input path="tName" placeholder="테마이름을 입력하세요."/></label>
+		<label>테마장르 : <form:input path="tCategory" placeholder="장르를 입력하세요."/></label>
 		<label>난이도 : <input type="number" id="tLevel" name="tLevel" placeholder="0단계"/></label>
 		<label>이용시간 : <input id="tTime" name="tTime" type="number" placeholder="60분"/></label><br>
 		<div class="addForm">
@@ -60,29 +60,45 @@ if (comId == null){
 		<div class="addForm2">
 		<label>예약시간 : <input type="number" id="trNum" name="trNum" placeholder="추가할 예약시간 개수"/></label><br>
 		</div>
-		<label>테마설명 : <br><form:textarea path="tDef" style="width: 70vw; height: 150px;"/><br></label><br>
+		<label>테마설명 : <br><form:textarea path="tDef" style="width: 70vw; height: 100px;"/><br></label><br>
 		<label>테마사진 : <input id="file" type="file" name="file" style="width: 500px;"></label>
 		<button id="submitBtn" type="submit">등록</button>
 		<button id="submitBtn" type="reset">초기화</button>
 	</form:form>
 	</fieldset>
-  <ul>
-  	<c:forEach var="companyInfo" items="${companyInfo }">
-  		<li>
-  			<img src="<c:url value='/resources/images/theme/${companyInfo.TImage }'/>" alt="">
-  			<sapn>이름: ${companyInfo.TName }</sapn>
-  			<sapn>장르: ${companyInfo.TCategory }</sapn>
-  			<sapn>난이도: ${companyInfo.TLevel }</sapn>
-  			<sapn>최대인원: ${companyInfo.TNum }</sapn>
-  			<sapn>이용시간: ${companyInfo.TTime }</sapn>
-  			<sapn>테마설명: ${companyInfo.TDef }</sapn>
-  		</li>
-  	</c:forEach>
-  </ul>
+	<h2>등록테마</h2>
+  <table>
+  <tr>
+    <th>사진</th>
+    <th>이름</th>
+    <th>장르</th>
+    <th>난이도</th>
+    <th>최대인원</th>
+    <th>이용시간</th>
+    <th>가격</th>
+    <th>예약시간</th>
+    <th>테마설명</th>
+    <th>삭제하기</th>
+  </tr>
+  <c:forEach var="companyInfo" items="${companyInfo }">
+  <tr>
+  <td><img src="<c:url value='/resources/images/theme/${companyInfo.TImage }'/>" alt=""></td>
+  <td><div><p>${companyInfo.TName }</p></div></td>
+  <td><div><p>${companyInfo.TCategory }</p></div></td>
+  <td><div><p>${companyInfo.TLevel }</p></div></td>
+  <td><div><p>${companyInfo.TNum }명</p></div></td>
+  <td><div><p>${companyInfo.TTime }분</p></div></td>
+  <td><div><p>가격</p></div></td>
+  <td><div><p>시간</p></div></td>
+  <td><div><p>${companyInfo.TDef }</p></div></td>
+  <td><div><button>삭제</button></div></td>
+  </tr>
+  </c:forEach>
+</table>
   </div>
-  </main>
   <!-- footer -->
   <jsp:include page="../common/copyright.jsp"></jsp:include>
+  </main>
   <!-- Time Picker CDN -->
   <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
   <script>
