@@ -60,10 +60,12 @@ if (comId == null){
 		<div class="addForm2">
 		<label>예약시간 : <input type="number" id="trNum" name="trNum" placeholder="추가할 예약시간 개수"/></label><br>
 		</div>
+		<label style="width: 350px;">테마사진 : <input id="file" type="file" name="file"></label><br>
 		<label>테마설명 : <br><form:textarea path="tDef" style="width: 70vw; height: 100px;"/><br></label><br>
-		<label>테마사진 : <input id="file" type="file" name="file" style="width: 500px;"></label>
+		<div class="btnBox">
 		<button id="submitBtn" type="submit">등록</button>
 		<button id="submitBtn" type="reset">초기화</button>
+		</div>
 	</form:form>
 	</fieldset>
 	<h2>등록테마</h2>
