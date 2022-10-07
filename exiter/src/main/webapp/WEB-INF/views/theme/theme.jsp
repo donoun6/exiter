@@ -71,11 +71,19 @@
         	<button class="s-btn">예약하기</button>
         	<div class="company-info">
         		<h5 class="info">카페 정보</h5>
-        		<span class="comName"><<&nbsp;${company.getComName()}&nbsp;>></span>
+        		<span class="comName">${company.getComName()}</span>
         		<span class="comPocus">${company.getComPocus()}</span>
         		<div id="map" style="width:100%;height:250px;"></div>
-        		<p class="comAddr">${company.getComAddress1()} ${company.getComAddress2()} ${company.getComAddress3()} ${company.getComAddress4()}</p>
-        		<p class="comTel">${company.getComTel()}</p>
+        		<table>
+        			<tr>
+        				<th>주&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;소</th>
+        				<td>${company.getComAddress2()}, ${company.getComAddress4()}</td>
+        			</tr>
+        			<tr>
+        				<th>전화번호</th>
+        				<td>${company.getComTel()}</td>
+        			</tr>
+        		</table>
         	</div>
         </main>
     </div>
@@ -128,12 +136,6 @@
 		            map: map,
 		            position: coords
 		        });
-		
-		        // 인포윈도우로 장소에 대한 설명을 표시합니다
-		        var infowindow = new kakao.maps.InfoWindow({
-		            content: '<div style="width:150px;text-align:center;padding:6px 0;">${company.getComName()}</div>'
-		        });
-		        infowindow.open(map, marker);
 		
 		        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
 		        map.setCenter(coords);

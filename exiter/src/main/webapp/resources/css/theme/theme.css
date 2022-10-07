@@ -128,26 +128,55 @@ h3.tName {
 
 .company-info .comName, .company-info .comPocus {
     display: inline-block;
-    line-height: 35px;
+    line-height: 30px;
     font-size: 18px;
 }
 
+.company-info .comName {
+	background: #414aea;
+    padding: 0 5px;
+
+}
+
+.company-info .comPocus {
+	color: #414aea;
+}
+
 .company-info #map {
-	margin-top: 5px;
-}
-
-.company-info .comAddr, .company-info .comTel {
-	line-height: 16px;
-	font-size: 14px;
-    color: #aaa;
-}
-
-.company-info .comAddr {
 	margin-top: 10px;
 }
 
-.company-info .comTel {
-	margin-top: 5px;
+.company-info table {
+    margin-top: 8px;
+	
+}
+
+.company-info table th, .company-info table td {
+	padding-top: 5px;
+	line-height: 20px;
+	text-align: left;
+    font-weight: 400;
+    font-size: 14px;
+    color: #aaa;
+}
+
+.company-info table th {
+	position: relative;
+	width: 25%;
+}
+
+.company-info table td {
+	width: 75%;
+}
+
+.company-info table th:before {
+	position: absolute;
+    top: 8px;
+    right: 16px;
+    content: '';
+    width: 1px;
+    height: 14px;
+    background: #aaa;
 }
 
 .s-btn {

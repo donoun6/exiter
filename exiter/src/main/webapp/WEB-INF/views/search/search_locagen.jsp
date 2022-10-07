@@ -27,6 +27,7 @@
           		<h3 class="title theme"><a href="<c:url value='/search/search_theme'/>">테마</a></h3>
           		<h3 class="title loca_gen on"><a href="<c:url value='/search/search_locagen'/>">지역/장르</a></h3>
         	</div>
+        	<p class="commonMsg">업데이트 예정입니다.<br>조금만 기다려주세요! (˚ ˃̣̣̥᷄ω˂̣̣̥᷅ )</p>
         	<!-- 선택 -->
         </main>
 	</div>

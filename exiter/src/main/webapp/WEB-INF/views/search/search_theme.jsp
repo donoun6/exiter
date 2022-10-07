@@ -29,7 +29,7 @@
         	</div>
         	<!-- 검색 -->
         	<div class="search-theme">
-	        	<form class="search-bar" action="index.html" method="post">
+	        	<form class="search-bar" method="post">
 			        <input type="text" placeholder="테마검색" id="tName" class="searchBarInput" maxlength="12">
 			        <img src="<c:url value='/resources/images/icon/search.png'/>" alt="검색이미지" class="search-image">
 			    </form>
@@ -47,9 +47,27 @@
     <!-- 스크립트 -->
     <script type="text/javascript">
     	$(function() {
+    		// msg 띄우기
+    		if($('#tName').val() == "") {
+   				var msg = "<li class='themeMsg'>찾으시는 테마명을 검색해주세요.</li>";
+   				$('.search-ul').html(msg);
+   			}
+    		
     		// 테마 검색
     		$('#tName').keyup(function() {
+    			// 백스페이스키 이벤트 제거
+    			if(event.keyCode === 8) {
+    				event.preventDefault();
+    			}
+    			
     			var tName = $('#tName').val();
+    			
+    			if(tName == "") {
+    				var msg = "<li class='themeMsg'>찾으시는 테마명을 검색해주세요.</li>";
+    				$('.search-ul').html(msg);
+    				return;
+    			}
+    			
     			$.ajax({
     				async: true,
     				type: 'POST',
@@ -76,6 +94,13 @@
 
     				}
     			});
+    		});
+    		
+    		// 엔터키 이벤트 제거
+    		$('#tName').keydown(function() {
+    			if(event.keyCode === 13) {
+    				event.preventDefault();
+    			}
     		});
     		
     		// 테마 팝업창

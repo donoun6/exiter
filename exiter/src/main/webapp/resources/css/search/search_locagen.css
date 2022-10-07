@@ -59,3 +59,10 @@ h3.title.on a {
 h3.title.on:before {
 	background: #fff;
 }
+
+.commonMsg {
+    margin-top: 260px;
+    line-height: 30px;
+    text-align: center;
+    color: #737373;
+}

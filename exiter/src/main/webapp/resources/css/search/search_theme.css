@@ -111,6 +111,12 @@ h3.title.on:before {
     border-bottom: 1px solid #737373;
 }
 
+.search-ul .themeMsg {
+	margin-top: 250px;
+	text-align: center;
+	color: #737373;
+}
+
 .tImg {
 	height: 100px;
 	border-radius: 13px;
