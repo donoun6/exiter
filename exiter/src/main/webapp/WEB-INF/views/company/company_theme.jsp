@@ -47,7 +47,7 @@ if (comId == null){
   <h1>테마관리</h1>
   <div id="wrap">
     <fieldset id="themeFormWrap">
-    <h1>테마추가</h1>
+    <h1 style="display: inline-block;">테마추가</h1><span style="color: red;">${err }</span>
   	<form:form modelAttribute="company" method="post" enctype="multipart/form-data" class="themeForm">
 		<input type="hidden" name="cid" value="${cid }">
 		<label>테마이름 : <form:input path="tName" placeholder="테마이름을 입력하세요."/></label>
@@ -90,10 +90,21 @@ if (comId == null){
   <td><div><p>${companyInfo.TLevel }</p></div></td>
   <td><div><p>${companyInfo.TNum }명</p></div></td>
   <td><div><p>${companyInfo.TTime }분</p></div></td>
-  <td><div><p>가격</p></div></td>
+  <td><div><p>
+  <select class="price" id="${companyInfo.tid }">
+  <option>인원별 가격보기</option>
+  </select>
+  </p></div></td>
   <td><div><p>시간</p></div></td>
   <td><div><p>${companyInfo.TDef }</p></div></td>
-  <td><div><button>삭제</button></div></td>
+  <td>
+  <div>
+  	<form>
+  	<input name="tid" type="hidden" value="${companyInfo.tid }">
+  	<button type="submit" id="delete">삭제</button>
+  	</form>
+  </div>
+  </td>
   </tr>
   </c:forEach>
 </table>
@@ -108,7 +119,7 @@ if (comId == null){
 	  $("#tNum").change(function(){
 		  $("[class*='tpriceDef']").remove();
 		  for(var i = 0; i < $("#tNum").val(); i++) {
-			  $(".addForm").append('<label class="tpriceDef">'+ (i+1) +'인가격 : <input id="tPrice'+ (i+1) +'" class="tPrice'+ (i+1) +'" name="tPrice'+ (i+1) +'" placeholder="25000원"></label>');
+			  $(".addForm").append('<label class="tpriceDef">'+ (i+1) +'인가격 : <input type="number" id="tPrice'+ (i+1) +'" class="tPrice'+ (i+1) +'" name="tPrice'+ (i+1) +'" placeholder="'+ (i+1) +'0000원"></label>');
 		}
 	  });
 	  
@@ -132,6 +143,29 @@ if (comId == null){
 			});
 		}
 	  });
+	  
+		$('.price').click(function() {
+			$("[class*='pDef']").remove();
+			var tid = $(this).attr('id');
+			var select = $(this);
+			$.ajax({
+				async: true,
+				type: 'POST',
+				data: tid, //id가 comId인 input태그의 value값을 비동기통신 데이터로 전달
+				url: "company_theme/getPrice",
+				dataType: "json",
+				contentType: "application/json; charset=UTF-8",
+				success: function(data) {
+					for(var i = 0; i < data.length; i++){
+						select.append('<option class="pDef">'+ (i+1) + '인 : '  + data[i].tprice+'원</option>');
+					}
+				},
+				error: function(data) {
+
+				}
+			});
+		});
+		
   });
   </script>
 </body>

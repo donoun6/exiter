@@ -14,6 +14,7 @@ import com.escape.exiter.company.domain.Company;
 import com.escape.exiter.company.domain.CompanyCommand;
 import com.escape.exiter.company.domain.CompanyTheme;
 import com.escape.exiter.company.domain.CompanyThemeCommand;
+import com.escape.exiter.theme.domain.ThemePrice;
 import com.escape.exiter.user.dao.UserRowMapper;
 import com.escape.exiter.user.domain.User;
 
@@ -229,6 +230,24 @@ public class CompanyDao {
 					return company;
 				}
 			},cid);
+	}
+	
+//	테마 가격 삭제
+	public void deleteThemePrice(Long tid) {
+		String sql = "DELETE FROM ThemePrice WHERE tid = ?";
+		jdbcTemplate.update(sql, tid);
+	}
+	
+//	테마 예약시간 삭제
+	public void deleteThemeReservationTime(Long tid) {
+		String sql = "DELETE FROM ThemeReservationTime WHERE tid = ?";
+		jdbcTemplate.update(sql, tid);
+	}
+	
+//	테마 삭제
+	public void deleteTheme(Long tid) {
+		String sql = "DELETE FROM Theme WHERE tid = ?";
+		jdbcTemplate.update(sql, tid);
 	}
 	
 }

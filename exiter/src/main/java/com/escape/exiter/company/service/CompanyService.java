@@ -33,4 +33,11 @@ public interface CompanyService {
 	void addThemeReservationTime(Long tid,String trTime);
 	
 	List<CompanyTheme> themeInfo(long cid);
+	
+	void deleteThemePrice(Long tid);
+	
+	void deleteThemeReservationTime(Long tid);
+	
+	void deleteTheme(Long tid);
+	
 }

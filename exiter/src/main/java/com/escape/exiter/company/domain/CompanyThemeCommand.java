@@ -14,10 +14,10 @@ public class CompanyThemeCommand {
 	private long tid;
 	private String tName;
 	private String tCategory;
-	private int tLevel;
-	private int tNum;
+	private Integer tLevel;
+	private Integer tNum;
 	private String tDef;
-	private int tTime;
+	private Integer tTime;
 	private String tImage;
 	
 //	생성자

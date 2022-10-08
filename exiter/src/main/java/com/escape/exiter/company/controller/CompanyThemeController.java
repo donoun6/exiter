@@ -3,6 +3,7 @@ package com.escape.exiter.company.controller;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -14,14 +15,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartResolver;
 
-import com.escape.exiter.company.domain.CompanyTheme;
 import com.escape.exiter.company.domain.CompanyThemeCommand;
 import com.escape.exiter.company.service.CompanyService;
+import com.escape.exiter.theme.domain.ThemePrice;
+import com.escape.exiter.theme.service.ThemeService;
 
 @Controller
 @RequestMapping("/company/company_theme")
@@ -29,7 +33,8 @@ public class CompanyThemeController {
 	@Autowired
 	CompanyService companyService; //Service Bean
 	HttpSession session; // 웹 환경에서 상태를 유지하기 위한 세션
-	
+	@Autowired
+	ThemeService themeService;
 	
 	/** 테마 등록 폼 화면 GET방식
 	 * @param model : form:form태그 안의 path값을 domain에 맞게 지정
@@ -42,8 +47,28 @@ public class CompanyThemeController {
 		long cid = (long) session.getAttribute("cid");
 		model.addAttribute("companyInfo", companyService.themeInfo(cid));
 		model.addAttribute("company", new CompanyThemeCommand());
+		
+		if (request.getParameter("tid") != null) { //get방식으로 tid를 받으면 아래 삭제 서비스가 작동
+			Long tid = Long.parseLong(request.getParameter("tid"));
+			companyService.deleteThemeReservationTime(tid);
+			companyService.deleteThemePrice(tid);
+			companyService.deleteTheme(tid);
+			return "redirect:/company/company_theme";
+		}
+		
 		return "company/company_theme";
 }
+	
+	/** 인원별 가격 정보 Ajax/Json
+	 * @param tid : jsp에서 id가 tid의 value 값을 ajax finction을 통해 가져온다 
+	 * @return 가져온 값을 service의 매개변수에 넣어 값을 되돌려준다.
+	 */
+	@RequestMapping("getPrice")
+	@ResponseBody // HTTP(Hyper Text Transfer Protocol)통신을 이용해 비동기 통신을 할때에 body공간에 데이터를 담는다.
+	public List<ThemePrice> getPrice(@RequestBody long tid) {
+		List<ThemePrice> price = themeService.getThemePriceByTid(tid);
+		return price;
+	}
 	
 	
 	/**
@@ -67,10 +92,45 @@ public class CompanyThemeController {
 	@PostMapping
 	public String companyTheme(@ModelAttribute("company") CompanyThemeCommand company, Model model,
 			@RequestParam("file") MultipartFile file, HttpServletRequest request) {
+		//ajax를사용하지 않아 post방식에도 테마정보를 넣어줘야한다. 시간이나면 ajax로 수정하기
+		session = request.getSession(false);
+		long cid = (long) session.getAttribute("cid");
+		model.addAttribute("companyInfo", companyService.themeInfo(cid));
+		
+		//유효성 검사
+		company.setTImage(file.getOriginalFilename());
+		String err = "*모든 정보는 필수입력 정보입니다.";
+		if(company.getTName() == null || company.getTName().length() == 0 ) {
+			model.addAttribute("err",err);
+			return "company/company_theme";
+		}if(company.getTCategory() == null || company.getTCategory().length() == 0 ) {
+			model.addAttribute("err",err);
+			return "company/company_theme";
+		}if(company.getTLevel() == null) {
+			model.addAttribute("err",err);
+			return "company/company_theme";
+		}if(company.getTTime() == null) {
+			model.addAttribute("err",err);
+			return "company/company_theme";
+		}if(company.getTNum() == null) {
+			model.addAttribute("err",err);
+			return "company/company_theme";
+		}for (int i = 0; i < company.getTNum(); i++) {	//추가될 개수만큼 for문을 돌려
+			if(request.getParameter("tPrice"+(i+1)) == null || request.getParameter("tPrice"+(i+1)).length() == 0) {
+				model.addAttribute("err",err);
+				return "company/company_theme";
+			}
+		}if(company.getTImage() == null || company.getTImage().length() == 0) {
+			model.addAttribute("err",err);
+			return "company/company_theme";
+		}if(company.getTDef() == null || company.getTDef().length() == 0) {
+			model.addAttribute("err",err);
+			return "company/company_theme";
+		}
+		
 		String PathSpl = request.getSession().getServletContext().getRealPath("/").split(".metadata")[0]; //실제 경로값은 공유가 안되기 때문에 잘라서 저장후 조원들과 공유
 		String addPath = "exiter\\src\\main\\webapp\\resources\\images\\theme\\"; //저장될 추가 경로
 		String path = PathSpl + addPath; // 최종 저장 경로
-		company.setTImage(file.getOriginalFilename());
 		try(
 				FileOutputStream fos = new FileOutputStream(path + file.getOriginalFilename());
                 InputStream is = file.getInputStream();
@@ -84,7 +144,7 @@ public class CompanyThemeController {
             throw new RuntimeException("file Save Error");
         }
 		
-		companyService.addTheme(company);
+		companyService.addTheme(company); //테마 추가
 		
 		for (int i = 0; i < company.getTNum(); i++) {	//추가될 개수만큼 for문을 돌려
 			int tPrice = Integer.parseInt(request.getParameter("tPrice"+(i+1))); //int타입으로 캐스팅
@@ -101,4 +161,5 @@ public class CompanyThemeController {
 		
 		return "redirect:/company/company_theme";
 	}
+
 }

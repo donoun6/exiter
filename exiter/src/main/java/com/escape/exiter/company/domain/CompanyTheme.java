@@ -21,6 +21,9 @@ public class CompanyTheme {
 	private String tDef;
 	private int tTime;
 	private String tImage;
+	private int tpNum;
+	private int tPrice;
+	private String trTime;
 	private Date regDate;
 	
 //	생성자

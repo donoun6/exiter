@@ -3,6 +3,7 @@ package com.escape.exiter.company.dao;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.escape.exiter.company.domain.CompanyCommand;
+import com.escape.exiter.company.domain.CompanyTheme;
 import com.escape.exiter.company.domain.CompanyThemeCommand;
 import com.escape.exiter.config.DataSourceConfig;
 
@@ -13,6 +14,8 @@ public class CompanyDaoTest {
 		CompanyDao dao = context.getBean("companyDao", CompanyDao.class);
 		CompanyCommand company = new CompanyCommand();
 		CompanyThemeCommand companyTheme = new CompanyThemeCommand();
+		CompanyTheme companyTheme2 = new CompanyTheme();
+		
 		
 //	company add user test
 //		company.setComId("testId");
@@ -61,9 +64,13 @@ public class CompanyDaoTest {
 //		dao.addThemePrice(tid, 6000);
 		
 //		company theme price test
-		long tid = 1;
-		dao.addThemeReservationTime(tid, "AM 06:00");
-			
+//		long tid = 1;
+//		dao.addThemeReservationTime(tid, "AM 06:00");
+
+//		company delete test
+//		long tid = 7;
+//		dao.deleteTheme(tid);
+		
 //		company theme info test
 //		dao.themeInfo(2);
 		context.close();
