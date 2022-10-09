@@ -95,7 +95,11 @@ if (comId == null){
   <option>인원별 가격보기</option>
   </select>
   </p></div></td>
-  <td><div><p>시간</p></div></td>
+  <td><div><p>
+  <select class="reservationTime" id="${companyInfo.tid }">
+  <option>예약시간 보기</option>
+  </select>
+  </p></div></td>
   <td><div><p>${companyInfo.TDef }</p></div></td>
   <td>
   <div>
@@ -158,6 +162,28 @@ if (comId == null){
 				success: function(data) {
 					for(var i = 0; i < data.length; i++){
 						select.append('<option class="pDef">'+ (i+1) + '인 : '  + data[i].tprice+'원</option>');
+					}
+				},
+				error: function(data) {
+
+				}
+			});
+		});
+		
+		$('.reservationTime').click(function() {
+			$("[class*='rtDef']").remove();
+			var tid = $(this).attr('id');
+			var select = $(this);
+			$.ajax({
+				async: true,
+				type: 'POST',
+				data: tid, //id가 comId인 input태그의 value값을 비동기통신 데이터로 전달
+				url: "company_theme/getReservationTime",
+				dataType: "json",
+				contentType: "application/json; charset=UTF-8",
+				success: function(data) {
+					for(var i = 0; i < data.length; i++){
+						select.append('<option class="rtDef">'+ (i+1) + '번째 : '  + data[i].trTime+'</option>');
 					}
 				},
 				error: function(data) {

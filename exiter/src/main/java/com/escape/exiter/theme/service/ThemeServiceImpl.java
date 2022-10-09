@@ -12,6 +12,7 @@ import com.escape.exiter.search.domain.SearchThemeCom;
 import com.escape.exiter.theme.dao.ThemeDao;
 import com.escape.exiter.theme.domain.Theme;
 import com.escape.exiter.theme.domain.ThemePrice;
+import com.escape.exiter.theme.domain.ThemeReservationTime;
 
 @Service
 public class ThemeServiceImpl implements ThemeService {
@@ -37,6 +38,11 @@ public class ThemeServiceImpl implements ThemeService {
 	@Override
 	public int getTPriceByTidAndTNum(long tid, int tpNum) {
 		return themeDao.findTPriceByTidAndTNum(tid, tpNum);
+	}
+
+	@Override
+	public List<ThemeReservationTime> getThemeReservationTimeByTid(long tid) {
+		return themeDao.findThemeReservationTimeByTid(tid);
 	}
 
 }

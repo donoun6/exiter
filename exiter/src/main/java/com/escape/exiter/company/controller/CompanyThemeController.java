@@ -25,6 +25,7 @@ import org.springframework.web.multipart.MultipartResolver;
 import com.escape.exiter.company.domain.CompanyThemeCommand;
 import com.escape.exiter.company.service.CompanyService;
 import com.escape.exiter.theme.domain.ThemePrice;
+import com.escape.exiter.theme.domain.ThemeReservationTime;
 import com.escape.exiter.theme.service.ThemeService;
 
 @Controller
@@ -68,6 +69,17 @@ public class CompanyThemeController {
 	public List<ThemePrice> getPrice(@RequestBody long tid) {
 		List<ThemePrice> price = themeService.getThemePriceByTid(tid);
 		return price;
+	}
+	
+	/** 예약시간 정보 Ajax/Json
+	 * @param tid : jsp에서 id가 tid의 value 값을 ajax finction을 통해 가져온다 
+	 * @return 가져온 값을 service의 매개변수에 넣어 값을 되돌려준다.
+	 */
+	@RequestMapping("getReservationTime")
+	@ResponseBody // HTTP(Hyper Text Transfer Protocol)통신을 이용해 비동기 통신을 할때에 body공간에 데이터를 담는다.
+	public List<ThemeReservationTime> getReservationTime(@RequestBody long tid) {
+		List<ThemeReservationTime> reservationTime = themeService.getThemeReservationTimeByTid(tid);
+		return reservationTime;
 	}
 	
 	

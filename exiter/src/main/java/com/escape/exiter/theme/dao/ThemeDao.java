@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import com.escape.exiter.theme.domain.Theme;
 import com.escape.exiter.theme.domain.ThemePrice;
+import com.escape.exiter.theme.domain.ThemeReservationTime;
 
 @Repository
 public class ThemeDao {
@@ -74,5 +75,26 @@ public class ThemeDao {
 			}
 			
 		}, tid, tpNum);
+	}
+	
+	/**
+	 * tid로 테마예약시간 찾기
+	 * @param tid
+	 * @return
+	 */
+	public List<ThemeReservationTime> findThemeReservationTimeByTid(long tid) {
+		String sql = "SELECT * FROM ThemeReservationTime WHERE tid = ?";
+		return jdbcTemplate.query(sql, new RowMapper<>() {
+
+			@Override
+			public ThemeReservationTime mapRow(ResultSet rs, int rowNum) throws SQLException {
+				ThemeReservationTime trt = new ThemeReservationTime();
+				trt.setTrid(rs.getLong("trid"));
+				trt.setTid(rs.getLong("tid"));
+				trt.setTrTime(rs.getString("trTime"));
+				return trt;
+			}
+			
+		}, tid);
 	}
 }
