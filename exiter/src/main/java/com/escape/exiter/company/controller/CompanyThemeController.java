@@ -31,11 +31,15 @@ import com.escape.exiter.theme.service.ThemeService;
 @Controller
 @RequestMapping("/company/company_theme")
 public class CompanyThemeController {
-	@Autowired
-	CompanyService companyService; //Service Bean
-	HttpSession session; // 웹 환경에서 상태를 유지하기 위한 세션
-	@Autowired
+	//Service Bean
+	@Autowired //나혜누나 서비스 훔쳐오기
 	ThemeService themeService;
+	
+	//Service Bean
+	@Autowired
+	CompanyService companyService; 
+	HttpSession session; // 웹 환경에서 상태를 유지하기 위한 세션
+	
 	
 	/** 테마 등록 폼 화면 GET방식
 	 * @param model : form:form태그 안의 path값을 domain에 맞게 지정
@@ -58,7 +62,8 @@ public class CompanyThemeController {
 		}
 		
 		return "company/company_theme";
-}
+	}
+	
 	
 	/** 인원별 가격 정보 Ajax/Json
 	 * @param tid : jsp에서 id가 tid의 value 값을 ajax finction을 통해 가져온다 
@@ -70,6 +75,7 @@ public class CompanyThemeController {
 		List<ThemePrice> price = themeService.getThemePriceByTid(tid);
 		return price;
 	}
+	
 	
 	/** 예약시간 정보 Ajax/Json
 	 * @param tid : jsp에서 id가 tid의 value 값을 ajax finction을 통해 가져온다 
@@ -107,7 +113,7 @@ public class CompanyThemeController {
 		//ajax를사용하지 않아 post방식에도 테마정보를 넣어줘야한다. 시간이나면 ajax로 수정하기
 		session = request.getSession(false);
 		long cid = (long) session.getAttribute("cid");
-		model.addAttribute("companyInfo", companyService.themeInfo(cid));
+		model.addAttribute("companyInfo", companyService.themeInfo(cid)); //테마정보를 뿌려주기 위함
 		
 		//유효성 검사
 		company.setTImage(file.getOriginalFilename());
@@ -140,6 +146,7 @@ public class CompanyThemeController {
 			return "company/company_theme";
 		}
 		
+		//사진 파일 저장
 		String PathSpl = request.getSession().getServletContext().getRealPath("/").split(".metadata")[0]; //실제 경로값은 공유가 안되기 때문에 잘라서 저장후 조원들과 공유
 		String addPath = "exiter\\src\\main\\webapp\\resources\\images\\theme\\"; //저장될 추가 경로
 		String path = PathSpl + addPath; // 최종 저장 경로
@@ -156,7 +163,8 @@ public class CompanyThemeController {
             throw new RuntimeException("file Save Error");
         }
 		
-		companyService.addTheme(company); //테마 추가
+		//테마 추가, 가격 추가, 예약시간 추가
+		companyService.addTheme(company); 
 		
 		for (int i = 0; i < company.getTNum(); i++) {	//추가될 개수만큼 for문을 돌려
 			int tPrice = Integer.parseInt(request.getParameter("tPrice"+(i+1))); //int타입으로 캐스팅
