@@ -68,6 +68,12 @@
     		// 아이디 실시간 중복 체크(ajax 활용)
 			$('#userId').keyup(function() {
 				var userId = $('#userId').val();
+				
+				if(userId == "") {
+					$('#checkId').text('');
+    				return;
+    			}
+				
 				$.ajax({
 					async: true,
 					type: 'POST',

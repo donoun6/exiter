@@ -10,14 +10,14 @@
 <link rel="stylesheet" href="<c:url value='/resources/css/common/initial.css'/>">
 <link rel="stylesheet" href="<c:url value='/resources/css/common/default.css'/>">
 <link rel="stylesheet" href="<c:url value='/resources/css/common/header.css'/>">
-<link rel="stylesheet" href="<c:url value='/resources/css/common/copyright.css'/>">
+<link rel="stylesheet" href="<c:url value='/resources/css/common/footer.css'/>">
 <link rel="stylesheet" href="<c:url value='/resources/css/user/mypage.css'/>">
 <title>mypage</title>
 </head>
 <body>
 <div id="wrap">
- <!-- header 영역 -->
-      <jsp:include page="../common/only_logo_header.jsp"></jsp:include> 
+ 	<!-- header 영역 -->
+    <jsp:include page="../common/only_logo_header.jsp"></jsp:include> 
     
     <div class="content">
       <div class="top-container">
@@ -50,21 +50,24 @@
 
 
         <div class="middle-box">
-          현재 예약중인 테마를 띄울까?
+          <h5>현재 예약중인 테마</h5>
         </div>
 
         <div class="bottom-box">
           <div class="reservation">
-            <img src="./img/booking.png" alt="booking">
-            <h4>예약내역</h4>
+            <!-- <img src="./img/booking.png" alt="booking"> -->
+            <h5>예약내역</h5>
+            <p><span>0</span>&nbsp;건</p>
           </div>
           <div class="record">
-            <img src="./img/record.png" alt="booking">
-            <h4>내기록확인</h4>
+             <!-- <img src="./img/record.png" alt="booking"> -->
+            <h5>내기록확인</h5>
+            <p><span>-</span></p>
           </div>
           <div class="ranking">
-            <img src="./img/ranking.png" alt="booking">
-            <h4>랭킹</h4>
+             <!-- <img src="./img/ranking.png" alt="booking"> -->
+            <h5>랭킹</h5>
+            <p><span>-</span>&nbsp;위</p>
           </div>
         </div>
 
@@ -75,9 +78,12 @@
           <tr><td>1:1 문의</td></tr>
           <tr><td>회원정보 변경</td></tr>
         </table>
-
+		
+		<p class="logout"><a href="<c:url value='/user/logout'/>">로그아웃</a></p>
       </div>
     </div>
- </div></div>
+    
+	<!-- 푸터 영역 -->
+    <jsp:include page="../common/footer.jsp"></jsp:include>
 </body>
 </html>
