@@ -44,11 +44,9 @@
         <h2>최신 등록 테마</h2>
         <div class="swiper mySwiper">
           <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="<c:url value='/resources/images/theme/img.jpg'/>" alt=""></div>
-            <div class="swiper-slide"><img src="<c:url value='/resources/images/theme/img2.png'/>" alt=""></div>
-            <div class="swiper-slide"><img src="<c:url value='/resources/images/theme/img3.jpg'/>" alt=""></div>
-            <div class="swiper-slide"><img src="<c:url value='/resources/images/theme/img4.png'/>" alt=""></div>
-            <div class="swiper-slide"><img src="<c:url value='/resources/images/theme/img5.jpg'/>" alt=""></div>
+          <c:forEach var="newImg" items="${newImg }">
+          	<div class="swiper-slide"><img src="<c:url value='/resources/images/theme/${newImg }'/>" alt=""></div>
+          </c:forEach>
           </div>
         </div>
       </section>

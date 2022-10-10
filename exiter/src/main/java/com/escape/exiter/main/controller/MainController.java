@@ -19,8 +19,8 @@ public class MainController {
 	 */
 	@GetMapping
 	public String mainPage(Model model) {
-		System.out.println(mainService.randomImg());
 		model.addAttribute("randomImg",mainService.randomImg());
+		model.addAttribute("newImg",mainService.newImg());
 		return "index";
 	}
 	
