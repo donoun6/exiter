@@ -111,6 +111,8 @@
     font-weight: 700;
     color: #414aea;
     font-family: "twayFly";
+    border-radius: 0;
+    box-shadow: none;
 }
   </style>
 </head>

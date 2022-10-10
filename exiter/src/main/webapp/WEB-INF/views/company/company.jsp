@@ -28,8 +28,8 @@ if (comId == null){
   <aside>
     <nav id="aside-nav">
       <ul>
-      ${comId } 님 ${cid }
-        <li><a href="#">사업자메인</a></li>
+      ${comId } 님
+        <li><a href="<c:url value='/company'/>">사업자메인</a></li>
         <li><a href="<c:url value='/company/company_theme'/>">테마관리</a></li>
         <li><a href="#">예약확인</a></li>
         <li><a href="#">QnA</a></li>

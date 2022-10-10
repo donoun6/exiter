@@ -49,7 +49,12 @@ public class CompanyThemeController {
 	@GetMapping
 	public String companyThemeForm(Model model, HttpServletRequest request) {
 		session = request.getSession(false);
+//		로그인이 안되어있을시 로그인화면으로 보내기
+		if (session == null || session.getAttribute("cid") == null){
+			return "redirect:/company/company_login";
+		}
 		long cid = (long) session.getAttribute("cid");
+		
 		model.addAttribute("companyInfo", companyService.themeInfo(cid));
 		model.addAttribute("company", new CompanyThemeCommand());
 		
