@@ -86,6 +86,7 @@ CREATE TABLE Theme (
 
 SELECT tImage FROM Theme ORDER BY RAND() LIMIT 0, 1;
 
+SELECT tImage,tName,comId FROM Theme t INNER JOIN Company c ON t.cid = c.cid ORDER BY tid DESC
 CREATE TABLE ThemePrice (
 	tid				BIGINT				NOT NULL,
 	tpid			BIGINT				NOT NULL PRIMARY KEY AUTO_INCREMENT,

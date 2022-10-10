@@ -11,7 +11,7 @@ public class MainDaoTest {
 		MainDao dao = context.getBean("mainDao",MainDao.class);
 		
 //		System.out.println(dao.randomImg());
-//		System.out.println(dao.newImg());
+		System.out.println(dao.newImg());
 	}
 	
 }

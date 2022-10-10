@@ -16,6 +16,103 @@
   <script type="text/javascript" src="<c:url value='/resources/js/common/jquery.js'/>"></script>
   <script type="text/javascript" src="<c:url value='/resources/js/common/common.js'/>"></script>
   <title>main</title>
+  <style type="text/css">
+  	/* 테마 팝업창 */
+@keyframes onAni {
+	from {
+	bottom: -380px;
+	}
+	to {
+	bottom: 0px;
+	}
+}
+
+.detail-pop {
+    position: fixed;
+    bottom: -500px;
+    width: calc(100% - 20px);
+    height: 265px;
+    padding: 20px 0 0 20px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    background: #f1f1f1;
+    z-index: 99;
+}
+
+.detail-pop.on {
+	animation: onAni 1s linear forwards;
+}
+
+#themeAjax {
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 350px;
+    margin-top: 5px;
+}
+
+.right-box {
+	text-align: right;
+}
+
+.left-box .title-box span {
+	display: inline-block;
+}
+
+.left-box .title-box .comName {
+	background: #414aea;
+    color: #fff;
+    font-size: 16px;
+    padding: 4px;
+}
+
+.left-box .title-box .tName {
+	margin-top: 10px;
+    font-size: 25px;
+    color: #414aea;
+}
+
+.right-box img {
+	height: 160px;
+    border-radius: 13px;
+}
+
+.detail-box table {
+	margin-top: 10px;
+	color: #1b1b1b;
+}
+
+.detail-box table th, .detail-box table td {
+	text-align: left;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	font-size: 14px;
+}
+
+.detail-box table th {
+	width: 20%;
+	font-weight: 400;
+	color: #737373;
+}
+
+.detail-box table td {
+	width: 30%;
+    padding: 0 5px;
+}
+
+.detail-box .s-btn {
+    width: 220px;
+    height: 50px;
+    margin-top: 15px;
+    border: 1px solid #414aea;
+    outline: 0;
+    background: none;
+    font-size: 20px;
+    font-weight: 700;
+    color: #414aea;
+    font-family: "twayFly";
+}
+  </style>
 </head>
 <body>
   <div id="wrap">
@@ -45,7 +142,7 @@
         <div class="swiper mySwiper">
           <div class="swiper-wrapper">
           <c:forEach var="newImg" items="${newImg }">
-          	<div class="swiper-slide"><img src="<c:url value='/resources/images/theme/${newImg }'/>" alt=""></div>
+          	<div class="swiper-slide"><img id="img" name="${newImg.TName }" class="${newImg.comName }" src="<c:url value='/resources/images/theme/${newImg.TImage }'/>" alt=""></div>
           </c:forEach>
           </div>
         </div>
@@ -63,6 +160,7 @@
         </div>
       </section>
     </main>
+    <div class="detail-pop"></div>
     <!-- footer bottom-nav -->
     <jsp:include page="common/footer.jsp"></jsp:include>
   </div>
@@ -75,6 +173,35 @@
       spaceBetween: 10,
       freeMode: true,
     });
+    $(function(){
+    	 // 테마 팝업창
+    	$("[id*='img']").click(function() {
+    		$('.detail-pop').removeClass('on');
+    		var company = $(this).attr('class');
+    		var tName = $(this).attr('name');
+    		console.log(company);
+    		console.log(tName);
+    		var allData = {"company": company, "tName": tName};
+    		$.ajax({
+    			async: true,
+    			type: 'POST',
+    			data: JSON.stringify(allData),
+    			url: 'search/themeDetail',
+    			dataType: 'html',
+    			contentType: 'application/json; charset=UTF-8',
+    			success: function(data) {
+    				$('.detail-pop').html(data);
+    				$('.detail-pop').addClass('on');
+    			}
+    		});
+    	});
+    	// detail-pop 클래스에 on 삭제
+    	$('main').click(function() {
+			$('.detail-pop').removeClass('on');
+		});
+    	
+    });
+
   </script>
 </body>
 </html>

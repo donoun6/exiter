@@ -11,6 +11,8 @@ import lombok.ToString;
 @ToString
 public class MainDomain {
 	private String tImage;
+	private String tName;
+	private String comName;
 
 	public MainDomain() {
 	}

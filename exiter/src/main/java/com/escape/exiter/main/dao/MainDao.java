@@ -9,6 +9,8 @@ import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
+import com.escape.exiter.main.domain.MainDomain;
+
 public class MainDao {
 	private JdbcTemplate jdbcTemplate;
 	
@@ -32,13 +34,17 @@ public class MainDao {
 	}
 	
 //	최신 등록 이미지 출력
-	public List<Object> newImg() {
-		String sql = "SELECT tImage FROM Theme ORDER BY tid DESC";
+	public List<MainDomain> newImg() {
+		String sql = "SELECT tImage,tName,comName FROM Theme t INNER JOIN Company c ON t.cid = c.cid ORDER BY tid DESC";
 		return jdbcTemplate.query(sql, new RowMapper<>() {
 
 			@Override
-			public String mapRow(ResultSet rs, int rowNum) throws SQLException {
-				return rs.getString("tImage");
+			public MainDomain mapRow(ResultSet rs, int rowNum) throws SQLException {
+				MainDomain md = new MainDomain();
+				md.setTImage(rs.getString("tImage"));
+				md.setTName(rs.getString("tName"));
+				md.setComName(rs.getString("comName"));
+				return md;
 			}
 			
 		});

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.escape.exiter.main.dao.MainDao;
+import com.escape.exiter.main.domain.MainDomain;
 
 @Service
 public class MainServiceImpl implements MainService{
@@ -18,7 +19,7 @@ public class MainServiceImpl implements MainService{
 	}
 
 	@Override
-	public List<Object> newImg() {
+	public List<MainDomain> newImg() {
 		return mainDao.newImg();
 	}
 
