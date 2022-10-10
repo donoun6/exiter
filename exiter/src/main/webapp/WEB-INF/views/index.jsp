@@ -25,7 +25,7 @@
     
     <!-- main -->
     <main>
-      <article class="main-img"></article>
+      <article class="main-img" style="background-image: linear-gradient(to bottom,rgba(27, 27, 27, 0) 5%,rgba(27, 27, 27, 0) ,rgba(27, 27, 27, 1)),url('<c:url value='/resources/images/theme/${randomImg }'/>');"></article>
       <!-- section1-->
       <section id="section" class="section1">
         <h2>많이찾는 테마</h2>

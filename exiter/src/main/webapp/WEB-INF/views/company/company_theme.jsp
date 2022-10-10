@@ -96,7 +96,7 @@ if (comId == null){
   </select>
   </p></div></td>
   <td><div><p>
-  <select class="reservationTime" id="${companyInfo.tid }">
+  <select class="reservationTime" id="${companyInfo.tid }" style="width: 140px;">
   <option>예약시간 보기</option>
   </select>
   </p></div></td>

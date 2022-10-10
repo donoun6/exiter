@@ -8,6 +8,7 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 
 import com.escape.exiter.company.dao.CompanyDao;
+import com.escape.exiter.main.dao.MainDao;
 
 
 @Configuration
@@ -43,5 +44,10 @@ public class DataSourceConfig {
 	@Bean
 	public CompanyDao companyDao() {
 		return new CompanyDao(dataSource());
+	}
+	
+	@Bean
+	public MainDao mainDao() {
+		return new MainDao(dataSource());
 	}
 }

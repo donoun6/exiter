@@ -17,12 +17,6 @@ main {
 
 main .main-img {
   display: block;
-  background-image: linear-gradient(
-       to bottom,
-       rgba(27, 27, 27, 0) 5%,
-       rgba(27, 27, 27, 0) ,
-       rgba(27, 27, 27, 1)),
-   url("../images/theme/img4.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
