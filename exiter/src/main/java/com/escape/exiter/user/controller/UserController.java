@@ -4,9 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,6 +26,8 @@ public class UserController {
 	
 	@Autowired
 	UserService userService;
+	
+	HttpSession session;
 	
 	/**
 	 * 회원가입 페이지 접속
@@ -157,6 +161,28 @@ public class UserController {
 		userService.changePasswd(userId, uPasswd1);
 		redirectAttributes.addFlashAttribute("pwSuc", "pwSuc");
 		return "redirect:success_findPw";
+	}
+	
+	@GetMapping("/user/update_userInfo")
+	public String updateUserInfoForm(HttpServletRequest request, Model model) {
+		session = request.getSession(false);
+		
+		// 로그인 안되어있을 경우
+		if (session == null) {
+		model.addAttribute("session", "no");
+		return "error/no_session";
+		}
+		if(session.getAttribute("userId") == null) {
+			model.addAttribute("session", "no");
+			return "error/no_session";
+		}
+		
+		//로그인한 세션으로 회원정보 가져오기
+		String userId = (String) session.getAttribute("userId");
+		User user = userService.getUserByUserId(userId);
+		model.addAttribute("user", user);
+		
+		return "user/update_userInfo";
 	}
 
 }

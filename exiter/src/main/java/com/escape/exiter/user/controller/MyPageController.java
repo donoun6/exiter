@@ -1,9 +1,11 @@
 package com.escape.exiter.user.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -17,7 +19,19 @@ public class MyPageController {
 	UserServiceImpl UserService;
 
 	@GetMapping
-	public String MypageForm(HttpSession session) {
+	public String MypageForm(HttpSession session, HttpServletRequest request, Model model) {
+		session = request.getSession(false);
+		
+		// 로그인 안되어있을 경우
+		if (session == null) {
+		model.addAttribute("session", "no");
+		return "error/no_session";
+		}
+		if(session.getAttribute("userId") == null) {
+			model.addAttribute("session", "no");
+			return "error/no_session";
+		}
+		
 		//로그인한 세션으로 닉네임 아이디 등급 등 기본정보 가져오기
 		session.getAttribute("userId");
 		session.getAttribute("uName");

@@ -167,6 +167,7 @@ h3.tName {
 
 .company-info table td {
 	width: 75%;
+	word-break: keep-all;
 }
 
 .company-info table th:before {
@@ -193,4 +194,24 @@ h3.tName {
     font-family: "twayFly";
     border-radius: 0;
     box-shadow: none;
+}
+
+@media (max-width: 370px) {
+	.theme-info .right-box img {
+		height: 200px;
+	}
+	
+	.company-info table th:before {
+		right: 13px;
+	}
+}
+
+@media (max-width: 320px) {
+	.theme-info .right-box img {
+		height: 170px;
+	}
+	
+	.company-info table th:before {
+		right: 10px;
+	}
 }

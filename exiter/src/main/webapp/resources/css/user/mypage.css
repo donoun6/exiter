@@ -48,8 +48,9 @@ html, body {
   right: 0;
 }
 .profile img {
-  border-radius: 50%;
-  width: 80px;
+  width: 40px;
+  margin-top: -5px;
+  filter: invert(1);
 }
 .top-list-box {
   display: block;
@@ -105,7 +106,7 @@ html, body {
 .bottom-box h5 {
   padding: 0;
   margin: 0 auto;
-  margin-top: 10px;
+  margin-top: 15px;
   bottom: 0;
   font-weight: 400;
 }
@@ -151,6 +152,9 @@ html, body {
 }
 .bottom-list-box tr:last-child td {
   border-bottom: none;
+}
+.bottom-list-box td a {
+  color: #ddd;
 }
 .logout {
   text-align: right;
