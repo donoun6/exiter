@@ -79,9 +79,24 @@
           <tr><td>회원정보 변경</td></tr>
         </table>
 		
-		<p class="logout"><a href="<c:url value='/user/logout'/>">로그아웃</a></p>
+		<p class="logout"><a href="<c:url value='/user/logout_pop'/>">로그아웃</a></p>
       </div>
     </div>
+    
+    <!-- 로그아웃 팝업창 -->
+    <c:if test="${logout.length() > 0}">
+	    <div class="logout-pop">
+	    	<div class="popUp-box">
+		        <div class="popUp-item">
+		        	<p>로그아웃 하시겠습니까?</p>
+		        	<div class="btn-box">
+		        		<button class="s-btn" onclick="location.href='<c:url value='/user/logout'/>'">로그아웃</button>
+		        		<button class="s-btn cancel" onclick="location.href='<c:url value='/user/mypage'/>'">취소</button>
+		        	</div>
+		        </div>
+		    </div>
+	    </div>
+    </c:if>
     
 	<!-- 푸터 영역 -->
     <jsp:include page="../common/footer.jsp"></jsp:include>
