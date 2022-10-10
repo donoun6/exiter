@@ -72,9 +72,9 @@
         </div>
 
         <table class="bottom-list-box">
-          <tr><td>내 게시글</td></tr>
+          <tr><td>내가 쓴 게시글</td></tr>
+          <tr><td>내가 쓴 댓글</td></tr>
           <tr><td>내 리뷰</td></tr>
-          <tr><td>댓글</td></tr>
           <tr><td>1:1 문의</td></tr>
           <tr><td>회원정보 변경</td></tr>
         </table>
@@ -84,7 +84,7 @@
     </div>
     
     <!-- 로그아웃 팝업창 -->
-    <c:if test="${logout.length() > 0}">
+    <c:if test="${myPageLogout.length() > 0}">
 	    <div class="logout-pop">
 	    	<div class="popUp-box">
 		        <div class="popUp-item">

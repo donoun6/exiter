@@ -38,7 +38,7 @@ public class LogoutController {
 	 */
 	@GetMapping("/user/logout_pop")
 	public String logoutPopUp(HttpServletRequest request) {
-		request.setAttribute("logout", "logout");
+		request.setAttribute("myPageLogout", "myPageLogout");
 		return "user/mypage";
 	}
 	

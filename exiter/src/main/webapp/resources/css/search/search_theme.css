@@ -159,7 +159,7 @@ h3.title.on:before {
 .detail-pop {
     position: fixed;
     bottom: -500px;
-    width: 370px;
+    width: calc(100% - 20px);
     height: 265px;
     margin-left: -20px;
     padding: 20px 0 0 20px;
@@ -197,7 +197,7 @@ h3.title.on:before {
 
 .left-box .title-box .tName {
 	margin-top: 10px;
-    font-size: 28px;
+    font-size: 25px;
     color: #414aea;
 }
 
@@ -240,6 +240,8 @@ h3.title.on:before {
     font-weight: 700;
     color: #414aea;
     font-family: "twayFly";
+    border-radius: 0;
+    box-shadow: none;
 }
 
 /* input 값입력시 배경색 안바뀌게 설정 */
