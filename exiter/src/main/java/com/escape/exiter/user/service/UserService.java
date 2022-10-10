@@ -17,4 +17,5 @@ public interface UserService {
 	long checkUserForFindPw(String userId, String uName, String uPhone);
 	void changePasswd(String userId, String uPasswd);
 	String getUPasswdByUserId(String userId);
+	void updateUserInfo(User user);
 }

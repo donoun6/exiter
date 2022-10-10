@@ -64,5 +64,10 @@ public class UserServiceImpl implements UserService {
 		return userDao.findUPasswdByUserId(userId);
 	}
 
+	@Override
+	public void updateUserInfo(User user) {
+		userDao.updateUserInfo(user.getUserId(), user.getUPasswd(), user.getUPhone());
+	}
+
 
 }

@@ -77,9 +77,10 @@
           <tr><td>내 리뷰</td></tr>
           <tr><td>1:1 문의</td></tr>
           <tr><td><a href="<c:url value='/user/update_userInfo'/>">회원정보 변경</a></td></tr>
+          <tr><td><a href="<c:url value='/user/logout_pop'/>">로그아웃</a></td></tr>
         </table>
 		
-		<p class="logout"><a href="<c:url value='/user/logout_pop'/>">로그아웃</a></p>
+		<p class="delete_user"><a href="<c:url value=''/>">탈퇴하기</a></p>
       </div>
     </div>
     

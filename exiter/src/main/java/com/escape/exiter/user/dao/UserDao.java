@@ -174,5 +174,16 @@ public class UserDao {
 			
 		}, userId);
 	}
+	
+	/**
+	 * 회원정보 변경하기
+	 * @param userId
+	 * @param uPasswd
+	 * @param uPhone
+	 */
+	public void updateUserInfo(String userId, String uPasswd, String uPhone) {
+		String sql = "UPDATE User SET uPasswd = ?, uPhone = ? WHERE userId = ?";
+		jdbcTemplate.update(sql, uPasswd, uPhone, userId);
+	}
 
 }

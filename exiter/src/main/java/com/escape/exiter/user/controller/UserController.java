@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -163,6 +164,12 @@ public class UserController {
 		return "redirect:success_findPw";
 	}
 	
+	/**
+	 * 회원정보 변경 페이지 접근
+	 * @param request
+	 * @param model
+	 * @return
+	 */
 	@GetMapping("/user/update_userInfo")
 	public String updateUserInfoForm(HttpServletRequest request, Model model) {
 		session = request.getSession(false);
@@ -183,6 +190,25 @@ public class UserController {
 		model.addAttribute("user", user);
 		
 		return "user/update_userInfo";
+	}
+	
+	/**
+	 * 회원정보 변경
+	 * @param command
+	 * @param redirectAttributes
+	 * @return
+	 */
+	@PostMapping("/user/update_userInfo")
+	public String updateUserInfo(UserCommand command, RedirectAttributes redirectAttributes) {
+		User user = new User();
+		user.setUserId(command.getUserId());
+		user.setUPasswd(command.getUPasswd1());
+		user.setUName(command.getUName());
+		user.setUPhone(command.getUPhone());
+		userService.updateUserInfo(user);
+		
+		redirectAttributes.addFlashAttribute("suc", "suc");
+		return "redirect:update_userInfo";
 	}
 
 }

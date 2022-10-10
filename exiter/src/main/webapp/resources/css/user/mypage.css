@@ -137,7 +137,7 @@ html, body {
   font-size: 28px;
 }
 .bottom-list-box {
-  height: 200px;
+  height: 220px;
   width: 100%;
   border-radius: 10px;
   border-style: hidden;
@@ -148,6 +148,7 @@ html, body {
   padding-left: 20px;
   color: #ddd;
   font-weight: 400;
+  font-size: 14px;
   vertical-align: middle;
 }
 .bottom-list-box tr:last-child td {
@@ -156,11 +157,11 @@ html, body {
 .bottom-list-box td a {
   color: #ddd;
 }
-.logout {
+.delete_user {
   text-align: right;
   margin: 13px 10px 0 0;
 }
-.logout a {
+.delete_user a {
   border-bottom: 1px solid #ddd;
   color: #ddd;
   font-weight: 400;
