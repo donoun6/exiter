@@ -161,7 +161,8 @@ if (comId == null){
 				contentType: "application/json; charset=UTF-8",
 				success: function(data) {
 					for(var i = 0; i < data.length; i++){
-						select.append('<option class="pDef">'+ (i+1) + '인 : '  + data[i].tprice+'원</option>');
+						var price = data[i].tprice.toString().replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+						select.append('<option class="pDef">'+ (i+1) + '인 : '  + price +'원</option>');
 					}
 				},
 				error: function(data) {

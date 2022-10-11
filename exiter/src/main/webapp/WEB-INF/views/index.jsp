@@ -181,8 +181,6 @@
     		$('.detail-pop').removeClass('on');
     		var company = $(this).attr('class');
     		var tName = $(this).attr('name');
-    		console.log(company);
-    		console.log(tName);
     		var allData = {"company": company, "tName": tName};
     		$.ajax({
     			async: true,

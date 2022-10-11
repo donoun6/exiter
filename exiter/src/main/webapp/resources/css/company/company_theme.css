@@ -29,6 +29,13 @@ main > h1 {
 	padding: 40px 0 0 40px;
 }
 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+
+   -webkit-appearance: "Always Show Up/Down Arrows";
+
+}
+
 /* themeForm */
 #themeFormWrap {
 	padding: 20px 35px;
