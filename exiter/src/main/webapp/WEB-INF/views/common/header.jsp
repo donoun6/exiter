@@ -19,7 +19,7 @@
         		<div class="login-img"><a href="<c:url value='/user/login'/>"></a></div>
         	</c:when>
         	<c:otherwise>
-        		<div class="login-img"><a href="<c:url value='/user/logout_pop2'/>"></a></div>
+        		<div class="login-img"><a href="<c:url value='/user/logout_pop3'/>"></a></div>
         	</c:otherwise>
         </c:choose>
       </div>
@@ -27,7 +27,7 @@
 </header>
 
 <!-- 로그아웃 팝업창 -->
-<c:if test="${logout.length() > 0}">
+<c:if test="${logoutH.length() > 0}">
 	<div class="logout-pop">
   		<div class="popUp-box">
 			<div class="popUp-item">

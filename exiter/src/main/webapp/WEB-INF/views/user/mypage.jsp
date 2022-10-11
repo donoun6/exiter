@@ -30,7 +30,7 @@
               <span class="id">${userId }</span>
             </div>
             <div class="profile">
-              <img src="<c:url value='/resources/images/icon/key.png'/>" alt="man">
+              <img src="<c:url value='/resources/images/icon/key.png'/>" alt="man" style="rotate: -35deg;">
             </div>
           </div>
 
@@ -55,17 +55,14 @@
 
         <div class="bottom-box">
           <div class="reservation">
-            <!-- <img src="./img/booking.png" alt="booking"> -->
             <h5>예약내역</h5>
             <p><span>0</span>&nbsp;건</p>
           </div>
           <div class="record">
-             <!-- <img src="./img/record.png" alt="booking"> -->
             <h5>내기록확인</h5>
             <p><span>-</span></p>
           </div>
           <div class="ranking">
-             <!-- <img src="./img/ranking.png" alt="booking"> -->
             <h5>랭킹</h5>
             <p><span>-</span>&nbsp;위</p>
           </div>

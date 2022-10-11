@@ -61,8 +61,34 @@ public class LogoutController {
 			correntPage = "/" + arr[arr.length-2] + "/" + arr[arr.length-1];
 		}
 
-		request.setAttribute("logout", "logout");
-		redirectAttributes.addFlashAttribute("logout", "logout");
+		request.setAttribute("logoutF", "logoutF");
+		redirectAttributes.addFlashAttribute("logoutF", "logoutF");
+		request.setAttribute("correntPage", correntPage);
+		redirectAttributes.addFlashAttribute("correntPage", correntPage);
+		return referer;
+	}
+	
+	/**
+	 * 헤더의 로그아웃 버튼 클릭시 로그아웃 팝업창 띄우기
+	 * @param request
+	 * @param redirectAttributes
+	 * @return
+	 */
+	@GetMapping("/user/logout_pop3")
+	public String logoutPopUp3(HttpServletRequest request, RedirectAttributes redirectAttributes) {
+		String referer = (String)request.getHeader("REFERER");
+		String correntPage = "";
+		String[] arr = referer.split("/");
+		if(arr[arr.length-1].equals("exiter")) {
+			referer = "redirect:/";
+			correntPage = "/";
+		} else {
+			referer = arr[arr.length-2] + "/" + arr[arr.length-1];
+			correntPage = "/" + arr[arr.length-2] + "/" + arr[arr.length-1];
+		}
+
+		request.setAttribute("logoutH", "logoutH");
+		redirectAttributes.addFlashAttribute("logoutH", "logoutH");
 		request.setAttribute("correntPage", correntPage);
 		redirectAttributes.addFlashAttribute("correntPage", correntPage);
 		return referer;

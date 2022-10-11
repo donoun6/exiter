@@ -21,7 +21,7 @@
 </footer>
 
 <!-- 로그아웃 팝업창 -->
-<c:if test="${logout.length() > 0}">
+<c:if test="${logoutF.length() > 0}">
 	<div class="logout-pop">
   		<div class="popUp-box">
 			<div class="popUp-item">
