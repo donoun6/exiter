@@ -23,7 +23,7 @@
         <!-- 메인 영역 -->
         <main class="main">
         	<h3 class="title">회원정보 변경</h3>
-        	<p class="msg changeMsg">* 아이디 및 이름은 변경이 불가합니다.</p>
+        	<!-- <p class="msg changeMsg">* 아이디 및 이름은 변경이 불가합니다.</p> -->
 	        <div class="update-box">
 	          <form class="update" id="update" action="update_userInfo" method="post">
 	            <label class="update-item userId">아이디<span>(변경불가)</span>

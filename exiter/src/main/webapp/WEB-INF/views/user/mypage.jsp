@@ -17,7 +17,7 @@
 <body>
 <div id="wrap">
  	<!-- header 영역 -->
-    <jsp:include page="../common/only_logo_header.jsp"></jsp:include> 
+    <jsp:include page="../common/header.jsp"></jsp:include> 
     
     <div class="content">
       <div class="top-container">

@@ -5,6 +5,10 @@ html, body {
   color: #e6e6e6;
 }
 
+header {
+	background: none;
+}
+
 .content {
   min-height: calc(100vh - 140px);
 }
@@ -162,8 +166,8 @@ html, body {
   margin: 13px 10px 0 0;
 }
 .delete_user a {
-  border-bottom: 1px solid #ddd;
-  color: #ddd;
+  border-bottom: 1px solid #737373;
+  color: #737373;
   font-weight: 400;
   font-size: 15px;
 }
