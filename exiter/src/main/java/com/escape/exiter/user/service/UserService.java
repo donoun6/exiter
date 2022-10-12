@@ -18,4 +18,5 @@ public interface UserService {
 	void changePasswd(String userId, String uPasswd);
 	String getUPasswdByUserId(String userId);
 	void updateUserInfo(User user);
+	void deleteUser(String userId);
 }

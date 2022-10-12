@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="<c:url value='/resources/css/common/header.css'/>">
 <link rel="stylesheet" href="<c:url value='/resources/css/common/footer.css'/>">
 <link rel="stylesheet" href="<c:url value='/resources/css/user/mypage.css'/>">
+<script type="text/javascript" src="<c:url value='/resources/js/common/jquery.js'/>"></script>
 <title>mypage</title>
 </head>
 <body>
@@ -77,12 +78,12 @@
           <tr><td><a href="<c:url value='/user/logout_pop'/>">로그아웃</a></td></tr>
         </table>
 		
-		<p class="delete_user"><a href="<c:url value=''/>">탈퇴하기</a></p>
+		<p class="delete_user"><span>탈퇴하기</span></p>
       </div>
     </div>
     
-    <!-- 로그아웃 팝업창 -->
     <c:if test="${myPageLogout.length() > 0}">
+    	<!-- 로그아웃 팝업창 -->
 	    <div class="logout-pop">
 	    	<div class="popUp-box">
 		        <div class="popUp-item">
@@ -96,7 +97,44 @@
 	    </div>
     </c:if>
     
+    <!-- 탈퇴하기 팝업창 -->
+    <div class="delete"></div>
+    
+    <c:if test="${deletSuc.length() > 0}">
+    	<!-- 탈퇴완료 팝업창 -->
+	    <div class="delete-pop">
+	    	<div class="popUp-box">
+		        <div class="popUp-item">
+		        	<p>탈퇴되었습니다.</p>
+		        	<div class="btn-box">
+		        		<button class="s-btn" onclick="location.href='<c:url value='/'/>'">확인</button>
+		        	</div>
+		        </div>
+		    </div>
+	    </div>
+    </c:if>
+    
 	<!-- 푸터 영역 -->
     <jsp:include page="../common/footer.jsp"></jsp:include>
+    
+    <!-- 스크립트 영역 -->
+    <script type="text/javascript">
+    	$('.mypage-container').on('click', '.delete_user', function() {
+    		var userId = '${userId}';
+    		$.ajax({
+    			async: true,
+    			type: 'POST',
+    			url: 'deleteUserCheck',
+    			dataType: 'html',
+    			contentType: 'application/json; charset=UTF-8',
+    			success: function(data) {
+    				$('.delete').html(data);
+    			},
+    			error: function(error) {
+    				console.log(error);
+    			}
+    		});
+    	});
+    </script>
 </body>
 </html>

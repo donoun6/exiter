@@ -23,25 +23,24 @@
         <!-- 메인 영역 -->
         <main class="main">
         	<h3 class="title">회원정보 변경</h3>
-        	<!-- <p class="msg changeMsg">* 아이디 및 이름은 변경이 불가합니다.</p> -->
 	        <div class="update-box">
 	          <form class="update" id="update" action="update_userInfo" method="post">
-	            <label class="update-item userId">아이디<span>(변경불가)</span>
+	            <label class="update-item userId">아이디<span>*해당정보는 변경이 불가능합니다.</span>
 	              <input type="text" id="userId" name="userId" placeholder="아이디" readonly value="${user.userId}">
 	            </label>
 	            <label class="update-item uPasswd1">비밀번호
-	              <input type="password" id="uPasswd1" name="uPasswd1" placeholder="8~16자리 비밀번호 입력" value="${user.getUPasswd()}">
+	              <input type="password" id="uPasswd1" name="uPasswd1" placeholder="8~16자리 비밀번호 입력" value="${user.getUPasswd()}" onfocus="this.value=''; return true" >
 	              <p class="checkMsg" id="checkPw"></p>
 	            </label>
 	            <label class="update-item uPasswd2">비밀번호 확인
-	              <input type="password" id="uPasswd2" name="uPasswd2" placeholder="비밀번호 확인" value="${user.getUPasswd()}">
+	              <input type="password" id="uPasswd2" name="uPasswd2" placeholder="비밀번호 확인" value="${user.getUPasswd()}" onfocus="this.value=''; return true" >
 	              <p class="checkMsg" id="checkPw2"></p>
 	            </label>
-	            <label class="update-item uName">이름<span>(변경불가)</span>
+	            <label class="update-item uName">이름<span>*해당정보는 변경이 불가능합니다.</span>
 	              <input type="text" id="uName" name="uName" placeholder="이름" readonly value="${user.getUName()}">
 	            </label>
 	            <label class="update-item uPhone">전화번호
-	              <input type="text" id="uPhone" name="uPhone" class="uPhone" placeholder="전화번호 ex) 010-0000-0000" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{3,4}"  value="${user.getUPhone()}">
+	              <input type="text" id="uPhone" name="uPhone" class="uPhone" placeholder="전화번호 ex) 010-0000-0000" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{3,4}"  value="${user.getUPhone()}" onfocus="this.value=''; return true" >
 	              <p class="msg">* ex) 010-0000-0000</p>
 	              <p class="checkMsg" id="checkPhone"></p>
 	            </label>

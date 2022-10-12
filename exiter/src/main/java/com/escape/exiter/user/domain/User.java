@@ -17,7 +17,7 @@ public class User {
 	private String uPhone;
 	private String uGrade;
 	private char uType;
-	private boolean uCheck;
+	private Boolean uCheck;
 	private Date regDate;
 	
 	public User() {

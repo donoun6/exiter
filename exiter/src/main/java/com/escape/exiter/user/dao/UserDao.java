@@ -185,5 +185,14 @@ public class UserDao {
 		String sql = "UPDATE User SET uPasswd = ?, uPhone = ? WHERE userId = ?";
 		jdbcTemplate.update(sql, uPasswd, uPhone, userId);
 	}
+	
+	/**
+	 * 회원 탈퇴 (uCheck를 true로 변경)
+	 * @param userId
+	 */
+	public void deleteUser(String userId) {
+		String sql = "UPDATE User SET uCheck = true WHERE userId = ?";
+		jdbcTemplate.update(sql, userId);
+	}
 
 }

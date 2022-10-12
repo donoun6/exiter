@@ -69,5 +69,10 @@ public class UserServiceImpl implements UserService {
 		userDao.updateUserInfo(user.getUserId(), user.getUPasswd(), user.getUPhone());
 	}
 
+	@Override
+	public void deleteUser(String userId) {
+		userDao.deleteUser(userId);
+	}
+
 
 }

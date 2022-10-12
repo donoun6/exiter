@@ -1,10 +1,10 @@
 -- company 임시 데이터
 INSERT INTO Company (comId, comPasswd, comTel, comAddress1, comAddress2, comAddress3, comAddress4, comNum, comName, comPocus) 
-VALUES ('earth1', '1111', '02-111-1111', '04041', '서울특별시 마포구 와우산로21길 31', '서교동 364-26', '3층 지구별방탈출 어드벤처점', '3345800466', '지구별 방탈출', '홍대어드벤처점');
+VALUES ('earth1', '11111111', '02-111-1111', '04041', '서울특별시 마포구 와우산로21길 31', '서교동 364-26', '3층 지구별방탈출 어드벤처점', '3345800466', '지구별 방탈출', '홍대어드벤처점');
 INSERT INTO Company (comId, comPasswd, comTel, comAddress1, comAddress2, comAddress3, comAddress4, comNum, comName, comPocus) 
-VALUES ('earth2', '2222', '053-222-2222', '41937', '대구광역시 중구 동성로 15-1', '동성로2가 127-2', '3층 4층 5층 지구별방탈출 대구점', '3345800466', '지구별 방탈출', '대구점');
+VALUES ('earth2', '22222222', '053-222-2222', '41937', '대구광역시 중구 동성로 15-1', '동성로2가 127-2', '3층 4층 5층 지구별방탈출 대구점', '3345800466', '지구별 방탈출', '대구점');
 INSERT INTO Company (comId, comPasswd, comTel, comAddress1, comAddress2, comAddress3, comAddress4, comNum, comName, comPocus) 
-VALUES ('escafeV1', '3333', '053-333-3333', '41942', '대구광역시 중구 동성로5길 50', '삼덕동1가 17-16', '3층 방탈출브이 삼덕점', '5053893628', '방탈출 브이', '삼덕점');
+VALUES ('escafeV1', '33333333', '053-333-3333', '41942', '대구광역시 중구 동성로5길 50', '삼덕동1가 17-16', '3층 방탈출브이 삼덕점', '5053893628', '방탈출 브이', '삼덕점');
 
 -- theme 임시 데이터
 INSERT INTO Theme (cid, tName, tCategory, tLevel, tNum, tDef, tTime, tImage) 
