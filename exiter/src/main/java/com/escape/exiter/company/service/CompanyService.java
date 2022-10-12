@@ -40,4 +40,6 @@ public interface CompanyService {
 	
 	void deleteTheme(Long tid);
 	
+	void updateCompanyInfo(CompanyCommand company);
+	
 }

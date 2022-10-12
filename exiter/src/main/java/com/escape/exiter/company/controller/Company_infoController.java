@@ -35,7 +35,12 @@ public class Company_infoController {
 		model.addAttribute("company", new CompanyCommand()); 
 		
 		session = request.getSession(false);
+//		로그인이 안되어있을시 로그인화면으로 보내기
+		if (session == null || session.getAttribute("cid") == null){
+			return "redirect:/company/company_login";
+		}
 		long cid = (long) session.getAttribute("cid");
+		
 		model.addAttribute("companyInfo", companyService.companyInfo(cid));
 		String[] tel = companyService.companyInfo(cid).getComTel().split("-"); //전화번호는 3개로 나뉘어져있어 따로 보내준다.
 		for(int i = 0; i < tel.length; i++ ) {
@@ -72,7 +77,7 @@ public class Company_infoController {
 			return "company/company_info";
 		}
 		
-		companyService.addUser(company);
+		companyService.updateCompanyInfo(company);
 		return "redirect:/company";
 	}
 }

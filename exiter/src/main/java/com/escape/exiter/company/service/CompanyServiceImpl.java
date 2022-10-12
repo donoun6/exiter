@@ -89,4 +89,9 @@ public class CompanyServiceImpl implements CompanyService{
 		companyDao.deleteTheme(tid);
 	}
 
+	@Override
+	public void updateCompanyInfo(CompanyCommand company) {
+		companyDao.updateCompanyInfo(company);
+	}
+
 }

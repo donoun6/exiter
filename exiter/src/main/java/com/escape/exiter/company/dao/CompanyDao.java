@@ -256,15 +256,12 @@ public class CompanyDao {
 	
 // ====================	Company Information Dao
 //	사업자 회원 정보 변경
-	public void infoChange(CompanyCommand company) {
-		String sql = "INSERT INTO Company (comId, comPasswd, comTel, comAddress1, comAddress2, "
-				+ "comAddress3, comAddress4, comNum, comName, comPocus)"
-				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";	
-		jdbcTemplate.update(sql, company.getComId(), company.getComPasswd(), 
+	public void updateCompanyInfo(CompanyCommand company) {
+		String sql = " UPDATE Company SET comPasswd = ?,comTel = ?,comAddress1 = ?,comAddress2 = ?,comAddress3 = ?,comAddress4 = ?,comName = ?,comPocus = ? WHERE comId = ?";
+		jdbcTemplate.update(sql, company.getComPasswd(), 
 				(company.getComTel1() + "-" + company.getComTel2() + "-" + company.getComTel3()), 
 				company.getComAddress1(), company.getComAddress2(), company.getComAddress3(), 
-				company.getComAddress4(), company.getComNum(), company.getComName(), 
-				company.getComPocus());
-		System.out.println("[사업자 회원 등록]\n" + company.toString() + "\n");
+				company.getComAddress4(), company.getComName(), company.getComPocus(),company.getComId());
+		System.out.println("[사업자 회원 정보 변경]\n" + company.toString() + "\n");
 	}
 }

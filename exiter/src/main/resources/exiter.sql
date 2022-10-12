@@ -36,7 +36,6 @@ SELECT * FROM Theme;
 SELECT * FROM Company;
 SELECT * FROM User;
 
-
 --임시데이터 등록
 
 
@@ -65,8 +64,6 @@ CREATE TABLE Company (
 	comNum			VARCHAR(10)			NOT NULL,
 	comName			VARCHAR(20)			NOT NULL,
 	comPocus		VARCHAR(20)			NULL,
-	-- comX			DOUBLE				NULL,
-	-- comY			DOUBLE				NULL,
 	regDate			TIMESTAMP			NOT NULL DEFAULT	CURRENT_TIMESTAMP
 )AUTO_INCREMENT = 1;
 
