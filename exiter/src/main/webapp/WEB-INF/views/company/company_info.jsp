@@ -42,18 +42,22 @@ if (comId == null){
   <!-- main section -->
   <main>
   <h1>정보변경</h1>
-  <div class="title">
-      <h2><a href="<c:url value='/company/company_login'/>">Exiter Company</a></h2>
-    </div>
         <form:form modelAttribute="company" method="post">
       <table class="table">
+         <tr>
+          <td>
+            <div class="title">
+             <h2 class="">Exiter Company</h2>
+   			</div>
+          </td>
+        </tr>
         <tr>
           <td>
             <ul class="id">
               <li>
                 <h2>아이디</h2>&nbsp<span id="checkComId" class="err" style="color: #858585;">${err }${err0 }*해당정보는 변경이 불가능합니다.</span><br>
               </li>
-              <li><form:input readonly="true" id="comId" path="comId" type="text" value="${companyInfo.comId }" minlength="5" maxlength="20" pattern="^[a-zA-Z0-9]+$" style="background: #c9c9c9;"/></li>
+              <li><form:input readonly="true" id="comId" path="comId" type="text" value="${companyInfo.comId }" minlength="5" maxlength="20" pattern="^[a-zA-Z0-9]+$" style="background: #dedce0;"/></li>
             </ul>
           </td>
         </tr>
@@ -120,7 +124,7 @@ if (comId == null){
               <li>
               </li>
               <h2>사업자등록번호</h2>&nbsp<span id="checkComNum" class="err" style="color: #858585;">${err4 }${err5 }${err6 }*해당정보는 변경이 불가능합니다.</span><br>
-              <form:input readonly="true" path="comNum" type="text" id="b_no" value="${companyInfo.comNum }" placeholder="사업자 등록 번호를 입력해주세요." minlength="10" maxlength="10" style="background: #c9c9c9;"/><span class="def"></span><br><br>
+              <form:input readonly="true" path="comNum" type="text" id="b_no" value="${companyInfo.comNum }" placeholder="사업자 등록 번호를 입력해주세요." minlength="10" maxlength="10" style="background: #dedce0;"/><span class="def"></span><br><br>
             </ul>
           </td>
         </tr>
