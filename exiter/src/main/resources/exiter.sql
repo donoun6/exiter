@@ -84,9 +84,6 @@ CREATE TABLE Theme (
 	CONSTRAINT Theme_cid_FK FOREIGN KEY (cid) REFERENCES Company(cid)
 )AUTO_INCREMENT = 1;
 
-SELECT tImage FROM Theme ORDER BY RAND() LIMIT 0, 1;
-
-SELECT tImage,tName,comId FROM Theme t INNER JOIN Company c ON t.cid = c.cid ORDER BY tid DESC
 CREATE TABLE ThemePrice (
 	tid				BIGINT				NOT NULL,
 	tpid			BIGINT				NOT NULL PRIMARY KEY AUTO_INCREMENT,

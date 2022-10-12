@@ -2,6 +2,10 @@ body {
   color: black;
 }
 
+header {
+	background: none;
+}
+
 #wrap {
   position: relative;
   display: flex;

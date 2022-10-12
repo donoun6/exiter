@@ -37,7 +37,7 @@ if (comId == null){
         <li><a href="<c:url value='/company/company_theme'/>">테마관리</a></li>
         <li><a href="#">예약확인</a></li>
         <li><a href="#">QnA</a></li>
-        <li><a href="#">정보변경</a></li>
+        <li><a href="<c:url value='/company/company_info'/>">정보변경</a></li>
         <li><a href="<c:url value='/company/company_logout'/>">로그아웃</a></li>
       </ul>
     </nav>

@@ -4,6 +4,9 @@ body {
   background: #F3F1F5;
   color: black;
 }
+header {
+	background: none;
+}
 
 /* aside aside-nav */
 aside {
