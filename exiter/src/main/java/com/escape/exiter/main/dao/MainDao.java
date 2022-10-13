@@ -49,4 +49,36 @@ public class MainDao {
 			
 		});
 	}
+
+//	카테고리 출력
+	public List<MainDomain> getCategory() {
+		String sql = "SELECT DISTINCT tCategory FROM Theme";
+		return jdbcTemplate.query(sql, new RowMapper<>() {
+
+			@Override
+			public MainDomain mapRow(ResultSet rs, int rowNum) throws SQLException {
+				MainDomain md = new MainDomain();
+				md.setTCategory(rs.getString("tCategory"));
+				return md;
+			}
+			
+		});
+	}
+	
+//	카테고리별 이미지 출력
+	public List<MainDomain> CategoryImg(String category) {
+		String sql = "SELECT tImage,tName,comName FROM Theme t INNER JOIN Company c ON t.cid = c.cid WHERE t.tCategory = ? ORDER BY RAND()";
+		return jdbcTemplate.query(sql, new RowMapper<>() {
+
+			@Override
+			public MainDomain mapRow(ResultSet rs, int rowNum) throws SQLException {
+				MainDomain md = new MainDomain();
+				md.setTImage(rs.getString("tImage"));
+				md.setTName(rs.getString("tName"));
+				md.setComName(rs.getString("comName"));
+				return md;
+			}
+			
+		},category);
+	}
 }

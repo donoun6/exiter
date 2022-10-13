@@ -23,4 +23,14 @@ public class MainServiceImpl implements MainService{
 		return mainDao.newImg();
 	}
 
+	@Override
+	public List<MainDomain> getCategory() {
+		return mainDao.getCategory();
+	}
+
+	@Override
+	public List<MainDomain> CategoryImg(String category) {
+		return mainDao.CategoryImg(category);
+	}
+
 }

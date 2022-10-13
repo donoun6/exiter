@@ -7,4 +7,6 @@ import com.escape.exiter.main.domain.MainDomain;
 public interface MainService {
 	String randomImg();
 	List<MainDomain> newImg();
+	List<MainDomain> getCategory();
+	List<MainDomain> CategoryImg(String string);
 }

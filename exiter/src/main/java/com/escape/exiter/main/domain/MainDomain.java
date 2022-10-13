@@ -13,6 +13,7 @@ public class MainDomain {
 	private String tImage;
 	private String tName;
 	private String comName;
+	private String tCategory;
 
 	public MainDomain() {
 	}

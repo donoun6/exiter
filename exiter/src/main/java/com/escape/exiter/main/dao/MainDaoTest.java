@@ -11,7 +11,10 @@ public class MainDaoTest {
 		MainDao dao = context.getBean("mainDao",MainDao.class);
 		
 //		System.out.println(dao.randomImg());
-		System.out.println(dao.newImg());
+//		System.out.println(dao.newImg());
+//		System.out.println(dao.getCategory());
+		System.out.println(dao.CategoryImg("공포"));
+		
 	}
 	
 }

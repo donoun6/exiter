@@ -74,19 +74,20 @@ public class CompanyDaoTest {
 //		company theme info test
 //		dao.themeInfo(2);
 		
-//		company add user test
-		company.setComId("earth1");
-		company.setComPasswd("testPw");
-		company.setComTel1("053");
-		company.setComTel2("793");
-		company.setComTel3("5686");
-		company.setComAddress1("testaddr");
-		company.setComAddress2("testaddr");
-		company.setComAddress3("testaddr");
-		company.setComAddress4("testaddr");
-		company.setComName("대구점");
-		company.setComPocus("반월당");
-		dao.updateCompanyInfo(company);
+//		company change company info test
+//		company.setComId("earth1");
+//		company.setComPasswd("testPw");
+//		company.setComTel1("053");
+//		company.setComTel2("793");
+//		company.setComTel3("5686");
+//		company.setComAddress1("testaddr");
+//		company.setComAddress2("testaddr");
+//		company.setComAddress3("testaddr");
+//		company.setComAddress4("testaddr");
+//		company.setComName("대구점");
+//		company.setComPocus("반월당");
+//		dao.updateCompanyInfo(company);
+		
 		context.close();
 	}
 }

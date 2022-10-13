@@ -149,18 +149,18 @@
           </div>
         </div>
       </section>
-      <section id="section" class="section3">
-        <h2>인기 장르 테마</h2>
-        <div class="swiper mySwiper">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="<c:url value='/resources/images/theme/img.jpg'/>" alt=""></div>
-            <div class="swiper-slide"><img src="<c:url value='/resources/images/theme/img2.png'/>" alt=""></div>
-            <div class="swiper-slide"><img src="<c:url value='/resources/images/theme/img3.jpg'/>" alt=""></div>
-            <div class="swiper-slide"><img src="<c:url value='/resources/images/theme/img4.png'/>" alt=""></div>
-            <div class="swiper-slide"><img src="<c:url value='/resources/images/theme/img5.jpg'/>" alt=""></div>
-          </div>
-        </div>
-      </section>
+      <c:forEach var="getCategory" items="${getCategory }" varStatus="status">
+      <section id="section">
+      	<h2>장르별 테마 : ${getCategory.TCategory }</h2>
+      		<div class="swiper mySwiper">
+	          <div class="swiper-wrapper">
+			     <c:forEach var="cateImg" items="${cateImg[status.index] }">
+			     <div class="swiper-slide"><img id="img" name="${cateImg.TName }" class="${cateImg.comName }" src="<c:url value='/resources/images/theme/${cateImg.TImage }'/>" alt=""></div>
+		      </c:forEach>
+	          </div>
+	        </div>
+      	</section>
+      </c:forEach>
     </main>
     <div class="detail-pop"></div>
     <!-- footer bottom-nav -->
