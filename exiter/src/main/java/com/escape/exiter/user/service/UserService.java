@@ -12,6 +12,7 @@ public interface UserService {
 	long getUserCountByUserId(String userId);
 	User getUserByUid(long uid);
 	long checkUser(String userId, String uPasswd);
+	Boolean checkDeleteUser(String userId);
 	boolean isValidUser(String userId, String uPasswd);
 	String getUserIdByUNameAndUPhone(String uName, String uPhone);
 	long checkUserForFindPw(String userId, String uName, String uPhone);

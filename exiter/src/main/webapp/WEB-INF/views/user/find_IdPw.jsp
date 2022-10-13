@@ -63,37 +63,60 @@
         </div>
       </main>
       
-      <!-- 아이디찾기 성공 팝업창 -->
         <c:if test="${idSuc.length() > 0}">
-	        <div class="popUp-box">
-	        	<div class="popUp-item">
-	        		<p>찾으시는 아이디는<br><span>${userId}</span> 입니다.</p>
-	        		<div class="btn-box">
-		        		<button class="s-btn" onclick="location.href='<c:url value='/user/login'/>'">로그인하기</button>
-		        		<button class="s-btn" onclick="location.href='<c:url value='/user/find_IdPw/pw'/>'">비밀번호 찾기</button>
-	        		</div>
-	        	</div>
+            <!-- 아이디찾기 성공 팝업창 -->
+            <div class="popUp-wrap">
+		        <div class="popUp-box">
+		        	<div class="popUp-item">
+		        		<p>찾으시는 아이디는<br><span>${userId}</span> 입니다.</p>
+		        		<div class="btn-box">
+			        		<button class="s-btn" onclick="location.href='<c:url value='/user/login'/>'">로그인하기</button>
+			        		<button class="s-btn" onclick="location.href='<c:url value='/user/find_IdPw/pw'/>'">비밀번호 찾기</button>
+		        		</div>
+		        	</div>
+		        </div>
 	        </div>
         </c:if>
-        <!-- 아이디찾기 실패 팝업창 -->
+        
         <c:if test="${idErr.length() > 0}">
-	        <div class="popUp-box">
-	        	<div class="popUp-item">
-	        		등록된 회원정보가 없습니다.<br>다시 시도해 주세요.
-	        		<button class="s-btn" onclick="location.href='<c:url value='/user/find_IdPw/id'/>'">아이디 찾기</button>
-	        	</div>
+            <!-- 아이디찾기 실패 팝업창 -->
+            <div class="popUp-wrap">
+		        <div class="popUp-box">
+		        	<div class="popUp-item">
+		        		등록된 회원정보가 없습니다.<br>다시 시도해 주세요.
+		        		<button class="s-btn" onclick="location.href='<c:url value='/user/find_IdPw/id'/>'">아이디 찾기</button>
+		        	</div>
+		        </div>
 	        </div>
         </c:if>
-        <!-- 비밀번호찾기 실패 팝업창 -->
+        
         <c:if test="${pwErr.length() > 0}">
-	        <div class="popUp-box">
-	        	<div class="popUp-item">
-	        		등록된 회원정보가 없습니다.<br>다시 시도해 주세요.
-	        		<button class="s-btn" onclick="location.href='<c:url value='/user/find_IdPw/pw'/>'">비밀번호 찾기</button>
-	        	</div>
+        	<!-- 비밀번호찾기 실패 팝업창 -->
+        	<div class="popUp-wrap">
+		        <div class="popUp-box">
+		        	<div class="popUp-item">
+		        		등록된 회원정보가 없습니다.<br>다시 시도해 주세요.
+		        		<button class="s-btn" onclick="location.href='<c:url value='/user/find_IdPw/pw'/>'">비밀번호 찾기</button>
+		        	</div>
+		        </div>
 	        </div>
         </c:if>
+        
+        <c:if test="${deleteUser.length() > 0}">
+	    	<!-- 탈퇴회원 팝업창 -->
+		    <div class="popUp-wrap">
+		    	<div class="popUp-box">
+			        <div class="popUp-item">
+			        	<p>탈퇴한 회원입니다.</p>
+			        	<div class="btn-box">
+			        		<button class="s-btn" onclick="location.href='<c:url value='/user/find_IdPw/${find}'/>'">닫기</button>
+			        	</div>
+			        </div>
+			    </div>
+		    </div>
+	    </c:if>
     </div>
+    
     <!-- 푸터 영역 -->
     <jsp:include page="../common/copyright.jsp"></jsp:include>
     

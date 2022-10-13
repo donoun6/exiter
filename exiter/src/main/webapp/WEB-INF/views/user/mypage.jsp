@@ -100,7 +100,7 @@
     <!-- 탈퇴하기 팝업창 -->
     <div class="delete"></div>
     
-    <c:if test="${deletSuc.length() > 0}">
+    <c:if test="${deleteSuc.length() > 0}">
     	<!-- 탈퇴완료 팝업창 -->
 	    <div class="delete-pop">
 	    	<div class="popUp-box">

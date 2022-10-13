@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.escape.exiter.user.domain.User;
 import com.escape.exiter.user.service.UserService;
@@ -43,9 +44,16 @@ public class LoginController {
 	 * @return
 	 */
 	@PostMapping("/user/login")
-	public String login(User user, @RequestParam String userId, @RequestParam String uPasswd, HttpServletRequest request) {
+	public String login(User user, @RequestParam String userId, @RequestParam String uPasswd, HttpServletRequest request, RedirectAttributes redirectAttributes) {
 		user = userService.getUserByUserId(userId);
 		
+		if(user.getUCheck()) {
+			// 탈퇴한 회원이라면
+			redirectAttributes.addFlashAttribute("deleteUser", "deleteUser");
+			return "redirect:/user/login";
+		}
+		
+		// 탈퇴한 회원이 아니라면
 		session = request.getSession(true);
 		session.setAttribute("userId", userId);
 		session.setAttribute("uName", user.getUName());

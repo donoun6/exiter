@@ -38,6 +38,11 @@ public class UserServiceImpl implements UserService {
 	public long checkUser(String userId, String uPasswd) {
 		return userDao.checkUser(userId, uPasswd);
 	}
+	
+	@Override
+	public Boolean checkDeleteUser(String userId) {
+		return userDao.checkDeleteUser(userId);
+	}
 
 	@Override
 	public boolean isValidUser(String userId, String uPasswd) {
@@ -73,6 +78,5 @@ public class UserServiceImpl implements UserService {
 	public void deleteUser(String userId) {
 		userDao.deleteUser(userId);
 	}
-
 
 }

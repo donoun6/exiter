@@ -42,11 +42,27 @@
             아이디/비밀번호를 잊으셨나요? <a href="<c:url value='find_IdPw/id'/>">아이디/비밀번호 찾기</a>
           </div>
         </div>
+        <p class="company"><a href="<c:url value='/company'/>">사업자신가요?</a></p>
       </main>
       <!-- 푸터 copyright 영역 -->
       <jsp:include page="../common/copyright.jsp"></jsp:include>
     </div>
     
+    <c:if test="${deleteUser.length() > 0}">
+    	<!-- 탈퇴회원 팝업창 -->
+	    <div class="delete-pop">
+	    	<div class="popUp-box">
+		        <div class="popUp-item">
+		        	<p>탈퇴한 회원입니다.</p>
+		        	<div class="btn-box">
+		        		<button class="s-btn" onclick="location.href='<c:url value='login'/>'">다시 로그인하기</button>
+		        	</div>
+		        </div>
+		    </div>
+	    </div>
+    </c:if>
+    
+    <!-- 스크립트 영역 -->
     <script type="text/javascript">
     	$(function() {
     		// 아이디 비밀번호 유효성 검사

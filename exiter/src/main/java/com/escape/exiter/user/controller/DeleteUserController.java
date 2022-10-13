@@ -40,7 +40,8 @@ public class DeleteUserController {
 		
 		userService.deleteUser(userId);
 		session.invalidate();
-		request.setAttribute("deletSuc", "deletSuc");
+		request.setAttribute("deleteSuc", "deleteSuc");
 		return "user/mypage";
 	}
+	
 }

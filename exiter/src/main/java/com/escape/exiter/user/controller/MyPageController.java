@@ -22,7 +22,14 @@ public class MyPageController {
 	UserService userService;
 	
 	HttpSession session;
-
+	
+	/**
+	 * 마이페이지 접속
+	 * @param session
+	 * @param request
+	 * @param model
+	 * @return
+	 */
 	@GetMapping("/user/mypage")
 	public String MypageForm(HttpSession session, HttpServletRequest request, Model model) {
 		session = request.getSession(false);

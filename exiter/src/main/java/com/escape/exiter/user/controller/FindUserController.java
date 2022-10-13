@@ -44,7 +44,16 @@ public class FindUserController {
 			redirectAttributes.addFlashAttribute("idErr", "idErr");
 			return "redirect:find_IdPw/id";
 		}
+		
 		// 존재한다면
+		boolean uCheck = userService.checkDeleteUser(userId);
+		if(uCheck) {
+			// 탈퇴한 회원이라면
+			redirectAttributes.addFlashAttribute("deleteUser", "deleteUser");
+			redirectAttributes.addFlashAttribute("find", "id");
+			return "redirect:find_IdPw/id";
+		}
+		// 탈퇴한 회원이 아니라면
 		redirectAttributes.addFlashAttribute("userId", userId);
 		redirectAttributes.addFlashAttribute("idSuc", "idSuc");
 		return "redirect:find_IdPw/id";
@@ -75,6 +84,14 @@ public class FindUserController {
 			return "redirect:find_IdPw/pw";
 		}
 		// 존재한다면
+		boolean uCheck = userService.checkDeleteUser(userId);
+		if(uCheck) {
+			// 탈퇴한 회원이라면
+			redirectAttributes.addFlashAttribute("deleteUser", "deleteUser");
+			redirectAttributes.addFlashAttribute("find", "pw");
+			return "redirect:find_IdPw/id";
+		}
+		// 탈퇴한 회원이 아니라면
 		return "user/success_findPw";
 	}
 	

@@ -79,6 +79,23 @@ public class UserDao {
 	}
 	
 	/**
+	 * 유저아이디로 탈퇴유무 확인
+	 * @param userId
+	 * @return
+	 */
+	public Boolean checkDeleteUser(String userId) {
+		String sql = "SELECT uCheck FROM User WHERE userId = ?";
+		return jdbcTemplate.queryForObject(sql, new RowMapper<Boolean>() {
+
+			@Override
+			public Boolean mapRow(ResultSet rs, int rowNum) throws SQLException {
+				return rs.getBoolean("uCheck");
+			}
+			
+		}, userId);
+	}
+	
+	/**
 	 * 회원 존재 유무 확인하기
 	 * @param userId
 	 * @param passwd
