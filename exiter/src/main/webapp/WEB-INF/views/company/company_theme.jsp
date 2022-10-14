@@ -100,7 +100,7 @@ if (comId == null){
   <option>예약시간 보기</option>
   </select>
   </p></div></td>
-  <td><div><p>${companyInfo.TDef }</p></div></td>
+  <td><div style="height: auto; padding: 10px 0;"><p>${companyInfo.TDef }</p></div></td>
   <td>
   <div>
   	<form>
