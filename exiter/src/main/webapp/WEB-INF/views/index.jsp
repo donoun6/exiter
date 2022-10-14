@@ -154,7 +154,7 @@
       	<h2>장르별 테마 : ${getCategory.TCategory }</h2>
       		<div class="swiper mySwiper">
 	          <div class="swiper-wrapper">
-			     <c:forEach var="cateImg" items="${cateImg[status.index] }">
+			     <c:forEach var="cateImg" items="${cateImg[status.index] }"> <!--status는 상위 forEach의 인덱스 번호를 인용하여 for문식으로 다시한번 돌림  -->
 			     <div class="swiper-slide"><img id="img" name="${cateImg.TName }" class="${cateImg.comName }" src="<c:url value='/resources/images/theme/${cateImg.TImage }'/>" alt=""></div>
 		      </c:forEach>
 	          </div>

@@ -27,11 +27,12 @@ public class MainController {
 	public String mainPage(Model model) {
 		model.addAttribute("randomImg",mainService.randomImg());
 		model.addAttribute("newImg",mainService.newImg());
-		model.addAttribute("getCategory",mainService.getCategory());
+		List <MainDomain> getCategory = mainService.getCategory();
+		model.addAttribute("getCategory", getCategory);
 		
-		List<List<MainDomain>> list = new ArrayList<List<MainDomain>>();
-		for(int i = 0; i < mainService.getCategory().size(); i++) {
-			String category = mainService.getCategory().get(i).getTCategory();
+		List<List<MainDomain>> list = new ArrayList<List<MainDomain>>(); //아래 category를 이용하여 category별 img를 이중List에 담는다.
+		for(int i = 0; i < getCategory.size(); i++) {
+			String category = getCategory.get(i).getTCategory();
 			list.add(mainService.CategoryImg(category));
 		}
 		
