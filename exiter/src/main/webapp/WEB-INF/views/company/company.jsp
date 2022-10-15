@@ -51,9 +51,9 @@ if (comId == null){
         section 3 <br>
       </section>
     </div>
-  </main>
-  <!-- footer -->
+      <!-- footer -->
   <jsp:include page="../common/copyright.jsp"></jsp:include>
+  </main>
 </body>
 
 </html>

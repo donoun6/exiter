@@ -26,7 +26,19 @@ main::-webkit-scrollbar {
 main > h1 {
 	position: absolute;
 	font-size: 50px;
-	padding: 40px 0 0 40px;
+	padding: 40px 0 0 60px;
+	margin-left: 40px;
+}
+
+main > h1:before {
+	content: '';
+	display: block;
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	left:-20px;
+	margin-left: 20px;
+	background-image: url("../../images/icon/edit_FILL0_wght400_GRAD0_opsz48.png");
 }
 
 input[type=number]::-webkit-inner-spin-button,
