@@ -63,8 +63,8 @@ if (comId == null){
 		<label style="width: 350px;">테마사진 : <input id="file" type="file" name="file"></label><br>
 		<label>테마설명 : <br><form:textarea path="tDef" style="width: 70vw; height: 100px;"/><br></label><br>
 		<div class="btnBox">
-		<button id="submitBtn" type="submit">등록</button>
-		<button id="submitBtn" type="reset">초기화</button>
+		<button id="submitBtn" class="rBtn" type="submit">등록</button>
+		<button id="submitBtn" class="dBtn" type="reset">초기화</button>
 		</div>
 	</form:form>
 	</fieldset>
@@ -105,7 +105,7 @@ if (comId == null){
   <div>
   	<form>
   	<input name="tid" type="hidden" value="${companyInfo.tid }">
-  	<button type="submit" id="delete">삭제</button>
+  	<button type="submit" class="dBtn tdBtn" id="delete">삭제</button>
   	</form>
   </div>
   </td>
