@@ -137,6 +137,10 @@ th, td {
     scrollbar-width:none; /* Firefox */
 }
 
+th {
+	background: #F3F1F5;
+}
+
 th::-webkit-scrollbar, td::-webkit-scrollbar {
 	display:none; /* Chrome , Safari , Opera */
 }
