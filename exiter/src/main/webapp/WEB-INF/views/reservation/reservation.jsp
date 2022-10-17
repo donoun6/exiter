@@ -23,10 +23,23 @@
         <jsp:include page="../common/header.jsp"></jsp:include>
         <!-- 메인 영역 -->
         <main>
-        	
+			<form:form modelAttribute="reservation">
+			<form:input path="uid"/>
+			<form:input path="tid"/>
+			<form:input path="rPrice"/>
+			<input type="date" id="rDate" name="rDate"/>
+			<form:input path="rTime"/>
+			<form:input path="rNum"/>
+			<input type="submit">
+			</form:form>
         </main>
     </div>
     <!-- 푸터 영역 -->
     <jsp:include page="../common/footer.jsp"></jsp:include>
+    
+    <!-- script 영역 -->
+    <script type="text/javascript">
+
+    </script>
 </body>
 </html>

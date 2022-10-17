@@ -1,13 +1,11 @@
 package com.escape.exiter.reservation.dao;
 
-import java.util.List;
-
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.escape.exiter.reservation.domain.ReservationCom;
+import com.escape.exiter.reservation.domain.ReservationDomain;
 
 @Repository
 public class ReservationDao {
@@ -17,9 +15,12 @@ public class ReservationDao {
 		jdbcTemplate = new JdbcTemplate(datasource);
 	}
 	
-	public List<ReservationCom> findReservationListByTime(String Time) {
-		String sql = "SELECT ";
-		return jdbcTemplate.query(sql, new ReservationRowMapper());
+	public void addReservation(ReservationDomain reservation) {
+		String sql = "INSERT INTO Reservation(uid, tid, rPrice, rDate, rTime, rNum)"
+				+ "VALUES (?,?,?,?,?,?)";
+		jdbcTemplate.update(sql, reservation.getUid(),reservation.getTid(),
+				reservation.getRPrice(),reservation.getRDate(),
+				reservation.getRTime(),reservation.getRNum());
+		System.out.println("[예약 등록]\n" + reservation.toString() + "\n");
 	}
-	
 }

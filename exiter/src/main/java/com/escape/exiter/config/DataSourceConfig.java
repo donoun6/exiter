@@ -9,6 +9,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 
 import com.escape.exiter.company.dao.CompanyDao;
 import com.escape.exiter.main.dao.MainDao;
+import com.escape.exiter.reservation.dao.ReservationDao;
 
 
 @Configuration
@@ -49,5 +50,10 @@ public class DataSourceConfig {
 	@Bean
 	public MainDao mainDao() {
 		return new MainDao(dataSource());
+	}
+	
+	@Bean
+	public ReservationDao reservationDao() {
+		return new ReservationDao(dataSource());
 	}
 }
