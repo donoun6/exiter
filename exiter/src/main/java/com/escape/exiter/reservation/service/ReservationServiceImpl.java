@@ -17,5 +17,8 @@ public class ReservationServiceImpl implements ReservationService{
 		reservationDao.addReservation(reservation);
 	}
 	
-	
+	@Override
+	public long getCntReserByUid(long uid) {
+		return reservationDao.findCntReserByUid(uid);
+	}
 }

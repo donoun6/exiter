@@ -56,6 +56,7 @@ public class LoginController {
 		// 탈퇴한 회원이 아니라면
 		session = request.getSession(true);
 		session.setAttribute("userId", userId);
+		session.setAttribute("uid", user.getUid());
 		session.setAttribute("uName", user.getUName());
 		session.setAttribute("uGrade", user.getUGrade());
 		session.setAttribute("uCheck", user.getUCheck());

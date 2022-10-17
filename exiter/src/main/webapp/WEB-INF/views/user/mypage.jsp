@@ -27,8 +27,8 @@
         <!--상단-->
           <div class="name-box">
             <div class="name">
-              ${uName }
-              <span class="id">${userId }</span>
+              ${uName}
+              <span class="id">${userId}</span>
             </div>
             <div class="profile">
               <img src="<c:url value='/resources/images/icon/key.png'/>" alt="man" style="rotate: -35deg;">
@@ -45,19 +45,24 @@
             <div class="top-list">
               <span class="material-symbols-outlined">book_online</span>
               <p>예약횟수</p>
-              <p>3번</p>
+              <p>${reserCnt}&nbsp;번</p>
             </div>
           </div>
 
 
-        <div class="middle-box">
-          <h5>현재 예약중인 테마</h5>
+        <div class="reser-box">
+        	<div class="reser-tap">
+        		<h5>현재 예약중인 테마</h5>
+        		<a href="#">+</a>
+        	</div>
         </div>
 
         <div class="bottom-box">
           <div class="reservation">
-            <h5>예약내역</h5>
-            <p><span>0</span>&nbsp;건</p>
+          	<a href="<c:url value='/reservation/reser_list'/>">
+	            <h5>예약내역</h5>
+	            <p><span>${reserCnt}</span>&nbsp;건</p>
+	        </a>
           </div>
           <div class="record">
           	<a href="<c:url value='/common/get_ready'/>">

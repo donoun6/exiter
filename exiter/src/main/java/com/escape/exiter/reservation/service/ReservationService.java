@@ -4,4 +4,5 @@ import com.escape.exiter.reservation.domain.ReservationDomain;
 
 public interface ReservationService {
 	void addReservation(ReservationDomain reservation);
+	long getCntReserByUid(long uid);
 }
