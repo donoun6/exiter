@@ -102,7 +102,7 @@ CREATE TABLE Reservation (
 	tid				BIGINT				NOT NULL,
 	rPrice			INT					NOT NULL,
 	rDate			DATE				NOT NULL,
-	rTime			TIME				NOT NULL,
+	rTime			VARCHAR(10)			NOT NULL,
 	rNum			INT					NOT	NULL,
 	regDate			TIMESTAMP			NOT NULL DEFAULT	CURRENT_TIMESTAMP,
 	CONSTRAINT Reservation_uid_FK FOREIGN KEY (uid) REFERENCES User(uid),

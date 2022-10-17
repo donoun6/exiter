@@ -60,20 +60,24 @@
             <p><span>0</span>&nbsp;건</p>
           </div>
           <div class="record">
-            <h5>내기록확인</h5>
-            <p><span>-</span></p>
+          	<a href="<c:url value='/common/get_ready'/>">
+	            <h5>내기록확인</h5>
+	            <p><span>-</span></p>
+            </a>
           </div>
           <div class="ranking">
-            <h5>랭킹</h5>
-            <p><span>-</span>&nbsp;위</p>
+          	<a href="<c:url value='/common/get_ready'/>">
+	            <h5>랭킹</h5>
+	            <p><span>-</span>&nbsp;위</p>
+            </a>
           </div>
         </div>
 
         <table class="bottom-list-box">
-          <tr><td>내가 쓴 게시글</td></tr>
-          <tr><td>내가 쓴 댓글</td></tr>
-          <tr><td>내 리뷰</td></tr>
-          <tr><td>1:1 문의</td></tr>
+          <tr><td><a href="<c:url value='/common/get_ready'/>">내가 쓴 게시글</a></td></tr>
+          <tr><td><a href="<c:url value='/common/get_ready'/>">내가 쓴 댓글</a></td></tr>
+          <tr><td><a href="<c:url value='/common/get_ready'/>">내 리뷰</a></td></tr>
+          <tr><td><a href="<c:url value='/common/get_ready'/>">1:1 문의</a></td></tr>
           <tr><td><a href="<c:url value='/user/update_userInfo'/>">회원정보 변경</a></td></tr>
           <tr><td><a href="<c:url value='/user/logout_pop'/>">로그아웃</a></td></tr>
         </table>
@@ -114,12 +118,26 @@
 	    </div>
     </c:if>
     
+    <c:if test="${popUp.length() > 0}">
+    	<!-- 준비중 팝업창 -->
+    	<div class="popUp-wrap">
+	    	<div class="popUp-box">
+		        <div class="popUp-item">
+		        	<p>준비중입니다.</p>
+		        	<div class="btn-box">
+		        		<button class="s-btn" onclick="location.href='<c:url value='${correntPage}'/>'">확인</button>
+		        	</div>
+		        </div>
+		    </div>
+	    </div>
+    </c:if>
+    
 	<!-- 푸터 영역 -->
     <jsp:include page="../common/footer.jsp"></jsp:include>
     
     <!-- 스크립트 영역 -->
     <script type="text/javascript">
-    	$('.mypage-container').on('click', '.delete_user', function() {
+    	$('.delete_user').on('click', 'span', function() {
     		var userId = '${userId}';
     		$.ajax({
     			async: true,
