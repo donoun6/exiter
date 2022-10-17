@@ -1,9 +1,12 @@
 package com.escape.exiter.reservation.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.escape.exiter.reservation.dao.ReservationDao;
+import com.escape.exiter.reservation.domain.ReserThemeCom;
 import com.escape.exiter.reservation.domain.ReservationDomain;
 
 @Service
@@ -20,5 +23,10 @@ public class ReservationServiceImpl implements ReservationService{
 	@Override
 	public long getCntReserByUid(long uid) {
 		return reservationDao.findCntReserByUid(uid);
+	}
+
+	@Override
+	public List<ReserThemeCom> getReservationsByUid(long uid) {
+		return reservationDao.findReservationsByUid(uid);
 	}
 }

@@ -11,3 +11,51 @@ main {
   min-height: calc(100vh - 140px);
   padding: 80px 20px 0;
 }
+
+h3.title {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+
+.reser-wrap {
+	padding-bottom: 80px;
+}
+
+.reser-wrap .reser-item {
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.reser-wrap .reser-item + .reser-item {
+	padding-top: 15px;
+	border-top: 1px solid #737373;
+	
+}
+
+.left-box p {
+	font-size: 15px;
+}
+
+.left-box p + p {
+	margin-top: 8px;
+}
+.left-box .theme {
+	font-size: 20px;
+	color: #414aea;
+}
+
+.left-box .theme span {
+	font-size: 16px;
+	color: #737373;
+}
+
+.right-box {
+	text-align: right;
+}
+.right-box img {
+	height: 160px;
+    border-radius: 13px;
+}
