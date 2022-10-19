@@ -26,7 +26,12 @@ public class ReservationServiceImpl implements ReservationService{
 	}
 
 	@Override
-	public List<ReserThemeCom> getReservationsByUid(long uid) {
-		return reservationDao.findReservationsByUid(uid);
+	public List<ReserThemeCom> getReservationsAfterToday(long uid) {
+		return reservationDao.findReservationsAfterToday(uid);
+	}
+
+	@Override
+	public List<ReserThemeCom> getReservationsBeforeToday(long uid) {
+		return reservationDao.findReservationsBeforeToday(uid);
 	}
 }

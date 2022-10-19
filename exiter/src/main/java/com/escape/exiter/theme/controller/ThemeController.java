@@ -39,23 +39,6 @@ public class ThemeController {
 		DecimalFormat decFormat = new DecimalFormat("###,###");
 		String tPrice = decFormat.format(tpList.get(0).getTPrice());
 		
-		/*
-		List<String> tpList = new ArrayList<String>();
-		for(ThemePrice tp : list) {
-			
-			String tPrice = decFormat.format(tp.getTPrice());
-			tpList.add(tPrice);
-			
-		}
-		*/
-		/*
-		Map<String, String> tpMap = new HashMap<String, String>();
-		for(int i = 0; i < list.size(); i++) {
-			String tPrice = decFormat.format(list.get(i).getTPrice());
-			tpMap.put(String.valueOf(i + 1), tPrice);
-		}
-		*/
-		
 		Company company = companyService.companyInfo(theme.getCid());
 		
 		model.addAttribute("theme", theme);

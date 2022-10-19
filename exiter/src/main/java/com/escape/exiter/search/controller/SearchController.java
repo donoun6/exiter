@@ -74,7 +74,6 @@ public class SearchController {
 	public String themeDetail(@RequestBody Map<String, Object> allData, HttpServletRequest request) {
 		String company = (String)allData.get("company");
 		String tName = (String)allData.get("tName");
-		System.out.println(company + tName);
 		String comName = company.split("-")[0].trim();
 		String comPocus = "";
 		Theme theme;

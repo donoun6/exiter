@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -23,12 +24,25 @@ public class ReservationListController {
 	HttpSession session;
 	
 	@GetMapping
-	public String reserListFrom(HttpServletRequest request) {
+	public String reserListFrom(HttpServletRequest request, Model model) {
 		session = request.getSession(false);
-		long uid = (long) session.getAttribute("uid");
-		List<ReserThemeCom> reserList = reservationService.getReservationsByUid(uid);
 		
-		request.setAttribute("reserList", reserList);
+		// 로그인 안되어있을 경우
+		if (session == null) {
+			model.addAttribute("session", "no");
+			return "error/no_session";
+		}
+		if(session.getAttribute("userId") == null) {
+			model.addAttribute("session", "no");
+			return "error/no_session";
+		}
+		
+		long uid = (long) session.getAttribute("uid");
+		List<ReserThemeCom> afterList = reservationService.getReservationsAfterToday(uid);
+		List<ReserThemeCom> beforeList = reservationService.getReservationsBeforeToday(uid);
+		
+		request.setAttribute("afterList", afterList);
+		request.setAttribute("beforeList", beforeList);
 		return "reservation/reser_list";
 	}
 	

@@ -47,12 +47,25 @@ public class ReservationDao {
 		}, uid);
 	}
 	
-	public List<ReserThemeCom> findReservationsByUid(long uid) {
+	public List<ReserThemeCom> findReservationsAfterToday(long uid) {
 		String sql = "SELECT r.rid, r.uid, r.tid, r.rPrice, r.rDate, r.rTime, r.rNum, t.tName, t.tCategory, t.tLevel, t.tImage, t.cid, c.comName, c.comPocus, r.regDate"
 				+ " FROM Reservation r"
 				+ " INNER JOIN Theme t ON r.tid = t.tid"
 				+ " INNER JOIN Company c ON t.cid = c.cid"
-				+ " WHERE uid = ?";
+				+ " WHERE uid = ? AND"
+				+ " rDate > CURRENT_DATE()"
+				+ " ORDER BY rDate";
+		return jdbcTemplate.query(sql, new ReserThemeComRowMapper(), uid);
+	}
+	
+	public List<ReserThemeCom> findReservationsBeforeToday(long uid) {
+		String sql = "SELECT r.rid, r.uid, r.tid, r.rPrice, r.rDate, r.rTime, r.rNum, t.tName, t.tCategory, t.tLevel, t.tImage, t.cid, c.comName, c.comPocus, r.regDate"
+				+ " FROM Reservation r"
+				+ " INNER JOIN Theme t ON r.tid = t.tid"
+				+ " INNER JOIN Company c ON t.cid = c.cid"
+				+ " WHERE uid = ? AND"
+				+ " rDate < CURRENT_DATE()"
+				+ " ORDER BY rDate DESC";
 		return jdbcTemplate.query(sql, new ReserThemeComRowMapper(), uid);
 	}
 }

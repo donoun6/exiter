@@ -23,17 +23,35 @@
         <!-- 메인 영역 -->
         <main class="main">
         	<h3 class="title">예약내역</h3>
-        	<ul class="reser-wrap">
-        		<c:forEach var="reser" items="${reserList}">
+        	<ul class="reser-wrap after">
+        		<h5 class="sub-title">현재 예약중인 테마</h5>
+        		<c:forEach var="after" items="${afterList}">
         			<li class="reser-item">
         				<div class="left-box">
-        					<p class="theme">${reser.TName} <span>${reser.TCategory}</span></p>
-	        				<p class="r-price">${reser.RNum}인 ${reser.RPrice}원</p>
-	        				<p class="r-date">${reser.RDate} ${reser.RTime}</p>
-	        				<p class="company">${reser.comName} ${reser.comPocus}</p>
+        					<p class="theme">${after.TName} <span>${after.TCategory}</span></p>
+	        				<p class="r-price">${after.RNum}인&nbsp;&nbsp;&nbsp;${after.RPrice}원</p>
+	        				<p class="r-date">${after.RDate}&nbsp;&nbsp;&nbsp;${after.RTime}</p>
+	        				<p class="company">${after.comName} ${after.comPocus}</p>
         				</div>
         				<div class="right-box">
-		        			<img alt="${reser.TName}" src="/exiter/resources/images/theme/${reser.TImage}">
+		        			<img alt="${after.TName}" src="/exiter/resources/images/theme/${after.TImage}">
+		        		</div>
+        			</li>
+        		</c:forEach>
+        	</ul>
+        	
+        	<ul class="reser-wrap before">
+        		<h5 class="sub-title">완료된 테마</h5>
+        		<c:forEach var="before" items="${beforeList}">
+        			<li class="reser-item">
+        				<div class="left-box">
+        					<p class="theme">${before.TName} <span>${before.TCategory}</span></p>
+	        				<p class="r-price">${before.RNum}인&nbsp;&nbsp;&nbsp;${before.RPrice}원</p>
+	        				<p class="r-date">${before.RDate}&nbsp;&nbsp;&nbsp;${before.RTime}</p>
+	        				<p class="company">${before.comName} ${before.comPocus}</p>
+        				</div>
+        				<div class="right-box">
+		        			<img alt="${before.TName}" src="/exiter/resources/images/theme/${before.TImage}">
 		        		</div>
         			</li>
         		</c:forEach>
