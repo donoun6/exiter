@@ -24,6 +24,7 @@
         <jsp:include page="../common/header.jsp"></jsp:include>
         <!-- 메인 영역 -->
         <main>
+        <form:form modelAttribute="reservation">
         <div class="title">
         		<h5 class="info">예약 하기</h5>
 				<h3 class="tName">${theme.getTName()}</h3>
@@ -64,13 +65,15 @@
         		<tr>
         			<th>가격</th>
         			<td>
-        				<select class="selectTNum" onChange="javascript:checkPrice();">
+        				<select id="rNum" name="rNum" class="selectTNum" onChange="javascript:checkPrice();">
+        				<option class="option" selected disabled>인원선택</option>
         					<c:forEach var="i" begin="0" end="${cnt - 1}">
         						<option class="option" value="${i}">${i + 1}&nbsp;인</option>
         					</c:forEach>
         				</select>
 	        		<br>
-	        		<span id="tPrice">${tPrice}&nbsp;원</span>
+	        		<span id="tPrice">인원을 선택하세요</span>
+	        		<input id="rPrice" name="rPrice" type="hidden" value=""/>
         			</td>
         		</tr>
         	</table>
@@ -80,19 +83,11 @@
         		<div class="trTime">${trTime.trTime }</div>
         	</c:forEach>
         	</div>
-        	<button class="s-btn res" onclick="location.href='/exiter/theme/reservation/${theme.getTid()}'">예약하기</button>
-        	
-        <!-- 
-        	
-			<form:form modelAttribute="reservation">
 			<input type="hidden" name="uid" value="${uid }"/>
 			<input type="hidden" name="tid" value="${tid }"/>
-			<form:input path="rPrice"/>
-			<input type="date" id="rDate" name="rDate"/>
-			<form:input path="rTime"/>
-			<form:input path="rNum"/>
-			<input type="submit">
-			</form:form> -->
+			<input type="hidden" id="rTime" name="rTime"/>
+			<input type="submit" class="s-btn res" value="예약하기">
+			</form:form>
         </main>
     </div>
     <!-- 푸터 영역 -->
@@ -114,9 +109,17 @@
 			contentType: 'application/json; charset=UTF-8',
 			success: function(data) {
 				$('#tPrice').html(data + "&nbsp;원");
+				var data2 = data.split(",")
+				$('#rPrice').val(data2[0]+data2[1])
 			}
 		});
 	}
+	$(function(){
+		$(".trTime").click(function(){
+			var data = this.innerText
+			$("#rTime").val(data);
+		});
+	});
     </script>
 </body>
 </html>

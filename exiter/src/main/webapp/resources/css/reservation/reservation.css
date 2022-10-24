@@ -18,6 +18,11 @@
     height: 10vh;
     margin: 10px;
     box-sizing: border-box;
+    border: 1px solid;
+}
+
+.trTime:hover {
+	background: red;
 }
 
 .selBox {

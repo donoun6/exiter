@@ -4,6 +4,7 @@ import java.text.DecimalFormat;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,8 +61,8 @@ public class ReservationController {
 	}
 	
 	@PostMapping
-	public String Reservation(@ModelAttribute("reservation") ReservationDomain reservation, Model model) {
+	public String Reservation(@ModelAttribute("reservation") ReservationDomain reservation, Model model,HttpServletRequest request) {
 		reservationService.addReservation(reservation);
-		return "redirect:/";
+		return "redirect:/reservation/reser_list";
 	}
 }

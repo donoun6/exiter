@@ -26,8 +26,8 @@ public class ReservationDao {
 				+ "VALUES (?,?,?,?,?,?)";
 		jdbcTemplate.update(sql, reservation.getUid(),reservation.getTid(),
 				reservation.getRPrice(),reservation.getRDate(),
-				reservation.getRTime(),reservation.getRNum());
-		System.out.println("[예약 등록]\n" + reservation.toString() + "\n");
+				reservation.getRTime(),reservation.getRNum()+1);
+//		System.out.println("[예약 등록]\n" + reservation.toString() + "\n");
 	}
 	
 	/**
