@@ -123,14 +123,12 @@
     					dataType: "json",
     					contentType: "application/json; charset=UTF-8",
     					success: function(data) {
-    						console.log(data.cnt);
     						if(data.cnt == 0) {
     							// 비밀번호가 틀린 경우(아이디는 위에서 1차로 검사 끝냄)
     							$('#checkPw').addClass('err');
     							$('#checkPw').text('비밀번호가 틀렸습니다.');
     						} else {
     							// 비밃번호 맞은 경우
-    							console.log(uPasswd)
     							$('#checkPw').text('');
     							$('#login').submit();
     						}

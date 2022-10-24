@@ -47,17 +47,31 @@ public class ReservationDao {
 		}, uid);
 	}
 	
+	/**
+	 * 오늘 이후 예약목록 조회(오늘자 포함)
+	 * @param uid
+	 * @return
+	 */
 	public List<ReserThemeCom> findReservationsAfterToday(long uid) {
 		String sql = "SELECT r.rid, r.uid, r.tid, r.rPrice, r.rDate, r.rTime, r.rNum, t.tName, t.tCategory, t.tLevel, t.tImage, t.cid, c.comName, c.comPocus, r.regDate"
 				+ " FROM Reservation r"
 				+ " INNER JOIN Theme t ON r.tid = t.tid"
 				+ " INNER JOIN Company c ON t.cid = c.cid"
 				+ " WHERE uid = ? AND"
-				+ " rDate > CURRENT_DATE()"
+				+ " rDate >= CURRENT_DATE()"
 				+ " ORDER BY rDate";
-		return jdbcTemplate.query(sql, new ReserThemeComRowMapper(), uid);
+		try {
+			return jdbcTemplate.query(sql, new ReserThemeComRowMapper(), uid);
+		} catch(Exception e) {
+			return null;
+		}
 	}
 	
+	/**
+	 * 오늘 이전 예약목록 조회
+	 * @param uid
+	 * @return
+	 */
 	public List<ReserThemeCom> findReservationsBeforeToday(long uid) {
 		String sql = "SELECT r.rid, r.uid, r.tid, r.rPrice, r.rDate, r.rTime, r.rNum, t.tName, t.tCategory, t.tLevel, t.tImage, t.cid, c.comName, c.comPocus, r.regDate"
 				+ " FROM Reservation r"
@@ -66,6 +80,10 @@ public class ReservationDao {
 				+ " WHERE uid = ? AND"
 				+ " rDate < CURRENT_DATE()"
 				+ " ORDER BY rDate DESC";
-		return jdbcTemplate.query(sql, new ReserThemeComRowMapper(), uid);
+		try {
+			return jdbcTemplate.query(sql, new ReserThemeComRowMapper(), uid);
+		} catch(Exception e) {
+			return null;
+		}
 	}
 }

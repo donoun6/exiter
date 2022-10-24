@@ -57,7 +57,7 @@ public class LogoutController {
 			referer = "redirect:/";
 			correntPage = "/";
 		} else {
-			referer = arr[arr.length-2] + "/" + arr[arr.length-1];
+			referer = "redirect:/" + arr[arr.length-2] + "/" + arr[arr.length-1];
 			correntPage = "/" + arr[arr.length-2] + "/" + arr[arr.length-1];
 		}
 
@@ -83,7 +83,7 @@ public class LogoutController {
 			referer = "redirect:/";
 			correntPage = "/";
 		} else {
-			referer = arr[arr.length-2] + "/" + arr[arr.length-1];
+			referer = "redirect:/" + arr[arr.length-2] + "/" + arr[arr.length-1];
 			correntPage = "/" + arr[arr.length-2] + "/" + arr[arr.length-1];
 		}
 

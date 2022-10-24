@@ -40,12 +40,15 @@
               <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
               <span class="material-symbols-outlined">stars</span>
               <p>등급</p>
-              <p>${uGrade }</p>
+              <p class="grade">${uGrade }</p>
             </div>
             <div class="top-list">
               <span class="material-symbols-outlined">book_online</span>
               <p>예약횟수</p>
-              <p>${reserCnt}&nbsp;번</p>
+              <p class="reser-cnt">
+              	<a href="<c:url value='/reservation/all_reser_lists'/>">
+              		${reserCnt}&nbsp;번</p>
+              	</a>
             </div>
           </div>
 
@@ -53,13 +56,28 @@
         <div class="reser-box">
         	<div class="reser-tap">
         		<h5>현재 예약중인 테마</h5>
-        		<a href="#">+</a>
+        		<a href="<c:url value='/reservation/after_reser_list'/>">+</a>
         	</div>
+        	<c:if test="${not empty reser}">
+        		<div class="reser-item">
+		        	<div class="reser-detail">
+		        		<p class="r-date">${reser.getRDate()}&nbsp;&nbsp;&nbsp;${reser.getRTime()}</p>
+			        	<p class="theme">${reser.getTName()}</p><p class="category">${reser.getTCategory()}</p>
+			        	<p class="company">${reser.getComName()} ${reser.getComPocus()}</p>
+		        	</div>
+		        	<div class="reser-img">
+		        		<img alt="${reser.getTName()}" src="/exiter/resources/images/theme/${reser.getTImage()}">
+		        	</div>
+	        	</div>
+        	</c:if>
+        	<c:if test="${empty reser}">
+        		<p class="not-reser">현재 예약중인 테마가 없습니다.</p>
+        	</c:if>
         </div>
 
         <div class="bottom-box">
           <div class="reservation">
-          	<a href="<c:url value='/reservation/reser_list'/>">
+          	<a href="<c:url value='/reservation/all_reser_lists'/>">
 	            <h5>예약내역</h5>
 	            <p><span>${reserCnt}</span>&nbsp;건</p>
 	        </a>

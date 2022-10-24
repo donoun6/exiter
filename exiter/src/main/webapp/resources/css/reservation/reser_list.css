@@ -10,6 +10,7 @@ html, body {
 main {
   min-height: calc(100vh - 140px);
   padding: 80px 20px 0;
+  padding-bottom: 80px;
 }
 
 h3.title {
@@ -33,13 +34,13 @@ h5.sub-title {
 .before .sub-title {
   background: #636363;
 }
-
+/*
 .reser-wrap.after {
   padding-bottom: 50px;
 }
-
+*/
 .reser-wrap.before {
-  padding-bottom: 80px;
+  padding-top: 50px;
 }
 
 .reser-wrap .reser-item {
@@ -64,8 +65,13 @@ h5.sub-title {
 }
 
 .left-box .theme {
-  margin-bottom: 26px;
+  margin-top: 25px;
+  margin-bottom: 15px;
   font-size: 20px;
+  color: #414aea;
+}
+
+.left-box .theme a {
   color: #414aea;
 }
 
@@ -74,19 +80,37 @@ h5.sub-title {
   color: #737373;
 }
 
-.before .reser-item .left-box p {
+.left-box .r-date {
+  font-size: 14px;
+}
+
+.more {
+  margin-top: 40px;
+  text-align: right;
+}
+
+.more a {
+  border-bottom: 1px solid #737373;
+  color: #737373;
+  font-size: 14px;
+}
+
+.before .reser-item .left-box p, .before .reser-item .left-box p a {
   color: #737373;
 }
-/*
-.before .reser-item .left-box .theme {
-  color: #414aea;
-}
-*/
+
 .right-box {
   text-align: right;
 }
 
 .right-box img {
-  height: 160px;
+  height: 130px;
   border-radius: 13px;
+}
+
+.not-reser {
+  margin-top: 300px;
+  text-align: center;
+  color: #737373;
+  font-size: 20px;
 }

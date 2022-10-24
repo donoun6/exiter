@@ -1,5 +1,7 @@
 package com.escape.exiter.user.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -8,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.escape.exiter.reservation.domain.ReserThemeCom;
 import com.escape.exiter.reservation.service.ReservationService;
 import com.escape.exiter.user.service.UserService;
 
@@ -49,6 +52,12 @@ public class MyPageController {
 		model.addAttribute("reserCnt", reserCnt);
 		
 		// 현재 예약중인 테마
+		List<ReserThemeCom> afterList = reservationService.getReservationsAfterToday(uid);
+		if(afterList.size() == 0) {
+			return "user/mypage";
+		}
+		ReserThemeCom reser = afterList.get(0);
+		model.addAttribute("reser", reser);
 		
 		return "user/mypage";
 	}

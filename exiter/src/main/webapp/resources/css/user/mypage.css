@@ -24,7 +24,6 @@ header {
   position: absolute;
   width: 100%;
   height: 34%;
-  background: rgb(111,140,255);
   background: linear-gradient(90deg, rgba(111,140,255,1) 0%, rgba(90,122,255,1) 4%, rgba(79,110,255,1) 22%, rgba(71,108,255,1) 48%, rgba(79,110,255,1) 82%, rgba(90,122,255,1) 96%, rgba(111,140,255,1) 100%);
   border-radius: 0 0 40px 40px;
 }
@@ -76,37 +75,95 @@ header {
   width: 100%;
   font-weight: 400;
 }
-.top-list p:last-child {
+.top-list p.reser-cnt, .top-list p.grade {
   text-align: right;
 }
 
 .reser-box {
+  position: relative;
   height: 150px;
   border: 1px solid #737373;
   border-radius: 10px;
-  margin-top: 40px;
+  margin-top: 45px;
   padding: 0 20px;
+}
+
+.reser-box:before {
+  position: absolute;
+  top: 33px;
+  left: 0;
+  right: 0;
+  content: '';
+  height: 1px;
+  background: #737373;
 }
 
 .reser-box .reser-tap {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 8px;
 }
 
 .reser-box .reser-tap h5 {
   font-weight: 400;
   margin: 10px 0 10px 0;
-  color: #ddd;
+  color: rgb(111,140,255);
 }
 
 .reser-box .reser-tap a {
   display: inline-block;
   width: 16px;
-  margin-top: 3px;
   text-align: right;
   font-size: 28px;
-  color: #ddd;
+  color: rgb(111,140,255);
+}
+
+.reser-box .reser-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: self-start;
+}
+
+.reser-box .reser-item .reser-detail {
+  color: #ccc;
+}
+
+.reser-box .reser-item .reser-detail .r-date {
+  margin-bottom: 12px;
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+.reser-box .reser-item .reser-detail .theme, .reser-box .reser-item .reser-detail .category {
+  display: inline-block;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.reser-box .reser-item .reser-detail .theme {
+  background: #414aea;
+  color: #fff;
+  padding: 3px;
+}
+
+.reser-box .reser-item .reser-detail .category {
+  margin-left: 8px;
+  font-size: 16px;
+}
+
+.reser-box .reser-item .reser-detail .company {
+  font-size: 14px;
+}
+
+.reser-box .reser-item .reser-img img {
+  height: 100px;
+  border-radius: 10px;
+}
+
+.reser-box .not-reser {
+  margin-top: 45px;
+  text-align: center;
 }
 
 .bottom-box {
