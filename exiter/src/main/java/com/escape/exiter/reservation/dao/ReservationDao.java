@@ -86,4 +86,19 @@ public class ReservationDao {
 			return null;
 		}
 	}
+	
+	public List<Object> findReservationTime(String rDate, long tid) {
+		String sql = "SELECT rTime FROM Reservation r INNER JOIN Theme t ON r.rid = t.tid WHERE r.rDate = ? and r.tid = ?";
+		return jdbcTemplate.query(sql, new RowMapper<>() {
+
+			@Override
+			public String mapRow(ResultSet rs, int rowNum) throws SQLException {
+				ReservationDomain reservationDomain = new ReservationDomain();
+				reservationDomain.setRTime(rs.getString("rTime"));
+				return reservationDomain.getRTime();
+			}
+			
+		},rDate,tid);
+	}
+	
 }

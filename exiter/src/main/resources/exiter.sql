@@ -109,6 +109,8 @@ CREATE TABLE Reservation (
 	CONSTRAINT Reservation_tid_FK FOREIGN KEY (tid) REFERENCES theme(tid)
 )AUTO_INCREMENT = 1;
 
+SELECT rTime FROM Reservation r INNER JOIN Theme t ON r.rid = t.tid WHERE r.rTime = '07:50 PM' and r.rDate = '2022-10-19' and t.tid = 19;
+
 CREATE TABLE Board (
 	bid				BIGINT				NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	uid				BIGINT				NOT NULL,

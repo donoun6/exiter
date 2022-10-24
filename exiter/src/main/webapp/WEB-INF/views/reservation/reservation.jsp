@@ -95,6 +95,29 @@
     
     <!-- script 영역 -->
     <script type="text/javascript">
+    
+	$(function(){
+		$('#rDate').change(function() {
+			var tid = ${theme.getTid()};
+			console.log(tid);
+			var date = $('#rDate').val();
+			console.log(date);
+			var allData = {"tid": tid, "date": date};
+			console.log(allData)
+			$.ajax({
+				async: true,
+				type: 'POST',
+				data: JSON.stringify(allData),
+				url: '${theme.getTid()}/checkReservationTime',
+				dataType: 'json',
+				contentType: 'application/json; charset=UTF-8',
+				success: function(data) {
+					console.log(data.length);
+				}
+			});
+		});
+	})
+
 	// 인원별 가격 확인
 	function checkPrice() {
 		var tid = ${theme.getTid()};
@@ -114,6 +137,8 @@
 			}
 		});
 	}
+
+	
 	$(function(){
 		$(".trTime").click(function(){
 			var data = this.innerText

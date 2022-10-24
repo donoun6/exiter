@@ -23,8 +23,7 @@ public class ReservationDaoTest {
 //		reservation.setRTime("test");
 //		reservation.setRNum(2);
 //		dao.addReservation(reservation);
-		
-		
+//		System.out.println(dao.findReservationTime("2022-10-27",19).size());
 		context.close();
 	}
 }

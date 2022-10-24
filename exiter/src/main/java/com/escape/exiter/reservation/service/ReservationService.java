@@ -10,4 +10,5 @@ public interface ReservationService {
 	long getCntReserByUid(long uid);
 	List<ReserThemeCom> getReservationsAfterToday(long uid);
 	List<ReserThemeCom> getReservationsBeforeToday(long uid);
+	List<Object> findReservationTime(String rDate, long tid);
 }

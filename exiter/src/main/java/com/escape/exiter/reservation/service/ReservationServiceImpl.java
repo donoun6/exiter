@@ -34,4 +34,9 @@ public class ReservationServiceImpl implements ReservationService{
 	public List<ReserThemeCom> getReservationsBeforeToday(long uid) {
 		return reservationDao.findReservationsBeforeToday(uid);
 	}
+
+	@Override
+	public List<Object> findReservationTime(String rDate, long tid) {
+		return reservationDao.findReservationTime(rDate, tid);
+	}
 }
