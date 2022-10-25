@@ -96,14 +96,18 @@
     <!-- script 영역 -->
     <script type="text/javascript">
     
+    var now_utc = Date.now() // 지금 날짜를 밀리초로
+ // getTimezoneOffset()은 현재 시간과의 차이를 분 단위로 반환
+ 	var timeOff = new Date().getTimezoneOffset()*60000; // 분단위를 밀리초로 변환
+ // new Date(now_utc-timeOff).toISOString()은 '2022-05-11T18:09:38.134Z'를 반환
+ 	var today = new Date(now_utc-timeOff).toISOString().split("T")[0];
+ 	document.getElementById("rDate").setAttribute("min", today); //min 오늘 이후 max 오늘 이전
+    
 	$(function(){
 		$('#rDate').change(function() {
 			var tid = ${theme.getTid()};
-			console.log(tid);
 			var date = $('#rDate').val();
-			console.log(date);
 			var allData = {"tid": tid, "date": date};
-			console.log(allData)
 			$.ajax({
 				async: true,
 				type: 'POST',
@@ -112,7 +116,20 @@
 				dataType: 'json',
 				contentType: 'application/json; charset=UTF-8',
 				success: function(data) {
-					console.log(data.length);
+					$('.trTime').removeClass("end");
+					for (var i = 0; i < $('.trTime').length; i++){
+						for(var j = 0; j < data.length; j++) {
+							if ($('.trTime')[i].innerText == data[j]) {
+								$('.trTime').eq(i).addClass("end");
+								$(function(){
+									$(".end").click(function(){
+										var data = "end"
+										$("#rTime").val(data);
+									});
+								});
+							}
+						}
+					}
 				}
 			});
 		});
@@ -145,6 +162,7 @@
 			$("#rTime").val(data);
 		});
 	});
+	
     </script>
 </body>
 </html>

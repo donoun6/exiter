@@ -75,6 +75,6 @@ public class ReservationController {
 	@PostMapping
 	public String Reservation(@ModelAttribute("reservation") ReservationDomain reservation, Model model,HttpServletRequest request) {
 		reservationService.addReservation(reservation);
-		return "redirect:/reservation/reser_list";
+		return "redirect:/reservation/all_reser_lists";
 	}
 }

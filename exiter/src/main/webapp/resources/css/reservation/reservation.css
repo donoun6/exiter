@@ -25,6 +25,14 @@
 	background: red;
 }
 
+.end {
+	background: gray;
+}
+
+.end:hover {
+	background: gray;
+}
+
 .selBox {
     display: flex;
     justify-content: center;
