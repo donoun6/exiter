@@ -60,7 +60,7 @@
         	<table>
         		<tr>
         			<th>날짜</th>
-        			<td><input type="date" id="rDate" name="rDate"/></td>
+        			<td><input type="date" id="rDate" name="rDate" /></td>
         		</tr>
         		<tr>
         			<th>가격</th>
@@ -171,7 +171,6 @@
 			}
 		});
 	}
-
 	
 	$(function(){
 		$(".trTime").click(function(){
@@ -180,15 +179,16 @@
 		});
 		
 		$('.res').click(function(){
-			if ($('#rNum').val() == null || $('#rDate').val() == "" ) {
+			if ($('#rNum').val() == null || $('#rDate').val() == "" || $('#rTime').val() == "end" || $('#rTime').val() == "") {
 				$('.err').attr("style","display:block")
 				$('.logout-pop').attr("style","display:none")
 			}else {
-				$('.err').attr("style","display:block")
+				var rnum = parseInt($('#rNum').val());
+				$('.err').attr("style","display:none")
 				$('.logout-pop').attr("style","display:block")
 				$('.rDateInfo').text(" 날짜 : " + $('#rDate').val())
 				$('.rTimeInfo').text(" 시간 : " + $('#rTime').val())
-				$('.rNumInfo').text(" 인원 : " + $('#rNum').val())
+				$('.rNumInfo').text(" 인원 : " + (rnum+1))
 				$('.rPriceInfo').text(" 가격 : " + $('#tPrice').text())
 			}
 		});

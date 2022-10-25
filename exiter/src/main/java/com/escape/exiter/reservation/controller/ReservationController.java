@@ -68,7 +68,6 @@ public class ReservationController {
 		long tid = (int)allData.get("tid");
 		String date = (String)allData.get("date");
 		List<Object> time = reservationService.findReservationTime(date, tid);
-		System.out.println(time.size());
 		return time;
 	}
 	

@@ -1,4 +1,35 @@
 @charset "UTF-8";
+table {
+    width: 100%;
+}
+
+tr {
+	height: 40px;
+    width: 100%;
+    line-height: 40px;
+}
+
+tr:first-child input{
+	margin-bottom: 10px;
+}
+
+input, select {
+	margin-left: 5%;
+    box-sizing: border-box;
+    width: 85%;
+    height: 40px;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 14px;
+    font-family: "twayFly";
+}
+
+#tPrice {
+	display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+}
 
 .trTimeBox {
 	display: flex;
@@ -18,7 +49,8 @@
     height: 10vh;
     margin: 10px;
     box-sizing: border-box;
-    border: 1px solid;
+    border: 1px solid #737373;
+    border-radius: 20px;
 }
 
 .trTime:hover {
@@ -37,6 +69,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 1px solid #737373;
+    padding: 20px 20px 5px;
+    border-radius: 20px;
 }
 
 .err {
@@ -57,6 +92,7 @@
 
 .popUp-item {
     height: 270px;
+   	margin-top: calc(100vw - 140px);
 }
 
 .popUp-item > p {
