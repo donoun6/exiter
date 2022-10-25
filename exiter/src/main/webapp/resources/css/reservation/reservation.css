@@ -54,7 +54,8 @@ input, select {
 }
 
 .trTime:hover {
-	background: red;
+	background: #414aea;
+	border: 1px solid #414aea;
 }
 
 .end {
@@ -63,6 +64,7 @@ input, select {
 
 .end:hover {
 	background: gray;
+	border: 1px solid gray;
 }
 
 .selBox {
