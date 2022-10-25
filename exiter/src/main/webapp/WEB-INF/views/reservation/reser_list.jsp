@@ -28,17 +28,14 @@
 	        	<ul class="reser-wrap after">
 	        		<h5 class="sub-title">현재 예약중인 테마</h5>
 	        		<c:forEach var="after" items="${afterList}">
-	        			<li class="reser-item">
+	        			<li class="reser-item" onclick="javascript:reserDetail(${after.rid});">
 	        				<div class="left-box">
 	        					<p class="r-date">${after.RDate}&nbsp;&nbsp;&nbsp;${after.RTime}</p>
-	        					<p class="theme"><a href="<c:url value='/theme/theme/${after.tid}'/>">${after.TName} <span>${after.TCategory}</span></a></p>
-		        				<p class="r-price">${after.RNum}인&nbsp;&nbsp;&nbsp;${after.RPrice}원</p>
+	        					<p class="theme">${after.TName} <span>${after.TCategory}</span></p>
 		        				<p class="company">${after.comName} ${after.comPocus}</p>
 	        				</div>
 	        				<div class="right-box">
-	        					<a href="<c:url value='/theme/theme/${after.tid}'/>">
-			        				<img alt="${after.TName}" src="/exiter/resources/images/theme/${after.TImage}">
-			        			</a>
+			        			<img alt="${after.TName}" src="/exiter/resources/images/theme/${after.TImage}">
 			        		</div>
 	        			</li>
 	        		</c:forEach>
@@ -53,17 +50,14 @@
 	        	<ul class="reser-wrap before">
 	        		<h5 class="sub-title">완료된 테마</h5>
 	        		<c:forEach var="before" items="${beforeList}">
-	        			<li class="reser-item">
+	        			<li class="reser-item" onclick="javascript:reserDetail(${before.rid});">
 	        				<div class="left-box">
 	        					<p class="r-date">${before.RDate}&nbsp;&nbsp;&nbsp;${before.RTime}</p>
-	        					<p class="theme"><a href="<c:url value='/theme/theme/${before.tid}'/>">${before.TName} <span>${before.TCategory}</span></a></p>
-		        				<p class="r-price">${before.RNum}인&nbsp;&nbsp;&nbsp;${before.RPrice}원</p>
+	        					<p class="theme">${before.TName} <span>${before.TCategory}</span></p>
 		        				<p class="company">${before.comName} ${before.comPocus}</p>
 	        				</div>
 	        				<div class="right-box">
-	        					<a href="<c:url value='/theme/theme/${before.tid}'/>">
-			        				<img alt="${before.TName}" src="/exiter/resources/images/theme/${before.TImage}">
-			        			</a>
+			        			<img alt="${before.TName}" src="/exiter/resources/images/theme/${before.TImage}">
 			        		</div>
 	        			</li>
 	        		</c:forEach>
@@ -86,6 +80,11 @@
     			$('main').css('padding-bottom', '0px');
     		}
     	});
+    	
+    	// 예약 상세 페이지로 이동
+    	function reserDetail(rid) {
+    		window.location.href = "/exiter/reservation/reser_detail/" + rid;
+    	}
     </script>
 </body>
 </html>

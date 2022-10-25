@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.escape.exiter.reservation.dao.ReservationDao;
+import com.escape.exiter.reservation.domain.ReserDetail;
 import com.escape.exiter.reservation.domain.ReserThemeCom;
 import com.escape.exiter.reservation.domain.ReservationDomain;
 
@@ -38,5 +39,10 @@ public class ReservationServiceImpl implements ReservationService{
 	@Override
 	public List<Object> findReservationTime(String rDate, long tid) {
 		return reservationDao.findReservationTime(rDate, tid);
+	}
+
+	@Override
+	public ReserDetail getReservationDetail(long rid, long uid) {
+		return reservationDao.findReservationDetail(rid, uid);
 	}
 }

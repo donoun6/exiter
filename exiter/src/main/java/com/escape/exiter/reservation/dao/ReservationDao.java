@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import com.escape.exiter.reservation.domain.ReserDetail;
 import com.escape.exiter.reservation.domain.ReserThemeCom;
 import com.escape.exiter.reservation.domain.ReservationDomain;
 
@@ -101,4 +102,19 @@ public class ReservationDao {
 		},rDate,tid);
 	}
 	
+	/**
+	 * 예약 상세 정보 확인
+	 * @param rid
+	 * @param uid
+	 * @return
+	 */
+	public ReserDetail findReservationDetail(long rid, long uid) {
+		String sql = "SELECT r.rid, r.uid, r.tid, c.cid, r.rPrice, r.rDate, r.rTime, r.rNum, t.tName, t.tCategory, t.tLevel, t.tTime, t.tImage, c.comAddress2, c.comAddress4, c.comName, c.comPocus, c.comTel"
+				+ " FROM Reservation r"
+				+ " INNER JOIN Theme t ON r.tid = t.tid"
+				+ " INNER JOIN Company c ON t.cid = c.cid"
+				+ " WHERE rid = ? AND uid = ?";
+		
+		return jdbcTemplate.queryForObject(sql, new ReserDetailRowMapper(), rid, uid);
+	}
 }

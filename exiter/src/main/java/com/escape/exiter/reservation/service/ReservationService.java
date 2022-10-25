@@ -2,6 +2,7 @@ package com.escape.exiter.reservation.service;
 
 import java.util.List;
 
+import com.escape.exiter.reservation.domain.ReserDetail;
 import com.escape.exiter.reservation.domain.ReserThemeCom;
 import com.escape.exiter.reservation.domain.ReservationDomain;
 
@@ -11,4 +12,5 @@ public interface ReservationService {
 	List<ReserThemeCom> getReservationsAfterToday(long uid);
 	List<ReserThemeCom> getReservationsBeforeToday(long uid);
 	List<Object> findReservationTime(String rDate, long tid);
+	ReserDetail getReservationDetail(long rid, long uid);
 }

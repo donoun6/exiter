@@ -157,12 +157,13 @@ h3.tName {
 	text-align: left;
     font-weight: 400;
     font-size: 14px;
-    color: #aaa;
+    color: #ccc;
 }
 
 .company-info table th {
 	position: relative;
 	width: 25%;
+	color: #737373;
 }
 
 .company-info table td {
@@ -177,7 +178,7 @@ h3.tName {
     content: '';
     width: 1px;
     height: 14px;
-    background: #aaa;
+    background: #737373;
 }
 
 .s-btn.res {

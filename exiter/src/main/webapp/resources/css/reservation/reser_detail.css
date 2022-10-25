@@ -1,0 +1,223 @@
+@charset "UTF-8";
+
+/* common 영역 */
+html, body {
+  	background: #1b1b1b;
+  	color: #e6e6e6;
+}
+
+/* 메인 영역 */
+main {
+  	min-height: calc(100vh - 140px);
+  	padding: 80px 20px 0;
+  	padding-bottom: 80px;
+}
+
+h3.title {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+h6.t-title {
+	position: absolute;
+    top: 180px;
+    left: 37px;
+    font-weight: 400;
+    color: rgb(111,140,255);
+}
+
+.theme {
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    padding: 10px 15px;
+    padding-top: 40px;
+    border: 1px solid #737373;
+    border-radius: 15px;
+}
+
+.theme .left-box {
+    width: 55%;
+}
+
+.theme .left-box .tName {
+	display: inline-block;
+	margin-bottom: 22px;
+	padding: 3px;
+	background: #414aea;
+	font-size: 20px;
+	color: white;
+}
+
+.theme .left-box table {
+	color: #ccc;
+}
+
+.theme .left-box table tr th, .theme .left-box table tr td {
+	padding-top: 10px;
+}
+
+.theme .left-box table tr:first-child th, .theme .left-box table tr:first-child td {
+	padding-top: 0;
+}
+
+.theme .left-box table tr th {
+	width: 65%;
+	text-align: left;
+	font-weight: 400;
+	color: #737373;
+}
+
+.theme .right-box img {
+	height: 140px;
+	border-radius: 10px;
+}
+
+h5.info, h5.loca {
+	position: relative;
+    margin-bottom: 28px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #d9d9d9;
+}
+
+h5.info:after, h5.loca:after {
+	content: '';
+    width: 58px;
+    height: 2px;
+    position: absolute;
+    left: -1px;
+    bottom: -5px;
+    background: #414aea;
+}
+
+.reser table {
+	margin-bottom: 50px;
+	color: #ccc;
+}
+
+.reser table tr th, .reser table tr td {
+	padding-top: 20px;
+}
+
+.reser table tr:first-child th, .reser table tr:first-child td {
+	padding-top: 0;
+}
+
+.reser table tr th {
+	width: 26%;
+    text-align: left;
+	font-weight: 400;
+	color: #737373;
+}
+
+.reser table tr td {
+	width: 25%;
+}
+
+.reser table tr:last-child th {
+	letter-spacing: 1.1px;
+}
+
+h5.loca {
+	letter-spacing: -0.1px;
+}
+
+.company {
+    margin-bottom: 60px;
+}
+
+.company #map {
+	margin-top: 10px;
+}
+
+.company table {
+    margin-top: 8px;
+	
+}
+
+.company table th, .company table td {
+	padding-top: 5px;
+	line-height: 20px;
+	text-align: left;
+    font-weight: 400;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.company table th {
+	position: relative;
+	width: 25%;
+	color: #737373;
+}
+
+.company table td {
+	width: 75%;
+	word-break: keep-all;
+}
+
+.company table th:before {
+	position: absolute;
+    top: 8px;
+    right: 16px;
+    content: '';
+    width: 1px;
+    height: 14px;
+    background: #737373;
+}
+
+.btn-box {
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 120px;
+}
+
+.btn-box .r-btn {
+	width: 48%;
+	height: 50px;
+	border: 0;
+    outline: 0;
+    background: #ccc;
+    font-size: 18px;
+    color: #333;
+    font-family: "twayFly";
+}
+
+.btn-box .cancel-btn {
+	background: #414aea;
+    color: #fff;
+}
+
+.check {
+	position: relative;
+	margin-bottom: 30px;
+	color: #737373;
+}
+
+.check:before {
+	content: '';
+    position: absolute;
+    top: -60px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #737373;
+}
+
+.check h6 {
+	margin-bottom: 20px;
+	font-weight: 400;
+    font-size: 20px;
+}
+
+.check .check-ul .check-li {
+	line-height: 23px;
+}
+
+.check .check-ul .check-li + .check-li {
+	margin-top: 15px;
+}

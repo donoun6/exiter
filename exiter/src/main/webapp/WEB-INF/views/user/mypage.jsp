@@ -59,7 +59,7 @@
         		<a href="<c:url value='/reservation/after_reser_list'/>">+</a>
         	</div>
         	<c:if test="${not empty reser}">
-        		<div class="reser-item">
+        		<div class="reser-item" onclick="javascript:reserDetail(${reser.getRid()});">
 		        	<div class="reser-detail">
 		        		<p class="r-date">${reser.getRDate()}&nbsp;&nbsp;&nbsp;${reser.getRTime()}</p>
 			        	<p class="theme">${reser.getTName()}</p><p class="category">${reser.getTCategory()}</p>
@@ -74,7 +74,7 @@
         		<p class="not-reser">현재 예약중인 테마가 없습니다.</p>
         	</c:if>
         </div>
-
+        
         <div class="bottom-box">
           <div class="reservation">
           	<a href="<c:url value='/reservation/all_reser_lists'/>">
@@ -160,6 +160,12 @@
     
     <!-- 스크립트 영역 -->
     <script type="text/javascript">
+	 	// 예약 상세 페이지로 이동
+		function reserDetail(rid) {
+			window.location.href = "/exiter/reservation/reser_detail/" + rid;
+		}
+ 		
+	 	// 탈퇴 팝업창
     	$('.delete_user').on('click', 'span', function() {
     		var userId = '${userId}';
     		$.ajax({
