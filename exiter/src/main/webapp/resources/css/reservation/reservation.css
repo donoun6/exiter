@@ -39,3 +39,27 @@
     align-items: center;
 }
 
+.err {
+	text-align: center;
+	display: none;
+	color: red;
+}
+
+.logout-pop {
+    left: 0;
+    display: none;
+}
+
+.popUp-item > span {
+	font-size: 16px;
+	color: black;
+}
+
+.popUp-item {
+    height: 270px;
+}
+
+.popUp-item > p {
+	font-size: 24px;
+    margin-bottom: 16px;
+}

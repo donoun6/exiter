@@ -86,7 +86,23 @@
 			<input type="hidden" name="uid" value="${uid }"/>
 			<input type="hidden" name="tid" value="${tid }"/>
 			<input type="hidden" id="rTime" name="rTime"/>
-			<input type="submit" class="s-btn res" value="예약하기">
+			<span class="err">해당정보를 모두 입력해주세요.</span>
+			<button type="button" class="s-btn res" >예약하기</button>
+			<div class="logout-pop">
+	    		<div class="popUp-box">
+		        	<div class="popUp-item">
+		        		<p>예약 하시겠습니까?</p>
+		        		<span class="rDateInfo"></span>
+		        		<span class="rTimeInfo"></span>
+		        		<span class="rNumInfo"></span>
+		        		<span class="rPriceInfo"></span>
+		        		<div class="btn-box">
+		        			<button type="submit" class="s-btn"	>예약하기</button>
+		        			<button type="button" class="s-btn cancel">취소</button>
+		        		</div>
+		        	</div>
+		    	</div>
+	    </div>
 			</form:form>
         </main>
     </div>
@@ -123,6 +139,7 @@
 								$('.trTime').eq(i).addClass("end");
 								$(function(){
 									$(".end").click(function(){
+										$(this).attr("style","background:gray")
 										var data = "end"
 										$("#rTime").val(data);
 									});
@@ -161,8 +178,25 @@
 			var data = this.innerText
 			$("#rTime").val(data);
 		});
+		
+		$('.res').click(function(){
+			if ($('#rNum').val() == null || $('#rDate').val() == "" ) {
+				$('.err').attr("style","display:block")
+				$('.logout-pop').attr("style","display:none")
+			}else {
+				$('.err').attr("style","display:block")
+				$('.logout-pop').attr("style","display:block")
+				$('.rDateInfo').text(" 날짜 : " + $('#rDate').val())
+				$('.rTimeInfo').text(" 시간 : " + $('#rTime').val())
+				$('.rNumInfo').text(" 인원 : " + $('#rNum').val())
+				$('.rPriceInfo').text(" 가격 : " + $('#tPrice').text())
+			}
+		});
+		
+		$('.cancel').click(function(){
+			$('.logout-pop').attr("style","display:none")
+		});
 	});
-	
     </script>
 </body>
 </html>
