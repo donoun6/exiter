@@ -1,5 +1,6 @@
 package com.escape.exiter.reservation.service;
 
+import java.text.ParseException;
 import java.util.List;
 
 import com.escape.exiter.reservation.domain.ReserDetail;
@@ -13,4 +14,6 @@ public interface ReservationService {
 	List<ReserThemeCom> getReservationsBeforeToday(long uid);
 	List<Object> findReservationTime(String rDate, long tid);
 	ReserDetail getReservationDetail(long rid, long uid);
+	List<ReserThemeCom> reserDateSort(List<ReserThemeCom> list, String sortType);
+	boolean reserDateBeforeCheck(ReserThemeCom reser) throws ParseException;
 }

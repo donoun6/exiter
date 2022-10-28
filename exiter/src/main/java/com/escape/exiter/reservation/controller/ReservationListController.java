@@ -1,5 +1,11 @@
 package com.escape.exiter.reservation.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -28,9 +34,10 @@ public class ReservationListController {
 	 * @param request
 	 * @param model
 	 * @return
+	 * @throws ParseException 
 	 */
 	@GetMapping("/reservation/all_reser_lists")
-	public String allReserListsFrom(HttpServletRequest request, Model model) {
+	public String allReserListsFrom(HttpServletRequest request, Model model) throws ParseException {
 		session = request.getSession(false);
 		
 		// 로그인 안되어있을 경우
@@ -47,10 +54,17 @@ public class ReservationListController {
 		List<ReserThemeCom> afterList = reservationService.getReservationsAfterToday(uid);
 		List<ReserThemeCom> beforeList = reservationService.getReservationsBeforeToday(uid);
 		
+		// 예약내역이 없을 경우
 		if(afterList.size() == 0 && beforeList.size() == 0) {
 			request.setAttribute("notReser", "notReser");
 			return "reservation/reser_list";
 		}
+
+		// afterList의 예약일시 오름차순 정렬
+		afterList = reservationService.reserDateSort(afterList, "asc");
+		
+		// beforeList의 예약일시 내림차순 정렬
+		beforeList = reservationService.reserDateSort(beforeList, "desc");
 		
 		request.setAttribute("afterList", afterList);
 		request.setAttribute("beforeList", beforeList);
@@ -80,11 +94,15 @@ public class ReservationListController {
 		long uid = (long) session.getAttribute("uid");
 		List<ReserThemeCom> afterList = reservationService.getReservationsAfterToday(uid);
 		
+		// 오늘 이후 예약내역이 없을 경우
 		if(afterList.size() == 0) {
 			request.setAttribute("notReser", "notReser");
 			return "reservation/reser_list";
 		}
 		
+		// afterList의 예약일시 오름차순 정렬
+		afterList = reservationService.reserDateSort(afterList, "asc");
+
 		request.setAttribute("afterList", afterList);
 		request.setAttribute("moreList", "moreList");
 		return "reservation/reser_list";

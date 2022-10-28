@@ -24,6 +24,7 @@ public class ReserThemeCom {
 	private long cid;
 	private String comName;
 	private String comPocus;
+	private int reserDate;
 	private Date regDate;
 	public ReserThemeCom() {
 		

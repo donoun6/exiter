@@ -1,5 +1,8 @@
 package com.escape.exiter.user.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -31,9 +34,10 @@ public class MyPageController {
 	 * @param request
 	 * @param model
 	 * @return
+	 * @throws ParseException 
 	 */
 	@GetMapping("/user/mypage")
-	public String MypageForm(HttpSession session, HttpServletRequest request, Model model) {
+	public String MypageForm(HttpSession session, HttpServletRequest request, Model model) throws ParseException {
 		session = request.getSession(false);
 		
 		// 로그인 안되어있을 경우
@@ -53,13 +57,33 @@ public class MyPageController {
 		
 		// 현재 예약중인 테마
 		List<ReserThemeCom> afterList = reservationService.getReservationsAfterToday(uid);
+		// 에약목록이 없으면 바로 마이페이지 이동
 		if(afterList.size() == 0) {
 			return "user/mypage";
 		}
 		ReserThemeCom reser = afterList.get(0);
-		model.addAttribute("reser", reser);
+		
+		// 오늘 날짜 예약시간 지났는지 확인
+		while(reser != null) {
+			boolean result = reservationService.reserDateBeforeCheck(reser);
+			if(result) {
+				// 이전 날짜인 경우
+				System.out.println("이전");
+				afterList.remove(0);
+				if(afterList.size() == 0) {
+					break;
+				}
+				reser = afterList.get(0);
+				continue;
+			} else {
+				// 같거나 이후 날짜인 경우
+				model.addAttribute("reser", reser);
+				break;
+			}
+		}
 		
 		return "user/mypage";
+		
 	}
 	
 }

@@ -88,7 +88,7 @@
         	</div>
         	
         	<div class="btn-box">
-        		<button class="r-btn">예약 목록</button>
+        		<button class="r-btn" onclick="location.href='<c:url value="/reservation/all_reser_lists"/>'">예약 목록</button>
         		<button class="r-btn cancel-btn">예약 취소</button>
         	</div>
         	
