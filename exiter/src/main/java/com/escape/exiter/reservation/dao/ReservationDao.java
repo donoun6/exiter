@@ -23,10 +23,10 @@ public class ReservationDao {
 	}
 	
 	public void addReservation(ReservationDomain reservation) {
-		String sql = "INSERT INTO Reservation(uid, tid, rPrice, rDate, rTime, rNum)"
-				+ "VALUES (?,?,?,?,?,?)";
-		jdbcTemplate.update(sql, reservation.getUid(),reservation.getTid(),
-				reservation.getRPrice(),reservation.getRDate(),
+		String sql = "INSERT INTO Reservation(uid, cid, tid, rPrice, rDate, rTime, rNum)"
+				+ "VALUES (?,?,?,?,?,?,?)";
+		jdbcTemplate.update(sql, reservation.getUid(),reservation.getCid(),
+				reservation.getTid(),reservation.getRPrice(),reservation.getRDate(),
 				reservation.getRTime(),reservation.getRNum()+1);
 //		System.out.println("[예약 등록]\n" + reservation.toString() + "\n");
 	}

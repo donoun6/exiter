@@ -42,13 +42,51 @@ if (comId == null){
   <main>
     <div id="main-wrap">
       <section class="section1">
-        section 1 <br>
+      <div>
+      <span>등록테마</span>
+      <span><a href='<c:url value="/company/company_theme"/>'>+테마관리</a></span>
+      </div>
+      	<table>
+		  <tr>
+		    <th style="border-left: none;">사진</th>
+		    <th>이름</th>
+		    <th>장르</th>
+		    <th>난이도</th>
+		  </tr>
+		  <c:forEach var="companyInfo" items="${companyInfo }">
+		  <tr>
+		  	<td><img src="<c:url value='/resources/images/theme/${companyInfo.TImage }'/>" alt=""></td>
+		  	<td><div><p>${companyInfo.TName }</p></div></td>
+		  	<td><div><p>${companyInfo.TCategory }</p></div></td>
+		  	<td><div><p>${companyInfo.TLevel }</p></div></td>
+		  </tr>
+		  </c:forEach>
+  		</table>
       </section>
       <section class="section2">
-        section 2 <br>
+        <div>
+      <span>최근 예약정보</span>
+      <span><a href='<c:url value="/company/company_theme"/>'>+예약확인</a></span>
+      </div>
+      	<table>
+		  <tr>
+		    <th style="border-left: none;">사진</th>
+		    <th>이름</th>
+		    <th>장르</th>
+		    <th>난이도</th>
+		  </tr>
+		  <c:forEach var="companyInfo" items="${companyInfo }">
+		  <tr>
+		  	<td><img src="<c:url value='/resources/images/theme/${companyInfo.TImage }'/>" alt=""></td>
+		  	<td><div><p>${companyInfo.TName }</p></div></td>
+		  	<td><div><p>${companyInfo.TCategory }</p></div></td>
+		  	<td><div><p>${companyInfo.TLevel }</p></div></td>
+		  </tr>
+		  </c:forEach>
+  		</table>
       </section>
       <section class="section3">
-        section 3 <br>
+        그래프
       </section>
     </div>
       <!-- footer -->

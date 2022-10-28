@@ -99,6 +99,7 @@ CREATE TABLE ThemeReservationTime (
 CREATE TABLE Reservation (
 	rid				BIGINT				NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	uid				BIGINT				NOT NULL,
+	cid				BIGINT				NOT NULL,
 	tid				BIGINT				NOT NULL,
 	rPrice			INT					NOT NULL,
 	rDate			DATE				NOT NULL,
@@ -106,10 +107,11 @@ CREATE TABLE Reservation (
 	rNum			INT					NOT	NULL,
 	regDate			TIMESTAMP			NOT NULL DEFAULT	CURRENT_TIMESTAMP,
 	CONSTRAINT Reservation_uid_FK FOREIGN KEY (uid) REFERENCES User(uid),
+	CONSTRAINT Reservation_cid_FK FOREIGN KEY (cid) REFERENCES Company(cid),
 	CONSTRAINT Reservation_tid_FK FOREIGN KEY (tid) REFERENCES theme(tid)
 )AUTO_INCREMENT = 1;
 
-SELECT rTime FROM Reservation r INNER JOIN Theme t ON r.rid = t.tid WHERE r.rTime = '07:50 PM' and r.rDate = '2022-10-19' and t.tid = 19;
+SELECT * FROM Reservation WHERE cid = 1;
 
 CREATE TABLE Board (
 	bid				BIGINT				NOT NULL PRIMARY KEY AUTO_INCREMENT,

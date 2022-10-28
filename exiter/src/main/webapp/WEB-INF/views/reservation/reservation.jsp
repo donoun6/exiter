@@ -83,8 +83,9 @@
         		<div class="trTime">${trTime.trTime }</div>
         	</c:forEach>
         	</div>
-			<input type="hidden" name="uid" value="${uid }"/>
-			<input type="hidden" name="tid" value="${tid }"/>
+			<input type="text" name="uid" value="${uid }"/>
+			<input type="text" name="tid" value="${tid }"/>
+			<input type="text" name="cid" value="${cid }"/>
 			<input type="hidden" id="rTime" name="rTime"/>
 			<span class="err">해당정보를 모두 입력해주세요.</span>
 			<button type="button" class="s-btn res" >예약하기</button>

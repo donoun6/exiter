@@ -264,4 +264,8 @@ public class CompanyDao {
 				company.getComAddress4(), company.getComName(), company.getComPocus(),company.getComId());
 //		System.out.println("[사업자 회원 정보 변경]\n" + company.toString() + "\n");
 	}
+	
+	// ====================	Company Reservation Dao
+//		cid로 해당 사업자에 등록된 tid 들고오기
+
 }

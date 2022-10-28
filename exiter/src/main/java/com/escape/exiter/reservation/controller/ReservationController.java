@@ -52,10 +52,10 @@ public class ReservationController {
 		String tPrice = decFormat.format(tpList.get(0).getTPrice());
 		
 		Company company = companyService.companyInfo(theme.getCid());
-		
 		model.addAttribute("trTime",themeService.getThemeReservationTimeByTid(tid));
 		
 		model.addAttribute("theme", theme);
+		model.addAttribute("cid", theme.getCid());
 		model.addAttribute("cnt", cnt);
 		model.addAttribute("tPrice", tPrice);
 		model.addAttribute("company", company);

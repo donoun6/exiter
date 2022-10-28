@@ -15,6 +15,7 @@ import lombok.ToString;
 public class ReservationDomain {
 	private long rid;
 	private long uid;
+	private long cid;
 	private long tid;
 	private int rPrice;
 	private String rDate;
