@@ -111,7 +111,7 @@ CREATE TABLE Reservation (
 	CONSTRAINT Reservation_tid_FK FOREIGN KEY (tid) REFERENCES theme(tid)
 )AUTO_INCREMENT = 1;
 
-SELECT * FROM Reservation WHERE cid = 1;
+SELECT * FROM Reservation r INNER JOIN theme t ON r.tid = t.tid WHERE r.cid = 1
 
 CREATE TABLE Board (
 	bid				BIGINT				NOT NULL PRIMARY KEY AUTO_INCREMENT,
