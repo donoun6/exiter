@@ -57,8 +57,13 @@ public class LogoutController {
 			referer = "redirect:/";
 			correntPage = "/";
 		} else {
-			referer = "redirect:/" + arr[arr.length-2] + "/" + arr[arr.length-1];
-			correntPage = "/" + arr[arr.length-2] + "/" + arr[arr.length-1];
+			if(!arr[arr.length-3].equals("exiter")) {
+				referer = "redirect:/" + arr[arr.length-3] + "/" + arr[arr.length-2] + "/" + arr[arr.length-1];
+				correntPage = "/" + arr[arr.length-3] + "/" + arr[arr.length-2] + "/" + arr[arr.length-1];
+			} else {
+				referer = "redirect:/" + arr[arr.length-2] + "/" + arr[arr.length-1];
+				correntPage = "/" + arr[arr.length-2] + "/" + arr[arr.length-1];
+			}
 		}
 
 		request.setAttribute("logoutF", "logoutF");
@@ -83,8 +88,13 @@ public class LogoutController {
 			referer = "redirect:/";
 			correntPage = "/";
 		} else {
-			referer = "redirect:/" + arr[arr.length-2] + "/" + arr[arr.length-1];
-			correntPage = "/" + arr[arr.length-2] + "/" + arr[arr.length-1];
+			if(!arr[arr.length-3].equals("exiter")) {
+				referer = "redirect:/" + arr[arr.length-3] + "/" + arr[arr.length-2] + "/" + arr[arr.length-1];
+				correntPage = "/" + arr[arr.length-3] + "/" + arr[arr.length-2] + "/" + arr[arr.length-1];
+			} else {
+				referer = "redirect:/" + arr[arr.length-2] + "/" + arr[arr.length-1];
+				correntPage = "/" + arr[arr.length-2] + "/" + arr[arr.length-1];
+			}
 		}
 
 		request.setAttribute("logoutH", "logoutH");

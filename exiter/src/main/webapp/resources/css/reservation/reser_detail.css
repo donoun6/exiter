@@ -169,14 +169,14 @@ h5.loca {
     background: #737373;
 }
 
-.btn-box {
+.btn-items {
 	display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 120px;
 }
 
-.btn-box .r-btn {
+.btn-items .r-btn {
 	width: 48%;
 	height: 50px;
 	border: 0;
@@ -187,7 +187,7 @@ h5.loca {
     font-family: "twayFly";
 }
 
-.btn-box .cancel-btn {
+.btn-items .cancel-btn {
 	background: #414aea;
     color: #fff;
 }

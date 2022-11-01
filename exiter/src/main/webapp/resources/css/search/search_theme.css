@@ -160,7 +160,7 @@ h3.title.on:before {
     position: fixed;
     bottom: -500px;
     width: calc(100% - 20px);
-    height: 265px;
+    height: 260px;
     margin-left: -20px;
     padding: 20px 0 0 20px;
     border-top-left-radius: 40px;

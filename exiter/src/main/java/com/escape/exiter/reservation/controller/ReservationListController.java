@@ -59,11 +59,23 @@ public class ReservationListController {
 			request.setAttribute("notReser", "notReser");
 			return "reservation/reser_list";
 		}
-
-		// afterList의 예약일시 오름차순 정렬
-		afterList = reservationService.reserDateSort(afterList, "asc");
 		
-		// beforeList의 예약일시 내림차순 정렬
+		// 오늘 날짜 예약시간 지났는지 확인
+		int i = 0;
+		while(i < afterList.size()) {
+			boolean result = reservationService.reserDateBeforeCheck(afterList.get(i));
+			if(result) {
+				// 이전 일시인 경우
+				beforeList.add(afterList.get(i));
+				afterList.remove(i);
+				if(afterList.size() == 0) {
+					break;
+				}
+				continue;
+			} else {
+				i++;
+			}
+		}
 		beforeList = reservationService.reserDateSort(beforeList, "desc");
 		
 		request.setAttribute("afterList", afterList);
@@ -76,9 +88,10 @@ public class ReservationListController {
 	 * @param request
 	 * @param model
 	 * @return
+	 * @throws ParseException 
 	 */
 	@GetMapping("/reservation/after_reser_list")
-	public String afterReserListForm(HttpServletRequest request, Model model) {
+	public String afterReserListForm(HttpServletRequest request, Model model) throws ParseException {
 		session = request.getSession(false);
 		
 		// 로그인 안되어있을 경우
@@ -100,8 +113,21 @@ public class ReservationListController {
 			return "reservation/reser_list";
 		}
 		
-		// afterList의 예약일시 오름차순 정렬
-		afterList = reservationService.reserDateSort(afterList, "asc");
+		// 오늘 날짜 예약시간 지났는지 확인
+		int i = 0;
+		while(i < afterList.size()) {
+			boolean result = reservationService.reserDateBeforeCheck(afterList.get(i));
+			if(result) {
+				// 이전 일시인 경우
+				afterList.remove(i);
+				if(afterList.size() == 0) {
+					break;
+				}
+				continue;
+			} else {
+				i++;
+			}
+		}
 
 		request.setAttribute("afterList", afterList);
 		request.setAttribute("moreList", "moreList");

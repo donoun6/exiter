@@ -121,6 +121,11 @@
     					if($('.search-ul').outerHeight() > 500) {
     						$('.search-ul').css('padding-bottom', '350px');
     					}
+    					if($('.title-box').outerHeight() > 80) {
+    						$('.detail-pop').css('height', '285px');
+    					} else {
+    						$('.detail-pop').css('height', '260px');
+    					}
     					$('.detail-pop').addClass('on');
     				}
     			});

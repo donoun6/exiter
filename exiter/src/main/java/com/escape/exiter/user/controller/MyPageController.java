@@ -67,8 +67,7 @@ public class MyPageController {
 		while(reser != null) {
 			boolean result = reservationService.reserDateBeforeCheck(reser);
 			if(result) {
-				// 이전 날짜인 경우
-				System.out.println("이전");
+				// 이전 일시인 경우
 				afterList.remove(0);
 				if(afterList.size() == 0) {
 					break;
@@ -76,7 +75,7 @@ public class MyPageController {
 				reser = afterList.get(0);
 				continue;
 			} else {
-				// 같거나 이후 날짜인 경우
+				// 같거나 이후 일시인 경우
 				model.addAttribute("reser", reser);
 				break;
 			}

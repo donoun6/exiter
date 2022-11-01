@@ -31,7 +31,7 @@
     position: fixed;
     bottom: -500px;
     width: calc(100% - 20px);
-    height: 265px;
+    height: 260px;
     padding: 20px 0 0 20px;
     border-top-left-radius: 40px;
     border-top-right-radius: 40px;
@@ -191,6 +191,11 @@
     			contentType: 'application/json; charset=UTF-8',
     			success: function(data) {
     				$('.detail-pop').html(data);
+    				if($('.title-box').outerHeight() > 80) {
+						$('.detail-pop').css('height', '285px');
+					} else {
+						$('.detail-pop').css('height', '260px');
+					}
     				$('.detail-pop').addClass('on');
     			}
     		});

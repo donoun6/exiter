@@ -32,12 +32,18 @@ public class ReservationServiceImpl implements ReservationService{
 
 	@Override
 	public List<ReserThemeCom> getReservationsAfterToday(long uid) {
-		return reservationDao.findReservationsAfterToday(uid);
+		List<ReserThemeCom> afterList = reservationDao.findReservationsAfterToday(uid);
+		// afterList의 예약일시 오름차순 정렬
+		afterList = reserDateSort(afterList, "asc");
+		return afterList;
 	}
 
 	@Override
 	public List<ReserThemeCom> getReservationsBeforeToday(long uid) {
-		return reservationDao.findReservationsBeforeToday(uid);
+		List<ReserThemeCom> beforeList = reservationDao.findReservationsBeforeToday(uid);
+		// beforeList의 예약일시 내림차순 정렬
+		beforeList = reserDateSort(beforeList, "desc");
+		return beforeList;
 	}
 
 	@Override
