@@ -165,7 +165,7 @@ VALUES (3, '미치광이 과학자 연쇄살인범', '스릴러', 5, 7, '"번듯
  
  "무섭고 힘들겠지만 남은 친구들이 꼭 살아 돌아왔으면 좋겠어요.”', 60, '미치광이 과학자 연쇄살인범.jpg');
  
- INSERT INTO Theme (cid, tName, tCategory, tLevel, tNum, tDef, tTime, tImage) 
+INSERT INTO Theme (cid, tName, tCategory, tLevel, tNum, tDef, tTime, tImage) 
 VALUES (3, '저주받은 산장', '공포', 3, 7, '"우리 산장에 놀러 오세요"​ 
 
 “풍경, 객실 뭐하나 나무랄 데 없어. 쿠폰 적용했더니 만원이야.
@@ -176,6 +176,122 @@ VALUES (3, '저주받은 산장', '공포', 3, 7, '"우리 산장에 놀러 오�
 웬일인지 도로도 뻥 뚫렸다.
 ‘슬슬 여행 기분 나네’ 하던 게 불과 1시간 전이다.
 숙소에 도착..그런데 이 음산한 분위기는 도대체 뭐란 말인가? ', 60, '저주받은산장.jpg');
+
+INSERT INTO Theme (cid, tName, tCategory, tLevel, tNum, tDef, tTime, tImage) 
+VALUES (3, '퍼니게임', '스릴러', 5, 7, '외뢰인에게 납치된 김반장, 이번엔 장난이 아닌 것 같다. 게임에서 이기지 못하면 못하면 물고기밥이 된다. 이 사이코패스 새끼의 게임을 이기고 반드시 이곳을 탈출하자!', 60, '퍼니게임.png');
+
+INSERT INTO Theme (cid, tName, tCategory, tLevel, tNum, tDef, tTime, tImage) 
+VALUES (2, '제로호텔L', '스릴러', 4, 5, '나는 국민여배우 톱스타 홍설아와 비밀 연애중이다.', 60, '제로호텔L.jpg');
+
+INSERT INTO Theme (cid, tName, tCategory, tLevel, tNum, tDef, tTime, tImage) 
+VALUES (1, '죽음의 GP507', '액션', 4, 6, '2031년 4월 7일 시골 마을
+의문의 땅굴을 발견하게 되었다는 신고를 받고 군부대에서 급히 현장에 출동한다…
+하지만 부대원 중 한 명이 함정을 건드리게 되고,
+들어온 입구는 막히며 폭발물이 작동하게 된다.
+폭발까지 남은 시간은 60분...
+땅굴을 벗어나 무사히 부대로 복귀할 수 있을 것인가…!', 60, '죽음의GP507.jpg');
+
+INSERT INTO Theme (cid, tName, tCategory, tLevel, tNum, tDef, tTime, tImage) 
+VALUES (3, '러너웨이', '탈옥', 4, 6, '오늘 밤 모두의 눈을 피해 탈출한다.', 75, '러너웨이.jpg');
+
+INSERT INTO Theme (cid, tName, tCategory, tLevel, tNum, tDef, tTime, tImage) 
+VALUES (2, '쇼생크 탈출', '탈옥', 3, 6, '부인을 살해 했다는 억울한 누명에 씌여 20년간 감옥에 갇힌 앤디…
+앤디는 수감 생활을 하면서 억울한 누명을 벗기 위해 모든 노력을 다 했고,
+결국 부인을 죽인 진짜 범인을 찾는다.
+앤디는 교도소장에게 재 심판을 수차례 요청했지만
+교도소장은 이를 거부 하였다.
+그 이유는 앤디가 교도소장의 위법 회계처리를 정리 해주기 때문이다.
+결국 참다 못한 앤디는 탈옥을 하게 되었고 자신의 억울한 누명과
+교도소장의 비리를 폭로하기 위해 나에게 교도소로 잠입해
+이 모든 진실을 밝혀달라고 부탁하게 되는데...', 60, '쇼생크탈출.png');
+
+INSERT INTO Theme (cid, tName, tCategory, tLevel, tNum, tDef, tTime, tImage) 
+VALUES (1, '조난자들', '스릴러', 3, 6, '우리는 산악인이다.. 힘들고 고된 코스를 찾아 다니는 산악인이다.. 언제나 극한을 오른다.. 대업을 이루는 순간, 감격과 그 쾌락은 이로 말할수 없다... 이번에 14명으로 의기투합한 후 낯선 산행이 또다시 시작되었다..다시 한번 등정이라는 목표를 가지고 출발 한다.. 하지만 팀원의 고열과 탈진.. 코스 조차 이탈 하였다.. 우리는 산악인이다.. 이 고비를 이겨 정상이란 목표를 이룰것이다.', 60, '조난자들.jpg');
+
+INSERT INTO Theme (cid, tName, tCategory, tLevel, tNum, tDef, tTime, tImage) 
+VALUES (3, '이층 복도 끝 화장실', '스릴러', 4, 6, '잠에서 깨어난다. 멍하니 아무 생각도 하지않고 있는 시간이 많아졌다. 내가 간신히 나 스스로 기억해낼 수 있는 것은. 고작 내 이름 세글자 "한경준" 뿐... 몸을 일으키자 탁자에 붙어있는 쪽지 하나와 편지 한 통이 눈에 들어온다... (쪽지와 편지 내용은 매장에서 확인 가능합니다.)', 75, '이층복도끝화장실.jpg');
+
+INSERT INTO Theme (cid, tName, tCategory, tLevel, tNum, tDef, tTime, tImage) 
+VALUES (2, '무죄2', '액션', 5, 4, '교도소장의 비리를 캐기 위해 잠입했던 교도소에서 탈출 후 쫓고 쫓기게 되는데...
+<김요원 지금 바로 PLAN B를 시작하게>
+너프버전과 오리지널버전 2가지로 운영됩니다.
+오리지널 버전 예약시에는 반드시 예약자 성함에 기재부탁드립니다.(ex. 홍길동오리지널)
+너프버전에서는 많은 분들이 어려움을 호소하셨던 (매니아분들은 굉장히 좋아하시던)
+부분이 사라져 있습니다.
+오리지널버전은 초보자분들에게 굉장히 어려울 수 있습니다.
+예약시 신중한 선택을 부탁드립니다.
+활동성이 많아서 되도록 편한 복장으로 입장하셔야 하며 (치마x)
+고소공포증이 있는 분 들은 이용이 약간 어려울 수 있는 구간이 있으므로 참고 부탁드립니다.
+충장로 1호점에 있는 무죄1을 이용하지 않으셨어도 플레이는 가능합니다.
+다만 이어지는 내용이어서 무죄2 먼저 이용 시에는 무죄1에 대한 일부 내용이 스포 될 수 있습니다.', 80, '무죄2.jpg');
+
+INSERT INTO Theme (cid, tName, tCategory, tLevel, tNum, tDef, tTime, tImage) 
+VALUES (1, '에코', '액션', 4, 4, '새벽의 시작', 70, '에코.jpg');
+
+INSERT INTO Theme (cid, tName, tCategory, tLevel, tNum, tDef, tTime, tImage) 
+VALUES (3, '탈옥:특별수용소', '탈옥', 4, 6, '사형선고… 난 죄가 없다…
+억울하고 억울하지만 여기선 방법이 없다..
+그냥 책을보며, 운동하며 나를 단련할 뿐이다.
+열심히 생활한 덕분일까? 얼마 전 난 특별 수감동으로 이감되었다.
+이곳의 재소자들은 특별한 대우를 받는다는 소문이 있었는데....
+이곳은 상대적으로 감시도 소홀하다.
+이제.. 기회가 왔다.. 떠나야 겠다!', 75, '탈옥특별수용소.jpg');
+
+INSERT INTO Theme (cid, tName, tCategory, tLevel, tNum, tDef, tTime, tImage) 
+VALUES (2, '3318', '탈옥', 3, 3, '어느날 철창 안으로 스며든 빛.
+그건 희망이었을까?', 50, '3318.jpg');
+
+INSERT INTO Theme (cid, tName, tCategory, tLevel, tNum, tDef, tTime, tImage) 
+VALUES (1, '풀문', '판타지', 3, 5, '오늘, 달이 참 노랗다.', 75, '풀문.jpg');
+
+INSERT INTO Theme (cid, tName, tCategory, tLevel, tNum, tDef, tTime, tImage) 
+VALUES (3, '어느 겨울밤', '판타지', 3, 4, '어느 겨울밤 나에게 일어난 특별한 기적
+오늘은 모든 사람들이 집으로 돌아가서 기쁨과 선물을 나누는
+크리스마스 이브이지만 나는 멋진 크리스마스 선물도,
+함께 할 가족도 없는 꼬마 아이다.
+부모님을 일찍 여읜 나는 특히 크리스마스 이브만 되면
+유독 마음이 추웠다.
+오늘도 어김없이 아랫동네 가게에서 허드렛일을 돕고
+집으로 돌아가는 길에 멋진 장난감 가게 앞 에서
+나도 모르게 발길이 멈춰진다.
+', 60, '어느겨울밤.jpg');
+
+INSERT INTO Theme (cid, tName, tCategory, tLevel, tNum, tDef, tTime, tImage) 
+VALUES (2, '방과후 추리반 EP1.여고생 살인사건', '추리', 3, 5, '경기도 수원시에 위치한 우주고등학교. 우주고등학교 내에는 추리에 진심인 학생들이 모여있는 추리반 동아리가 있다. 추리반 학생들은 학교에서 일어나는 여러 가지 미스터리한 사건들을 해결해 나가고 있다.
+어느 날, 우주고등학교에 끔찍한 살인사건이 발생하게 된다. 경찰이 수사에 난항을 겪고 있는 중, 추리반 학생들이 이 사건을 해결하기 위해 나선다.
+* 방탈출과 범인 찾기(추리) 요소가 합쳐진 테마입니다.
+* 이 테마는 65분의 방탈출 체험 시간과 5분의 추리 시간으로 구성되어 있습니다.
+', 70, '여고생살인사건.jpg');
+
+INSERT INTO Theme (cid, tName, tCategory, tLevel, tNum, tDef, tTime, tImage) 
+VALUES (2, '방과후 추리반 EP2.여고생 실종사건', '추리', 4, 5, '경기도 수원시에 위치한 우주고등학교. 우주고등학교 내에는 추리에 진심인
+학생들이 모여있는 추리반 동아리가 있다. 추리반 학생들은 학교에서 일어나는
+여러 가지 미스터리한 사건들을 해결해 나가고 있다.
+어느 날, 우주 고등학교에서 여고생이 실종되는 사건이 발생하게 된다.
+과연 사라진 여고생의 행방은?
+(EP 1 보다 EP 2를 먼저 플레이하셔도 무관합니다.)
+', 70, '여고생실종사건.jpg');
+
+INSERT INTO Theme (cid, tName, tCategory, tLevel, tNum, tDef, tTime, tImage) 
+VALUES (1, '구미호: 호령마을 미스테리', '미스터리', 4, 8, '"처음에는 김씨였고 그 다음은 최씨..
+근데, 그 소문 들었어?
+그 사람들, 사라지기 전에 모두 미호를 만나러 갔었대.
+그 애가 뭔가 알고 있을 것 같은데..."
+', 60, '구미호.jpg');
+
+INSERT INTO Theme (cid, tName, tCategory, tLevel, tNum, tDef, tTime, tImage) 
+VALUES (3, '오버킬', '미스터리', 5, 4, '여기는 N.A.C. 연구소 외곽에 도착했다.
+잠입 및 제거임무를 시작한다.
+', 60, '오버킬.png');
+
+INSERT INTO Theme (cid, tName, tCategory, tLevel, tNum, tDef, tTime, tImage) 
+VALUES (2, '지옥', '미스터리', 3, 5, '죽음을 쫓는 자의 이야기는
+방아쇠가 당겨지며 시작되었다.
+', 70, '지옥.jpg');
+
+INSERT INTO Theme (cid, tName, tCategory, tLevel, tNum, tDef, tTime, tImage) 
+VALUES (1, 'Dear Marsy', '미스터리', 4, 6, '밤하늘, 나를 향해 가장 푸르게 빛나는 저 별... 나는 그에게 "에덴" 이라는 이름을 붙여주었다.
+', 75, 'DearMarsy.jpg');
 
 
 -- themePrice 임시 데이터
@@ -344,6 +460,127 @@ INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (22, 4, 72000);
 INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (22, 5, 90000);
 INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (22, 6, 105000);
 INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (22, 7, 120000);
+
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (23, 1, 23000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (23, 2, 45000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (23, 3, 60000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (23, 4, 72000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (23, 5, 90000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (23, 6, 105000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (23, 7, 120000);
+
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (24, 1, 23000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (24, 2, 45000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (24, 3, 60000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (24, 4, 72000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (24, 5, 90000);
+
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (25, 1, 23000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (25, 2, 45000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (25, 3, 60000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (25, 4, 72000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (25, 5, 90000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (25, 6, 105000);
+
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (26, 1, 23000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (26, 2, 45000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (26, 3, 60000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (26, 4, 72000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (26, 5, 90000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (26, 6, 105000);
+
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (27, 1, 23000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (27, 2, 45000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (27, 3, 60000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (27, 4, 72000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (27, 5, 90000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (27, 6, 105000);
+
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (28, 1, 23000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (28, 2, 45000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (28, 3, 60000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (28, 4, 72000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (28, 5, 90000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (28, 6, 105000);
+
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (29, 1, 23000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (29, 2, 45000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (29, 3, 60000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (29, 4, 72000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (29, 5, 90000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (29, 6, 105000);
+
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (30, 1, 23000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (30, 2, 45000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (30, 3, 60000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (30, 4, 72000);
+
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (31, 1, 23000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (31, 2, 45000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (31, 3, 60000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (31, 4, 72000);
+
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (32, 1, 23000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (32, 2, 45000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (32, 3, 60000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (32, 4, 72000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (32, 5, 90000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (32, 6, 105000);
+
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (33, 1, 23000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (33, 2, 45000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (33, 3, 60000);
+
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (34, 1, 23000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (34, 2, 45000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (34, 3, 60000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (34, 4, 72000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (34, 5, 90000);
+
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (35, 1, 23000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (35, 2, 45000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (35, 3, 60000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (35, 4, 72000);
+
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (36, 1, 23000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (36, 2, 45000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (36, 3, 60000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (36, 4, 72000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (36, 5, 90000);
+
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (37, 1, 23000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (37, 2, 45000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (37, 3, 60000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (37, 4, 72000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (37, 5, 90000);
+
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (38, 1, 23000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (38, 2, 45000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (38, 3, 60000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (38, 4, 72000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (38, 5, 90000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (38, 6, 105000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (38, 7, 120000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (38, 8, 145000);
+
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (39, 1, 23000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (39, 2, 45000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (39, 3, 60000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (39, 4, 72000);
+
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (40, 1, 23000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (40, 2, 45000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (40, 3, 60000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (40, 4, 72000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (40, 5, 90000);
+
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (41, 1, 23000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (41, 2, 45000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (41, 3, 60000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (41, 4, 72000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (41, 5, 90000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (41, 6, 105000);
+
 
 -- ThemeReservationTime 임시 데이터
 INSERT INTO ThemeReservationTime (tid, trTime) VALUES (1, '10:10 AM');
@@ -573,3 +810,193 @@ INSERT INTO ThemeReservationTime (tid, trTime) VALUES (22, '06:15 PM');
 INSERT INTO ThemeReservationTime (tid, trTime) VALUES (22, '07:50 PM');
 INSERT INTO ThemeReservationTime (tid, trTime) VALUES (22, '09:25 PM');
 INSERT INTO ThemeReservationTime (tid, trTime) VALUES (22, '11:00 PM');
+
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (23, '10:20 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (23, '11:55 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (23, '01:30 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (23, '03:05 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (23, '04:40 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (23, '06:15 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (23, '07:50 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (23, '09:25 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (23, '11:00 PM');
+
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (24, '10:20 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (24, '11:55 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (24, '01:30 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (24, '03:05 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (24, '04:40 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (24, '06:15 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (24, '07:50 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (24, '09:25 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (24, '11:00 PM');
+
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (25, '10:20 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (25, '11:55 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (25, '01:30 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (25, '03:05 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (25, '04:40 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (25, '06:15 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (25, '07:50 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (25, '09:25 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (25, '11:00 PM');
+
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (26, '10:20 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (26, '11:55 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (26, '01:30 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (26, '03:05 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (26, '04:40 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (26, '06:15 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (26, '07:50 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (26, '09:25 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (26, '11:00 PM');
+
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (27, '10:20 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (27, '11:55 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (27, '01:30 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (27, '03:05 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (27, '04:40 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (27, '06:15 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (27, '07:50 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (27, '09:25 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (27, '11:00 PM');
+
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (28, '10:20 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (28, '11:55 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (28, '01:30 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (28, '03:05 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (28, '04:40 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (28, '06:15 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (28, '07:50 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (28, '09:25 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (28, '11:00 PM');
+
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (29, '10:20 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (29, '11:55 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (29, '01:30 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (29, '03:05 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (29, '04:40 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (29, '06:15 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (29, '07:50 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (29, '09:25 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (29, '11:00 PM');
+
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (30, '10:20 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (30, '11:55 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (30, '01:30 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (30, '03:05 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (30, '04:40 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (30, '06:15 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (30, '07:50 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (30, '09:25 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (30, '11:00 PM');
+
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (31, '10:20 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (31, '11:55 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (31, '01:30 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (31, '03:05 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (31, '04:40 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (31, '06:15 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (31, '07:50 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (31, '09:25 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (31, '11:00 PM');
+
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (32, '10:20 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (32, '11:55 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (32, '01:30 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (32, '03:05 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (32, '04:40 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (32, '06:15 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (32, '07:50 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (32, '09:25 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (32, '11:00 PM');
+
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (33, '10:20 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (33, '11:55 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (33, '01:30 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (33, '03:05 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (33, '04:40 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (33, '06:15 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (33, '07:50 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (33, '09:25 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (33, '11:00 PM');
+
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (34, '10:20 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (34, '11:55 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (34, '01:30 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (34, '03:05 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (34, '04:40 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (34, '06:15 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (34, '07:50 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (34, '09:25 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (34, '11:00 PM');
+
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (35, '10:20 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (35, '11:55 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (35, '01:30 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (35, '03:05 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (35, '04:40 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (35, '06:15 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (35, '07:50 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (35, '09:25 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (35, '11:00 PM');
+
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (36, '10:20 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (36, '11:55 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (36, '01:30 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (36, '03:05 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (36, '04:40 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (36, '06:15 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (36, '07:50 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (36, '09:25 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (36, '11:00 PM');
+
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (37, '10:20 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (37, '11:55 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (37, '01:30 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (37, '03:05 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (37, '04:40 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (37, '06:15 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (37, '07:50 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (37, '09:25 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (37, '11:00 PM');
+
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (38, '10:20 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (38, '11:55 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (38, '01:30 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (38, '03:05 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (38, '04:40 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (38, '06:15 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (38, '07:50 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (38, '09:25 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (38, '11:00 PM');
+
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (39, '10:20 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (39, '11:55 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (39, '01:30 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (39, '03:05 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (39, '04:40 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (39, '06:15 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (39, '07:50 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (39, '09:25 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (39, '11:00 PM');
+
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (40, '10:20 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (40, '11:55 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (40, '01:30 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (40, '03:05 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (40, '04:40 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (40, '06:15 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (40, '07:50 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (40, '09:25 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (40, '11:00 PM');
+
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (41, '10:20 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (41, '11:55 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (41, '01:30 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (41, '03:05 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (41, '04:40 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (41, '06:15 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (41, '07:50 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (41, '09:25 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (41, '11:00 PM');

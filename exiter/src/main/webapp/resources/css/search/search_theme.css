@@ -142,6 +142,7 @@ h3.title.on:before {
 
 .search-item .tName {
 	margin-top: 15px;
+	padding-right: 26px;
 	font-size: 24px;
     color: #414aea;
 }

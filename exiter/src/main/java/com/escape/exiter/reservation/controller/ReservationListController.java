@@ -65,7 +65,7 @@ public class ReservationListController {
 		while(i < afterList.size()) {
 			boolean result = reservationService.reserDateBeforeCheck(afterList.get(i));
 			if(result) {
-				// 이전 일시인 경우
+				// 이전 일시인 경우 (beforeList로 이둥)
 				beforeList.add(afterList.get(i));
 				afterList.remove(i);
 				if(afterList.size() == 0) {
