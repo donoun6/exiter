@@ -111,7 +111,9 @@ CREATE TABLE Reservation (
 	CONSTRAINT Reservation_tid_FK FOREIGN KEY (tid) REFERENCES theme(tid)
 )AUTO_INCREMENT = 1;
 
-SELECT * FROM Reservation r INNER JOIN theme t ON r.tid = t.tid WHERE r.cid = 1
+SELECT * FROM Reservation r INNER JOIN theme t ON r.tid = t.tid INNER JOIN User u ON r.uid = u.uid WHERE r.cid = 1 and r.rDate = '2022-11-02' ORDER BY r.tid ASC, case when r.rTime like '%AM%' then 1 when r.rTime like '%PM%' then 2 else 3 end, case when r.rTime like '%12%' then 1 else 2 end ,r.rTime ASC;
+
+SELECT * FROM Reservation 
 
 CREATE TABLE Board (
 	bid				BIGINT				NOT NULL PRIMARY KEY AUTO_INCREMENT,

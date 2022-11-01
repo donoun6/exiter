@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.escape.exiter.company.service.CompanyService;
 
 @Controller
-@RequestMapping("/company")
-public class CompanyController {
+@RequestMapping("/company/company_reservation")
+public class CompanyReservationController {
 	//Service Bean
 	@Autowired
 	CompanyService companyService;
@@ -28,8 +28,7 @@ public class CompanyController {
 		}
 		long cid = (long) session.getAttribute("cid");
 		
-		model.addAttribute("companyInfo", companyService.themeInfo(cid));
 		model.addAttribute("reservationInfo", companyService.getReservationInfo(cid));
-		return "company/company";
+		return "company/company_reservation";
 }
 }

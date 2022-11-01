@@ -31,7 +31,7 @@ if (comId == null){
       ${comId } 님
         <li><a href="<c:url value='/company'/>">사업자메인</a></li>
         <li><a href="<c:url value='/company/company_theme'/>">테마관리</a></li>
-        <li><a href="#">예약확인</a></li>
+        <li><a href="<c:url value='/company/company_reservation'/>">예약확인</a></li>
         <li><a href="#">QnA</a></li>
         <li><a href="<c:url value='/company/company_info'/>">정보변경</a></li>
         <li><a href="<c:url value='/company/company_logout'/>">로그아웃</a></li>
@@ -49,9 +49,10 @@ if (comId == null){
       	<table>
 		  <tr>
 		    <th style="border-left: none;">사진</th>
-		    <th>이름</th>
-		    <th>장르</th>
+		    <th style="width: 30%;">이름</th>
+		    <th style="width: 20%;">장르</th>
 		    <th>난이도</th>
+		    <th>이용시간</th>
 		  </tr>
 		  <c:forEach var="companyInfo" items="${companyInfo }">
 		  <tr>
@@ -59,6 +60,7 @@ if (comId == null){
 		  	<td><div><p>${companyInfo.TName }</p></div></td>
 		  	<td><div><p>${companyInfo.TCategory }</p></div></td>
 		  	<td><div><p>${companyInfo.TLevel }</p></div></td>
+		  	<td><div><p>${companyInfo.TTime }분</p></div></td>
 		  </tr>
 		  </c:forEach>
   		</table>
@@ -66,21 +68,25 @@ if (comId == null){
       <section class="section2">
         <div>
       <span>최근 예약정보</span>
-      <span><a href='<c:url value="/company/company_theme"/>'>+예약확인</a></span>
+      <span><a href="<c:url value='/company/company_reservation'/>">+예약확인</a></span>
       </div>
       	<table>
 		  <tr>
-		    <th style="border-left: none;">사진</th>
+		    <th>아이디</th>
 		    <th>이름</th>
-		    <th>장르</th>
-		    <th>난이도</th>
+		    <th style="width: 20%;">전화번호</th>
+		    <th style="width: 25%;">테마</th>
+		    <th>예약날짜</th>
+		    <th>예약시간</th>
 		  </tr>
-		  <c:forEach var="companyInfo" items="${companyInfo }">
+		  <c:forEach var="reservationInfo" items="${reservationInfo }">
 		  <tr>
-		  	<td><img src="<c:url value='/resources/images/theme/${companyInfo.TImage }'/>" alt=""></td>
-		  	<td><div><p>${companyInfo.TName }</p></div></td>
-		  	<td><div><p>${companyInfo.TCategory }</p></div></td>
-		  	<td><div><p>${companyInfo.TLevel }</p></div></td>
+		  	<td><div><p>${reservationInfo.userId }</p></div></td>
+		  	<td><div><p>${reservationInfo.UName }</p></div></td>
+		  	<td><div><p>${reservationInfo.UPhone }</p></div></td>
+		  	<td><div><p>${reservationInfo.TName }</p></div></td>
+		  	<td><div><p>${reservationInfo.RDate }</p></div></td>
+		  	<td><div><p>${reservationInfo.RTime }</p></div></td>
 		  </tr>
 		  </c:forEach>
   		</table>

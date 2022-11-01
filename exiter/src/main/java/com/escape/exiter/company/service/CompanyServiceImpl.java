@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.escape.exiter.company.dao.CompanyDao;
 import com.escape.exiter.company.domain.Company;
 import com.escape.exiter.company.domain.CompanyCommand;
+import com.escape.exiter.company.domain.CompanyReservation;
 import com.escape.exiter.company.domain.CompanyTheme;
 import com.escape.exiter.company.domain.CompanyThemeCommand;
 
@@ -92,6 +93,12 @@ public class CompanyServiceImpl implements CompanyService{
 	@Override
 	public void updateCompanyInfo(CompanyCommand company) {
 		companyDao.updateCompanyInfo(company);
+	}
+
+//	Company Reservation Dao
+	@Override
+	public List<CompanyReservation> getReservationInfo(long cid) {
+		return companyDao.getReservationInfo(cid);
 	}
 
 }

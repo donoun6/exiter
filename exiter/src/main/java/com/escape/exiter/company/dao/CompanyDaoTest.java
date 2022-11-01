@@ -63,18 +63,18 @@ public class CompanyDaoTest {
 //		long tid = 1;
 //		dao.addThemePrice(tid, 6000);
 		
-//		company theme price test
+//	company theme price test
 //		long tid = 1;
 //		dao.addThemeReservationTime(tid, "AM 06:00");
 
-//		company delete test
+//	company delete test
 //		long tid = 7;
 //		dao.deleteTheme(tid);
 		
-//		company theme info test
+//	company theme info test
 //		dao.themeInfo(2);
 		
-//		company change company info test
+//	company change company info test
 //		company.setComId("earth1");
 //		company.setComPasswd("testPw");
 //		company.setComTel1("053");
@@ -88,6 +88,9 @@ public class CompanyDaoTest {
 //		company.setComPocus("반월당");
 //		dao.updateCompanyInfo(company);
 		
+//	companyReservation Test
+//		dao.getReservationInfo(1);
+		dao.getReservatioByDate(1, "2022-11-01");
 		context.close();
 	}
 }

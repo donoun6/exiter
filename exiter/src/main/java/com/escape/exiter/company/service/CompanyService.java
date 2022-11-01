@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.escape.exiter.company.domain.Company;
 import com.escape.exiter.company.domain.CompanyCommand;
+import com.escape.exiter.company.domain.CompanyReservation;
 import com.escape.exiter.company.domain.CompanyTheme;
 import com.escape.exiter.company.domain.CompanyThemeCommand;
 
@@ -41,5 +42,8 @@ public interface CompanyService {
 	void deleteTheme(Long tid);
 	
 	void updateCompanyInfo(CompanyCommand company);
+	
+//	Company Reservation Dao
+	List<CompanyReservation> getReservationInfo(long cid);
 	
 }

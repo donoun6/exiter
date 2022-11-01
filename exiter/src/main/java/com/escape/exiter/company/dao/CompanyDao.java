@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import com.escape.exiter.company.domain.Company;
 import com.escape.exiter.company.domain.CompanyCommand;
+import com.escape.exiter.company.domain.CompanyReservation;
 import com.escape.exiter.company.domain.CompanyTheme;
 import com.escape.exiter.company.domain.CompanyThemeCommand;
 
@@ -266,6 +267,73 @@ public class CompanyDao {
 	}
 	
 	// ====================	Company Reservation Dao
-//		cid로 해당 사업자에 등록된 tid 들고오기
+//		cid로 해당 사업자에 등록된 테마예약정보 들고오기
+	public List<CompanyReservation> getReservationInfo(long cid) {
+		String sql = "SELECT * FROM Reservation r INNER JOIN theme t ON r.tid = t.tid INNER JOIN User u ON r.uid = u.uid WHERE r.cid = ? ORDER BY rid DESC LIMIT 10";
+		return jdbcTemplate.query(sql, new RowMapper<CompanyReservation>() {
 
+			@Override
+			public CompanyReservation mapRow(ResultSet rs, int rowNum) throws SQLException {
+				CompanyReservation companyReservation = new CompanyReservation();
+				companyReservation.setRid(rs.getLong("rid"));
+				companyReservation.setUid(rs.getLong("uid"));
+				companyReservation.setCid(rs.getLong("cid"));
+				companyReservation.setTid(rs.getLong("tid"));
+				companyReservation.setRPrice(rs.getInt("rPrice"));
+				companyReservation.setRDate(rs.getString("rDate"));
+				companyReservation.setRTime(rs.getString("rTime"));
+				companyReservation.setRNum(rs.getInt("rNum"));
+				companyReservation.setRegDate(rs.getTimestamp("regDate"));
+				companyReservation.setTName(rs.getString("tName"));
+				companyReservation.setTCategory(rs.getString("tCategory"));
+				companyReservation.setTLevel(rs.getInt("tLevel"));
+				companyReservation.setTNum(rs.getInt("tNum"));
+				companyReservation.setTDef(rs.getString("tDef"));
+				companyReservation.setTTime(rs.getInt("tTime"));
+				companyReservation.setTImage(rs.getString("tImage"));
+				companyReservation.setUserId(rs.getString("userId"));
+				companyReservation.setUName(rs.getString("uName"));
+				companyReservation.setUPhone(rs.getString("uphone"));
+				companyReservation.setUType(rs.getString("uType").charAt(0));
+//				System.out.println("[예약정보]\n"+ companyReservation.toString() +"\n");
+				return companyReservation;
+			}
+			
+		},cid);
+	}
+	
+//	날짜별 예약 확인
+	public List<CompanyReservation> getReservatioByDate(long cid,String date) {
+		String sql = "SELECT * FROM Reservation r INNER JOIN theme t ON r.tid = t.tid INNER JOIN User u ON r.uid = u.uid WHERE r.cid = ? and r.rDate = ?";
+		return jdbcTemplate.query(sql, new RowMapper<CompanyReservation>() {
+
+			@Override
+			public CompanyReservation mapRow(ResultSet rs, int rowNum) throws SQLException {
+				CompanyReservation companyReservation = new CompanyReservation();
+				companyReservation.setRid(rs.getLong("rid"));
+				companyReservation.setUid(rs.getLong("uid"));
+				companyReservation.setCid(rs.getLong("cid"));
+				companyReservation.setTid(rs.getLong("tid"));
+				companyReservation.setRPrice(rs.getInt("rPrice"));
+				companyReservation.setRDate(rs.getString("rDate"));
+				companyReservation.setRTime(rs.getString("rTime"));
+				companyReservation.setRNum(rs.getInt("rNum"));
+				companyReservation.setRegDate(rs.getTimestamp("regDate"));
+				companyReservation.setTName(rs.getString("tName"));
+				companyReservation.setTCategory(rs.getString("tCategory"));
+				companyReservation.setTLevel(rs.getInt("tLevel"));
+				companyReservation.setTNum(rs.getInt("tNum"));
+				companyReservation.setTDef(rs.getString("tDef"));
+				companyReservation.setTTime(rs.getInt("tTime"));
+				companyReservation.setTImage(rs.getString("tImage"));
+				companyReservation.setUserId(rs.getString("userId"));
+				companyReservation.setUName(rs.getString("uName"));
+				companyReservation.setUPhone(rs.getString("uphone"));
+				companyReservation.setUType(rs.getString("uType").charAt(0));
+				System.out.println("[해당날짜 예약정보]\n"+ companyReservation.toString() +"\n");
+				return companyReservation;
+			}
+			
+		},cid,date);
+	}
 }
