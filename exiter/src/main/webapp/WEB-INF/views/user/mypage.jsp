@@ -40,7 +40,14 @@
               <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
               <span class="material-symbols-outlined">stars</span>
               <p>등급</p>
-              <p class="grade">${uGrade }</p>
+              <p class="grade">
+              	<c:if test="${newUGrade.length() > 0}">
+              		${newUGrade}
+              	</c:if>
+              	<c:if test="${newUGrade.length() == 0}">
+	              	${preUGrade}
+	            </c:if>
+              </p>
             </div>
             <div class="top-list">
               <span class="material-symbols-outlined">book_online</span>
@@ -155,6 +162,21 @@
 	    </div>
     </c:if>
     
+    <c:if test="${newUGrade.length() > 0}">
+    	<!-- 준비중 팝업창 -->
+    	<div class="popUp-wrap check-pop">
+	    	<div class="popUp-box">
+		        <div class="popUp-item">
+		        	<p>등급이 변경되었습니다!</p>
+		        	<p>${preUGrade} -> ${newUGrade}</p>
+		        	<div class="btn-box">
+		        		<button class="s-btn check-btn">확인</button>
+		        	</div>
+		        </div>
+		    </div>
+	    </div>
+    </c:if>
+    
 	<!-- 푸터 영역 -->
     <jsp:include page="../common/footer.jsp"></jsp:include>
     
@@ -192,6 +214,10 @@
     		});
     	});
 	 	
+	 	// 팝업창 닫기
+	 	$('.check-btn').click(function() {
+	 		$('.check-pop').css('display', 'none');
+	 	});
     </script>
 </body>
 </html>

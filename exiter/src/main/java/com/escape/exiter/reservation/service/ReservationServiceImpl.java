@@ -172,6 +172,11 @@ public class ReservationServiceImpl implements ReservationService{
 	public void deleteReservation(long rid, long uid) {
 		reservationDao.deleteReservation(rid, uid);
 	}
+
+	@Override
+	public long getBeforeReservationCount(long uid) {
+		return reservationDao.findBeforeReservationCount(uid);
+	}
 	
 	
 }

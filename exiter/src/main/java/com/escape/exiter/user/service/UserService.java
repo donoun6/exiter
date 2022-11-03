@@ -20,4 +20,6 @@ public interface UserService {
 	String getUPasswdByUserId(String userId);
 	void updateUserInfo(User user);
 	void deleteUser(String userId);
+	void updateUGrade(long uid, String uGrade);
+	String getUGradeByUid(long uid);
 }

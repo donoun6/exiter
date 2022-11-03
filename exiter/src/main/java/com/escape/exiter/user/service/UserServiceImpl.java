@@ -80,4 +80,14 @@ public class UserServiceImpl implements UserService {
 		userDao.deleteUser(userId);
 	}
 
+	@Override
+	public void updateUGrade(long uid, String uGrade) {
+		userDao.updateUGrade(uid, uGrade);
+	}
+
+	@Override
+	public String getUGradeByUid(long uid) {
+		return userDao.findUGradeByUid(uid);
+	}
+
 }

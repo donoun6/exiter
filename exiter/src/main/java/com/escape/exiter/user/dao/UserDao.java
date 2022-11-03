@@ -211,5 +211,31 @@ public class UserDao {
 		String sql = "UPDATE User SET uCheck = true WHERE userId = ?";
 		jdbcTemplate.update(sql, userId);
 	}
+	
+	/**
+	 * 회원 등급 조정
+	 * @param uid
+	 * @param uGrade
+	 */
+	public void updateUGrade(long uid, String uGrade) {
+		String sql = "UPDATE User SET uGrade = ? WHERE uid = ?";
+		jdbcTemplate.update(sql, uGrade, uid);
+	}
+	
+	/**
+	 * 회원 등급 조회
+	 * @param uid
+	 * @return
+	 */
+	public String findUGradeByUid(long uid) {
+		String sql = "SELECT uGrade FROM User WHERE uid = ?";
+		return jdbcTemplate.queryForObject(sql, new RowMapper<String>() {
 
+			@Override
+			public String mapRow(ResultSet rs, int rowNum) throws SQLException {
+				return rs.getString("uGrade");
+			}
+			
+		}, uid);
+	}
 }

@@ -144,7 +144,7 @@
         <div class="swiper mySwiper">
           <div class="swiper-wrapper">
           <c:forEach var="newImg" items="${newImg }">
-          	<div class="swiper-slide"><img id="img" name="${newImg.TName }" class="${newImg.comName }" src="<c:url value='/resources/images/theme/${newImg.TImage }'/>" alt=""></div>
+          	<div class="swiper-slide"><img id="img" name="${newImg.TName }" class="${newImg.comName }" src="<c:url value='/resources/images/theme/${newImg.TImage }'/>" alt="${newImg.comPocus}"></div>
           </c:forEach>
           </div>
         </div>
@@ -155,7 +155,7 @@
       		<div class="swiper mySwiper">
 	          <div class="swiper-wrapper">
 			     <c:forEach var="cateImg" items="${cateImg[status.index] }"> <!--status는 상위 forEach의 인덱스 번호를 인용하여 for문식으로 다시한번 돌림  -->
-			     <div class="swiper-slide"><img id="img" name="${cateImg.TName }" class="${cateImg.comName }" src="<c:url value='/resources/images/theme/${cateImg.TImage }'/>" alt=""></div>
+			     <div class="swiper-slide"><img id="img" name="${cateImg.TName }" class="${cateImg.comName }" src="<c:url value='/resources/images/theme/${cateImg.TImage }'/>" alt="${cateImg.comPocus}"></div>
 		      </c:forEach>
 	          </div>
 	        </div>
@@ -179,7 +179,7 @@
     	 // 테마 팝업창
     	$("[id*='img']").click(function() {
     		$('.detail-pop').removeClass('on');
-    		var company = $(this).attr('class');
+    		var company = $(this).attr('class') + " - " + $(this).attr('alt');
     		var tName = $(this).attr('name');
     		var allData = {"company": company, "tName": tName};
     		$.ajax({

@@ -81,6 +81,30 @@ public class MyPageController {
 			}
 		}
 		
+		// 등급 조정
+		String preUGrade = userService.getUGradeByUid(uid);
+		long beforeCnt = reservationService.getBeforeReservationCount(uid);
+		String newUGrade = "";
+		if(beforeCnt < 30 && !preUGrade.equals("방린이")) {
+			// 지난 예약 개수 30  미만인 경우
+			userService.updateUGrade(uid, "방린이");
+			newUGrade = userService.getUGradeByUid(uid);
+		} else if(beforeCnt > 29 && beforeCnt < 60 && !preUGrade.equals("방소년")) {
+			// 지난 예약 개수 30 이상 60 미만인 경우
+			userService.updateUGrade(uid, "방소년");
+			newUGrade = userService.getUGradeByUid(uid);
+		} else if(beforeCnt > 59 && beforeCnt < 100 && !preUGrade.equals("방으른")) {
+			// 지난 예약 개수 60 이상 100 미만인 경우
+			userService.updateUGrade(uid, "방으른");
+			newUGrade = userService.getUGradeByUid(uid);
+		} else if(beforeCnt > 99 && !preUGrade.equals("엑시터")) {
+			// 지난 예약 개수 100 이상인 경우
+			userService.updateUGrade(uid, "엑시터");
+			newUGrade = userService.getUGradeByUid(uid);
+		}
+		
+		model.addAttribute("preUGrade", preUGrade);
+		model.addAttribute("newUGrade", newUGrade);
 		return "user/mypage";
 		
 	}

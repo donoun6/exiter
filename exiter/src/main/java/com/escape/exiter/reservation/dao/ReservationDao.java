@@ -127,4 +127,21 @@ public class ReservationDao {
 		String sql = "UPDATE Reservation SET rCheck = 'Y' WHERE rid = ? AND uid = ?";
 		jdbcTemplate.update(sql, rid, uid);
 	}
+	
+	/**
+	 * 오늘 예약일시 이전 예약개수 가져오기
+	 * @param uid
+	 * @return
+	 */
+	public long findBeforeReservationCount(long uid) {
+		String sql = "SELECT COUNT(*) as cnt FROM Reservation WHERE uid = ?";
+		return jdbcTemplate.queryForObject(sql, new RowMapper<Long>() {
+
+			@Override
+			public Long mapRow(ResultSet rs, int rowNum) throws SQLException {
+				return rs.getLong("cnt");
+			}
+			
+		}, uid);
+	}
 }

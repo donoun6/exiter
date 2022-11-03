@@ -35,7 +35,7 @@ public class MainDao {
 	
 //	최신 등록 이미지 출력
 	public List<MainDomain> newImg() {
-		String sql = "SELECT tImage,tName,comName FROM Theme t INNER JOIN Company c ON t.cid = c.cid ORDER BY tid DESC";
+		String sql = "SELECT tImage,tName,comName,comPocus FROM Theme t INNER JOIN Company c ON t.cid = c.cid ORDER BY tid DESC";
 		return jdbcTemplate.query(sql, new RowMapper<>() {
 
 			@Override
@@ -44,6 +44,7 @@ public class MainDao {
 				md.setTImage(rs.getString("tImage"));
 				md.setTName(rs.getString("tName"));
 				md.setComName(rs.getString("comName"));
+				md.setComPocus(rs.getString("comPocus"));
 				return md;
 			}
 			
@@ -67,7 +68,7 @@ public class MainDao {
 	
 //	카테고리별 이미지 출력
 	public List<MainDomain> CategoryImg(String category) {
-		String sql = "SELECT tImage,tName,comName FROM Theme t INNER JOIN Company c ON t.cid = c.cid WHERE t.tCategory = ? ORDER BY RAND()";
+		String sql = "SELECT tImage,tName,comName,comPocus FROM Theme t INNER JOIN Company c ON t.cid = c.cid WHERE t.tCategory = ? ORDER BY RAND()";
 		return jdbcTemplate.query(sql, new RowMapper<>() {
 
 			@Override
@@ -76,6 +77,7 @@ public class MainDao {
 				md.setTImage(rs.getString("tImage"));
 				md.setTName(rs.getString("tName"));
 				md.setComName(rs.getString("comName"));
+				md.setComPocus(rs.getString("comPocus"));
 				return md;
 			}
 			

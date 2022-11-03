@@ -19,4 +19,5 @@ public interface ReservationService {
 	boolean reserDateBeforeCheck(ReserDetail reser) throws ParseException;
 	boolean reserDateCheckTwoHour(ReserDetail reser) throws ParseException;
 	void deleteReservation(long rid, long uid);
+	long getBeforeReservationCount(long uid);
 }
