@@ -2,6 +2,7 @@ package com.escape.exiter.reservation.service;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
@@ -98,7 +99,7 @@ public class ReservationServiceImpl implements ReservationService{
 
 	/**
 	 * 현재일시와 예약일시 비교
-	 * @param reser
+	 * @param ReserThemeCom reser
 	 * @return 예약일시가 현재일시 이전인 경우 : true / 에약일시가 현재일시와 같거나 이후인 경우 : false
 	 * @throws ParseException
 	 */
@@ -116,4 +117,61 @@ public class ReservationServiceImpl implements ReservationService{
 		
 		return result;
 	}
+	
+	/**
+	 * 현재일시와 예약일시 비교
+	 * @param ReserDetail reser
+	 * @return 예약일시가 현재일시 이전인 경우 : true / 에약일시가 현재일시와 같거나 이후인 경우 : false
+	 * @throws ParseException
+	 */
+	@Override
+	public boolean reserDateBeforeCheck(ReserDetail reser) throws ParseException {
+		String[] timeArr = reser.getRTime().split(":|\\s+");
+		if(timeArr[2].equals("PM") && !(timeArr[0].equals("12"))) {
+			timeArr[0] = String.valueOf(Integer.valueOf(timeArr[0]) + 12);
+		}
+		String reserDt = reser.getRDate() + " " + timeArr[0] + ":" + timeArr[1];
+		Date currentDate = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		Date rDate = sdf.parse(reserDt);
+		boolean result = rDate.before(currentDate);
+		
+		return result;
+	}
+
+	/**
+	 * 현재일시+2시간과 예약일시 비교
+	 * @param ReserDetail reser
+	 * @return 현재일시(+2h)가 예약일시 이전인 경우 : true / 현재일시(+2h)가 예약일시와 같거나 이후인 경우 : false
+	 * @throws ParseException
+	 */
+	@Override
+	public boolean reserDateCheckTwoHour(ReserDetail reser) throws ParseException {
+		// 예약일시
+		String[] timeArr = reser.getRTime().split(":|\\s+");
+		if(timeArr[2].equals("PM") && !(timeArr[0].equals("12"))) {
+			timeArr[0] = String.valueOf(Integer.valueOf(timeArr[0]) + 12);
+		}
+		String reserDt = reser.getRDate() + " " + timeArr[0] + ":" + timeArr[1];
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		Date rDate = sdf.parse(reserDt);
+		
+		// 현재일시 + 2시간
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(new Date());
+		cal.add(Calendar.HOUR_OF_DAY , 2);
+		Date twoDate = new Date(cal.getTimeInMillis());
+
+		// 비교
+		boolean result = twoDate.before(rDate);
+		
+		return result;
+	}
+
+	@Override
+	public void deleteReservation(long rid, long uid) {
+		reservationDao.deleteReservation(rid, uid);
+	}
+	
+	
 }

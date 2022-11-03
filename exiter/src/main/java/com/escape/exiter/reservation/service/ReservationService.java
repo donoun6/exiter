@@ -16,4 +16,7 @@ public interface ReservationService {
 	ReserDetail getReservationDetail(long rid, long uid);
 	List<ReserThemeCom> reserDateSort(List<ReserThemeCom> list, String sortType);
 	boolean reserDateBeforeCheck(ReserThemeCom reser) throws ParseException;
+	boolean reserDateBeforeCheck(ReserDetail reser) throws ParseException;
+	boolean reserDateCheckTwoHour(ReserDetail reser) throws ParseException;
+	void deleteReservation(long rid, long uid);
 }

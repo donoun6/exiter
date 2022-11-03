@@ -47,7 +47,7 @@
 	            <input type="button" name="update" value="정보수정" class="common-btn update-btn">
 	          </form>
 	          
-	          <!-- 비밀번호 변경 성공 팝업창 -->
+	          <!-- 회원정보 변경 성공 팝업창 -->
 	          <c:if test="${suc.length() > 0}">
 		          <div class="popUp-box">
 		        	  <div class="popUp-item">
@@ -113,7 +113,7 @@
 			}
 		});
 		
-		// 회원가입 버튼 클릭시 공백 검사
+		// 회원정보 변경 버튼 클릭시 공백 검사
 		$('.update-btn').on("click", function() {
 			var uPasswd1 = $('#uPasswd1').val();
 			var uPasswd2 = $('#uPasswd2').val();

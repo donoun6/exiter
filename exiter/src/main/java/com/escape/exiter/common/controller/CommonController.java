@@ -9,6 +9,12 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 public class CommonController {
 	
+	/**
+	 * 준비중입니다 페이지 이동
+	 * @param request
+	 * @param redirectAttributes
+	 * @return
+	 */
 	@GetMapping("common/get_ready")
 	public String getReady(HttpServletRequest request, RedirectAttributes redirectAttributes) {
 		String referer = (String)request.getHeader("REFERER");
@@ -26,5 +32,14 @@ public class CommonController {
 		redirectAttributes.addFlashAttribute("correntPage", correntPage);
 		
 		return referer;
+	}
+	
+	/**
+	 * 예약취소 완료 팝업페이지 이동
+	 * @return
+	 */
+	@GetMapping("/common/success_delete")
+	public String successDelete() {
+		return "common/success_delete";
 	}
 }

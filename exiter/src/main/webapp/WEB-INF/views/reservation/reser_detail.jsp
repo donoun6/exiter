@@ -89,7 +89,9 @@
         	
         	<div class="btn-items">
         		<button class="r-btn" onclick="location.href='<c:url value="/reservation/all_reser_lists"/>'">예약 목록</button>
-        		<button class="r-btn cancel-btn">예약 취소</button>
+        		<c:if test="${empty noCancel}">
+        			<button class="r-btn cancel-btn">예약 취소</button>
+        		</c:if>
         	</div>
         	
         	<div class="check">
@@ -99,7 +101,7 @@
         				* 예약시간은 테마 입장시간입니다. 반드시 15분전에 도착해주세요. 입장시간에 도착할 경우 테마 이용시간이 차감될 수 있습니다.
         			</li>
         			<li class="check-li">
-        				* 당일 예약 취소는 불가능합니다. 부득이 방문이 불가능할 때는 매장으로 꼭 전화를 부탁드립니다.
+        				* 예약 두시간 전까지만 취소가 가능합니다. 부득이 방문이 불가능할 때는 매장으로 꼭 전화를 부탁드립니다.
         			</li>
         			<li class="check-li">
         				* 3회이상 예약 확인 전화를 받지 않으실 경우 예약이 취소 될 수 있습니다.
@@ -111,6 +113,19 @@
         	</div>
         </main>
     </div>
+    
+    <!-- 예약취소 확인 버튼 -->
+    <div class="delete-pop">
+  		<div class="popUp-box">
+			<div class="popUp-item">
+				<p>취소하시겠습니까?</p>
+				<div class="btn-box">
+					<button class="s-btn" onclick="location.href='<c:url value='/reservation/delete_reser/${reser.getRid()}'/>'">예약취소</button>
+					<button class="s-btn cancel">취소</button>
+				</div>
+			</div>
+		</div>
+	</div>
     <!-- 푸터 영역 -->
     <jsp:include page="../common/footer.jsp"></jsp:include>
     
@@ -153,6 +168,21 @@
     	function themeDetail(tid) {
     		window.location.href = "/exiter/theme/theme/" + tid;
     	}
+		
+		// btn-items css 수정
+		if($('.btn-items').children().length < 2) {
+			$('.r-btn').css('width', '100%');
+		} else {
+			$('.r-btn').css('width', '48%');
+		}
+		
+		// 예약취소 버튼 클릭시
+		$('.cancel-btn').click(function() {
+			$('.delete-pop').css('display', 'block');
+		});
+		$('.cancel').click(function() {
+			$('.delete-pop').css('display', 'none');
+		})
     </script>
 </body>
 </html>

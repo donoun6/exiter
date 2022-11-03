@@ -58,7 +58,7 @@ public class ReservationDao {
 				+ " FROM Reservation r"
 				+ " INNER JOIN Theme t ON r.tid = t.tid"
 				+ " INNER JOIN Company c ON t.cid = c.cid"
-				+ " WHERE uid = ? AND"
+				+ " WHERE uid = ? AND rCheck = 'N' AND"
 				+ " rDate >= CURRENT_DATE()"
 				+ " ORDER BY rDate";
 		try {
@@ -78,7 +78,7 @@ public class ReservationDao {
 				+ " FROM Reservation r"
 				+ " INNER JOIN Theme t ON r.tid = t.tid"
 				+ " INNER JOIN Company c ON t.cid = c.cid"
-				+ " WHERE uid = ? AND"
+				+ " WHERE uid = ? AND rCheck = 'N' AND"
 				+ " rDate < CURRENT_DATE()"
 				+ " ORDER BY rDate DESC";
 		try {
@@ -113,8 +113,18 @@ public class ReservationDao {
 				+ " FROM Reservation r"
 				+ " INNER JOIN Theme t ON r.tid = t.tid"
 				+ " INNER JOIN Company c ON t.cid = c.cid"
-				+ " WHERE rid = ? AND uid = ?";
+				+ " WHERE rid = ? AND uid = ? AND rCheck = 'N'";
 		
 		return jdbcTemplate.queryForObject(sql, new ReserDetailRowMapper(), rid, uid);
+	}
+	
+	/**
+	 * 예약취소
+	 * @param rid
+	 * @param uid
+	 */
+	public void deleteReservation(long rid, long uid) {
+		String sql = "UPDATE Reservation SET rCheck = 'Y' WHERE rid = ? AND uid = ?";
+		jdbcTemplate.update(sql, rid, uid);
 	}
 }

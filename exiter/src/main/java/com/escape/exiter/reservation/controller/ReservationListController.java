@@ -140,9 +140,10 @@ public class ReservationListController {
 	 * @param model
 	 * @param request
 	 * @return
+	 * @throws ParseException 
 	 */
 	@GetMapping("/reservation/reser_detail/{rid}")
-	public String reservationDetail(@PathVariable("rid") long rid, Model model, HttpServletRequest request) {
+	public String reservationDetail(@PathVariable("rid") long rid, Model model, HttpServletRequest request) throws ParseException {
 		session = request.getSession(false);
 		
 		// 로그인 안되어있을 경우
@@ -158,6 +159,11 @@ public class ReservationListController {
 		long uid = (long) session.getAttribute("uid");
 		ReserDetail reser = reservationService.getReservationDetail(rid, uid);
 		model.addAttribute("reser", reser);
+		
+		// 예약일시가 현재일시(+2h) 이후인 경우 -예약취소불가
+		if(!reservationService.reserDateCheckTwoHour(reser)) {
+			model.addAttribute("noCancel", "noCancel");
+		}
 		
 		return "reservation/reser_detail";
 	}

@@ -221,3 +221,15 @@ h5.loca {
 .check .check-ul .check-li + .check-li {
 	margin-top: 15px;
 }
+
+/* 예약취소 팝업 */
+.delete-pop {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  margin: 0 auto;
+  backdrop-filter: blur(3px);
+  z-index: 999;
+}

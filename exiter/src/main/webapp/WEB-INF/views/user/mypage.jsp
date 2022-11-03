@@ -160,6 +160,15 @@
     
     <!-- 스크립트 영역 -->
     <script type="text/javascript">
+    	$(function() {
+    		// 테마 제목 두줄일 경우 css 수정
+    	 	if($('.theme').outerHeight() > 40) {
+    	 		$('.reser-box').css('height', '190px');
+    	 		$('.reser-img img').css('height', '130px');
+    	 		$('.category').css('margin-left', '0px');
+    	 	}
+    	});
+    	
 	 	// 예약 상세 페이지로 이동
 		function reserDetail(rid) {
 			window.location.href = "/exiter/reservation/reser_detail/" + rid;
@@ -182,6 +191,7 @@
     			}
     		});
     	});
+	 	
     </script>
 </body>
 </html>
