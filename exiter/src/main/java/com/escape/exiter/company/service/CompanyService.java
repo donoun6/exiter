@@ -46,4 +46,7 @@ public interface CompanyService {
 //	Company Reservation Dao
 	List<CompanyReservation> getReservationInfo(long cid);
 	
+	List<CompanyReservation> getReservationThemeInfo(long cid,String date);
+	
+	List<CompanyReservation> getReservationInfoByDateAndTid(long cid,String date, long tid);
 }

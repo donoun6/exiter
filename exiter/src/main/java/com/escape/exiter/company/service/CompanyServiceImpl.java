@@ -101,4 +101,14 @@ public class CompanyServiceImpl implements CompanyService{
 		return companyDao.getReservationInfo(cid);
 	}
 
+	@Override
+	public List<CompanyReservation> getReservationThemeInfo(long cid, String date) {
+		return companyDao.getReservationThemeInfo(cid, date);
+	}
+
+	@Override
+	public List<CompanyReservation> getReservationInfoByDateAndTid(long cid, String date, long tid) {
+		return companyDao.getReservationInfoByDateAndTid(cid, date, tid);
+	}
+
 }

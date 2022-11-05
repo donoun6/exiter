@@ -90,7 +90,10 @@ public class CompanyDaoTest {
 		
 //	companyReservation Test
 //		dao.getReservationInfo(1);
-		dao.getReservatioByDate(1, "2022-11-01");
+//		dao.getReservatioByDate(1, "2022-11-01");
+		
+//		dao.getReservationThemeInfo(1, "2022-11-01");
+		dao.getReservationInfoByDateAndTid(1, "2022-11-03", 1);
 		context.close();
 	}
 }

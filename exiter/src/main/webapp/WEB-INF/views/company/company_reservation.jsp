@@ -43,6 +43,64 @@ if (comId == null){
   <main>
     <h1>예약관리</h1>
   	<div id="wrap">
+  	<form>
+  		<input type="date" id="date" name="date" value="${date }">
+  		<input type="submit">
+  	</form>
+  	<table>
+  <tr style="border-bottom: 2px solid;">
+    <th>사진</th>
+    <th>이름</th>
+    <th>장르</th>
+    <th>난이도</th>
+    <th>최대인원</th>
+    <th>이용시간</th>
+    <th>예약정보</th>
+  </tr>
+  <c:forEach items="${getTheme }" var="getTheme" varStatus="status">
+  <tr>
+  <td><img src="<c:url value='/resources/images/theme/${getTheme.TImage }'/>" alt=""></td>
+  <td style="width: 20%;"><div><p>${getTheme.TName }</p></div></td>
+  <td><div><p>${getTheme.TCategory }</p></div></td>
+  <td><div><p>${getTheme.TLevel }</p></div></td>
+  <td><div><p>${getTheme.TNum }명</p></div></td>
+  <td><div><p>${getTheme.TTime }분</p></div></td>
+  <td><div><p>img</p></div></td>
+  </tr>
+  <tr>
+  <td colspan="7">
+  <table>
+  	<tr>
+  		<th>아이디</th>
+  		<th>이름</th>
+  		<th>전화번호</th>
+  		<th>테마</th>
+  		<th>예약날짜</th>
+  		<th>예약시간</th>
+  		<th>예약인원</th>
+  		<th>금액</th>
+  		<th>예약일자</th>
+  		<th>예약취소</th>
+  	</tr>
+  	<c:forEach var="reservationInfo" items="${reservationInfo[status.index] }">
+  		<tr>
+  			<td>${reservationInfo.userId }</td>
+  			<td>${reservationInfo.UName }</td>
+  			<td>${reservationInfo.UPhone }</td>
+  			<td>${reservationInfo.UName }</td>
+  			<td>${reservationInfo.RDate }</td>
+  			<td>${reservationInfo.RTime }</td>
+  			<td>${reservationInfo.RNum }명</td>
+  			<td>${reservationInfo.RPrice }원</td>
+  			<td>${reservationInfo.regDate }</td>
+  			<td><button>예약취소</button></td>
+  		</tr>
+  	</c:forEach>
+  </table>
+  </td>
+  </tr>
+  </c:forEach>
+  </table>
   	</div>
       <!-- footer -->
   <jsp:include page="../common/copyright.jsp"></jsp:include>

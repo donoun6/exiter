@@ -2,6 +2,7 @@ package com.escape.exiter.company.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.List;
 
 import org.apache.tomcat.jdbc.pool.DataSource;
@@ -279,11 +280,11 @@ public class CompanyDao {
 				companyReservation.setUid(rs.getLong("uid"));
 				companyReservation.setCid(rs.getLong("cid"));
 				companyReservation.setTid(rs.getLong("tid"));
-				companyReservation.setRPrice(rs.getInt("rPrice"));
+				companyReservation.setRPrice(rs.getString("rPrice"));
 				companyReservation.setRDate(rs.getString("rDate"));
 				companyReservation.setRTime(rs.getString("rTime"));
 				companyReservation.setRNum(rs.getInt("rNum"));
-				companyReservation.setRegDate(rs.getTimestamp("regDate"));
+				companyReservation.setRegDate(rs.getString("regDate"));
 				companyReservation.setTName(rs.getString("tName"));
 				companyReservation.setTCategory(rs.getString("tCategory"));
 				companyReservation.setTLevel(rs.getInt("tLevel"));
@@ -301,10 +302,34 @@ public class CompanyDao {
 			
 		},cid);
 	}
+
+//	날짜별 예약 테마 정보
+	public List<CompanyReservation> getReservationThemeInfo(long cid,String date) {
+		String sql = "SELECT DISTINCT r.tid, t.* FROM Reservation r INNER JOIN theme t ON r.tid = t.tid INNER JOIN User u ON r.uid = u.uid WHERE r.cid = ? and r.rDate = ?";
+		return jdbcTemplate.query(sql, new RowMapper<CompanyReservation>() {
+
+			@Override
+			public CompanyReservation mapRow(ResultSet rs, int rowNum) throws SQLException {
+				CompanyReservation companyReservation = new CompanyReservation();
+				companyReservation.setTid(rs.getLong("tid"));
+				companyReservation.setTName(rs.getString("tName"));
+				companyReservation.setTCategory(rs.getString("tCategory"));
+				companyReservation.setTLevel(rs.getInt("tLevel"));
+				companyReservation.setTNum(rs.getInt("tNum"));
+				companyReservation.setTDef(rs.getString("tDef"));
+				companyReservation.setTTime(rs.getInt("tTime"));
+				companyReservation.setTImage(rs.getString("tImage"));
+//				System.out.println("[날짜벌 예약 테마 정보]\n"+ companyReservation.toString() +"\n");
+				return companyReservation;
+			}
+			
+		},cid,date);
+	}
 	
 //	날짜별 예약 확인
-	public List<CompanyReservation> getReservatioByDate(long cid,String date) {
-		String sql = "SELECT * FROM Reservation r INNER JOIN theme t ON r.tid = t.tid INNER JOIN User u ON r.uid = u.uid WHERE r.cid = ? and r.rDate = ?";
+	public List<CompanyReservation> getReservationInfoByDateAndTid(long cid,String date, long tid) {
+		String sql = "SELECT * FROM Reservation r INNER JOIN theme t ON r.tid = t.tid INNER JOIN User u ON r.uid = u.uid WHERE r.cid = ? and r.rDate = ? and r.tid = ? ORDER BY r.tid ASC, case when r.rTime like '%AM%' then 1 when r.rTime like '%PM%' then 2 else 3 end, case when r.rTime like '%12%' then 1 else 2 end ,r.rTime ASC;\r\n"
+				+ "";
 		return jdbcTemplate.query(sql, new RowMapper<CompanyReservation>() {
 
 			@Override
@@ -314,11 +339,14 @@ public class CompanyDao {
 				companyReservation.setUid(rs.getLong("uid"));
 				companyReservation.setCid(rs.getLong("cid"));
 				companyReservation.setTid(rs.getLong("tid"));
-				companyReservation.setRPrice(rs.getInt("rPrice"));
+				DecimalFormat decFormat = new DecimalFormat("###,###");
+				String tPrice = decFormat.format(rs.getInt("rPrice"));
+				companyReservation.setRPrice(tPrice);
 				companyReservation.setRDate(rs.getString("rDate"));
 				companyReservation.setRTime(rs.getString("rTime"));
 				companyReservation.setRNum(rs.getInt("rNum"));
-				companyReservation.setRegDate(rs.getTimestamp("regDate"));
+				String regDate = rs.getTimestamp("regDate").toString().substring(0,16);
+				companyReservation.setRegDate(regDate);
 				companyReservation.setTName(rs.getString("tName"));
 				companyReservation.setTCategory(rs.getString("tCategory"));
 				companyReservation.setTLevel(rs.getInt("tLevel"));
@@ -330,10 +358,10 @@ public class CompanyDao {
 				companyReservation.setUName(rs.getString("uName"));
 				companyReservation.setUPhone(rs.getString("uphone"));
 				companyReservation.setUType(rs.getString("uType").charAt(0));
-				System.out.println("[해당날짜 예약정보]\n"+ companyReservation.toString() +"\n");
+//				System.out.println("[해당날짜 예약정보]\n"+ companyReservation.toString() +"\n");
 				return companyReservation;
 			}
 			
-		},cid,date);
+		},cid,date,tid);
 	}
 }

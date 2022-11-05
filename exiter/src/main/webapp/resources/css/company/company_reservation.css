@@ -41,6 +41,40 @@ main > h1:before {
 	background-image: url("../../images/icon/edit_FILL0_wght400_GRAD0_opsz48.png");
 }
 
+/* table */
+ img {
+	width: 60px;
+    border-radius: 10px;
+}
+
+ table {
+	font-size: 18px;
+	margin-top: 10px;
+    width: 100%;
+    border-collapse: collapse;
+    box-sizing: border-box;
+}
+ th {
+ 	width: calc(100% / 6px);
+ }
+ th,  td {
+	position: relative;
+	border-bottom: 1px solid #aaa;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    -ms-overflow-style:none; /* IE and Edge */
+    scrollbar-width:none; /* Firefox */
+}
+
+ td > div {
+	position: absolute;
+	display:flex;
+	justify-content:center;
+	align-items: center;
+	width: calc(100% - 20px);
+	height: calc(100% - 20px);
+}
 
 
   /* footer cover */

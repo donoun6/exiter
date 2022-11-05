@@ -16,11 +16,11 @@ public class CompanyReservation {
 	private long uid;
 	private long cid;
 	private long tid;
-	private int rPrice;
+	private String rPrice;
 	private String rDate;
 	private String rTime;
 	private int rNum;
-	private Date regDate;
+	private String regDate;
 	private String tName;
 	private String tCategory;
 	private int tLevel;

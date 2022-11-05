@@ -122,6 +122,7 @@
     
 	$(function(){
 		$('#rDate').change(function() {
+			$("#rTime").val("end");
 			var tid = ${theme.getTid()};
 			var date = $('#rDate').val();
 			var allData = {"tid": tid, "date": date};
@@ -140,7 +141,6 @@
 								$('.trTime').eq(i).addClass("end");
 								$(function(){
 									$(".end").click(function(){
-										$(this).attr("style","background:gray")
 										var data = "end"
 										$("#rTime").val(data);
 									});
@@ -155,6 +155,7 @@
 
 	// 인원별 가격 확인
 	function checkPrice() {
+		$("#rTime").val("end");
 		var tid = ${theme.getTid()};
 		var index2 = parseInt($('.selectTNum option:selected').val());
 		var allData = {"tid": tid, "index2": index2};
