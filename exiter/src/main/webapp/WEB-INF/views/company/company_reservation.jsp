@@ -43,9 +43,8 @@ if (comId == null){
   <main>
     <h1>예약관리</h1>
   	<div id="wrap">
-  	<form>
+  	<form id="selDate">
   		<input type="date" id="date" name="date" value="${date }">
-  		<input type="submit">
   	</form>
   	<table class="theme">
   <tr style="border-bottom: 2px solid;">
@@ -65,7 +64,7 @@ if (comId == null){
   <td><div><p>${getTheme.TLevel }</p></div></td>
   <td><div><p>${getTheme.TNum }명</p></div></td>
   <td><div><p>${getTheme.TTime }분</p></div></td>
-  <td class="dropBtn"><div><p>img</p></div></td>
+  <td class="dropBtn"><div class="img"></div></td>
   </tr>
   <tr >
   <td colspan="7" style="padding: 0; overflow: hidden; border-bottom: none;">
@@ -110,6 +109,11 @@ if (comId == null){
     	$(function() {
     		$('.dropBtn').click(function(){
     			$(this).parent().next().children().children().toggleClass("show");
+    			$(this).children().toggleClass("change");
+    		});
+    		
+    		$('#date').change(function(){
+    			$('#selDate').submit();
     		});
     	});
     </script>

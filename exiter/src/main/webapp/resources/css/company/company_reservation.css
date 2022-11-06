@@ -41,6 +41,18 @@ main > h1:before {
 	background-image: url("../../images/icon/edit_FILL0_wght400_GRAD0_opsz48.png");
 }
 
+#date {
+	font-family: "twayFly";
+    width: 150px;
+    height: 45px;
+    border: 2px solid;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-weight: 800;
+    font-size: 18px;
+    padding: 0 10px;
+}
+
 /* table */
  img {
 	width: 60px;
@@ -106,6 +118,27 @@ tr:nth-child(2) td > div {
 	padding: 10px;
 }
 
+.dropBtn {
+	cursor: pointer;
+}
+
+.img {
+	width: 40px;
+	text-align: center;
+	left: calc(50% - 20px);
+	background-image: url("../../images/icon/expand_more_FILL0_wght400_GRAD0_opsz48.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	transition: .2s;
+	transition-delay: .3s;
+}
+
+.change {
+	background-image: url("../../images/icon/expand_less_FILL0_wght400_GRAD0_opsz48.png");
+	transition: .2s;
+	transition-delay: .7s;
+}
   /* footer cover */
 footer {
   display: flex;

@@ -93,7 +93,7 @@ public class CompanyDaoTest {
 //		dao.getReservatioByDate(1, "2022-11-01");
 		
 //		dao.getReservationThemeInfo(1, "2022-11-01");
-		dao.getReservationInfoByDateAndTid(1, "2022-11-03", 1);
+//		dao.getReservationInfoByDateAndTid(1, "2022-11-03", 1);
 		context.close();
 	}
 }
