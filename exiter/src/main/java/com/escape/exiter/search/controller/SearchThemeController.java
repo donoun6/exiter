@@ -19,7 +19,7 @@ import com.escape.exiter.search.service.SearchService;
 import com.escape.exiter.theme.domain.Theme;
 
 @Controller
-public class SearchController {
+public class SearchThemeController {
 	
 	@Autowired
 	SearchService searchService;
@@ -40,15 +40,6 @@ public class SearchController {
 	@GetMapping("/search/search_theme")
 	public String searchThemeForm() {
 		return "search/search_theme";
-	}
-	
-	/**
-	 * 지역/장르 검색
-	 * @return
-	 */
-	@GetMapping("/search/search_locagen")
-	public String searchLocagenForm() {
-		return "search/search_locagen";
 	}
 	
 	/**
