@@ -54,13 +54,23 @@ main > h1:before {
     border-collapse: collapse;
     box-sizing: border-box;
 }
+
+tr:nth-child(2) td {
+	padding-top: 18.5px;
+}
+
+tr:nth-child(2) td > div {
+	height: calc(100% - 37px);
+}
+
  th {
  	width: calc(100% / 6px);
  }
+ 
  th,  td {
 	position: relative;
 	border-bottom: 1px solid #aaa;
-    padding: 10px;
+    padding: 0 10px 10px;
     box-sizing: border-box;
     text-align: center;
     -ms-overflow-style:none; /* IE and Edge */
@@ -76,6 +86,25 @@ main > h1:before {
 	height: calc(100% - 20px);
 }
 
+.hidden {
+	position: relative;
+    top: -500px;
+    display: inline-table;
+    margin: -500px;
+    transition: 2s;
+}
+
+.show {
+	display: inline-table;
+	top: 0;
+	transition: 1s;
+	margin: 0;
+	margin-bottom: 18.5px;
+}
+
+.show th , .show tr td, .hidden th , .hidden tr td{
+	padding: 10px;
+}
 
   /* footer cover */
 footer {

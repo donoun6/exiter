@@ -47,7 +47,7 @@ if (comId == null){
   		<input type="date" id="date" name="date" value="${date }">
   		<input type="submit">
   	</form>
-  	<table>
+  	<table class="theme">
   <tr style="border-bottom: 2px solid;">
     <th>사진</th>
     <th>이름</th>
@@ -65,11 +65,11 @@ if (comId == null){
   <td><div><p>${getTheme.TLevel }</p></div></td>
   <td><div><p>${getTheme.TNum }명</p></div></td>
   <td><div><p>${getTheme.TTime }분</p></div></td>
-  <td><div><p>img</p></div></td>
+  <td class="dropBtn"><div><p>img</p></div></td>
   </tr>
-  <tr>
-  <td colspan="7">
-  <table>
+  <tr >
+  <td colspan="7" style="padding: 0; overflow: hidden; border-bottom: none;">
+  <table class="hidden">
   	<tr>
   		<th>아이디</th>
   		<th>이름</th>
@@ -105,6 +105,14 @@ if (comId == null){
       <!-- footer -->
   <jsp:include page="../common/copyright.jsp"></jsp:include>
   </main>
+    <!-- 스크립트 영역 -->
+    <script type="text/javascript">
+    	$(function() {
+    		$('.dropBtn').click(function(){
+    			$(this).parent().next().children().children().toggleClass("show");
+    		});
+    	});
+    </script>
 </body>
 
 </html>
