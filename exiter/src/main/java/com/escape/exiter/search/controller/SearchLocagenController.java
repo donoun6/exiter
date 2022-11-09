@@ -46,21 +46,21 @@ public class SearchLocagenController {
 			themeList = searchService.getThemeList();
 		} else if(city.equals("서울")) {
 			cityList = Arrays.asList("강남", "홍대", "신촌", "건대", "대학로", "강북", "신림");
-			themeList = searchService.getThemeListByCity(city);
+			themeList = searchService.getThemeListByCity(city, "전체");
 		} else if(city.equals("인천/경기")) {
 			cityList = Arrays.asList("인천", "부천", "일산", "수원", "안양");
-			themeList = searchService.getThemeListByCity("인천", "경기");
+			themeList = searchService.getThemeListByCity("인천", "경기", "전체");
 		} else if(city.equals("대전/충청")) {
 			cityList = Arrays.asList("대전", "청주", "천안");
-			themeList = searchService.getThemeListByCity("대전", "충북", "충남");
+			themeList = searchService.getThemeListByCity("대전", "충북", "충남", "전체");
 		} else if(city.equals("대구/부산/경상")) {
 			cityList = Arrays.asList("대구", "부산");
-			themeList = searchService.getThemeListByCity("대구", "부산", "경북", "경남");
+			themeList = searchService.getThemeListByCity("대구", "부산", "경북", "경남", "전체");
 		} else if(city.equals("광주/전주/전라")) {
 			cityList = Arrays.asList("광주", "전주");
-			themeList = searchService.getThemeListByCity("광주", "전북", "전남");
+			themeList = searchService.getThemeListByCity("광주", "전북", "전남", "전체");
 		} else if(city.equals("강원")) {
-			themeList = searchService.getThemeListByCity(city);
+			themeList = searchService.getThemeListByCity(city, "전체");
 		}
 		Collections.shuffle(themeList);
 		
@@ -102,6 +102,9 @@ public class SearchLocagenController {
 			cityList = Arrays.asList("광주", "전주");
 			
 		}
+		
+		
+		themeList = searchService.getThemeListByCounty(city1, city2, genre);
 		
 		request.setAttribute("city", city1);
 		request.setAttribute("city2", city2);

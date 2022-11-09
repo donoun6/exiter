@@ -108,9 +108,9 @@
     	});
     	
     	// 세부지역 선택
-    	$('.loca2').click(function() {
+    	$('.loca2, .genre-item').click(function() {
     		var city1 = $('input[name=loca1]:checked').val();
-    		var city2 = $(this).find('.city2').val();
+    		var city2 = $('input[name=loca2]:checked').val();
     		var genre = $('input[name=genre]:checked').val();
     		// 폼생성
     		var newForm = $('<form></form>');
@@ -127,9 +127,7 @@
     	});
     	
     	// 장르 선택
-    	$('.genre-item').click(function() {
-    		
-    	});
+
     </script>
 </body>
 </html>

@@ -12,6 +12,7 @@ public class SearchThemeCom {
 	private String comPocus;
 	private String tName;
 	private String tImage;
+	private String tCategory;
 	
 	public SearchThemeCom() {
 		
