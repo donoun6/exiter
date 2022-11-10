@@ -1,6 +1,8 @@
 package com.escape.exiter.company.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -40,6 +42,30 @@ public class CompanyController {
 			list.add(companyService.getReservationCountByTid(tid));
 		}
 		model.addAttribute("reservationCount",list);
+		
+		SimpleDateFormat getYear = new SimpleDateFormat("yyyy");
+		Calendar year = Calendar.getInstance(); 
+		String currentYear = getYear.format(year.getTime());
+		List<String> yearMonth = new ArrayList<String>();
+		List<Long> yearMonthCount = new ArrayList<Long>();
+		
+		for(int i =1; i <= 12; i++) {
+			if(i < 10) {
+				yearMonth.add("0"+i+"월");
+				String rDate = currentYear+"-0"+i;
+				yearMonthCount.add(companyService.getReservationMonthCountByCid(rDate, cid));
+			}else {
+				yearMonth.add(i+"월");
+				String rDate = currentYear+"-"+i;
+				yearMonthCount.add(companyService.getReservationMonthCountByCid(rDate, cid));
+			}
+		}
+		model.addAttribute("yearMonth",yearMonth);
+		model.addAttribute("yearMonthCount",yearMonthCount);
+		 SimpleDateFormat yDay = new SimpleDateFormat("yyyy-MM-dd");
+	     Calendar calendar = Calendar.getInstance(); 
+	     calendar.add(Calendar.DATE, -2);
+	     String yesterday = yDay.format(calendar.getTime()); // String으로 저장
 		
 		return "company/company";
 }

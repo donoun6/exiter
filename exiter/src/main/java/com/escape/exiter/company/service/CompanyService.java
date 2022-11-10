@@ -53,4 +53,6 @@ public interface CompanyService {
 	void deleteReservation(String rid);
 	
 	long getReservationCountByTid(long tid);
+	
+	long getReservationMonthCountByCid(String rDate ,long cid);
 }

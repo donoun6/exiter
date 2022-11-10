@@ -96,6 +96,7 @@ public class CompanyDaoTest {
 //		dao.getReservationInfoByDateAndTid(1, "2022-11-03", 1);
 //		System.out.println(dao.getReservationCountByTid(1));
 		
+		System.out.println(dao.getReservationMonthCountByCid("2022-12", 1));
 		context.close();
 	}
 }

@@ -384,4 +384,16 @@ public class CompanyDao {
 		},tid);
 	}
 	
+//	해당연도 월별 예약 횟수
+	public long getReservationMonthCountByCid(String rDate ,long cid) {
+		String sql = "SELECT COUNT(*) as cnt FROM Reservation WHERE rDate LIKE ? and cid = ?";
+		return jdbcTemplate.queryForObject(sql, new RowMapper<Long>() {
+
+			@Override
+			public Long mapRow(ResultSet rs, int rowNum) throws SQLException {
+				return rs.getLong("cnt");
+			}
+		},"%"+rDate+"%",cid);
+	}
+	
 }

@@ -112,6 +112,13 @@ CREATE TABLE Reservation (
 	CONSTRAINT Reservation_tid_FK FOREIGN KEY (tid) REFERENCES theme(tid)
 )AUTO_INCREMENT = 1;
 
+SELECT DATE_FORMAT(rDate,'%Y-%m') m, COUNT(*) FROM Reservation WHERE rDate LIKE '2023-01%' and cid = 1;
+
+
+SELECT DATE_FORMAT(rDate,'%Y-%m') m, COUNT(*) FROM Reservation GROUP BY m ;
+SELECT DATE_FORMAT(rDate,'%Y-%m-%d') y, COUNT(*) FROM Reservation GROUP BY y;
+
+SELECT COUNT(*), DATE_FORMAT(rDate,'%Y-%m') FROM Reservation WHERE  DATE_FORMAT(rDate,'%Y-%m') = DATE_FORMAT(now(),'2022-12');
 
 CREATE TABLE Board (
 	bid				BIGINT				NOT NULL PRIMARY KEY AUTO_INCREMENT,

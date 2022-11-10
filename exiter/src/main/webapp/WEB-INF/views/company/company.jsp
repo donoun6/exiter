@@ -30,7 +30,12 @@
         ]);
 
         var options = {
-          title: '테마별 예약 횟수'
+          title: '테마별 예약 횟수',
+          titleTextStyle: {
+        	  fontName: 'twayFly', 
+              fontSize: 28,
+              bold: false,
+          }
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -46,18 +51,21 @@
         // Some raw data (not necessarily accurate)
         var data = google.visualization.arrayToDataTable([
           ['Month', 'Reservation','Line'],
-          ['2004/05',  165, 614.6],
-          ['2005/06',  135, 682],
-          ['2006/07',  157, 623],
-          ['2007/08',  139, 609.4],
-          ['2008/09',  136, 569.6]
+          <c:forEach var="yearMonth" items="${yearMonth }" varStatus="status">
+          ['${yearMonth }',  ${yearMonthCount[status.index] }, ${yearMonthCount[status.index] }],
+          </c:forEach>
         ]);
 
         var options = {
           title : '월별 예약 현황',
           vAxis: {title: 'Month'},
           seriesType: 'bars',
-          series: {1: {type: 'line'}}
+          series: {1: {type: 'line'}},
+          titleTextStyle: {
+        	  fontName: 'twayFly', 
+              fontSize: 16,
+              bold: false,
+          }
         };
 
         var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
@@ -79,7 +87,12 @@
           title : '일별 예약 현황',
           vAxis: {title: 'Day'},
           seriesType: 'bars',
-          series: {1: {type: 'line'}}
+          series: {1: {type: 'line'}},
+          titleTextStyle: {
+        	  fontName: 'twayFly', 
+              fontSize: 16,
+              bold: false,
+          }
         };
 
         var chart = new google.visualization.ComboChart(document.getElementById('chart_div2'));
@@ -99,7 +112,7 @@ if (comId == null){
   <aside>
     <nav id="aside-nav">
       <ul>
-      ${comId } 님
+      <span>${comId } 님</span>
         <li><a href="<c:url value='/company'/>">사업자메인</a></li>
         <li><a href="<c:url value='/company/company_theme'/>">테마관리</a></li>
         <li><a href="<c:url value='/company/company_reservation'/>">예약확인</a></li>
@@ -164,9 +177,9 @@ if (comId == null){
       </section>
       <section class="section3">
       <div style="width: 50%; height: 100%; position: relative;">
-      <div id="piechart" style="width: 100%; height: 90%;"></div>
+      <div id="piechart" style="width: 100%;height: 90%; box-sizing: border-box; padding: 5% 0 0 10%;"></div>
       </div>
-      <div style="width: 47%; height: 100%; position: relative; padding-right: 1%; padding-left: 2%;">
+      <div style="width: 50%; box-sizing: border-box; height: 100%; position: relative; padding-right: 1%; padding-left: 2%;">
       <div id="chart_div" style="margin-top: 50px;"></div>
         <div id="chart_div2" style="margin-top: 10px;"></div>
       </div>
