@@ -31,11 +31,14 @@
 
         var options = {
           title: '테마별 예약 횟수',
+          fontName: 'twayFly',
+          fontSize: 16,
+          chartArea:{left:100,bottom:20, width:'100%',height:'80%'},
           titleTextStyle: {
         	  fontName: 'twayFly', 
-              fontSize: 28,
+              fontSize: 34,
               bold: false,
-          }
+          },
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -58,12 +61,13 @@
 
         var options = {
           title : '월별 예약 현황',
+          fontName: 'twayFly',
           vAxis: {title: 'Month'},
           seriesType: 'bars',
           series: {1: {type: 'line'}},
           titleTextStyle: {
         	  fontName: 'twayFly', 
-              fontSize: 16,
+              fontSize: 21,
               bold: false,
           }
         };
@@ -85,12 +89,13 @@
 
         var options = {
           title : '일별 예약 현황',
+          fontName: 'twayFly',
           vAxis: {title: 'Day'},
           seriesType: 'bars',
           series: {1: {type: 'line'}},
           titleTextStyle: {
         	  fontName: 'twayFly', 
-              fontSize: 16,
+              fontSize: 21,
               bold: false,
           }
         };
