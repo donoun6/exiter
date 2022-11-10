@@ -116,4 +116,9 @@ public class CompanyServiceImpl implements CompanyService{
 		companyDao.deleteReservation(rid);
 	}
 
+	@Override
+	public long getReservationCountByTid(long tid) {
+		return companyDao.getReservationCountByTid(tid);
+	}
+
 }

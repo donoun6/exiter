@@ -15,6 +15,77 @@
 <link rel="stylesheet" href="<c:url value='/resources/css/company/company.css'/>">
   <script type="text/javascript" src="<c:url value='/resources/js/common/jquery.js'/>"></script>
   <title>Exiter Company main</title>
+   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+        	 ['Task', 'Hours per Day'],
+        	 <c:forEach var="companyInfo" items="${companyInfo }" varStatus="status">
+             ['${companyInfo.TName }', ${reservationCount[status.index] }],
+        	</c:forEach>
+        ]);
+
+        var options = {
+          title: '테마별 예약 횟수'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+      
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawVisualization);
+      google.charts.setOnLoadCallback(drawVisualization2);
+      
+      function drawVisualization() {
+        // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable([
+          ['Month', 'Reservation','Line'],
+          ['2004/05',  165, 614.6],
+          ['2005/06',  135, 682],
+          ['2006/07',  157, 623],
+          ['2007/08',  139, 609.4],
+          ['2008/09',  136, 569.6]
+        ]);
+
+        var options = {
+          title : '월별 예약 현황',
+          vAxis: {title: 'Month'},
+          seriesType: 'bars',
+          series: {1: {type: 'line'}}
+        };
+
+        var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+
+      function drawVisualization2() {
+        // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable([
+          ['Day', 'Reservation','Line'],
+          ['2004/05',  165, 614.6],
+          ['2005/06',  135, 682],
+          ['2006/07',  157, 623],
+          ['2007/08',  139, 609.4],
+          ['2008/09',  136, 569.6]
+        ]);
+
+        var options = {
+          title : '일별 예약 현황',
+          vAxis: {title: 'Day'},
+          seriesType: 'bars',
+          series: {1: {type: 'line'}}
+        };
+
+        var chart = new google.visualization.ComboChart(document.getElementById('chart_div2'));
+        chart.draw(data, options);
+      }
+    </script>
 </head>
 <% String comId = (String)session.getAttribute("comId");
 if (comId == null){
@@ -92,7 +163,13 @@ if (comId == null){
   		</table>
       </section>
       <section class="section3">
-        그래프
+      <div style="width: 50%; height: 100%; position: relative;">
+      <div id="piechart" style="width: 100%; height: 90%;"></div>
+      </div>
+      <div style="width: 47%; height: 100%; position: relative; padding-right: 1%; padding-left: 2%;">
+      <div id="chart_div" style="margin-top: 50px;"></div>
+        <div id="chart_div2" style="margin-top: 10px;"></div>
+      </div>
       </section>
     </div>
       <!-- footer -->

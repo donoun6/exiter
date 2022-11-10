@@ -371,4 +371,17 @@ public class CompanyDao {
 		jdbcTemplate.update(sql, rid);
 //		System.out.println("[테마 가격 삭제]");
 	}
+	
+//	테마별 예약횟수
+	public long getReservationCountByTid(long tid) {
+		String sql = "SELECT count(*) as cnt FROM Reservation WHERE tid = ?";
+		return jdbcTemplate.queryForObject(sql, new RowMapper<Long>() {
+
+			@Override
+			public Long mapRow(ResultSet rs, int rowNum) throws SQLException {
+				return rs.getLong("cnt");
+			}
+		},tid);
+	}
+	
 }

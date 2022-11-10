@@ -1,5 +1,8 @@
 package com.escape.exiter.company.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -30,6 +33,14 @@ public class CompanyController {
 		
 		model.addAttribute("companyInfo", companyService.themeInfo(cid));
 		model.addAttribute("reservationInfo", companyService.getReservationInfo(cid));
+		
+		List<Long> list = new ArrayList<Long>();
+		for(int i = 0; i < companyService.themeInfo(cid).size(); i++) {
+			long tid =  companyService.themeInfo(cid).get(i).getTid();
+			list.add(companyService.getReservationCountByTid(tid));
+		}
+		model.addAttribute("reservationCount",list);
+		
 		return "company/company";
 }
 }

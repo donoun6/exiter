@@ -51,4 +51,6 @@ public interface CompanyService {
 	List<CompanyReservation> getReservationInfoByDateAndTid(long cid,String date, long tid);
 	
 	void deleteReservation(String rid);
+	
+	long getReservationCountByTid(long tid);
 }

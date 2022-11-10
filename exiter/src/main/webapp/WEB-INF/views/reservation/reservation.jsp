@@ -153,6 +153,13 @@ if (userId == null){
 					
 					for (var i = 0; i < $('.trTime').length; i++){
 						if ($('#rDate').val() == dateString) {
+							$(function(){
+								$(".end").click(function(){
+									var data = "end"
+									$("#rTime").val(data);
+									
+								});
+							});
 							if($('.trTime')[i].innerText.split(' ')[1] == "AM") {
 								var h = Number($('.trTime')[i].innerText.split(':')[0]);
 								var m = Number($('.trTime')[i].innerText.split(':')[1].split(' ')[0]);

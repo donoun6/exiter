@@ -114,7 +114,7 @@ public class CompanyThemeController {
 	@PostMapping
 	public String companyTheme(@ModelAttribute("company") CompanyThemeCommand company, Model model,
 			@RequestParam("file") MultipartFile file, HttpServletRequest request) {
-		//ajax를사용하지 않아 post방식에도 테마정보를 넣어줘야한다. 시간이나면 ajax로 수정하기
+		//ajax를사용하지 않아 post방식에도 테마정보를 넣어줘야한다.
 		session = request.getSession(false);
 		long cid = (long) session.getAttribute("cid");
 		model.addAttribute("companyInfo", companyService.themeInfo(cid)); //테마정보를 뿌려주기 위함

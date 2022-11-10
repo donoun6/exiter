@@ -114,7 +114,7 @@ main {
 }
 
 .section1 img {
-	width: 60px;
+	width: 50px;
     border-radius: 10px;
 }
 
@@ -133,6 +133,10 @@ main {
     box-sizing: border-box;
     -ms-overflow-style:none; /* IE and Edge */
     scrollbar-width:none; /* Firefox */
+}
+
+.section1 td {
+	font-size: 16px;
 }
 
 .section1 td > div {
