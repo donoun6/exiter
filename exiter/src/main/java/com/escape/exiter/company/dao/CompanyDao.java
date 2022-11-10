@@ -364,4 +364,11 @@ public class CompanyDao {
 			
 		},cid,date,tid);
 	}
+	
+//	예약 삭제
+	public void deleteReservation(String rid) {
+		String sql = "DELETE FROM Reservation WHERE rid = ?";
+		jdbcTemplate.update(sql, rid);
+//		System.out.println("[테마 가격 삭제]");
+	}
 }

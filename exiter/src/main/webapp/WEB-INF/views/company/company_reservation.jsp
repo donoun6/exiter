@@ -69,7 +69,7 @@ if (comId == null){
   <tr >
   <td colspan="7" style="padding: 0; overflow: hidden; border-bottom: none;">
   <table class="hidden">
-  	<tr>
+  	<tr style="background: #F3F1F5;">
   		<th>아이디</th>
   		<th>이름</th>
   		<th>전화번호</th>
@@ -92,7 +92,12 @@ if (comId == null){
   			<td>${reservationInfo.RNum }명</td>
   			<td>${reservationInfo.RPrice }원</td>
   			<td>${reservationInfo.regDate }</td>
-  			<td><button>예약취소</button></td>
+  			<td>
+  			<form method="post">
+  			<input type="hidden" value="${reservationInfo.rid }" name="rid">
+  			<button type="submit" class="dBtn tdBtn" id="delete">예약취소</button>
+  			</form>
+  			</td>
   		</tr>
   	</c:forEach>
   </table>

@@ -49,4 +49,6 @@ public interface CompanyService {
 	List<CompanyReservation> getReservationThemeInfo(long cid,String date);
 	
 	List<CompanyReservation> getReservationInfoByDateAndTid(long cid,String date, long tid);
+	
+	void deleteReservation(String rid);
 }

@@ -11,11 +11,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.escape.exiter.company.domain.CompanyReservation;
 import com.escape.exiter.company.service.CompanyService;
-import com.escape.exiter.main.domain.MainDomain;
 
 @Controller
 @RequestMapping("/company/company_reservation")
@@ -49,5 +49,13 @@ public class CompanyReservationController {
 		model.addAttribute("getTheme",getTheme);
 		model.addAttribute("reservationInfo",list);
 		return "company/company_reservation";
-}
+	}
+	
+	@PostMapping
+	public String company(HttpServletRequest request) {
+		String rid = request.getParameter("rid");
+		companyService.deleteReservation(rid);
+		return "redirect:/company/company_reservation";
+		
+	}
 }

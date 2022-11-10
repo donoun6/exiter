@@ -111,4 +111,9 @@ public class CompanyServiceImpl implements CompanyService{
 		return companyDao.getReservationInfoByDateAndTid(cid, date, tid);
 	}
 
+	@Override
+	public void deleteReservation(String rid) {
+		companyDao.deleteReservation(rid);
+	}
+
 }

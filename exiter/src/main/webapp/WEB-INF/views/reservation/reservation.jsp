@@ -19,6 +19,11 @@
 <title>Exiter</title>
 </head>
 <body>
+<% String userId = (String)session.getAttribute("userId");
+if (userId == null){
+	response.sendRedirect("/exiter/user/login");
+	return;
+}%>
 	<div id="wrap">
 		<!-- header 영역 -->
         <jsp:include page="../common/header.jsp"></jsp:include>
@@ -89,7 +94,7 @@
 			<input type="hidden" id="rTime" name="rTime"/>
 			<span class="err">해당정보를 모두 입력해주세요.</span>
 			<button type="button" class="s-btn res" >예약하기</button>
-			<div class="logout-pop">
+			<div class="reservation-pop">
 	    		<div class="popUp-box">
 		        	<div class="popUp-item">
 		        		<p>예약 하시겠습니까?</p>
@@ -135,7 +140,45 @@
 				contentType: 'application/json; charset=UTF-8',
 				success: function(data) {
 					$('.trTime').removeClass("end");
+					var nowday = new Date();
+					
+					var year = nowday.getFullYear();
+					var month = ('0' + (nowday.getMonth() + 1)).slice(-2);
+					var day = ('0' + (nowday.getDate())).slice(-2);
+					
+					var hours = Number(('0' + nowday.getHours()).slice(-2));
+					var minutes = Number(('0' + nowday.getMinutes()).slice(-2));
+					
+					var dateString = year + '-' + month + '-' + day;
+					
 					for (var i = 0; i < $('.trTime').length; i++){
+						if ($('#rDate').val() == dateString) {
+							if($('.trTime')[i].innerText.split(' ')[1] == "AM") {
+								var h = Number($('.trTime')[i].innerText.split(':')[0]);
+								var m = Number($('.trTime')[i].innerText.split(':')[1].split(' ')[0]);
+								if ( hours == h ) {
+									if( minutes > m ) {
+										$('.trTime').eq(i).addClass("end");
+									}
+								}
+								if(hours > h) {
+									$('.trTime').eq(i).addClass("end");
+								}
+							}
+							if($('.trTime')[i].innerText.split(' ')[1] == "PM") {
+								var h = Number($('.trTime')[i].innerText.split(':')[0])+12 == 24 ? Number($('.trTime')[i].innerText.split(':')[0]) : Number($('.trTime')[i].innerText.split(':')[0])+12;
+								var m = Number($('.trTime')[i].innerText.split(':')[1].split(' ')[0]);
+								if ( hours == h ) {
+									if( minutes > m ) {
+										$('.trTime').eq(i).addClass("end");
+									}
+								}
+								if(hours > h) {
+									$('.trTime').eq(i).addClass("end");
+								}
+								
+							}
+						}
 						for(var j = 0; j < data.length; j++) {
 							if ($('.trTime')[i].innerText == data[j]) {
 								$('.trTime').eq(i).addClass("end");
@@ -143,6 +186,7 @@
 									$(".end").click(function(){
 										var data = "end"
 										$("#rTime").val(data);
+										
 									});
 								});
 							}
@@ -183,11 +227,11 @@
 		$('.res').click(function(){
 			if ($('#rNum').val() == null || $('#rDate').val() == "" || $('#rTime').val() == "end" || $('#rTime').val() == "") {
 				$('.err').attr("style","display:block")
-				$('.logout-pop').attr("style","display:none")
+				$('.reservation-pop').attr("style","display:none")
 			}else {
 				var rnum = parseInt($('#rNum').val());
 				$('.err').attr("style","display:none")
-				$('.logout-pop').attr("style","display:block")
+				$('.reservation-pop').attr("style","display:block")
 				$('.rDateInfo').text(" 날짜 : " + $('#rDate').val())
 				$('.rTimeInfo').text(" 시간 : " + $('#rTime').val())
 				$('.rNumInfo').text(" 인원 : " + (rnum+1))
@@ -196,7 +240,7 @@
 		});
 		
 		$('.cancel').click(function(){
-			$('.logout-pop').attr("style","display:none")
+			$('.reservation-pop').attr("style","display:none")
 		});
 	});
     </script>
