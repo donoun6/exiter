@@ -45,6 +45,7 @@ if (comId == null){
   	<div id="wrap">
   	<form id="selDate">
   		<input type="date" id="date" name="date" value="${date }">
+  		<span>예약인원: ${dayCount }명</span>
   	</form>
   	<table class="theme">
   <tr style="border-bottom: 2px solid;">
@@ -73,7 +74,6 @@ if (comId == null){
   		<th>아이디</th>
   		<th>이름</th>
   		<th>전화번호</th>
-  		<th>테마</th>
   		<th>예약날짜</th>
   		<th>예약시간</th>
   		<th>예약인원</th>
@@ -86,7 +86,6 @@ if (comId == null){
   			<td>${reservationInfo.userId }</td>
   			<td>${reservationInfo.UName }</td>
   			<td>${reservationInfo.UPhone }</td>
-  			<td>${reservationInfo.UName }</td>
   			<td>${reservationInfo.RDate }</td>
   			<td>${reservationInfo.RTime }</td>
   			<td>${reservationInfo.RNum }명</td>

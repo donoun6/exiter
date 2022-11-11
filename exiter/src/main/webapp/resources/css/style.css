@@ -85,4 +85,40 @@ main .main-img {
 /* section3 */
 .section3 > h2 {margin-top: 5%;}
 
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
 
+  50% {
+    opacity: .2;
+  }
+  
+  100%{
+  	opacity: 0;
+  }
+}
+
+.none > h2 {
+	width: 80px;
+	height: 14px;
+	background: gray;
+	opacity: 0;
+	animation-duration: 4s;
+ 	animation-name: opacity;
+  	animation-iteration-count: infinite;
+  	animation-timing-function: ease-in-out;
+  	animation-direction: alternate;
+  	border-radius: 10px;
+}
+
+.none .swiper-slide {
+	background: gray;
+	opacity: 0;
+	animation-duration: 4s;
+ 	animation-name: opacity;
+  	animation-iteration-count: infinite;
+  	animation-timing-function: ease-in-out;
+  	animation-direction: alternate;
+  	border-radius: 10px;
+}

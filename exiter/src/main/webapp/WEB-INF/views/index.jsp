@@ -127,19 +127,6 @@
       <article class="main-img" style="background-image: linear-gradient(to bottom,rgba(27, 27, 27, 0) 5%,rgba(27, 27, 27, 0) ,rgba(27, 27, 27, 1)),url('<c:url value='/resources/images/theme/${randomImg }'/>');"></article>
       <!-- section1-->
       <section id="section" class="section1">
-        <h2>많이찾는 테마</h2>
-        <div class="swiper mySwiper">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="<c:url value='/resources/images/theme/img.jpg'/>" alt=""></div>
-            <div class="swiper-slide"><img src="<c:url value='/resources/images/theme/img2.png'/>" alt=""></div>
-            <div class="swiper-slide"><img src="<c:url value='/resources/images/theme/img3.jpg'/>" alt=""></div>
-            <div class="swiper-slide"><img src="<c:url value='/resources/images/theme/img4.png'/>" alt=""></div>
-            <div class="swiper-slide"><img src="<c:url value='/resources/images/theme/img5.jpg'/>" alt=""></div>
-          </div>
-        </div>
-      </section>
-      <!-- section2-->
-      <section id="section" class="section2">
         <h2>최신 등록 테마</h2>
         <div class="swiper mySwiper">
           <div class="swiper-wrapper">
@@ -149,8 +136,9 @@
           </div>
         </div>
       </section>
+      <!-- section2-->
       <c:forEach var="getCategory" items="${getCategory }" varStatus="status">
-      <section id="section">
+      <section id="section" class="section2">
       	<h2>장르별 테마 : ${getCategory.TCategory }</h2>
       		<div class="swiper mySwiper">
 	          <div class="swiper-wrapper">
@@ -161,6 +149,18 @@
 	        </div>
       	</section>
       </c:forEach>
+       <section id="section" class="none">
+        <h2 style="margin-left: 10px;"> </h2>
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"></div>
+            <div class="swiper-slide"></div>
+            <div class="swiper-slide"></div>
+            <div class="swiper-slide"></div>
+            <div class="swiper-slide"></div>
+          </div>
+        </div>
+      </section>
     </main>
     <div class="detail-pop"></div>
     <!-- footer bottom-nav -->
@@ -175,7 +175,13 @@
       spaceBetween: 10,
       freeMode: true,
     });
+    
     $(function(){
+    	// detail-pop 클래스에 on 삭제
+    	$(window).scroll(function() {
+    		$('.detail-pop').removeClass('on');
+    		$('main').css('padding-bottom','0px');
+    	});
     	 // 테마 팝업창
     	$("[id*='img']").click(function() {
     		$('.detail-pop').removeClass('on');
@@ -191,6 +197,7 @@
     			contentType: 'application/json; charset=UTF-8',
     			success: function(data) {
     				$('.detail-pop').html(data);
+    				$('main').css('padding-bottom','240px');
     				if($('.title-box').outerHeight() > 80) {
 						$('.detail-pop').css('height', '285px');
 					} else {
@@ -200,11 +207,6 @@
     			}
     		});
     	});
-    	// detail-pop 클래스에 on 삭제
-    	$('main').click(function() {
-			$('.detail-pop').removeClass('on');
-		});
-    	
     });
 
   </script>

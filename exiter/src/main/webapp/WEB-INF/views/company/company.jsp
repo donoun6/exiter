@@ -102,6 +102,13 @@
         chart.draw(data, options);
       }
     </script>
+    <style type="text/css">
+    footer {
+    left: calc(50% - 70px);
+  	z-index: 99;
+  	width: 140px;
+    }
+    </style>
 </head>
 <% String comId = (String)session.getAttribute("comId");
 if (comId == null){
@@ -188,8 +195,8 @@ if (comId == null){
       </div>
       </section>
     </div>
-      <!-- footer -->
-  <jsp:include page="../common/copyright.jsp"></jsp:include>
+    <!-- footer -->
+	  <jsp:include page="../common/copyright.jsp"></jsp:include>
   </main>
 </body>
 

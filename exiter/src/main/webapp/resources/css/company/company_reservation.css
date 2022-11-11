@@ -41,6 +41,16 @@ main > h1:before {
 	background-image: url("../../images/icon/edit_FILL0_wght400_GRAD0_opsz48.png");
 }
 
+#selDate {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+} 
+
+#selDate > span {
+	margin-right: 5%;
+}
+
 #date {
 	font-family: "twayFly";
     width: 150px;

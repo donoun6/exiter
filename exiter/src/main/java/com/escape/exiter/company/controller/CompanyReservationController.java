@@ -40,7 +40,8 @@ public class CompanyReservationController {
 		}
 		model.addAttribute("date",date);
 		List<CompanyReservation> getTheme = companyService.getReservationThemeInfo(cid, date);
-		
+		model.addAttribute("dayCount",companyService.getReservationDayCountByCid(date, cid));
+		System.out.println();
 		List<List<CompanyReservation>> list = new ArrayList<List<CompanyReservation>>();
 		for(int i = 0; i < getTheme.size(); i++) {
 			long tid = getTheme.get(i).getTid();
