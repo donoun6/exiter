@@ -68,17 +68,16 @@ if (comId == null){
 		</div>
 	</form:form>
 	</fieldset>
-	<h2>등록테마</h2>
   <table>
-  <tr>
+  <tr style="border-bottom: 2px solid;">
     <th>사진</th>
     <th>이름</th>
     <th>장르</th>
-    <th>난이도</th>
-    <th>최대인원</th>
-    <th>이용시간</th>
-    <th>가격</th>
-    <th>예약시간</th>
+    <th style="width: 8%;">난이도</th>
+    <th style="width: 8%;">최대인원</th>
+    <th style="width: 8%;">이용시간</th>
+    <th style="width: 13%;">가격</th>
+    <th style="width: 13%;">예약시간</th>
     <th>테마설명</th>
     <th>삭제하기</th>
   </tr>
@@ -91,12 +90,12 @@ if (comId == null){
   <td><div><p>${companyInfo.TNum }명</p></div></td>
   <td><div><p>${companyInfo.TTime }분</p></div></td>
   <td><div><p>
-  <select class="price" id="${companyInfo.tid }">
+  <select class="price" id="${companyInfo.tid }"  style="width: 140px;height: 30px;border-radius: 10px;padding-left: 10px;">
   <option>인원별 가격보기</option>
   </select>
   </p></div></td>
   <td><div><p>
-  <select class="reservationTime" id="${companyInfo.tid }" style="width: 140px;">
+  <select class="reservationTime" id="${companyInfo.tid }" style="width: 140px;height: 30px;border-radius: 10px;padding-left: 10px;">
   <option>예약시간 보기</option>
   </select>
   </p></div></td>

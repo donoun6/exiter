@@ -121,7 +121,6 @@ h2 {
 
 table {
     width: 100%;
-    border-top: 1px solid #aaa;
     border-collapse: collapse;
     box-sizing: border-box;
 }
@@ -129,7 +128,6 @@ table {
 th, td {
 	position: relative;
 	border-bottom: 1px solid #aaa;
-    border-left: 1px solid #aaa;
     padding: 10px;
     box-sizing: border-box;
     overflow: scroll;
@@ -138,7 +136,8 @@ th, td {
 }
 
 th {
-	background: #F3F1F5;
+	font-size: 18px;
+	line-height: 28px;
 }
 
 th::-webkit-scrollbar, td::-webkit-scrollbar {
@@ -183,6 +182,7 @@ td:nth-child(9) p{
 img {
 	width: 100%;
 	height: 100%;
+	border-radius: 10px;
 } 
 
 .tdBtn {

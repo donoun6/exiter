@@ -396,4 +396,16 @@ public class CompanyDao {
 		},"%"+rDate+"%",cid);
 	}
 	
+//	일별 예약 횟수
+	public long getReservationDayCountByCid(String rDate ,long cid) {
+		String sql = "SELECT DATE_FORMAT(rDate,'%Y-%m-%d') m, COUNT(*) as cnt FROM Reservation WHERE rDate = ? and cid = ?";
+		return jdbcTemplate.queryForObject(sql, new RowMapper<Long>() {
+
+			@Override
+			public Long mapRow(ResultSet rs, int rowNum) throws SQLException {
+				return rs.getLong("cnt");
+			}
+		},rDate,cid);
+	}
+	
 }

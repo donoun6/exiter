@@ -80,11 +80,9 @@
         // Some raw data (not necessarily accurate)
         var data = google.visualization.arrayToDataTable([
           ['Day', 'Reservation','Line'],
-          ['2004/05',  165, 614.6],
-          ['2005/06',  135, 682],
-          ['2006/07',  157, 623],
-          ['2007/08',  139, 609.4],
-          ['2008/09',  136, 569.6]
+          <c:forEach var="monthDay" items="${monthDay }" varStatus="status">
+          ['${monthDay}',  ${monthDayCount[status.index] }, ${monthDayCount[status.index] }],
+          </c:forEach>
         ]);
 
         var options = {

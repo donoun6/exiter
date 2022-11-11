@@ -69,7 +69,7 @@ if (comId == null){
   <tr >
   <td colspan="7" style="padding: 0; overflow: hidden; border-bottom: none;">
   <table class="hidden">
-  	<tr style="background: #F3F1F5;">
+  	<tr style="background: #F3F1F5; border-bottom: 2px solid #aaa;">
   		<th>아이디</th>
   		<th>이름</th>
   		<th>전화번호</th>

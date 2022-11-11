@@ -112,7 +112,8 @@ CREATE TABLE Reservation (
 	CONSTRAINT Reservation_tid_FK FOREIGN KEY (tid) REFERENCES theme(tid)
 )AUTO_INCREMENT = 1;
 
-SELECT DATE_FORMAT(rDate,'%Y-%m') m, COUNT(*) FROM Reservation WHERE rDate LIKE '2023-01%' and cid = 1;
+SELECT DATE_FORMAT(rDate,'%Y-%m') m, COUNT(*) FROM Reservation WHERE rDate LIKE '2022-11%' and cid = 1;
+SELECT DATE_FORMAT(rDate,'%Y-%m-%d') m, COUNT(*) FROM Reservation WHERE rDate = '2022-11-27%' and cid = 1;
 
 
 SELECT DATE_FORMAT(rDate,'%Y-%m') m, COUNT(*) FROM Reservation GROUP BY m ;

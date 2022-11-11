@@ -55,4 +55,6 @@ public interface CompanyService {
 	long getReservationCountByTid(long tid);
 	
 	long getReservationMonthCountByCid(String rDate ,long cid);
+	
+	long getReservationDayCountByCid(String rDate ,long cid);
 }

@@ -114,8 +114,15 @@ tr:nth-child(2) td > div {
 	margin-bottom: 18.5px;
 }
 
+.show tr th, .hidden tr th {
+	line-height: 2;
+	font-size: 16px;
+	padding: 7px;
+}
+
 .show th , .show tr td, .hidden th , .hidden tr td{
-	padding: 10px;
+	padding: 5px;
+	font-size: 14px;
 }
 
 .dropBtn {
@@ -124,14 +131,15 @@ tr:nth-child(2) td > div {
 
 .dBtn {
 	border: none;
-	border-radius: 30px;
-	width: 100px;
-	height: 40px;
-	font-size: 16px;
-	font-family: "twayFly"; color:#fff;
-	cursor: pointer;
-	transition: .3s;
-	background: #d1a9a9;
+    border-radius: 30px;
+    width: 90px;
+    height: 35px;
+    font-size: 14px;
+    font-family: "twayFly";
+    color: #fff;
+    cursor: pointer;
+    transition: .3s;
+    background: #d1a9a9;
 }
 
 .dBtn:hover {

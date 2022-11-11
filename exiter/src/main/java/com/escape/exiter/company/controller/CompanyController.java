@@ -62,11 +62,22 @@ public class CompanyController {
 		}
 		model.addAttribute("yearMonth",yearMonth);
 		model.addAttribute("yearMonthCount",yearMonthCount);
-		 SimpleDateFormat yDay = new SimpleDateFormat("yyyy-MM-dd");
-	     Calendar calendar = Calendar.getInstance(); 
-	     calendar.add(Calendar.DATE, -2);
-	     String yesterday = yDay.format(calendar.getTime()); // String으로 저장
 		
+		 SimpleDateFormat yDay = new SimpleDateFormat("yyyy-MM-dd");
+		 
+		 List<String> monthDay = new ArrayList<String>();
+		 List<Long> monthDayCount = new ArrayList<Long>();
+	     for(int i = -3; i <= +3; i++) {
+	    	 Calendar calendar = Calendar.getInstance(); 
+	    	 calendar.add(Calendar.DATE, i);
+	    	 String days = yDay.format(calendar.getTime()); // String으로 저장
+	    	 monthDayCount.add(companyService.getReservationDayCountByCid(days, cid));
+	    	 String md = days.split("-")[1]+"/"+days.split("-")[2]; //MM-dd 형태로 자르기
+	    	 monthDay.add(md);
+	     }
+	     model.addAttribute("monthDay",monthDay);
+	     model.addAttribute("monthDayCount",monthDayCount);
+	     
 		return "company/company";
 }
 }

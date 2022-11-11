@@ -126,4 +126,9 @@ public class CompanyServiceImpl implements CompanyService{
 		return companyDao.getReservationMonthCountByCid(rDate, cid);
 	}
 
+	@Override
+	public long getReservationDayCountByCid(String rDate, long cid) {
+		return companyDao.getReservationDayCountByCid(rDate, cid);
+	}
+
 }
