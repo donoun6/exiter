@@ -105,6 +105,7 @@ public class SearchLocagenController {
 		
 		
 		themeList = searchService.getThemeListByCounty(city1, city2, genre);
+		Collections.shuffle(themeList);
 		
 		request.setAttribute("city", city1);
 		request.setAttribute("city2", city2);

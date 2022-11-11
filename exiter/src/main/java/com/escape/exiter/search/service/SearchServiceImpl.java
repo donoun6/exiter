@@ -19,8 +19,6 @@ public class SearchServiceImpl implements SearchService{
 	@Autowired
 	SearchDao searchDao;
 	
-	List<String> genreList = Arrays.asList("공포", "스릴러", "판타지", "탈옥", "미스터리", "추리", "잠입", "액션");
-	
 	@Override
 	public List<Map<Object, Object>> getThemeList() {
 		// DB에서 정보 가져오기
@@ -211,9 +209,10 @@ public class SearchServiceImpl implements SearchService{
 					countys = Arrays.asList("역삼동", "서초동", "반포동", "논현동", "신사동", "서교동", "동교동", "상수동", "창천동", "성수동2가", "자양동", "화양동", "명륜4가", "명륜2가", "동숭동", "동선동1가", "상계동", "수유동", "신림동", "봉천동", "구로동");
 					themeList = getLocaEtcList(themeList, countys, genre);
 				}
-//				if(genre.equals("기타")) {
-//					themeList = getGenreEtcList(themeList, genreList);
-//				}
+				// loca2가 전체, 장르가 기타라면
+				if(loca2.equals("전체") && genre.equals("기타")) {
+					themeList = getGenreEtcList(themeList);
+				}
 				return themeList;
 			}else if(loca2.equals("강남")) {
 				countys = Arrays.asList("역삼동", "서초동", "반포동", "논현동", "신사동");
@@ -240,9 +239,10 @@ public class SearchServiceImpl implements SearchService{
 						themeList.add(list.get(j));
 					}
 				}
-//				if(genre.equals("기타")) {
-//					themeList = getGenreEtcList(themeList, genreList);
-//				}
+				// 장르가 기타라면
+				if(genre.equals("기타")) {
+					themeList = getGenreEtcList(themeList);
+				}
 			}
 		} else if(loca1.equals("인천/경기")) {
 			List<String> countys = new ArrayList<String>();
@@ -252,6 +252,10 @@ public class SearchServiceImpl implements SearchService{
 				if(loca2.equals("기타")) {
 					countys = Arrays.asList("인천", "경기 부천시", "경기 고양시", "경기 수원시", "경기 안양시");
 					themeList = getLocaEtcList(themeList, countys, genre);
+				}
+				// loca2가 전체, 장르가 기타라면
+				if(loca2.equals("전체") && genre.equals("기타")) {
+					themeList = getGenreEtcList(themeList);
 				}
 				return themeList;
 			} else if(loca2.equals("일산")) {
@@ -269,6 +273,10 @@ public class SearchServiceImpl implements SearchService{
 					countys = Arrays.asList("대전", "충북 청주시", "충남 천안시");
 					themeList = getLocaEtcList(themeList, countys, genre);
 				}
+				// loca2가 전체, 장르가 기타라면
+				if(loca2.equals("전체") && genre.equals("기타")) {
+					themeList = getGenreEtcList(themeList);
+				}
 				return themeList;
 			} else if(loca2.equals("청주")) {
 				loca2 = "충북 청주시";
@@ -285,6 +293,10 @@ public class SearchServiceImpl implements SearchService{
 					countys = Arrays.asList("대구", "부산");
 					themeList = getLocaEtcList(themeList, countys, genre);
 				}
+				// loca2가 전체, 장르가 기타라면
+				if(loca2.equals("전체") && genre.equals("기타")) {
+					themeList = getGenreEtcList(themeList);
+				}
 				return themeList;
 			}
 		} else if(loca1.equals("광주/전주/전라")) {
@@ -296,19 +308,31 @@ public class SearchServiceImpl implements SearchService{
 					countys = Arrays.asList("광주", "전북 전주시");
 					themeList = getLocaEtcList(themeList, countys, genre);
 				}
+				// loca2가 전체, 장르가 기타라면
+				if(loca2.equals("전체") && genre.equals("기타")) {
+					themeList = getGenreEtcList(themeList);
+				}
 				return themeList;
 			} else if(loca2.equals("전주")) {
 				loca2 = "전북 전주시";
 			}
 			
+		} else if(loca1.equals("강원")) {
+			themeList = getThemeListByCity("강원", genre);
+			// 장르가 기타라면
+			if(genre.equals("기타")) {
+				themeList = getGenreEtcList(themeList);
+			}
+			return themeList;
 		}
 		
 		// 리스트 비었으면
 		if(themeList.size() == 0) {
 			themeList = getThemeListByCountyAndGenre(loca2, genre);
-//			if(genre.equals("기타")) {
-//				themeList = getGenreEtcList(themeList, genreList);
-//			}
+			// 장르가 기타라면
+			if(genre.equals("기타")) {
+				themeList = getGenreEtcList(themeList);
+			}
 		}
 		
 		return themeList;
@@ -368,6 +392,13 @@ public class SearchServiceImpl implements SearchService{
 		return themeList;
 	}
 
+	/**
+	 * 세부지역 기타의 테마리스트 조회
+	 * @param themeList
+	 * @param countys
+	 * @param genre
+	 * @return
+	 */
 	@Override
 	public List<Map<Object, Object>> getLocaEtcList(List<Map<Object, Object>> themeList, List<String> countys, String genre) {
 		List<Map<Object, Object>> list = new ArrayList<>();
@@ -386,28 +417,31 @@ public class SearchServiceImpl implements SearchService{
 				}
 			}
 		}
-//		if(genre.equals("기타")) {
-//			themeList = getGenreEtcList(themeList, genreList);
-//		}
+		// 장르가 기타라면
+		if(genre.equals("기타")) {
+			themeList = getGenreEtcList(themeList);
+		}
 		return themeList;
 	}
 
+	/**
+	 * 기타 장르의 테마리스트 조회
+	 * @param themeList
+	 * @return
+	 */
 	@Override
-	public List<Map<Object, Object>> getGenreEtcList(List<Map<Object, Object>> themeList, List<String> genreList) {
-		/*
-		System.out.println("진입");
-		for(int i = 0; i < genreList.size(); i++) {
-			for(int j = 0; j < themeList.size(); j++) {
-				if(themeList.get(j).containsValue(genreList.get(i))) {
-					System.out.println("t :" + themeList.get(j).get("tCategory"));
-					System.out.println("g :" + genreList.get(i));
-					themeList.remove(j);
+	public List<Map<Object, Object>> getGenreEtcList(List<Map<Object, Object>> themeList) {
+		List<String> genreList = Arrays.asList("공포", "스릴러", "판타지", "탈옥", "미스터리", "추리", "잠입", "액션");
+		
+		for(int i = 0; i < themeList.size(); i++) {
+			for(int j = 0; j < genreList.size(); j++) {
+				if(themeList.get(i).containsValue(genreList.get(j))) {
+					themeList.remove(i);
+					i--;
 					break;
 				}
 			}
 		}
-		System.out.println(themeList.size());
-		*/
 		return themeList;
 	}
 

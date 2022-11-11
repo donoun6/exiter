@@ -71,7 +71,7 @@ private JdbcTemplate jdbcTemplate;
 	 * @return
 	 */
 	public List<SearchThemeCom> findThemeListByCity(String city, String tCategory) {
-		if(tCategory.equals("전체")) { //tCategory.equals("전체") || tCategory.equals("기타")
+		if(tCategory.equals("전체") || tCategory.equals("기타")) { //tCategory.equals("전체") || tCategory.equals("기타")
 			String sql = "SELECT c.comName, c.comPocus, t.tName, t.tImage, t.tCategory FROM Theme t"
 					+ " INNER JOIN Company c ON t.cid = c.cid WHERE comAddress3 LIKE ?";
 			return jdbcTemplate.query(sql, new SearchThemeRowMapper(), city + "%");
@@ -89,7 +89,7 @@ private JdbcTemplate jdbcTemplate;
 	 * @return
 	 */
 	public List<SearchThemeCom> findThemeListByCity(String city1, String city2, String tCategory) {
-		if(tCategory.equals("전체")) { //tCategory.equals("전체") || tCategory.equals("기타")
+		if(tCategory.equals("전체") || tCategory.equals("기타")) { //tCategory.equals("전체") || tCategory.equals("기타")
 			String sql = "SELECT c.comName, c.comPocus, t.tName, t.tImage, t.tCategory FROM Theme t"
 					+ " INNER JOIN Company c ON t.cid = c.cid WHERE comAddress3 LIKE ? OR comAddress3 LIKE ?";
 			return jdbcTemplate.query(sql, new SearchThemeRowMapper(), city1 + "%", city2 + "%");
@@ -108,7 +108,7 @@ private JdbcTemplate jdbcTemplate;
 	 * @return
 	 */
 	public List<SearchThemeCom> findThemeListByCity(String city1, String city2, String city3, String tCategory) {
-		if(tCategory.equals("전체")) { //tCategory.equals("전체") || tCategory.equals("기타")
+		if(tCategory.equals("전체") || tCategory.equals("기타")) { //tCategory.equals("전체") || tCategory.equals("기타")
 			String sql = "SELECT c.comName, c.comPocus, t.tName, t.tImage, t.tCategory FROM Theme t"
 					+ " INNER JOIN Company c ON t.cid = c.cid WHERE comAddress3 LIKE ? OR comAddress3 LIKE ? OR comAddress3 LIKE ?";
 			return jdbcTemplate.query(sql, new SearchThemeRowMapper(), city1 + "%", city2 + "%", city3 + "%");
@@ -128,7 +128,7 @@ private JdbcTemplate jdbcTemplate;
 	 * @return
 	 */
 	public List<SearchThemeCom> findThemeListByCity(String city1, String city2, String city3, String city4, String tCategory) {
-		if(tCategory.equals("전체")) { //tCategory.equals("전체") || tCategory.equals("기타")
+		if(tCategory.equals("전체") || tCategory.equals("기타")) { //tCategory.equals("전체") || tCategory.equals("기타")
 			String sql = "SELECT c.comName, c.comPocus, t.tName, t.tImage, t.tCategory FROM Theme t"
 					+ " INNER JOIN Company c ON t.cid = c.cid WHERE comAddress3 LIKE ? OR comAddress3 LIKE ? OR comAddress3 LIKE ? OR comAddress3 LIKE ?";
 			return jdbcTemplate.query(sql, new SearchThemeRowMapper(), city1 + "%", city2 + "%", city3 + "%", city4 + "%");
@@ -146,7 +146,7 @@ private JdbcTemplate jdbcTemplate;
 	 * @return
 	 */
 	public List<SearchThemeCom> findThemeListByCountyAndGenre(String city, String tCategory) {
-		if(tCategory.equals("전체")) { //tCategory.equals("전체") || tCategory.equals("기타")
+		if(tCategory.equals("전체") || tCategory.equals("기타")) { //tCategory.equals("전체") || tCategory.equals("기타")
 			String sql = "SELECT c.comName, c.comPocus, t.tName, t.tImage, t.tCategory FROM Theme t"
 					+ " INNER JOIN Company c ON t.cid = c.cid WHERE comAddress3 LIKE ?";
 			return jdbcTemplate.query(sql, new SearchThemeRowMapper(), city + "%");
@@ -165,7 +165,7 @@ private JdbcTemplate jdbcTemplate;
 	 * @return
 	 */
 	public List<SearchThemeCom> findThemeListByCountyAndGenre(String city1, String city2, String tCategory) {
-		if(tCategory.equals("전체")) { //tCategory.equals("전체") || tCategory.equals("기타")
+		if(tCategory.equals("전체") || tCategory.equals("기타")) { //tCategory.equals("전체") || tCategory.equals("기타")
 			String sql = "SELECT c.comName, c.comPocus, t.tName, t.tImage, t.tCategory FROM Theme t"
 					+ " INNER JOIN Company c ON t.cid = c.cid WHERE comAddress3 LIKE ? AND comAddress3 Like ?";
 			return jdbcTemplate.query(sql, new SearchThemeRowMapper(), city1 + "%", "%" + city2 + "%");
