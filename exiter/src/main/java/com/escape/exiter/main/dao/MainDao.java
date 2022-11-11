@@ -53,7 +53,7 @@ public class MainDao {
 
 //	카테고리 출력
 	public List<MainDomain> getCategory() {
-		String sql = "SELECT DISTINCT tCategory FROM Theme ORDER BY RAND() LIMIT 5"; //DISTINCT 는 중복값을 제외하고 출력
+		String sql = "SELECT DISTINCT tCategory FROM Theme ORDER BY RAND() LIMIT 10"; //DISTINCT 는 중복값을 제외하고 출력
 		return jdbcTemplate.query(sql, new RowMapper<>() {
 
 			@Override
