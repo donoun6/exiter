@@ -29,7 +29,7 @@
           		<h3 class="title loca_gen on"><a href="<c:url value='/search/search_locagen'/>">지역/장르</a></h3>
         	</div>
         	<!-- 선택 -->
-        	<div class="swiper mySwiper">
+        	<div class="swiper mySwiper1">
 	        	<div class="swiper-wrapper loca1-box">
 	        		<label class="swiper-slide loca1"><input class="city" type="radio" name="loca1" value="전국">전국</label>
 	        		<label class="swiper-slide loca1"><input class="city" type="radio" name="loca1" value="서울">서울</label>
@@ -42,7 +42,7 @@
         	</div>
         	
         	<c:if test="${not empty cityList}">
-	        	<div class="swiper mySwiper">
+	        	<div class="swiper mySwiper2">
 	        		<div class="swiper-wrapper loca2-box">
 	        			<label class="swiper-slide loca2 total"><input class="city2" type="radio" name="loca2" value="전체" checked>전체</label>
 		        		<c:forEach var="city" items="${cityList}">
@@ -54,7 +54,7 @@
         	</c:if>
         	
         	<c:if test="${not empty genreList}">
-	        	<div class="swiper mySwiper">
+	        	<div class="swiper mySwiper3">
 	        		<div class="swiper-wrapper genre-box">
 	        			<label class="swiper-slide genre-item total"><input class="genre" type="radio" name="genre" value="전체" checked>전체</label>
 		        		<c:forEach var="genre" items="${genreList}">
@@ -91,19 +91,47 @@
   	
     <!-- script 영역 -->
     <script type="text/javascript">
+	    function findIndex(name) {
+			const elems = document.querySelectorAll(name);
+			for(let i = 0 ; i < elems.length; i++) {
+				const classes = elems[i].classList;
+				console.log(classes[2]);
+				if(classes.contains('on')) {
+					console.log(i);
+					var swiperSetting = {
+			 		  slidesPerView: 'auto',
+			 		  spaceBetween: 10,
+			 		  freeMode: true,
+			 		  initialSlide: i,
+			 		};
+					return swiperSetting;
+				}
+			}
+		}
     
     	// swiper
-    	var swiper = new Swiper(".mySwiper", {
+    	var swiper = new Swiper(".mySwiper1", {
 	      slidesPerView: 'auto',
 	      spaceBetween: 10,
 	      freeMode: true,
 	    });
+    	var swiper = new Swiper(".mySwiper2", {
+  	      slidesPerView: 'auto',
+  	      spaceBetween: 10,
+  	      freeMode: true,
+  	    });
+    	var swiper = new Swiper(".mySwiper3", {
+  	      slidesPerView: 'auto',
+  	      spaceBetween: 10,
+  	      freeMode: true,
+  	    });
     	
-    	// input checked
     	$(function() {
+    		// input checked
     		<c:if test="${not empty city}">
     			$('input:radio[name="loca1"]:radio[value="${city}"]').prop('checked', true);
     			$('input:radio[name="loca1"]:radio[value="${city}"]').parent().addClass('on');
+    			var swiper = new Swiper(".mySwiper1", findIndex('.loca1'));
     			<c:if test="${empty city2}">
     				$('input:radio[name="loca2"]:checked').parent().addClass('on');
     			</c:if>
@@ -114,10 +142,12 @@
     		<c:if test="${not empty city2}">
 				$('input:radio[name="loca2"]:radio[value="${city2}"]').prop('checked', true);
 				$('input:radio[name="loca2"]:radio[value="${city2}"]').parent().addClass('on');
+				var swiper = new Swiper(".mySwiper2", findIndex('.loca2'));
 			</c:if>
 			<c:if test="${not empty genre}">
 				$('input:radio[name="genre"]:radio[value="${genre}"]').prop('checked', true);
 				$('input:radio[name="genre"]:radio[value="${genre}"]').parent().addClass('on');
+				var swiper = new Swiper(".mySwiper3", findIndex('.genre-item'));
 			</c:if>
 
 			// 지역 선택
