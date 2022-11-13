@@ -45,7 +45,7 @@ if (comId == null){
   	<div id="wrap">
   	<form id="selDate">
   		<input type="date" id="date" name="date" value="${date }">
-  		<span>예약인원: ${dayCount }명</span>
+  		<span>예약현황: ${dayCount }건</span>
   	</form>
   	<table class="theme">
   <tr style="border-bottom: 2px solid;">
