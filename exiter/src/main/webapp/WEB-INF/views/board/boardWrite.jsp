@@ -60,53 +60,11 @@
 	</header>
 	<div id="wrap">
 		<main>
-			<h2>게시판</h2>
+			<h2>글쓰기</h2>
 			<section id="section">
-				<div class="sec1">
-					<div class="select" tabindex="1">
-						<select class="cate">
-							<option value="cate1" checked>공지</option>
-							<option value="cate2">자유게시판</option>
-							<option value="cate3">카테고리3</option>
-							<option value="cate4">카테고리4</option>
-						</select>
-					</div>
-					<div class="search-box">
-						<form action="/">
-							<input class="search-txt" type="text" placeholder="검색어를 입력해 주세요">
-							<button class="search-btn" type="submit">검색</button>
-						</form>
-					</div>
-				</div>
-				<div class="table-wrap">
-					<table>
-						<thead>
-							<tr>
-								<th>번호</th>
-								<th>제목</th>
-								<th>작성자</th>
-								<th>작성일</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>8</td>
-								<td>게시판 제목입니다</td>
-								<td>작성자1</td>
-								<td>2022-09-11</td>
-							</tr>
-							<tr>
-								<td>2</td>
-								<td>게시판 제목입니다</td>
-								<td>작성자1</td>
-								<td>2022-09-11</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<div class="write-btn">
-					<a href="<c:url value='/qna_write'/>" class="in-btn">글쓰기</a>
-				</div>
+			<form:form modelAttribute="board" method="post">
+				<form:input path="bTtitle"/>
+			</form:form>
 			</section>
 		</main>
 		<jsp:include page="../common/footer.jsp"></jsp:include>

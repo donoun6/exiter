@@ -131,6 +131,8 @@ CREATE TABLE Board (
 	CONSTRAINT Board_uid_FK FOREIGN KEY (uid) REFERENCES User(uid)
 )AUTO_INCREMENT = 1;
 
+INSERT INTO Board (uid,bTitle,bDef,bCategory) values (1,'test','test','test');
+
 CREATE TABLE BoardComment (
 	bcid			BIGINT				NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	uid				BIGINT				NOT NULL,
