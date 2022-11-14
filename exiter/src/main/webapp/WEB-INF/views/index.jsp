@@ -47,8 +47,9 @@
 	display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 350px;
+    /*width: 350px;*/
     margin-top: 5px;
+    margin-right: 20px;
 }
 
 .right-box {
@@ -73,7 +74,8 @@
 }
 
 .right-box img {
-	height: 160px;
+	width: 125px;
+    height: auto;
     border-radius: 13px;
 }
 

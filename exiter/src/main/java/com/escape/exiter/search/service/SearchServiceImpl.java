@@ -324,6 +324,13 @@ public class SearchServiceImpl implements SearchService{
 				themeList = getGenreEtcList(themeList);
 			}
 			return themeList;
+		} else if(loca1.equals("제주")) {
+			themeList = getThemeListByCity("제주", genre);
+			// 장르가 기타라면
+			if(genre.equals("기타")) {
+				themeList = getGenreEtcList(themeList);
+			}
+			return themeList;
 		}
 		
 		// 리스트 비었으면

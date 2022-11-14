@@ -66,10 +66,12 @@ header {
   border-bottom: 0.5px solid #a3b3ff;
   line-height: 55px;
 }
-.top-list span{
-  line-height: 53px;
-  margin-right: 10px;
-  font-size: 20px;
+.top-list .mark {
+	width: 25px;
+    height: 25px;
+    margin-top: 15px;
+    margin-right: 3px;
+    filter: invert(1);
 }
 .top-list p {
   width: 100%;
@@ -223,7 +225,7 @@ header {
   font-size: 28px;
 }
 .bottom-list-box {
-  height: 220px;
+  height: 200px;
   width: 100%;
   border-radius: 10px;
   border-style: hidden;
@@ -234,7 +236,7 @@ header {
   padding-left: 20px;
   color: #ddd;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 16px;
   vertical-align: middle;
 }
 .bottom-list-box tr:last-child td {
@@ -310,4 +312,47 @@ header {
 
 .s-btn.cancel {
 	background: #737373;
+}
+
+.grade-wrap {
+	display: none;
+}
+
+.grade-items {
+	height: 500px;
+    margin-top: calc(100vw - 250px);
+}
+
+.grade-items p.title {
+	color: #414aea;
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.grade-items p.grade-item {
+	margin-top: 15px;
+}
+
+.grade-items p:nth-child(2) {
+	margin-top: 30px;
+}
+
+.grade-items p.grade-item span {
+	display: block;
+	font-size: 20px;
+}
+
+.grade-items p.grade-item span.def {
+	margin-top: 5px;
+	font-size: 15px;
+    font-weight: 400;
+    color: #737373;
+}
+
+.grade-items p.grade-item span img {
+	width: 25px;
+    height: 25px;
+    vertical-align: text-bottom;
+    margin-right: 5px;
+    filter: invert(0.2);
 }

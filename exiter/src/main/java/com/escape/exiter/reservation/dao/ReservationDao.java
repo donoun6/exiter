@@ -37,15 +37,19 @@ public class ReservationDao {
 	 * @return
 	 */
 	public long findCntReserByUid(long uid) {
-		String sql = "SELECT Count(*) as cnt FROM Reservation WHERE uid = ?";
-		return jdbcTemplate.queryForObject(sql, new RowMapper<Long>() {
+		String sql = "SELECT Count(*) as cnt FROM Reservation WHERE uid = ? and rCheck = 'N";
+		try {
+			return jdbcTemplate.queryForObject(sql, new RowMapper<Long>() {
 
-			@Override
-			public Long mapRow(ResultSet rs, int rowNum) throws SQLException {
-				return rs.getLong("cnt");
-			}
-			
-		}, uid);
+				@Override
+				public Long mapRow(ResultSet rs, int rowNum) throws SQLException {
+					return rs.getLong("cnt");
+				}
+				
+			}, uid);
+		} catch(Exception e) {
+			return 0;
+		}
 	}
 	
 	/**

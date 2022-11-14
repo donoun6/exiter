@@ -70,9 +70,9 @@ h3.title.on:before {
 /* 선택 영역 */
 .loca1-box, .loca2-box, .genre-box {
 	position: relative;
-	height: 40px;
-    line-height: 40px;
-    padding-top: 10px;
+	height: 35px;
+    line-height: 35px;
+    padding-top: 7px;
 }
 
 .swiper:after {
@@ -93,7 +93,7 @@ h3.title.on:before {
 	display: inline-block;
     width: auto;
 	height: 15px;
-	padding: 5px 15px;
+	padding: 5px 13px;
     border: 1px solid #e6e6e6;
     border-radius: 25px;
     line-height: 15px;
@@ -119,10 +119,29 @@ input[type="radio"] {
 	display: none;
 }
 
+/* 선택 결과 */
+p.results {
+	margin-top: 25px;
+    font-size: 14px;
+}
+
+p.results .arrow {
+	color: #737373;
+}
+
 /* 검색 목록 */
+.empty-ul {
+	margin: 230px 0;
+    text-align: center;
+    color: #737373;
+}
+
+.empty-city {
+	margin: 280px 0;
+}
+
 .search-ul {
 	min-height: 240px;
-	margin-top: 30px;
 	padding-bottom: 150px;
 }
 
@@ -203,8 +222,9 @@ input[type="radio"] {
 	display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 350px;
+    /*width: 350px;*/
     margin-top: 5px;
+    margin-right: 20px;
 }
 
 .right-box {
@@ -229,7 +249,8 @@ input[type="radio"] {
 }
 
 .right-box img {
-	height: 160px;
+	width: 125px;
+    height: auto;
     border-radius: 13px;
 }
 

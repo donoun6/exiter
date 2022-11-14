@@ -31,14 +31,18 @@
               <span class="id">${userId}</span>
             </div>
             <div class="profile">
-              <img src="<c:url value='/resources/images/icon/key.png'/>" alt="man" style="rotate: -35deg;">
+               <c:if test="${newUGrade.length() > 0}">
+              		<img src="<c:url value='/resources/images/icon/${newUGrade}.png'/>" alt="${newUGrade}">
+              	</c:if>
+              	<c:if test="${newUGrade.length() == 0}">
+	              	<img src="<c:url value='/resources/images/icon/${preUGrade}.png'/>" alt="${preUGrade}">
+	            </c:if>
             </div>
           </div>
 
           <div class="top-list-box">
             <div class="top-list">
-              <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-              <span class="material-symbols-outlined">stars</span>
+              <img class="mark" src="<c:url value='/resources/images/icon/mark.png'/>" alt="mark">
               <p>등급</p>
               <p class="grade">
               	<c:if test="${newUGrade.length() > 0}">
@@ -50,7 +54,7 @@
               </p>
             </div>
             <div class="top-list">
-              <span class="material-symbols-outlined">book_online</span>
+              <img class="mark" src="<c:url value='/resources/images/icon/count.png'/>" alt="count">
               <p>예약횟수</p>
               <p class="reser-cnt">
               	<a href="<c:url value='/reservation/all_reser_lists'/>">
@@ -106,8 +110,6 @@
         <table class="bottom-list-box">
           <tr><td><a href="<c:url value='/common/get_ready'/>">내가 쓴 게시글</a></td></tr>
           <tr><td><a href="<c:url value='/common/get_ready'/>">내가 쓴 댓글</a></td></tr>
-          <tr><td><a href="<c:url value='/common/get_ready'/>">내 리뷰</a></td></tr>
-          <tr><td><a href="<c:url value='/common/get_ready'/>">1:1 문의</a></td></tr>
           <tr><td><a href="<c:url value='/user/update_userInfo'/>">회원정보 변경</a></td></tr>
           <tr><td><a href="<c:url value='/user/logout_pop'/>">로그아웃</a></td></tr>
         </table>
@@ -163,7 +165,7 @@
     </c:if>
     
     <c:if test="${newUGrade.length() > 0}">
-    	<!-- 준비중 팝업창 -->
+    	<!-- 등급변경 팝업창 -->
     	<div class="popUp-wrap check-pop">
 	    	<div class="popUp-box">
 		        <div class="popUp-item">
@@ -176,6 +178,35 @@
 		    </div>
 	    </div>
     </c:if>
+    
+    <!-- 등급 정보 팝업창 -->
+    <div class="popUp-wrap grade-wrap">
+    	<div class="popUp-box grade-box">
+	        <div class="popUp-item grade-items">
+	        	<p class="title">엑시터 등급표</p>
+	        	<p class="grade-item">
+	        		<span><img src="<c:url value='/resources/images/icon/방린이.png'/>" alt="방린이">방린이</span>
+	        		<span class="def">지난예약 횟수 30회 미만</span>
+	        	</p>
+	        	<p class="grade-item">
+	        		<span><img src="<c:url value='/resources/images/icon/방소년.png'/>" alt="방소년">방소년</span>
+	        		<span class="def">지난예약 횟수 30회 이상</span>
+	        	</p>
+	        	<p class="grade-item">
+	        		<span><img src="<c:url value='/resources/images/icon/방으른.png'/>" alt="방으른">방으른</span>
+	        		<span class="def">지난예약 횟수 60회 이상</span>
+	        	</p>
+	        	<p class="grade-item">
+	        		<span><img src="<c:url value='/resources/images/icon/엑시터.png'/>" alt="엑시터">엑시터</span>
+	        		<span class="def">지난예약 횟수 100회 이상</span>
+	        	</p>
+	        	<div class="btn-box">
+	        		<button class="s-btn grade-btn">닫기</button>
+	        	</div>
+	        </div>
+	    </div>
+    </div>
+    
     
 	<!-- 푸터 영역 -->
     <jsp:include page="../common/footer.jsp"></jsp:include>
@@ -217,6 +248,14 @@
 	 	// 팝업창 닫기
 	 	$('.check-btn').click(function() {
 	 		$('.check-pop').css('display', 'none');
+	 	});
+	 	
+	 	// 등급정보 팝업창 여닫기
+	 	$('.profile, .grade').click(function() {
+	 		$('.grade-wrap').css('display', 'block');
+	 	});
+	 	$('.grade-btn').click(function() {
+	 		$('.grade-wrap').css('display', 'none');
 	 	});
     </script>
 </body>

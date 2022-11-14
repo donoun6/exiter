@@ -61,6 +61,8 @@ public class SearchLocagenController {
 			themeList = searchService.getThemeListByCity("광주", "전북", "전남", "전체");
 		} else if(city.equals("강원")) {
 			themeList = searchService.getThemeListByCity(city, "전체");
+		} else if(city.equals("제주")) {
+			themeList = searchService.getThemeListByCity(city, "전체");
 		}
 		Collections.shuffle(themeList);
 		

@@ -52,6 +52,9 @@ INSERT INTO Company (comId, comPasswd, comTel, comAddress1, comAddress2, comAddr
 VALUES ('roomL', '24242424', '02-232-2323', '08777', '서울 관악구 신림로 322-4', '서울 관악구 신림동 75-41', '2층 룸엘이스케이프 신림점', '7438602055', '룸엘이스케이프', '신림점');
 INSERT INTO Company (comId, comPasswd, comTel, comAddress1, comAddress2, comAddress3, comAddress4, comNum, comName, comPocus) 
 VALUES ('wallToWall', '25252525', '02-242-2424', '08788', '서울 관악구 남부순환로226길 9', '서울 관악구 봉천동 1601-2', '지하1층', '7438602055', '월투월방탈출', '서울대입구점');
+-- 서울(기타)
+INSERT INTO Company (comId, comPasswd, comTel, comAddress1, comAddress2, comAddress3, comAddress4, comNum, comName, comPocus) 
+VALUES ('masterKeyy', '25252626', '02-101-1010', '05557', '서울 송파구 백제고분로7길 27', '서울 송파구 잠실동 180-9', '5층 마스터키 잠실점', '8208600242', '마스터키', '잠실점');
 -- 인천
 INSERT INTO Company (comId, comPasswd, comTel, comAddress1, comAddress2, comAddress3, comAddress4, comNum, comName, comPocus) 
 VALUES ('ic1', '26262626', '032-111-1111', '21573', '인천 남동구 성말로13번길 15', '인천 남동구 구월동 1457-1', '4층 402호', '1721100261', '둠이스케이프', '구월점');
@@ -100,6 +103,9 @@ VALUES ('is2', '41414141', '063-222-2222', '54647', '전북 익산시 동서로1
 -- 강원
 INSERT INTO Company (comId, comPasswd, comTel, comAddress1, comAddress2, comAddress3, comAddress4, comNum, comName, comPocus) 
 VALUES ('gw2', '42424242', '033-111-1111', '26436', '강원 원주시 천사로 60', '강원 원주시 단계동 855-1', '6층', '2345000156', '플레이이스케이프', '원주점');
+-- 제주
+INSERT INTO Company (comId, comPasswd, comTel, comAddress1, comAddress2, comAddress3, comAddress4, comNum, comName, comPocus) 
+VALUES ('jj', '43434343', '064-111-1111', '63595', '제주특별자치도 서귀포시 이중섭로 4-1', '제주특별자치도 서귀포시 서귀동 370-21', '설빙 3층 더코드 방탈출카페', '6128521071', '더코드', '제주서귀포점');
 
 
 -- theme 임시 데이터
@@ -389,6 +395,14 @@ INSERT INTO Theme (cid, tName, tCategory, tLevel, tNum, tDef, tTime, tImage)
 VALUES (39, 'Dear Marsy', '미스터리', 4, 6, '밤하늘, 나를 향해 가장 푸르게 빛나는 저 별... 나는 그에게 "에덴" 이라는 이름을 붙여주었다.
 ', 75, 'DearMarsy.jpg');
 
+INSERT INTO Theme (cid, tName, tCategory, tLevel, tNum, tDef, tTime, tImage) 
+VALUES (40, '호호랜드', '공포', 7, 6, '김반장의 아홉번째 의뢰, 삼덕동에서 계속해서 실종되는 아이들, 용의자로 시계방 주인 호호할배가 지목된다. 인자하기로 소문난 노인이 진짜 아이들을 납치라도 한걸까? 우선 그의 집에 몰래 들어가 탐문만 하고 나오자.
+', 60, '호호랜드.png');
+
+INSERT INTO Theme (cid, tName, tCategory, tLevel, tNum, tDef, tTime, tImage) 
+VALUES (41, '몽환의 숲', '판타지', 5, 6, '장덕구를 찾는 과정에서 나온 이름, 앨리스! 소녀가 살고있는 마을로 가보니 그녀의 행방조차 묘연하다. 김반장은 그녀가 마지막으로 목격된 몽환의숲으로 발걸음을 옮긴다. 숲 속에 도깨비가 산다는 전설은 뻥이겠지?
+', 60, '몽환의숲.png');
+
 
 -- themePrice 임시 데이터
 INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (1, 1, 28000);
@@ -676,6 +690,20 @@ INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (41, 3, 60000);
 INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (41, 4, 72000);
 INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (41, 5, 90000);
 INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (41, 6, 105000);
+
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (42, 1, 23000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (42, 2, 45000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (42, 3, 60000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (42, 4, 72000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (42, 5, 90000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (42, 6, 105000);
+
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (43, 1, 23000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (43, 2, 45000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (43, 3, 60000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (43, 4, 72000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (43, 5, 90000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (43, 6, 105000);
 
 
 -- ThemeReservationTime 임시 데이터
@@ -1096,3 +1124,23 @@ INSERT INTO ThemeReservationTime (tid, trTime) VALUES (41, '06:15 PM');
 INSERT INTO ThemeReservationTime (tid, trTime) VALUES (41, '07:50 PM');
 INSERT INTO ThemeReservationTime (tid, trTime) VALUES (41, '09:25 PM');
 INSERT INTO ThemeReservationTime (tid, trTime) VALUES (41, '11:00 PM');
+
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (42, '10:20 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (42, '11:55 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (42, '01:30 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (42, '03:05 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (42, '04:40 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (42, '06:15 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (42, '07:50 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (42, '09:25 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (42, '11:00 PM');
+
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (43, '10:20 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (43, '11:55 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (43, '01:30 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (43, '03:05 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (43, '04:40 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (43, '06:15 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (43, '07:50 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (43, '09:25 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (43, '11:00 PM');

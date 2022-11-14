@@ -28,7 +28,7 @@
           		<h3 class="title theme"><a href="<c:url value='/search/search_theme'/>">테마</a></h3>
           		<h3 class="title loca_gen on"><a href="<c:url value='/search/search_locagen'/>">지역/장르</a></h3>
         	</div>
-        	<!-- 선택 -->
+        	<!-- 지역 선택 -->
         	<div class="swiper mySwiper1">
 	        	<div class="swiper-wrapper loca1-box">
 	        		<label class="swiper-slide loca1"><input class="city" type="radio" name="loca1" value="전국">전국</label>
@@ -38,9 +38,11 @@
 	        		<label class="swiper-slide loca1"><input class="city" type="radio" name="loca1" value="대구/부산/경상">대구/부산/경상</label>
 	        		<label class="swiper-slide loca1"><input class="city" type="radio" name="loca1" value="광주/전주/전라">광주/전주/전라</label>
 	        		<label class="swiper-slide loca1"><input class="city" type="radio" name="loca1" value="강원">강원</label>
+	        		<label class="swiper-slide loca1"><input class="city" type="radio" name="loca1" value="제주">제주</label>
 	        	</div>
         	</div>
         	
+        	<!-- 지역2 선택 -->
         	<c:if test="${not empty cityList}">
 	        	<div class="swiper mySwiper2">
 	        		<div class="swiper-wrapper loca2-box">
@@ -53,6 +55,7 @@
 	        	</div>
         	</c:if>
         	
+        	<!-- 장르 선택 -->
         	<c:if test="${not empty genreList}">
 	        	<div class="swiper mySwiper3">
 	        		<div class="swiper-wrapper genre-box">
@@ -65,6 +68,9 @@
 	        	</div>
         	</c:if>
         	
+        	<p class="results"></p>
+        	
+        	<!-- 테마 목록 -->
         	<c:if test="${not empty themeList}">
 	        	<ul class="search-ul">
 			    	<c:forEach var="map" items="${themeList}">
@@ -77,6 +83,16 @@
 			    		</li>
 			    	</c:forEach>
 			    </ul>
+		    </c:if>
+		    <c:if test="${not empty city && empty themeList}">
+		    	<p class="empty-ul">
+		    		검색결과가 없습니다.
+		    	</p>
+		    </c:if>
+		    <c:if test="${empty city && empty themeList}">
+		    	<p class="empty-ul empty-city">
+		    		지역을 선택해주세요.
+		    	</p>
 		    </c:if>
 		    
 		    <!-- 상세 팝업창 -->
@@ -91,18 +107,16 @@
   	
     <!-- script 영역 -->
     <script type="text/javascript">
-	    function findIndex(name) {
+	    function swiperSetting(name) {
 			const elems = document.querySelectorAll(name);
 			for(let i = 0 ; i < elems.length; i++) {
 				const classes = elems[i].classList;
-				console.log(classes[2]);
 				if(classes.contains('on')) {
-					console.log(i);
 					var swiperSetting = {
 			 		  slidesPerView: 'auto',
 			 		  spaceBetween: 10,
 			 		  freeMode: true,
-			 		  initialSlide: i,
+			 		  initialSlide: i-1,
 			 		};
 					return swiperSetting;
 				}
@@ -131,7 +145,7 @@
     		<c:if test="${not empty city}">
     			$('input:radio[name="loca1"]:radio[value="${city}"]').prop('checked', true);
     			$('input:radio[name="loca1"]:radio[value="${city}"]').parent().addClass('on');
-    			var swiper = new Swiper(".mySwiper1", findIndex('.loca1'));
+    			var swiper = new Swiper(".mySwiper1", swiperSetting('.loca1'));
     			<c:if test="${empty city2}">
     				$('input:radio[name="loca2"]:checked').parent().addClass('on');
     			</c:if>
@@ -142,12 +156,12 @@
     		<c:if test="${not empty city2}">
 				$('input:radio[name="loca2"]:radio[value="${city2}"]').prop('checked', true);
 				$('input:radio[name="loca2"]:radio[value="${city2}"]').parent().addClass('on');
-				var swiper = new Swiper(".mySwiper2", findIndex('.loca2'));
+				var swiper = new Swiper(".mySwiper2", swiperSetting('.loca2'));
 			</c:if>
 			<c:if test="${not empty genre}">
 				$('input:radio[name="genre"]:radio[value="${genre}"]').prop('checked', true);
 				$('input:radio[name="genre"]:radio[value="${genre}"]').parent().addClass('on');
-				var swiper = new Swiper(".mySwiper3", findIndex('.genre-item'));
+				var swiper = new Swiper(".mySwiper3", swiperSetting('.genre-item'));
 			</c:if>
 
 			// 지역 선택
@@ -216,6 +230,40 @@
 			$('main').click(function() {
 				$('.detail-pop').removeClass('on');
 			});
+			
+			// 선택 결과 표시
+			<c:if test="${not empty city}">
+				<c:choose>
+					<c:when test="${city eq '전국' || city eq '강원' || city eq '제주'}">
+						<c:choose>
+							<c:when test="${empty genre}">
+								$('.results').html('${city} <span class="arrow">></span> 전체');
+							</c:when>
+							<c:otherwise>
+								$('.results').html('${city} <span class="arrow">></span> ${genre}');
+							</c:otherwise>
+						</c:choose>
+					</c:when>
+					<c:otherwise>
+						<c:choose>
+							<c:when test="${empty city2}">
+								$('.results').html('${city} <span class="arrow">></span> 전체 <span class="arrow">></span> 전체');	
+							</c:when>
+							<c:otherwise>
+								<c:choose>
+									<c:when test="${empty genre}">
+										$('.results').html('${city} <span class="arrow">></span> ${city2} <span class="arrow">></span> 전체');
+									</c:when>
+									<c:otherwise>
+										$('.results').html('${city} <span class="arrow">></span> ${city2} <span class="arrow">></span> ${genre}');
+									</c:otherwise>
+								</c:choose>
+							</c:otherwise>
+						</c:choose>
+					</c:otherwise>
+				</c:choose>
+				
+			</c:if>
     	});
 
     </script>
