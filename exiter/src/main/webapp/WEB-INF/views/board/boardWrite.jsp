@@ -24,46 +24,18 @@
 <title>board</title>
 </head>
 <body>
-	<header>
-		<nav id="top-nav">
-			<div class="cube">
-				<div class="face top">
-					<a href="#">E</a>
-				</div>
-				<div class="face bottom">
-					<a href="#">E</a>
-				</div>
-				<div class="face left">
-					<a href="#">E</a>
-				</div>
-				<div class="face right">
-					<a href="#">E</a>
-				</div>
-				<div class="face front">
-					<a href="#">E</a>
-				</div>
-				<div class="face back">
-					<a href="#">E</a>
-				</div>
-				<!-- <div class="logo-img"><a href="/exiter">E</a></div> -->
-			</div>
-
-			<div class="right-img">
-				<div class="search-img">
-					<a href="#"></a>
-				</div>
-				<div class="login-img">
-					<a href="user/login"></a>
-				</div>
-			</div>
-		</nav>
-	</header>
 	<div id="wrap">
+	<!-- header 영역 -->
+        <jsp:include page="../common/header.jsp"></jsp:include>
 		<main>
 			<h2>글쓰기</h2>
 			<section id="section">
 			<form:form modelAttribute="board" method="post">
+				<input type="text" name="uid" value="${uid }"> 
 				<form:input path="bTtitle"/>
+				<form:input path="bDef"/>
+				<form:input path="bCategory"/>
+				<input type="submit">
 			</form:form>
 			</section>
 		</main>

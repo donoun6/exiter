@@ -36,28 +36,6 @@ if (userId == null){
 		<main>
 			<h2>커뮤니티</h2>
 			<section id="section">
-				<div class="table-wrap">
-					<table>
-						<c:forEach var="boardInfo" items="${boardInfo }"> 
-							<tr>
-							<td>
-							<div class="boardInfo">
-							<a href="/exiter/board/boardDetail/${boardInfo.bid }"></a>
-							<h1 class="title">${boardInfo.BTitle }</h1>
-							<p class="def">${boardInfo.BDef }</p>
-							<div>
-							<span>${boardInfo.UGrade }${boardInfo.userId }</span>
-							${boardInfo.regDate }
-							</div>
-							</div>
-							</td>
-							</tr>
-						</c:forEach>
-					</table>
-				</div>
-				<div class="write-btn">
-					<a href="<c:url value='/board/boardWrite'/>" class="in-btn">글쓰기</a>
-				</div>
 			</section>
 		</main>
 		<jsp:include page="../common/footer.jsp"></jsp:include>

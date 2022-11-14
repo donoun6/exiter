@@ -11,15 +11,22 @@ import lombok.ToString;
 @Setter
 @AllArgsConstructor
 @ToString
-public class BoardDomain {
+public class BoardCommand {
 	private long bid;
-	private long uid;
-	private String bTtitle;
+	private String bTitle;
 	private String bDef;
 	private String bCategory;
 	private Date regDate;
+	private long uid;
+	private String userId;
+	private String uPasswd;
+	private String uName;
+	private String uPhone;
+	private String uGrade;
+	private char uType;
+	private boolean uCheck;
 	
-	public BoardDomain() {
+	public BoardCommand() {
 		
 	}
 }

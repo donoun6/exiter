@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 
+import com.escape.exiter.board.dao.BoardDao;
 import com.escape.exiter.company.dao.CompanyDao;
 import com.escape.exiter.main.dao.MainDao;
 import com.escape.exiter.reservation.dao.ReservationDao;
@@ -55,5 +56,10 @@ public class DataSourceConfig {
 	@Bean
 	public ReservationDao reservationDao() {
 		return new ReservationDao(dataSource());
+	}
+	@Bean
+	public BoardDao boardDao() {
+		return new BoardDao(dataSource());
+		
 	}
 }

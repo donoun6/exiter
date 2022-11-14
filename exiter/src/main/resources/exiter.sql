@@ -112,15 +112,6 @@ CREATE TABLE Reservation (
 	CONSTRAINT Reservation_tid_FK FOREIGN KEY (tid) REFERENCES theme(tid)
 )AUTO_INCREMENT = 1;
 
-SELECT DATE_FORMAT(rDate,'%Y-%m') m, COUNT(*) FROM Reservation WHERE rDate LIKE '2022-11%' and cid = 1;
-SELECT DATE_FORMAT(rDate,'%Y-%m-%d') m, COUNT(*) FROM Reservation WHERE rDate = '2022-11-27%' and cid = 1;
-
-
-SELECT DATE_FORMAT(rDate,'%Y-%m') m, COUNT(*) FROM Reservation GROUP BY m ;
-SELECT DATE_FORMAT(rDate,'%Y-%m-%d') y, COUNT(*) FROM Reservation GROUP BY y;
-
-SELECT COUNT(*), DATE_FORMAT(rDate,'%Y-%m') FROM Reservation WHERE  DATE_FORMAT(rDate,'%Y-%m') = DATE_FORMAT(now(),'2022-12');
-
 CREATE TABLE Board (
 	bid				BIGINT				NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	uid				BIGINT				NOT NULL,
@@ -131,7 +122,7 @@ CREATE TABLE Board (
 	CONSTRAINT Board_uid_FK FOREIGN KEY (uid) REFERENCES User(uid)
 )AUTO_INCREMENT = 1;
 
-INSERT INTO Board (uid,bTitle,bDef,bCategory) values (1,'test','test','test');
+SELECT * FROM Board b INNER JOIN User u ON b.uid = u.uid WHERE b.uid = 1
 
 CREATE TABLE BoardComment (
 	bcid			BIGINT				NOT NULL PRIMARY KEY AUTO_INCREMENT,
