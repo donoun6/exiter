@@ -122,7 +122,7 @@ CREATE TABLE Board (
 	CONSTRAINT Board_uid_FK FOREIGN KEY (uid) REFERENCES User(uid)
 )AUTO_INCREMENT = 1;
 
-SELECT * FROM Board b INNER JOIN User u ON b.uid = u.uid WHERE b.uid = 1
+SELECT * FROM Board b INNER JOIN User u ON b.uid = u.uid WHERE b.bid = 1
 
 CREATE TABLE BoardComment (
 	bcid			BIGINT				NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -133,6 +133,8 @@ CREATE TABLE BoardComment (
 	CONSTRAINT BoardComment_uid_FK FOREIGN KEY (uid) REFERENCES User(uid),
 	CONSTRAINT BoardComment_bid_FK FOREIGN KEY (bid) REFERENCES Board(bid)
 )AUTO_INCREMENT = 1;
+
+SELECT * FROM BoardComment bc INNER JOIN Board b INNER JOIN User u ON bc.bid = b.bid AND bc.uid = u.uid WHERE bc.bid = 2
 
 CREATE TABLE Question (
 	qid				BIGINT				NOT NULL PRIMARY KEY AUTO_INCREMENT,

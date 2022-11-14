@@ -24,11 +24,6 @@
 <title>board</title>
 </head>
 <body>
-<% String userId = (String)session.getAttribute("userId");
-if (userId == null){
-	response.sendRedirect("/exiter/user/login");
-	return;
-}%>
 	<div id="wrap">
 	<!-- header 영역 -->
         <jsp:include page="../common/header.jsp"></jsp:include>
@@ -36,6 +31,19 @@ if (userId == null){
 		<main>
 			<h2>커뮤니티</h2>
 			<section id="section">
+				<c:forEach var="boardInfo" items="${boardInfo }"> 
+				게시글 정보
+				<form:form modelAttribute="board" method="post">
+					<input type="text" value="${uid }" name="uid">
+					<input type="text" value="${boardInfo.bid }" name="bid">
+					<input type="text" name="bcDef">
+					<input type="submit">
+				</form:form>
+				</c:forEach>
+				<c:forEach var="boardComment" items="${boardComment }">
+				<span>${boardComment.bcDef }</span>
+				<span>${boardComment.userId }</span> <br>
+				</c:forEach>
 			</section>
 		</main>
 		<jsp:include page="../common/footer.jsp"></jsp:include>

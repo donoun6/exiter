@@ -2,6 +2,7 @@ package com.escape.exiter.board.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.swing.border.Border;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.escape.exiter.board.domain.BoardCommentDomain;
 import com.escape.exiter.board.domain.BoardDomain;
 import com.escape.exiter.board.service.BoardService;
 
@@ -35,7 +37,7 @@ public class BoardController {
 			return "error/no_session";
 		}
 		
-		model.addAttribute("boardInfo",boardService.boardInfoByUid());
+		model.addAttribute("boardInfo",boardService.boardInfo());
 		return "/board/board";
 	}
 	
@@ -51,7 +53,19 @@ public class BoardController {
 			model.addAttribute("session", "no");
 			return "error/no_session";
 		}
+		
+		model.addAttribute("boardInfo",boardService.boardInfoByBid(bid));
+		model.addAttribute("boardComment",boardService.boardComentByBid(bid));
+		model.addAttribute("board", new BoardCommentDomain());
 		return "/board/boardDetail";
+	}
+	
+	@PostMapping("/board/boardDetail/{bid}")
+	public String BoardDetail(@ModelAttribute("board") BoardCommentDomain board ,@PathVariable("bid") long bid, 
+			Model model, HttpServletRequest request) {
+		
+		boardService.addBoardComment(board);
+		return "redirect:/board/boardDetail/"+bid;
 	}
 	
 	@GetMapping("/board/boardWrite")

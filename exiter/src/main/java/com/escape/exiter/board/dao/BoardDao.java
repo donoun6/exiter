@@ -11,6 +11,8 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.escape.exiter.board.domain.BoardCommand;
+import com.escape.exiter.board.domain.BoardCommentCommand;
+import com.escape.exiter.board.domain.BoardCommentDomain;
 import com.escape.exiter.board.domain.BoardDomain;
 
 @Repository
@@ -31,7 +33,7 @@ public class BoardDao {
 	}
 	
 //	게시글 정보
-	public List<BoardCommand> boardInfoByUid() {
+	public List<BoardCommand> boardInfo() {
 		String sql ="SELECT * FROM Board b INNER JOIN User u ON b.uid = u.uid ORDER BY b.bid DESC";
 		return jdbcTemplate.query(sql, new RowMapper<BoardCommand>() {
 
@@ -56,5 +58,70 @@ public class BoardDao {
 			}
 			
 		});
+	}
+	
+//	게시글 정보 bid로 가져오기
+	public List<BoardCommand> boardInfoByBid(long bid) {
+		String sql ="SELECT * FROM Board b INNER JOIN User u ON b.uid = u.uid WHERE b.bid = ?";
+		return jdbcTemplate.query(sql, new RowMapper<BoardCommand>() {
+
+			@Override
+			public BoardCommand mapRow(ResultSet rs, int rowNum) throws SQLException {
+				BoardCommand board = new BoardCommand();
+				board.setBid(rs.getLong("bid"));
+				board.setBTitle(rs.getString("bTitle"));
+				board.setBDef(rs.getString("bDef"));
+				board.setBCategory(rs.getString("bCategory"));
+				board.setRegDate(rs.getDate("regDate"));
+				board.setUid(rs.getLong("uid"));
+				board.setUserId(rs.getString("userId"));
+				board.setUPasswd(rs.getString("uPasswd"));
+				board.setUName(rs.getString("uName"));
+				board.setUPhone(rs.getString("uPhone"));
+				board.setUGrade(rs.getString("uGrade"));
+				board.setUType(rs.getString("uType").charAt(0));
+				board.setUCheck(rs.getBoolean("uCheck"));
+//				System.out.println("[게시글 정보]\n" + board.toString() + "\n");
+				return board;
+			}
+			
+		},bid);
+	}
+	
+//	댓글 등록
+	public void addBoardComment(BoardCommentDomain board) {
+		String sql = "INSERT INTO BoardComment (uid,bid,bcDef) "
+				+ "VALUES(?,?,?)";
+		jdbcTemplate.update(sql,board.getUid(),board.getBid(),board.getBcDef());
+//		System.out.println("[댓글 등록]\n" + board.toString() + "\n");
+	}
+	
+//	댓글 정보 bid로 가져오기
+	public List<BoardCommentCommand> boardComentByBid(long bid) {
+		String sql ="SELECT * FROM BoardComment bc INNER JOIN Board b INNER JOIN User u ON bc.bid = b.bid AND bc.uid = u.uid WHERE bc.bid = ?";
+		return jdbcTemplate.query(sql, new RowMapper<BoardCommentCommand>() {
+
+			@Override
+			public BoardCommentCommand mapRow(ResultSet rs, int rowNum) throws SQLException {
+				BoardCommentCommand board = new BoardCommentCommand();
+				board.setBcid(rs.getLong("bcid"));
+				board.setBcDef(rs.getString("bcDef"));
+				board.setRegDate(rs.getDate("regDate"));
+				board.setBid(rs.getLong("bid"));
+				board.setBTitle(rs.getString("bTitle"));
+				board.setBDef(rs.getString("bDef"));
+				board.setBCategory(rs.getString("bCategory"));
+				board.setUid(rs.getLong("uid"));
+				board.setUserId(rs.getString("userId"));
+				board.setUPasswd(rs.getString("uPasswd"));
+				board.setUName(rs.getString("uName"));
+				board.setUPhone(rs.getString("uPhone"));
+				board.setUGrade(rs.getString("uGrade"));
+				board.setUType(rs.getString("uType").charAt(0));
+				board.setUCheck(rs.getBoolean("uCheck"));
+//				System.out.println("[댓글 정보]\n" + board.toString() + "\n");
+				return board;
+			}
+		},bid);
 	}
 }
