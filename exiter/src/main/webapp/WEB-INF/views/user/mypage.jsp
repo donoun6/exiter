@@ -186,19 +186,19 @@
 	        	<p class="title">엑시터 등급표</p>
 	        	<p class="grade-item">
 	        		<span><img src="<c:url value='/resources/images/icon/방린이.png'/>" alt="방린이">방린이</span>
-	        		<span class="def">지난예약 횟수 30회 미만</span>
+	        		<span class="def">이용완료 테마 30회 미만</span>
 	        	</p>
 	        	<p class="grade-item">
 	        		<span><img src="<c:url value='/resources/images/icon/방소년.png'/>" alt="방소년">방소년</span>
-	        		<span class="def">지난예약 횟수 30회 이상</span>
+	        		<span class="def">이용완료 테마 30회 이상</span>
 	        	</p>
 	        	<p class="grade-item">
 	        		<span><img src="<c:url value='/resources/images/icon/방으른.png'/>" alt="방으른">방으른</span>
-	        		<span class="def">지난예약 횟수 60회 이상</span>
+	        		<span class="def">이용완료 테마 60회 이상</span>
 	        	</p>
 	        	<p class="grade-item">
 	        		<span><img src="<c:url value='/resources/images/icon/엑시터.png'/>" alt="엑시터">엑시터</span>
-	        		<span class="def">지난예약 횟수 100회 이상</span>
+	        		<span class="def">이용완료 테마 100회 이상</span>
 	        	</p>
 	        	<div class="btn-box">
 	        		<button class="s-btn grade-btn">닫기</button>
