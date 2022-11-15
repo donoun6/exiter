@@ -47,8 +47,21 @@ public class SearchServiceImpl implements SearchService{
 	
 	@Override
 	public List<Map<Object, Object>> getThemeList(String tName) {
+		String[] arr = {"ㄱ","ㄲ","ㄴ","ㄷ","ㄸ","ㄹ","ㅁ","ㅂ","ㅃ","ㅅ","ㅆ","ㅇ","ㅈ","ㅉ","ㅊ","ㅋ","ㅌ","ㅍ","ㅎ"};
+		String checkCho = "N";
+		String[] daoArr = new String[3];
+		
+		// tName이 초성인지 확인
+		for(int i = 0; i < arr.length; i++) {
+			if(arr[i].equals(tName)) {
+				checkCho = "Y";
+				daoArr = getDaoSearchArr(tName);
+			}
+		}
+		
 		// DB에서 정보 가져오기
-		List<SearchThemeCom> themes = searchDao.findThemeListByTName(tName);
+		List<SearchThemeCom> themes = searchDao.findThemeListByTName(tName, checkCho, daoArr);
+		
 		// 반환할 List
 		List<Map<Object, Object>> themeList = new ArrayList<Map<Object, Object>>();
 		
@@ -450,6 +463,61 @@ public class SearchServiceImpl implements SearchService{
 			}
 		}
 		return themeList;
+	}
+	
+	/**
+	 * 초성 검색시 dao 조회할 때 필요한 배열 반환
+	 * @param tName
+	 * @return
+	 */
+	@Override
+	public String[] getDaoSearchArr(String tName) {
+		String[] daoArr = new String[3];
+		
+		switch(tName) {
+			case "ㄱ": case "ㄲ":
+				daoArr[0] = "^ㄱ"; daoArr[1] = "가"; daoArr[2] = "나";
+				break;
+			case "ㄴ":
+				daoArr[0] = "^ㄴ"; daoArr[1] = "나"; daoArr[2] = "다";
+				break;
+			case "ㄷ": case "ㄸ":
+				daoArr[0] = "^(ㄷ|ㄸ)"; daoArr[1] = "다"; daoArr[2] = "라";
+				break;
+			case "ㄹ":
+				daoArr[0] = "^ㄹ"; daoArr[1] = "라"; daoArr[2] = "마";
+				break;
+			case "ㅁ":
+				daoArr[0] = "^ㅁ"; daoArr[1] = "마"; daoArr[2] = "바";
+				break;
+			case "ㅂ": case "ㅃ":
+				daoArr[0] = "^(ㅂ|ㅃ)"; daoArr[1] = "바"; daoArr[2] = "사";
+				break;
+			case "ㅅ": case "ㅆ":
+				daoArr[0] = "^(ㅅ|ㅆ)"; daoArr[1] = "사"; daoArr[2] = "아";
+				break;
+			case "ㅇ":
+				daoArr[0] = "^ㅇ"; daoArr[1] = "아"; daoArr[2] = "자";
+				break;
+			case "ㅈ": case "ㅉ":
+				daoArr[0] = "^(ㅈ|ㅉ)"; daoArr[1] = "자"; daoArr[2] = "차";
+				break;
+			case "ㅊ":
+				daoArr[0] = "^ㅊ"; daoArr[1] = "차"; daoArr[2] = "카";
+				break;
+			case "ㅋ":
+				daoArr[0] = "^ㅋ"; daoArr[1] = "카"; daoArr[2] = "타";
+				break;
+			case "ㅌ":
+				daoArr[0] = "^ㅌ"; daoArr[1] = "타"; daoArr[2] = "파";
+				break;
+			case "ㅍ":
+				daoArr[0] = "^ㅍ"; daoArr[1] = "파"; daoArr[2] = "하";
+				break;
+			case "ㅎ":
+				daoArr[0] = "^ㅎ"; daoArr[1] = "하";
+		}
+		return daoArr;
 	}
 
 }

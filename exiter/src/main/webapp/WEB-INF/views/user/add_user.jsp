@@ -30,11 +30,11 @@
               <p class="msg" id="checkId"></p>
             </label>
             <label class="signUp-item uPasswd1">
-              <input type="password" id="uPasswd1" name="uPasswd1" placeholder="8~16자리 비밀번호 입력">
+              <input type="password" id="uPasswd1" name="uPasswd1" placeholder="8~16자리 비밀번호 입력" autocomplete="off">
               <p class="msg" id="checkPw"></p>
             </label>
             <label class="signUp-item uPasswd2">
-              <input type="password" id="uPasswd2" name="uPasswd2" placeholder="비밀번호 확인">
+              <input type="password" id="uPasswd2" name="uPasswd2" placeholder="비밀번호 확인" autocomplete="off">
               <p class="msg" id="checkPw2"></p>
             </label>
             <label class="signUp-item uName">

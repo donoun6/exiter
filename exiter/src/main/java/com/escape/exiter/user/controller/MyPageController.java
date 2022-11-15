@@ -78,7 +78,7 @@ public class MyPageController {
 		model.addAttribute("preUGrade", preUGrade);
 		model.addAttribute("newUGrade", newUGrade);
 		
-		// 예약내역
+		// 예약내역 카운트
 		long reserCnt = reservationService.getCntReserByUid(uid);
 		model.addAttribute("reserCnt", reserCnt);
 		

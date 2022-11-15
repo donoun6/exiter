@@ -37,7 +37,7 @@ public class ReservationDao {
 	 * @return
 	 */
 	public long findCntReserByUid(long uid) {
-		String sql = "SELECT Count(*) as cnt FROM Reservation WHERE uid = ? and rCheck = 'N";
+		String sql = "SELECT Count(*) as cnt FROM Reservation WHERE uid = ? and rCheck = 'N'";
 		try {
 			return jdbcTemplate.queryForObject(sql, new RowMapper<Long>() {
 

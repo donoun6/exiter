@@ -19,4 +19,5 @@ public interface SearchService {
 	List<Map<Object, Object>> getThemeListByCountyAndGenre(String city1, String city2, String tCategory);
 	List<Map<Object, Object>> getLocaEtcList(List<Map<Object, Object>> themeList, List<String> countys, String genre);
 	List<Map<Object, Object>> getGenreEtcList(List<Map<Object, Object>> themeList);
+	String[] getDaoSearchArr(String tName);
 }

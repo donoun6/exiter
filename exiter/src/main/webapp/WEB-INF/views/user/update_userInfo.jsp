@@ -29,11 +29,11 @@
 	              <input type="text" id="userId" name="userId" placeholder="아이디" readonly value="${user.userId}">
 	            </label>
 	            <label class="update-item uPasswd1">비밀번호
-	              <input type="password" id="uPasswd1" name="uPasswd1" placeholder="8~16자리 비밀번호 입력" value="${user.getUPasswd()}" onfocus="this.value=''; return true">
+	              <input type="password" id="uPasswd1" name="uPasswd1" placeholder="8~16자리 비밀번호 입력" autocomplete="off" value="${user.getUPasswd()}" onfocus="this.value=''; return true">
 	              <p class="checkMsg" id="checkPw"></p>
 	            </label>
 	            <label class="update-item uPasswd2">비밀번호 확인
-	              <input type="password" id="uPasswd2" name="uPasswd2" placeholder="비밀번호 확인" value="${user.getUPasswd()}" onfocus="this.value=''; return true">
+	              <input type="password" id="uPasswd2" name="uPasswd2" placeholder="비밀번호 확인" autocomplete="off" value="${user.getUPasswd()}" onfocus="this.value=''; return true">
 	              <p class="checkMsg" id="checkPw2"></p>
 	            </label>
 	            <label class="update-item uName">이름<span>*해당정보는 변경이 불가능합니다.</span>

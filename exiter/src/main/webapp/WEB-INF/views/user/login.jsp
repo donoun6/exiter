@@ -29,7 +29,7 @@
               <p class="checkMsg" id="checkId"></p>
             </label>
             <label class="login-item passwd">
-              <input type="password" id="uPasswd" name="uPasswd" placeholder="비밀번호">
+              <input type="password" id="uPasswd" name="uPasswd" placeholder="비밀번호" autocomplete="off">
               <p class="msg">* 8~16자리 비밀번호 입력</p>
               <p class="checkMsg" id="checkPw"></p>
             </label>

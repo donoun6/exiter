@@ -27,6 +27,7 @@
           		<h3 class="title theme on"><a href="<c:url value='/search/search_theme'/>">테마</a></h3>
           		<h3 class="title loca_gen"><a href="<c:url value='/search/search_locagen'/>">지역/장르</a></h3>
         	</div>
+        	
         	<!-- 검색 -->
         	<div class="search-theme">
 	        	<form class="search-bar" method="post">
@@ -34,38 +35,38 @@
 			        <img src="<c:url value='/resources/images/icon/search.png'/>" alt="검색이미지" class="search-image">
 			    </form>
 			    <ul class="search-ul">
-			    	<!-- ajax에서 받아온 값 출력 -->
+			    	<!-- ajax에서 받아온 값 출력 || 처음 접근시 전체 목록 출력-->
+			    	<c:forEach var="map" items="${allThemeList}">
+			    		<li class="search-li">
+			    			<div class="search-item">
+			    				<span class="comName">${map.comName}</span>
+			    				<span class="tName">${map.tName}</span>
+			    			</div>
+			    			<img class="tImg" src="/exiter/resources/images/theme/${map.tImage}" alt="${map.tName}">
+			    		</li>
+		    		</c:forEach>
 			    </ul>
         	</div>
+        	
         	<!-- 상세 팝업창 -->
         	<div class="detail-pop"></div>
         </main>
 	</div>
+	
 	<!-- 푸터 영역 -->
     <jsp:include page="../common/footer.jsp"></jsp:include>
     
     <!-- 스크립트 -->
     <script type="text/javascript">
     	$(function() {
-    		// msg 띄우기
-    		if($('#tName').val() == "") {
-   				var msg = "<li class='themeMsg'>찾으시는 테마명을 검색해주세요.</li>";
-   				$('.search-ul').html(msg);
-   			}
     		
     		// 테마 검색
     		$('#tName').keyup(function() {
-    			// 백스페이스키 이벤트 제거
-    			if(event.keyCode === 8) {
-    				event.preventDefault();
-    			}
-    			
     			var tName = $('#tName').val();
     			
+    			// 공백일 경우 임의로 '+' 지정
     			if(tName == "") {
-    				var msg = "<li class='themeMsg'>찾으시는 테마명을 검색해주세요.</li>";
-    				$('.search-ul').html(msg);
-    				return;
+    				tName = "+";
     			}
     			
     			$.ajax({

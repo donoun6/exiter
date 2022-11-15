@@ -147,8 +147,8 @@ h3.tName {
 }
 
 .company-info table {
+	width: 100%;
     margin-top: 8px;
-	
 }
 
 .company-info table th, .company-info table td {

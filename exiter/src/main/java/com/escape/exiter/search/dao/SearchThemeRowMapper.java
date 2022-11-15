@@ -17,7 +17,6 @@ public class SearchThemeRowMapper implements RowMapper<SearchThemeCom> {
 		stc.setTName(rs.getString("tName"));
 		stc.setTImage(rs.getString("tImage"));
 		stc.setTCategory(rs.getString("tCategory"));
-		
 		return stc;
 	}
 

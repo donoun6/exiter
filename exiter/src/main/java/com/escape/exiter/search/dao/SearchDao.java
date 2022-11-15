@@ -34,10 +34,24 @@ private JdbcTemplate jdbcTemplate;
 	 * @param tName
 	 * @return
 	 */
-	public List<SearchThemeCom> findThemeListByTName(String tName) {
-		String sql = "SELECT c.comName, c.comPocus, t.tName, t.tImage, t.tCategory FROM Theme t"
+	public List<SearchThemeCom> findThemeListByTName(String tName, String checkCho, String[] daoArr) {
+		if(checkCho.equals("N")) {
+			// tName이 초성이 아닐 경우
+			String sql = "SELECT c.comName, c.comPocus, t.tName, t.tImage, t.tCategory FROM Theme t"
 					+ " INNER JOIN Company c ON t.cid = c.cid WHERE tName LIKE ?";
-		return jdbcTemplate.query(sql, new SearchThemeRowMapper(), "%" + tName + "%");
+			return jdbcTemplate.query(sql, new SearchThemeRowMapper(), "%" + tName + "%");
+		} else {
+			// tName이 초성일 경우
+			if(tName.equals("ㅎ")) {
+				String sql = "SELECT c.comName, c.comPocus, t.tName, t.tImage, t.tCategory FROM Theme t"
+						+ " INNER JOIN Company c ON t.cid = c.cid WHERE tName RLIKE ? OR ( tName >= ? )";
+				return jdbcTemplate.query(sql, new SearchThemeRowMapper(), daoArr[0], daoArr[1]);
+			} else {
+				String sql = "SELECT c.comName, c.comPocus, t.tName, t.tImage, t.tCategory FROM Theme t"
+						+ " INNER JOIN Company c ON t.cid = c.cid WHERE tName RLIKE ? OR ( tName >= ? AND tName < ? )";
+				return jdbcTemplate.query(sql, new SearchThemeRowMapper(), daoArr[0], daoArr[1], daoArr[2]);
+			}
+		}
 	}
 	
 	/**

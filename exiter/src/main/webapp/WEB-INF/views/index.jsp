@@ -74,7 +74,7 @@
 }
 
 .right-box img {
-	width: 125px;
+	width: 115px;
     height: auto;
     border-radius: 13px;
 }

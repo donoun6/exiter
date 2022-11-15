@@ -25,11 +25,11 @@
         <p class="msg changeMsg">* 비밀번호 찾기에서는 비밀번호 변경만 가능합니다.</p>
         <form class="change-Pw" id="change-Pw" action="changePw" method="post">
         	<label class="change-item uPasswd1">
-              <input type="password" id="uPasswd1" name="uPasswd1" placeholder="8~16자리 새 비밀번호 입력">
+              <input type="password" id="uPasswd1" name="uPasswd1" placeholder="8~16자리 새 비밀번호 입력" autocomplete="off">
               <p class="checkMsg" id="checkPw"></p>
             </label>
             <label class="change-item uPasswd2">
-              <input type="password" id="uPasswd2" name="uPasswd2" placeholder="비밀번호 확인">
+              <input type="password" id="uPasswd2" name="uPasswd2" placeholder="비밀번호 확인" autocomplete="off">
               <p class="checkMsg" id="checkPw2"></p>
             </label>
             <input type="button" name="change" value="비밀번호 변경" class="common-btn change-btn">

@@ -1,5 +1,7 @@
 package com.escape.exiter.search.controller;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -38,7 +40,11 @@ public class SearchThemeController {
 	 * @return
 	 */
 	@GetMapping("/search/search_theme")
-	public String searchThemeForm() {
+	public String searchThemeForm(HttpServletRequest request) {
+		List<Map<Object, Object>> themeList = searchService.getThemeList();
+		Collections.shuffle(themeList);
+		request.setAttribute("allThemeList", themeList);
+		
 		return "search/search_theme";
 	}
 	
@@ -50,8 +56,14 @@ public class SearchThemeController {
 	@RequestMapping(value="/search/checkTName")
 	@ResponseBody
 	public List<Map<Object, Object>> tNameCheck(@RequestBody String tName) {
-		List<Map<Object, Object>> themeList = searchService.getThemeList(tName);
-		
+		List<Map<Object, Object>> themeList = new ArrayList<Map<Object,Object>>();
+		if(tName.equals("+")) {
+			// 빈칸일때 전체 테마 리스트 조회
+			themeList = searchService.getThemeList();
+		} else {
+			themeList = searchService.getThemeList(tName);
+		}
+		Collections.shuffle(themeList);
 		return themeList;
 	}
 	
