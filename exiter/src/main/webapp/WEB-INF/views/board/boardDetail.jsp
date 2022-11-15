@@ -26,7 +26,7 @@
 <body>
 	<div id="wrap">
 	<!-- header 영역 -->
-        <jsp:include page="../common/header.jsp"></jsp:include>
+        <jsp:include page="../common/only_logo_header.jsp"></jsp:include> 
         <!-- 메인 영역 -->
 		<main>
 			<h2>커뮤니티</h2>

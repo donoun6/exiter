@@ -78,6 +78,7 @@ if (userId == null){
 											<span class="id">${boardInfo2.userId }</span>
 											<span class="date"> ${boardInfo2.regDate }</span>
 										</div>
+										<div class="img-box"><div class="com-img"></div><span>댓글</span></div>
 									</div>
 								</td>
 							</tr>

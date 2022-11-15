@@ -1,6 +1,6 @@
 body {
 	background: #1b1b1b;
-	overflow: hidden;
+	overflow-x: hidden;
 }
 
 h2 {
@@ -61,6 +61,7 @@ h2 {
 .table-wrap {
 	width: 100vW;
     float: left;
+    min-height: 75px;
 }
 
 table {
@@ -70,7 +71,6 @@ table {
 }
 
 .boardInfo {
-	position: relative;
 	position: relative;
     padding: 0 10px;
 }
@@ -91,6 +91,9 @@ table {
 	font-size: 11px;
     line-height: 22px;
     color: rgba(255,255,255, .5);
+    overflow: hidden;
+    width: 70%;
+    height: 22px;
 }
 
 .id{
@@ -102,6 +105,31 @@ table {
 	font-size: 11px;
     color: rgba(255,255,255, .5);
     margin-left: 10px;
+}
+
+.img-box {
+	z-index: -1;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	height: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+.com-img {
+	background-image: url(../../images/icon/chat_FILL0_wght400_GRAD0_opsz48.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: invert();
+    width: 35px;
+    height: 85%;
+}
+
+.img-box span {
+	display: block;
+    text-align: center;	
 }
 
 th, td {

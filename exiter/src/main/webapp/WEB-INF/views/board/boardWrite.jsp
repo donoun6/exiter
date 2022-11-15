@@ -20,7 +20,7 @@
 <body>
 	<div id="wrap">
 	<!-- header 영역 -->
-        <jsp:include page="../common/header.jsp"></jsp:include>
+        <jsp:include page="../common/only_logo_header.jsp"></jsp:include> 
 		<main>
 			<h2>글쓰기</h2>
 			<form:form modelAttribute="board" method="post">
