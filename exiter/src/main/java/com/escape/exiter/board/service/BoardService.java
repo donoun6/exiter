@@ -9,7 +9,7 @@ import com.escape.exiter.board.domain.BoardDomain;
 
 public interface BoardService {
 	void addBoard(BoardDomain board);
-	List<BoardCommand> boardInfo();
+	List<BoardCommand> boardInfoByCategory(String category);
 	List<BoardCommand> boardInfoByBid(long bid);
 	void addBoardComment(BoardCommentDomain board);
 	List<BoardCommentCommand> boardComentByBid(long bid);

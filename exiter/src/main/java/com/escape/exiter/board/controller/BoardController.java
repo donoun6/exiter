@@ -37,7 +37,11 @@ public class BoardController {
 			return "error/no_session";
 		}
 		
-		model.addAttribute("boardInfo",boardService.boardInfo());
+		model.addAttribute("boardInfo1",boardService.boardInfoByCategory("공지사항"));
+		model.addAttribute("boardInfo2",boardService.boardInfoByCategory("자유게시판"));
+		model.addAttribute("boardInfo3",boardService.boardInfoByCategory("일행구하기"));
+		model.addAttribute("boardInfo4",boardService.boardInfoByCategory("Qna"));
+		
 		return "/board/board";
 	}
 	

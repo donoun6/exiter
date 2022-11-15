@@ -33,8 +33,8 @@ public class BoardDao {
 	}
 	
 //	게시글 정보
-	public List<BoardCommand> boardInfo() {
-		String sql ="SELECT * FROM Board b INNER JOIN User u ON b.uid = u.uid ORDER BY b.bid DESC";
+	public List<BoardCommand> boardInfoByCategory(String category) {
+		String sql ="SELECT * FROM Board b INNER JOIN User u ON b.uid = u.uid WHERE b.bCategory = ? ORDER BY b.bid DESC";
 		return jdbcTemplate.query(sql, new RowMapper<BoardCommand>() {
 
 			@Override
@@ -57,7 +57,7 @@ public class BoardDao {
 				return board;
 			}
 			
-		});
+		},category);
 	}
 	
 //	게시글 정보 bid로 가져오기

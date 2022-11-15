@@ -6,19 +6,13 @@
 <html lang="ko" dir="ltr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
-	<link rel="shortcut icon" href="<c:url value='/exiter.ico'/>">
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/common/initial.css'/>">
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/common/default.css'/>">
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/common/header.css'/>">
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/common/footer.css'/>">
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/board/board.css'/>">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+<link rel="shortcut icon" href="<c:url value='/exiter.ico'/>">
+<link rel="stylesheet" href="<c:url value='/resources/css/common/initial.css'/>">
+<link rel="stylesheet" href="<c:url value='/resources/css/common/default.css'/>">
+<link rel="stylesheet" href="<c:url value='/resources/css/common/header.css'/>">
+<link rel="stylesheet" href="<c:url value='/resources/css/common/footer.css'/>">
+<link rel="stylesheet" href="<c:url value='/resources/css/board/boardWrite.css'/>">
 <script type="text/javascript"
 	src="<c:url value='/resources/js/common/jquery.js'/>"></script>
 <title>board</title>
@@ -29,15 +23,51 @@
         <jsp:include page="../common/header.jsp"></jsp:include>
 		<main>
 			<h2>글쓰기</h2>
-			<section id="section">
 			<form:form modelAttribute="board" method="post">
-				<input type="text" name="uid" value="${uid }"> 
-				<form:input path="bTtitle"/>
-				<form:input path="bDef"/>
-				<form:input path="bCategory"/>
-				<input type="submit">
+			<input type="hidden" name="uid" value="${uid }">
+			<table>
+				<tr>
+					<td>
+						<ul>
+							<li><label style="margin-top: 10px;">제목</label></li>
+							<li><input type="text" name="bTtitle" placeholder="제목을 입력하세요."></li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<ul>
+							<li><label>카테고리</label></li>
+							<li>
+								<select name="bCategory">
+								<% if( session.getAttribute("userId").equals("admin") ){%>
+									<option class="option" value="공지사항">공지사항</option>
+									<% } %>
+									<option class="option" value="자유게시판">자유게시판</option>
+									<option class="option" value="일행구하기">일행구하기</option>
+									<option class="option" value="QnA">QnA</option>
+								</select>
+							</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<ul>
+							<li><label>내용</label></li>
+							<li><textarea name="bDef" placeholder="내용을 입력하세요."></textarea></li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<ul>
+							<li><button type="submit">등록</button></li>
+						</ul>
+					</td>
+				</tr>
+			</table>
 			</form:form>
-			</section>
 		</main>
 		<jsp:include page="../common/footer.jsp"></jsp:include>
 	</div>

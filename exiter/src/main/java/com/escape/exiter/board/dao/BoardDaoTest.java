@@ -13,11 +13,11 @@ public class BoardDaoTest {
 		BoardDomain board = new BoardDomain();
 		BoardCommentDomain boardComment = new BoardCommentDomain();
 ////	add board test	
-//		board.setUid(1);
-//		board.setBTtitle("타이틀");
-//		board.setBDef("내용");
-//		board.setBCategory("카테고리");
-//		dao.addBoard(board);
+		board.setUid(1);
+		board.setBTtitle("타이틀");
+		board.setBDef("내용");
+		board.setBCategory("자유게시판");
+		dao.addBoard(board);
 		
 //	boardInfo test
 //		dao.boardInfoByUid();
@@ -27,7 +27,7 @@ public class BoardDaoTest {
 //		boardComment.setBid(1);
 //		boardComment.setBcDef("테스트");
 //		dao.addBoardComment(boardComment);
-		dao.boardComentByBid(1);
+//		dao.boardComentByBid(1);
 		
 		context.close();
 	}

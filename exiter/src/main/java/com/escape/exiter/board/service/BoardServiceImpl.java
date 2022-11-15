@@ -22,8 +22,8 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public List<BoardCommand> boardInfo() {
-		return boardDao.boardInfo();
+	public List<BoardCommand> boardInfoByCategory(String category) {
+		return boardDao.boardInfoByCategory(category);
 	}
 
 	@Override
