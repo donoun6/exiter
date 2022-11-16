@@ -124,6 +124,8 @@ CREATE TABLE Board (
 
 SELECT * FROM Board b INNER JOIN User u ON b.uid = u.uid WHERE b.bid = 1
 
+SELECT count(*) as cnt FROM Board WHERE bCategory = '공지사항';
+
 CREATE TABLE BoardComment (
 	bcid			BIGINT				NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	uid				BIGINT				NOT NULL,

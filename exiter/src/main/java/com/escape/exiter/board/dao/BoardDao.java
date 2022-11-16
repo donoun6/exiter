@@ -60,6 +60,18 @@ public class BoardDao {
 		},category);
 	}
 	
+//	카테고리별 게시물 개수
+	public long getBoardCountByCategory(String category) {
+		String sql = "SELECT count(*) as cnt FROM Board WHERE bCategory = ?";
+		return jdbcTemplate.queryForObject(sql, new RowMapper<Long>() {
+
+			@Override
+			public Long mapRow(ResultSet rs, int rowNum) throws SQLException {
+				return rs.getLong("cnt");
+			}
+		},category);
+	}
+	
 //	게시글 정보 bid로 가져오기
 	public List<BoardCommand> boardInfoByBid(long bid) {
 		String sql ="SELECT * FROM Board b INNER JOIN User u ON b.uid = u.uid WHERE b.bid = ?";

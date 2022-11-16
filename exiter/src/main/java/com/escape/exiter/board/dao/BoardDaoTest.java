@@ -30,7 +30,8 @@ public class BoardDaoTest {
 //		dao.addBoardComment(boardComment);
 //		dao.boardComentByBid(1);
 		
-		System.out.println(dao.getCommentCountByBid(1));
+//		System.out.println(dao.getCommentCountByBid(1));
+//		System.out.println((dao.getBoardCountByCategory("공지사항")/10)+1);
 		
 		context.close();
 	}

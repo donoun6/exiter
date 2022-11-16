@@ -48,5 +48,10 @@
 		</main>
 		<jsp:include page="../common/footer.jsp"></jsp:include>
 	</div>
+	    <script type="text/javascript">
+			$(function(){
+    		
+		});
+    </script>
 </body>
 </html>

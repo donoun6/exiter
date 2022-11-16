@@ -1,12 +1,11 @@
 package com.escape.exiter.board.controller;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.swing.border.Border;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.escape.exiter.board.domain.BoardCommand;
 import com.escape.exiter.board.domain.BoardCommentDomain;
 import com.escape.exiter.board.domain.BoardDomain;
 import com.escape.exiter.board.service.BoardService;
@@ -42,20 +40,28 @@ public class BoardController {
 			return "error/no_session";
 		}
 		
-		String[] category = {"공지사항","자유게시판","일행구하기","QnA"};
-		for (int i = 0; i < category.length; i++) {
-			model.addAttribute("boardInfo"+(i+1),boardService.boardInfoByCategory(category[i]));
-			List<Long> count = new ArrayList<Long>();
-			HashMap<String, List<Long>> list = new HashMap<String, List<Long>>();
-			list.put("list"+(i+1), count);
-			for(int j = 0; j < boardService.boardInfoByCategory(category[i]).size(); j++) {
-				long bid = boardService.boardInfoByCategory(category[i]).get(j).getBid();
-				count.add(boardService.getCommentCountByBid(bid));
-			}
-			model.addAttribute("list"+(i+1),list.get("list"+(i+1)));
-		}
-		
 		return "/board/board";
+	}
+	
+	@GetMapping("/board/ajax")
+	public String ajax2(Model model, HttpServletRequest request, HttpServletResponse response) {
+//		두번째 방법 (코드가 짧지만 슬라이드가 안먹힌다.)
+		response.setHeader("Expires", "Sat, 6 May 1995 12:00:00 GMT"); 
+		response.setHeader("Cache-Control", "no-store, no-cache, must-revalidate");
+		response.addHeader("Cache-Control", "post-check=0, pre-check=0"); 
+		response.setHeader("Pragma", "no-cache");
+		
+		String category = request.getParameter("category");
+		model.addAttribute("boardInfo",boardService.boardInfoByCategory(category));
+		
+		List<Long> count = new ArrayList<Long>();
+		for(int i = 0; i < boardService.boardInfoByCategory(category).size(); i++) {
+			long bid = boardService.boardInfoByCategory(category).get(i).getBid();
+			count.add(boardService.getCommentCountByBid(bid));
+		}
+		model.addAttribute("list",count);
+		
+		return "/board/boardAjax";
 	}
 	
 	@GetMapping("/board/boardDetail/{bid}")

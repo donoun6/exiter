@@ -37,97 +37,17 @@ if (userId == null){
 		<h2>커뮤니티</h2>
 			<div >
 			<ul class="selCate">
-				<li>공지사항</li>
+				<li class="dd">공지사항</li>
 				<li>자유게시판</li>
 				<li>일행구하기</li>
 				<li>QnA</li>
 			</ul>
+			<form action="get" class="sleform">
+			<input type="hidden" class="sel" value="공지사항">
+			</form>
 			</div>
 			<section id="section">
-				<div class="table-wrap">
-					<table>
-						<c:forEach var="boardInfo1" items="${boardInfo1 }" varStatus="status"> 
-							<tr>
-								<td>
-									<div class="boardInfo">
-										<a href="/exiter/board/boardDetail/${boardInfo1.bid }"></a>
-										<h1 class="title">${boardInfo1.BTitle }</h1>
-										<p class="def">${boardInfo1.BDef }</p>
-										<div class="user">
-											<span class="grade">${boardInfo1.UGrade }</span>
-											<span class="id">${boardInfo1.userId }</span>
-											<span class="date">${boardInfo1.regDate }</span>
-										</div>
-										<div class="img-box"><div class="com-img"></div><span>댓글 ${list1[status.index] }</span></div>
-									</div>
-								</td>
-							</tr>
-						</c:forEach>
-					</table>
-				</div>
-				<div class="table-wrap">
-					<table>
-						<c:forEach var="boardInfo2" items="${boardInfo2 }" varStatus="status"> 
-							<tr>
-								<td>
-									<div class="boardInfo">
-										<a href="/exiter/board/boardDetail/${boardInfo2.bid }"></a>
-										<h1 class="title">${boardInfo2.BTitle }</h1>
-										<p class="def">${boardInfo2.BDef }</p>
-										<div class="user">
-											<span class="grade">${boardInfo2.UGrade }</span>
-											<span class="id">${boardInfo2.userId }</span>
-											<span class="date"> ${boardInfo2.regDate }</span>
-										</div>
-										<div class="img-box"><div class="com-img"></div><span>댓글 ${list2[status.index] }</span></div>
-									</div>
-								</td>
-							</tr>
-						</c:forEach>
-					</table>
-				</div>
-				<div class="table-wrap">
-					<table>
-						<c:forEach var="boardInfo3" items="${boardInfo3 }" varStatus="status"> 
-							<tr>
-								<td>
-									<div class="boardInfo">
-										<a href="/exiter/board/boardDetail/${boardInfo3.bid }"></a>
-										<h1 class="title">${boardInfo3.BTitle }</h1>
-										<p class="def">${boardInfo3.BDef }</p>
-										<div class="user">
-											<span class="grade">${boardInfo3.UGrade }</span>
-											<span class="id">${boardInfo3.userId }</span>
-											<span class="date">${boardInfo3.regDate }</span>
-										</div>
-										<div class="img-box"><div class="com-img"></div><span>댓글 ${list3[status.index] }</span></div>
-									</div>
-								</td>
-							</tr>
-						</c:forEach>
-					</table>
-				</div>
-				<div class="table-wrap">
-					<table>
-						<c:forEach var="boardInfo4" items="${boardInfo4 }" varStatus="status"> 
-							<tr>
-								<td>
-									<div class="boardInfo">
-										<a href="/exiter/board/boardDetail/${boardInfo4.bid }"></a>
-										<h1 class="title">${boardInfo4.BTitle }</h1>
-										<p class="def">${boardInfo4.BDef }</p>
-										<div class="user">
-											<span class="grade">${boardInfo4.UGrade }</span>
-											<span class="id">${boardInfo4.userId }</span>
-											<span class="date">${boardInfo4.regDate }</span>
-										</div>
-										<div class="img-box"><div class="com-img"></div><span>댓글 ${list4[status.index] }</span></div>
-									</div>
-								</td>
-							</tr>
-						</c:forEach>
-					</table>
-				</div>
+				<div id="ajaxReturn"></div>
 				<div class="side-btn">
 				<div class="sc-btn"><div class="sc-img"><a href="<c:url value='/board/boardWrite'/>"></a></div></div>
 				<div class="wt-btn"><div class="wt-img"><a href="<c:url value='/board/boardWrite'/>"></a></div></div>
@@ -138,23 +58,58 @@ if (userId == null){
 	</div>
 	<!-- script 영역 -->
     <script type="text/javascript">
-		$(function(){
-			$('li').click(function(){
+			$(function(){
+			
+    		$('li').click(function() {
+    			$('li').removeClass("dd");
+    			$(this).addClass("dd");
 				$('.selCate').removeClass('changed changed1 changed2');
 				if($(this).text() == "공지사항"){
 					$('.selCate').removeClass('changed');
-					$('#section').css("margin-left","0")
 				}else if($(this).text() == "자유게시판"){
 					$('.selCate').addClass('changed');
-					$('#section').css("margin-left","-100%")
 				}else if($(this).text() == "일행구하기"){
 					$('.selCate').addClass('changed1');
-					$('#section').css("margin-left","-200%")
 				}else if($(this).text() == "QnA"){
 					$('.selCate').addClass('changed2');
-					$('#section').css("margin-left","-300%")
 				}
-			});
+				
+    			var category = $(this).text();
+    			$.ajax({
+    				async: true,
+    				type: 'get',
+    				data: {category},
+    				url: 'ajax',
+    				dataType: 'html',
+    				contentType: 'application/json; charset=UTF-8',
+    				success: function(data) {
+    					$("#ajaxReturn").html(data);
+    				}
+    			});
+    		});
+    		
+    		
+    		$(window).bind("pageshow", function (event) {
+    	        if (event.originalEvent.persisted) {
+    	        	$('.sel').val($('.dd').text());
+    	            var sel =  $('.sel').val();
+    				/*$('.dd').trigger('click');*/
+    	        } else {
+    	            var category = "공지사항";
+        			$.ajax({
+        				async: true,
+        				type: 'get',
+        				data: {category},
+        				url: 'ajax',
+        				dataType: 'html',
+        				contentType: 'application/json; charset=UTF-8',
+        				success: function(data) {
+        					$("#ajaxReturn").html(data);
+        				}
+        			});
+    	        }
+    	    });
+    		
 		});
     </script>
 </body>

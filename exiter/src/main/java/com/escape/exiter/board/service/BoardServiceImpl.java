@@ -25,6 +25,11 @@ public class BoardServiceImpl implements BoardService{
 	public List<BoardCommand> boardInfoByCategory(String category) {
 		return boardDao.boardInfoByCategory(category);
 	}
+	
+	@Override
+	public long getBoardCountByCategory(String category) {
+		return boardDao.getBoardCountByCategory(category);
+	}
 
 	@Override
 	public List<BoardCommand> boardInfoByBid(long bid) {
