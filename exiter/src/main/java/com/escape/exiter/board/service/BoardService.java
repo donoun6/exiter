@@ -13,4 +13,5 @@ public interface BoardService {
 	List<BoardCommand> boardInfoByBid(long bid);
 	void addBoardComment(BoardCommentDomain board);
 	List<BoardCommentCommand> boardComentByBid(long bid);
+	long getCommentCountByBid(long bid);
 }

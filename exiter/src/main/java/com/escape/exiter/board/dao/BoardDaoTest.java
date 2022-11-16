@@ -12,12 +12,13 @@ public class BoardDaoTest {
 		BoardDao dao = context.getBean("boardDao", BoardDao.class);
 		BoardDomain board = new BoardDomain();
 		BoardCommentDomain boardComment = new BoardCommentDomain();
+		
 ////	add board test	
-		board.setUid(1);
-		board.setBTtitle("타이틀");
-		board.setBDef("내용");
-		board.setBCategory("자유게시판");
-		dao.addBoard(board);
+//		board.setUid(1);
+//		board.setBTtitle("타이틀");
+//		board.setBDef("내용");
+//		board.setBCategory("자유게시판");
+//		dao.addBoard(board);
 		
 //	boardInfo test
 //		dao.boardInfoByUid();
@@ -28,6 +29,8 @@ public class BoardDaoTest {
 //		boardComment.setBcDef("테스트");
 //		dao.addBoardComment(boardComment);
 //		dao.boardComentByBid(1);
+		
+		System.out.println(dao.getCommentCountByBid(1));
 		
 		context.close();
 	}

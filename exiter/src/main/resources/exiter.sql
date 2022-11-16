@@ -136,6 +136,8 @@ CREATE TABLE BoardComment (
 
 SELECT * FROM BoardComment bc INNER JOIN Board b INNER JOIN User u ON bc.bid = b.bid AND bc.uid = u.uid WHERE bc.bid = 2
 
+SELECT count(bc.bid) FROM BoardComment bc INNER JOIN Board b ON bc.bid = b.bid WHERE b.bCategory = '자유게시판'
+
 CREATE TABLE Question (
 	qid				BIGINT				NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	uid				BIGINT				NOT NULL,

@@ -124,4 +124,16 @@ public class BoardDao {
 			}
 		},bid);
 	}
+	
+//	댓글 갯수 가져오기
+	public long getCommentCountByBid(long bid) {
+		String sql = "SELECT count(*) as cnt FROM BoardComment bc INNER JOIN Board b ON bc.bid = b.bid WHERE b.bid = ?";
+		return jdbcTemplate.queryForObject(sql, new RowMapper<Long>() {
+
+			@Override
+			public Long mapRow(ResultSet rs, int rowNum) throws SQLException {
+				return rs.getLong("cnt");
+			}
+		},bid);
+	}
 }

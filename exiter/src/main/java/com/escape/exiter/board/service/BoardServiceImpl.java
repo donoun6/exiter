@@ -41,4 +41,9 @@ public class BoardServiceImpl implements BoardService{
 		return boardDao.boardComentByBid(bid);
 	}
 
+	@Override
+	public long getCommentCountByBid(long bid) {
+		return boardDao.getCommentCountByBid(bid);
+	}
+
 }

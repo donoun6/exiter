@@ -34,8 +34,8 @@
 				<c:forEach var="boardInfo" items="${boardInfo }"> 
 				게시글 정보
 				<form:form modelAttribute="board" method="post">
-					<input type="text" value="${uid }" name="uid">
-					<input type="text" value="${boardInfo.bid }" name="bid">
+					<input type="hidden" value="${uid }" name="uid">
+					<input type="hidden" value="${boardInfo.bid }" name="bid">
 					<input type="text" name="bcDef">
 					<input type="submit">
 				</form:form>

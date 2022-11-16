@@ -46,7 +46,7 @@ if (userId == null){
 			<section id="section">
 				<div class="table-wrap">
 					<table>
-						<c:forEach var="boardInfo1" items="${boardInfo1 }"> 
+						<c:forEach var="boardInfo1" items="${boardInfo1 }" varStatus="status"> 
 							<tr>
 								<td>
 									<div class="boardInfo">
@@ -58,6 +58,7 @@ if (userId == null){
 											<span class="id">${boardInfo1.userId }</span>
 											<span class="date">${boardInfo1.regDate }</span>
 										</div>
+										<div class="img-box"><div class="com-img"></div><span>댓글 ${list1[status.index] }</span></div>
 									</div>
 								</td>
 							</tr>
@@ -66,7 +67,7 @@ if (userId == null){
 				</div>
 				<div class="table-wrap">
 					<table>
-						<c:forEach var="boardInfo2" items="${boardInfo2 }"> 
+						<c:forEach var="boardInfo2" items="${boardInfo2 }" varStatus="status"> 
 							<tr>
 								<td>
 									<div class="boardInfo">
@@ -78,7 +79,7 @@ if (userId == null){
 											<span class="id">${boardInfo2.userId }</span>
 											<span class="date"> ${boardInfo2.regDate }</span>
 										</div>
-										<div class="img-box"><div class="com-img"></div><span>댓글</span></div>
+										<div class="img-box"><div class="com-img"></div><span>댓글 ${list2[status.index] }</span></div>
 									</div>
 								</td>
 							</tr>
@@ -87,7 +88,7 @@ if (userId == null){
 				</div>
 				<div class="table-wrap">
 					<table>
-						<c:forEach var="boardInfo3" items="${boardInfo3 }"> 
+						<c:forEach var="boardInfo3" items="${boardInfo3 }" varStatus="status"> 
 							<tr>
 								<td>
 									<div class="boardInfo">
@@ -99,6 +100,7 @@ if (userId == null){
 											<span class="id">${boardInfo3.userId }</span>
 											<span class="date">${boardInfo3.regDate }</span>
 										</div>
+										<div class="img-box"><div class="com-img"></div><span>댓글 ${list3[status.index] }</span></div>
 									</div>
 								</td>
 							</tr>
@@ -107,7 +109,7 @@ if (userId == null){
 				</div>
 				<div class="table-wrap">
 					<table>
-						<c:forEach var="boardInfo4" items="${boardInfo4 }"> 
+						<c:forEach var="boardInfo4" items="${boardInfo4 }" varStatus="status"> 
 							<tr>
 								<td>
 									<div class="boardInfo">
@@ -115,10 +117,11 @@ if (userId == null){
 										<h1 class="title">${boardInfo4.BTitle }</h1>
 										<p class="def">${boardInfo4.BDef }</p>
 										<div class="user">
-											<!-- <span class="grade">${boardInfo4.UGrade }</span>  -->
+											<span class="grade">${boardInfo4.UGrade }</span>
 											<span class="id">${boardInfo4.userId }</span>
 											<span class="date">${boardInfo4.regDate }</span>
 										</div>
+										<div class="img-box"><div class="com-img"></div><span>댓글 ${list4[status.index] }</span></div>
 									</div>
 								</td>
 							</tr>
