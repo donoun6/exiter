@@ -70,7 +70,9 @@ if (userId == null){
 			})	
 				
     		$('li').on("click",function() {
+    			$('li').removeClass('colorCh');
 				$('.selCate').removeClass('changed changed1 changed2');
+				$(this).addClass("colorCh");
 				if($(this).text() == "공지사항"){
 					$('.selCate').removeClass('changed');
 				}else if($(this).text() == "자유게시판"){

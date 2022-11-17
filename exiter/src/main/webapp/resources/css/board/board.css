@@ -67,6 +67,13 @@ h2 {
 	line-height: 50px;
     flex-basis: 100%;
     text-align: center;
+    color: gray;
+    transition: .5s;
+}
+
+li.colorCh {
+	color: white;
+	transition: .5s;
 }
 
 #section {
