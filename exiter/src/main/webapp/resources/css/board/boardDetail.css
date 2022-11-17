@@ -1,0 +1,120 @@
+#section {
+    padding-bottom: 75px;
+}
+
+.boardInfo {
+  border-width: 1px 0 1px 0;
+  border-style: solid;
+  padding: 13px 5px;
+  margin-top: 15px;
+  border-color: gray;
+}
+
+.titleInfo {
+	height: 3vh;
+}
+
+.titleInfo > span {
+	margin-left: 5px;
+	font-size: 16px;
+}
+
+.titleInfo .category {
+	font-size: 11px;
+	background: rgba(255,255,255,.3);
+	padding: 5px;
+	border-radius: 8px;
+}
+
+.titleInfo .tName {
+    display: inline-block;
+}
+
+.userInfo {
+	margin: 10px 0 0 7px;
+	font-size: 12px;
+	display: flex;
+    justify-content: space-between;
+}
+
+.userInfo .date {
+	font-size: 11px;
+    margin-right: 20px;
+}
+
+.boardDef {
+    padding: 20px 10px;
+    line-height: 21px;
+    font-size: 14px;
+    min-height: 300px;
+}
+
+.boardDef > p, .comDef > p {
+	word-break: break-all;
+}
+
+.comLine {
+	height: 36px;
+    line-height: 36px;
+    background: gray;
+    margin: 10px;
+    padding-left: 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-size: 14px;
+    border: 1px solid #9f9a9a;
+}
+
+.commentBox {
+	padding: 15px;
+}
+
+.commentBox + .commentBox {
+	border-top: 1px solid gray;
+}
+
+.comUserInfo {
+	display: flex;
+	justify-content: space-between;
+	font-size: 14px;
+}
+
+.comDef {
+	margin-top: 10px;
+    font-size: 14px;
+}
+
+form {
+	margin: 10px;
+    padding: 10px;
+    background: #8080806b;
+    border-radius: 10px;
+    border: 1px solid #727272;
+    margin: 25px 15px 0;
+}
+
+form > p {
+	margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.bcDef {
+	width: 100%;
+    height: 60px;
+    font-family: "twayFly";
+    font-size: 12px;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #2e2d2d;
+}
+
+.submit {
+	width: 100%;
+	box-sizing: border-box;
+	height: 35px;
+	font-family: "twayFly";
+	margin-top: 10px;
+	border-radius: 10px;
+    border: 1px solid #2e2d2d;
+}

@@ -19,6 +19,8 @@
 	href="<c:url value='/resources/css/common/footer.css'/>">
 <link rel="stylesheet"
 	href="<c:url value='/resources/css/board/board.css'/>">
+	<link rel="stylesheet"
+	href="<c:url value='/resources/css/board/boardDetail.css'/>">
 <script type="text/javascript"
 	src="<c:url value='/resources/js/common/jquery.js'/>"></script>
 <title>board</title>
@@ -32,25 +34,45 @@
 			<h2>커뮤니티</h2>
 			<section id="section">
 				<c:forEach var="boardInfo" items="${boardInfo }"> 
-				<p>${boardInfo.BTitle }</p>
-				<p>${boardInfo.BCategory }</p>
-				<span>${boardInfo.UGrade }</span>
-				<span>${boardInfo.userId }</span>
-				<span>${boardInfo.regDate }</span>
-				<p>${boardInfo.BDef }</p>
+				<div class="boardInfo">
+				<div class="titleInfo">
+					<span class="category">${boardInfo.BCategory }</span>
+					<span class="tName">${boardInfo.BTitle }</span>
+				</div>
+				<div class="userInfo">
+				<div>
+					<span class="grade">${boardInfo.UGrade }</span>
+					<span class="userId">${boardInfo.userId }</span>
+				</div>
+					<span class="date">${boardInfo.regDate }</span>
+				</div>
+				</div>
+				<div class="boardDef">
+					<p>${boardInfo.BDef }</p>
+				</div>
+				<div class="comLine">댓글</div>
+				<c:forEach var="boardComment" items="${boardComment }">
+				<div class="commentBox">
+					<div class="comUserInfo">
+						<div>
+							<span>${boardComment.UGrade }</span>
+							<span>${boardComment.userId }</span>
+						</div>
+						<span class="date">${boardComment.regDate }</span>
+					</div>
+					<div class="comDef">
+						<p>${boardComment.bcDef }</p>
+					</div>
+				</div>
+				</c:forEach>
 				<input class="h-category" type="hidden" value="${boardInfo.BCategory }">
 				<form:form modelAttribute="board" method="post">
+					<p>댓글 쓰기</p>
 					<input type="hidden" value="${uid }" name="uid">
 					<input type="hidden" value="${boardInfo.bid }" name="bid">
-					<input type="text" name="bcDef">
-					<input type="submit">
+					<textarea class="bcDef" name="bcDef" placeholder="회원 간 불편함이 발생하지 않도록 따듯한 댓글 부탁드립니다."></textarea><br>
+					<input class="submit" type="submit" value="등록">
 				</form:form>
-				</c:forEach>
-				<c:forEach var="boardComment" items="${boardComment }">
-				<span>${boardComment.UGrade }</span>
-				<span>${boardComment.userId }</span>
-				<span>${boardComment.regDate }</span><br>
-				<span>${boardComment.bcDef }</span><br>
 				</c:forEach>
 			</section>
 		</main>
