@@ -45,4 +45,9 @@ public class ThemeServiceImpl implements ThemeService {
 		return themeDao.findThemeReservationTimeByTid(tid);
 	}
 
+	@Override
+	public List<Theme> getThemesByCid(long cid, long tid) {
+		return themeDao.findThemesByCid(cid, tid);
+	}
+
 }

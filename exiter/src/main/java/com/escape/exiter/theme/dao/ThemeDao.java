@@ -2,6 +2,7 @@ package com.escape.exiter.theme.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -96,5 +97,31 @@ public class ThemeDao {
 			}
 			
 		}, tid);
+	}
+	
+	/**
+	 * cid로 company의 다른 테마리스트 조회(현재 조회중인 tid 제외)
+	 * @param cid
+	 * @return
+	 */
+	public List<Theme> findThemesByCid(long cid, long tid) {
+		String sql = "SELECT tid, tName, tImage FROM Theme WHERE cid = ? AND tid != ?";
+		try {
+			return jdbcTemplate.query(sql, new RowMapper<>() {
+
+				@Override
+				public Theme mapRow(ResultSet rs, int rowNum) throws SQLException {
+					Theme t = new Theme();
+					t.setTid(rs.getLong("tid"));
+					t.setTName(rs.getString("tName"));
+					t.setTImage(rs.getString("tImage"));
+					return t;
+				}
+				
+			}, cid, tid);
+		} catch(Exception e) {
+			List<Theme> list = new ArrayList<Theme>();
+			return list;
+		}
 	}
 }

@@ -40,11 +40,13 @@ public class ThemeController {
 		String tPrice = decFormat.format(tpList.get(0).getTPrice());
 		
 		Company company = companyService.companyInfo(theme.getCid());
+		List<Theme> anotherList = themeService.getThemesByCid(theme.getCid(), tid);
 		
 		model.addAttribute("theme", theme);
 		model.addAttribute("cnt", cnt);
 		model.addAttribute("tPrice", tPrice);
 		model.addAttribute("company", company);
+		model.addAttribute("anotherList", anotherList);
 		return "theme/theme";
 	}
 	

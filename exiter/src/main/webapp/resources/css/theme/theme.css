@@ -197,6 +197,40 @@ h3.tName {
     box-shadow: none;
 }
 
+.another-box {
+	margin-top: 30px;
+}
+
+h6.another-title {
+	margin-bottom: 20px;
+	font-size: 14px;
+    font-weight: 400;
+}
+
+h6.another-title span {
+	color: #737373;
+}
+
+.another-items .another {
+	width: 100%;
+}
+
+.another-items .another img {
+	height: 180px;
+    border-radius: 25px;
+}
+
+.another-items .another .another-name {
+	width: 125px;
+	margin-top: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+    font-size: 14px;
+    color: #ccc;
+}
+
 @media (max-width: 370px) {
 	.theme-info .right-box img {
 		height: 200px;

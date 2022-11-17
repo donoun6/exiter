@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="<c:url value='/resources/css/common/default.css'/>">
 <link rel="stylesheet" href="<c:url value='/resources/css/common/header.css'/>">
 <link rel="stylesheet" href="<c:url value='/resources/css/common/footer.css'/>">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
 <link rel="stylesheet" href="<c:url value='/resources/css/theme/theme.css'/>">
 <script type="text/javascript" src="<c:url value='/resources/js/common/jquery.js'/>"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0e25790592795ff07edd8f6732b8500b&libraries=services"></script>
@@ -84,11 +85,37 @@
         				<td>${company.getComTel()}</td>
         			</tr>
         		</table>
+        		<div class="another-box">
+        			<h6 class="another-title">테마 더보기<span>&nbsp;></span></h6>
+        			<div class="another-items">
+	        			<c:choose>
+		        			<c:when test="${not empty anotherList}">
+		        				<div class="swiper mySwiper">
+          							<div class="swiper-wrapper">
+					        			<c:forEach var="another" items="${anotherList}">
+					        				<div class="another swiper-slide">
+					        					<a href="${another.tid}"><img alt="${another.TName}" src="/exiter/resources/images/theme/${another.TImage}"></a>
+					        					<p class="another-name">${another.TName}</p>
+					        				</div>
+					        			</c:forEach>
+					        			<div class="another swiper-slide">&middot; &middot; &middot;</div>
+			        				</div>
+			        			</div>
+		        			</c:when>
+		        			<c:otherwise>
+		        				<p class="not-another">다른 테마가 없습니다.</p>
+		        			</c:otherwise>
+	        			</c:choose>
+        			</div>
+        		</div>
         	</div>
         </main>
     </div>
     <!-- 푸터 영역 -->
     <jsp:include page="../common/footer.jsp"></jsp:include>
+    
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     
     <!-- script 영역 -->
     <script type="text/javascript">
@@ -142,6 +169,13 @@
 		        map.setCenter(coords);
 		    } 
 		});
+		
+		// swiper
+		var swiper = new Swiper(".mySwiper", {
+	      slidesPerView: 2.5,
+	      spaceBetween: 10,
+	      freeMode: true,
+	    });
     </script>
 </body>
 </html>

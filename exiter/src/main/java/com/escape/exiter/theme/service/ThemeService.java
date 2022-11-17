@@ -13,4 +13,5 @@ public interface ThemeService {
 	long getTpCntByTid(long tid);
 	int getTPriceByTidAndTNum(long tid, int tpNum);
 	List<ThemeReservationTime> getThemeReservationTimeByTid(long tid);
+	List<Theme> getThemesByCid(long cid, long tid);
 }
