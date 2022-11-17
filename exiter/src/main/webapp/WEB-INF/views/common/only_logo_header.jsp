@@ -16,11 +16,9 @@
 	   <% 
 	   if ( url.contentEquals("http://localhost:8080/exiter/user/login")){%>  
 	  		<div class="undo-img"><a href="<%=request.getHeader("referer")%>"></a></div>
-	   <% }else if( url.contentEquals("http://localhost:8080/exiter/board/board") ){%>
-		   <div class="undo-img"><a onclick="history.back()"></a></div>
-	   <% }else if( url.contains("http://localhost:8080/exiter/board/boardDetail/") ){%>
-	   <div class="undo-img"><a onclick="history.go(-2)"></a></div>
-  	   <% }else {%>
+	   <% }else if( url.contentEquals("http://localhost:8080/exiter/board/board") || url.contains("http://localhost:8080/exiter/board/boardDetail/") ){%>
+		   <div class="undo-img"><a href="<c:url value='/board/board'/>"></a></div>
+	   <% }else {%>
 		  	<div class="undo-img"><a href="<c:url value='/'/>"></a></div>
 	   <% } %> 
 	  </div>

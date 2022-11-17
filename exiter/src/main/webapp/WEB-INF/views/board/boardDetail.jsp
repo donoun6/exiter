@@ -32,7 +32,13 @@
 			<h2>커뮤니티</h2>
 			<section id="section">
 				<c:forEach var="boardInfo" items="${boardInfo }"> 
-				게시글 정보
+				<p>${boardInfo.BTitle }</p>
+				<p>${boardInfo.BCategory }</p>
+				<span>${boardInfo.UGrade }</span>
+				<span>${boardInfo.userId }</span>
+				<span>${boardInfo.regDate }</span>
+				<p>${boardInfo.BDef }</p>
+				<input class="h-category" type="hidden" value="${boardInfo.BCategory }">
 				<form:form modelAttribute="board" method="post">
 					<input type="hidden" value="${uid }" name="uid">
 					<input type="hidden" value="${boardInfo.bid }" name="bid">
@@ -41,8 +47,10 @@
 				</form:form>
 				</c:forEach>
 				<c:forEach var="boardComment" items="${boardComment }">
-				<span>${boardComment.bcDef }</span>
-				<span>${boardComment.userId }</span> <br>
+				<span>${boardComment.UGrade }</span>
+				<span>${boardComment.userId }</span>
+				<span>${boardComment.regDate }</span><br>
+				<span>${boardComment.bcDef }</span><br>
 				</c:forEach>
 			</section>
 		</main>
@@ -50,7 +58,20 @@
 	</div>
 	    <script type="text/javascript">
 			$(function(){
-    		
+    		$(document).ready(function(){
+    			var category2 = $('.h-category').val();
+    			$.ajax({
+    				async: true,
+    				type: 'get',
+    				data: {category2},
+    				url: 'http://localhost:8080/exiter/board/ajax',
+    				dataType: 'json',
+    				contentType: 'application/json; charset=UTF-8',
+    				success: function(data) {
+    					console.log("dd")
+    				}
+    			});
+    		});
 		});
     </script>
 </body>

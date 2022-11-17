@@ -60,9 +60,16 @@ if (userId == null){
     <script type="text/javascript">
 			$(function(){
 			
-    		$('li').click(function() {
-    			$('li').removeClass("dd");
-    			$(this).addClass("dd");
+			$(document).ready(function(){
+				if ("${category2}" == "") {
+					$( 'li:contains(공지사항)' ).trigger("click");
+				}else{
+					$('.selCate').addClass('noneTr');
+					$( 'li:contains("${category2}")' ).trigger("click");
+				}
+			})	
+				
+    		$('li').on("click",function() {
 				$('.selCate').removeClass('changed changed1 changed2');
 				if($(this).text() == "공지사항"){
 					$('.selCate').removeClass('changed');
@@ -73,7 +80,11 @@ if (userId == null){
 				}else if($(this).text() == "QnA"){
 					$('.selCate').addClass('changed2');
 				}
-				
+				if($('.selCate').hasClass('noneTr')){
+					setTimeout(function() {
+						$('.selCate').removeClass('noneTr');
+						}, 500);
+				}
     			var category = $(this).text();
     			$.ajax({
     				async: true,
@@ -87,28 +98,6 @@ if (userId == null){
     				}
     			});
     		});
-    		
-    		
-    		$(window).bind("pageshow", function (event) {
-    	        if (event.originalEvent.persisted) {
-    	        	$('.sel').val($('.dd').text());
-    	            var sel =  $('.sel').val();
-    				/*$('.dd').trigger('click');*/
-    	        } else {
-    	            var category = "공지사항";
-        			$.ajax({
-        				async: true,
-        				type: 'get',
-        				data: {category},
-        				url: 'ajax',
-        				dataType: 'html',
-        				contentType: 'application/json; charset=UTF-8',
-        				success: function(data) {
-        					$("#ajaxReturn").html(data);
-        				}
-        			});
-    	        }
-    	    });
     		
 		});
     </script>

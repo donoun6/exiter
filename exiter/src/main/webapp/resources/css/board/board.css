@@ -31,6 +31,7 @@ h2 {
 	transition: .5s;
 }
 
+
 .selCate.changed:before {
 	left: 25%;
 	transition: .5s;
@@ -46,6 +47,21 @@ h2 {
 	transition: .5s;
 }
 
+.selCate.noneTr:before {
+	transition: .0s;
+}
+
+.selCate.noneTr.changed:before {
+	transition: .0s;
+}
+
+.selCate.noneTr.changed1:before {
+	transition: .0s;
+}
+
+.selCate.noneTr.changed2:before {
+	transition: .0s;
+}
 
 .selCate > li {
 	line-height: 50px;

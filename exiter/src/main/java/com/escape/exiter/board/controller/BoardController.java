@@ -40,18 +40,20 @@ public class BoardController {
 			return "error/no_session";
 		}
 		
+		
+		
 		return "/board/board";
 	}
 	
 	@GetMapping("/board/ajax")
 	public String ajax2(Model model, HttpServletRequest request, HttpServletResponse response) {
 //		두번째 방법 (코드가 짧지만 슬라이드가 안먹힌다.)
-		response.setHeader("Expires", "Sat, 6 May 1995 12:00:00 GMT"); 
-		response.setHeader("Cache-Control", "no-store, no-cache, must-revalidate");
-		response.addHeader("Cache-Control", "post-check=0, pre-check=0"); 
-		response.setHeader("Pragma", "no-cache");
 		
 		String category = request.getParameter("category");
+		String category2 = request.getParameter("category2");
+		
+		session.setAttribute("category2", category2);
+		model.addAttribute("category2",category2);
 		model.addAttribute("boardInfo",boardService.boardInfoByCategory(category));
 		
 		List<Long> count = new ArrayList<Long>();
@@ -60,7 +62,6 @@ public class BoardController {
 			count.add(boardService.getCommentCountByBid(bid));
 		}
 		model.addAttribute("list",count);
-		
 		return "/board/boardAjax";
 	}
 	
@@ -80,6 +81,7 @@ public class BoardController {
 		model.addAttribute("boardInfo",boardService.boardInfoByBid(bid));
 		model.addAttribute("boardComment",boardService.boardComentByBid(bid));
 		model.addAttribute("board", new BoardCommentDomain());
+		session.removeAttribute("category2");
 		return "/board/boardDetail";
 	}
 	
