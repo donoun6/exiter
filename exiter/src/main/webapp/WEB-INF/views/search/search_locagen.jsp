@@ -167,6 +167,8 @@
 			// 지역 선택
 	    	$('.loca1').click(function() {
 	    		var city = $(this).find('.city').val();
+	    		var genre = $('input[name=genre]:checked').val();
+	    		console.log(genre);
 	    		// 폼생성
 	    		var newForm = $('<form></form>');
 	    		newForm.attr("type","hide");
@@ -174,6 +176,7 @@
 	    		newForm.attr("action","checking_loca");
 	    		// 폼에 요소 추가
 	    		newForm.append($('<input/>', {type: 'hidden', name: 'loca1', value: city }));
+	    		newForm.append($('<input/>', {type: 'hidden', name: 'genre', value: genre }));
 	    		// 폼 추가
 	    		newForm.appendTo('body');
 	    		newForm.submit();
@@ -229,6 +232,7 @@
 			// detail-pop 클래스에 on 삭제
 			$('main').click(function() {
 				$('.detail-pop').removeClass('on');
+				$('.search-ul').css('padding-bottom', '150px');
 			});
 			
 			// 선택 결과 표시
@@ -247,7 +251,14 @@
 					<c:otherwise>
 						<c:choose>
 							<c:when test="${empty city2}">
-								$('.results').html('${city} <span class="arrow">></span> 전체 <span class="arrow">></span> 전체');	
+								<c:choose>
+									<c:when test="${not empty genre}">
+										$('.results').html('${city} <span class="arrow">></span> 전체 <span class="arrow">></span> ${genre}');	
+									</c:when>
+									<c:otherwise>
+										$('.results').html('${city} <span class="arrow">></span> 전체 <span class="arrow">></span> 전체');	
+									</c:otherwise>
+								</c:choose>
 							</c:when>
 							<c:otherwise>
 								<c:choose>

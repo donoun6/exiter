@@ -36,7 +36,9 @@ SELECT * FROM Theme;
 SELECT * FROM Company;
 SELECT * FROM User;
 
+
 --임시데이터 등록
+INSERT INTO User (userId, uPasswd, uName, uPhone, uGrade, uType) VALUES ('admin', '11111111', '관리자', '010-1111-1111', '방린이', 'A');
 
 
 -- 테이블 생성

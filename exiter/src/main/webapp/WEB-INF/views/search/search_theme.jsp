@@ -135,6 +135,7 @@
     		// detail-pop 클래스에 on 삭제
     		$('main').click(function() {
     			$('.detail-pop').removeClass('on');
+    			$('.search-ul').css('padding-bottom', '150px');
     		});
     	});
     </script>

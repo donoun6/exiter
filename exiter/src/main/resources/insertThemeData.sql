@@ -75,7 +75,7 @@ INSERT INTO Company (comId, comPasswd, comTel, comAddress1, comAddress2, comAddr
 VALUES ('bd1', '31313131', '031-444-4444', '13591', '경기 성남시 분당구 황새울로342번길 19', '경기 성남시 분당구 서현동 249-4', '유성그린빌딩 지하1층', '6358101589', '넥스트에디션', '분당서현점');
 -- 대전
 INSERT INTO Company (comId, comPasswd, comTel, comAddress1, comAddress2, comAddress3, comAddress4, comNum, comName, comPocus) 
-VALUES ('dj1', '32323232', '042-111-1111', '35230', '대전 서구 대덕대로185번길 2', '대전 서구 둔산동 1063', '태형빌딩 7층', '2528600226', '룸즈에이', '대전둔산점');
+VALUES ('dj1', '32323232', '042-111-1111', '35230', '대전 서구 대덕대로185번길 22', '대전 서구 둔산동 1063', '태형빌딩 7층', '2528600226', '룸즈에이', '대전둔산점');
 -- 청주
 INSERT INTO Company (comId, comPasswd, comTel, comAddress1, comAddress2, comAddress3, comAddress4, comNum, comName, comPocus) 
 VALUES ('cj1', '34343434', '043-111-1111', '28526', '충북 청주시 상당구 성안로 3', '충북 청주시 상당구 북문로1가 97-7', '3층', '2528600226', '다락방방탈출', '청주점');
