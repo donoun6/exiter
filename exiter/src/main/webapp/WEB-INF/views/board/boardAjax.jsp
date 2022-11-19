@@ -20,7 +20,7 @@
 								<span class="id">${boardInfo.userId }</span>
 								<span class="date">${boardInfo.regDate }</span>
 							</div>
-							<div class="img-box"><div class="com-img"></div><span>댓글 ${list[status.index] }</span></div>
+							<div class="img-box"><div class="com-img"></div><span class="comCnt">댓글 ${list[status.index] }</span></div>
 						</div>
 					</td>
 				</tr>

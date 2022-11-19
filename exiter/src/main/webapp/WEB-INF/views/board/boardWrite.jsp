@@ -30,7 +30,7 @@
 					<td>
 						<ul>
 							<li><label style="margin-top: 10px;">제목</label></li>
-							<li><input type="text" name="bTtitle" placeholder="제목을 입력하세요."></li>
+							<li><input class="bTtitle" type="text" name="bTtitle" placeholder="제목을 입력하세요."></li>
 						</ul>
 					</td>
 				</tr>
@@ -39,13 +39,28 @@
 						<ul>
 							<li><label>카테고리</label></li>
 							<li>
-								<select name="bCategory">
+								<select class="bCategory" name="bCategory">
 								<% if( session.getAttribute("userId").equals("admin") ){%>
 									<option class="option" value="공지사항">공지사항</option>
 									<% } %>
 									<option class="option" value="자유게시판">자유게시판</option>
 									<option class="option" value="일행구하기">일행구하기</option>
 									<option class="option" value="QnA">QnA</option>
+								</select>
+							</li>
+						</ul>
+					</td>
+				</tr>
+				<tr class="companyTheme">
+					<td>
+						<ul>
+							<li><label>지점명</label></li>
+							<li>
+								<select class="company" name="cid">
+								<option class="option" value="" disabled="disabled" selected>----- 지점을 선택하세요 -----</option>
+								<c:forEach var="companyInfo" items="${companyInfo }"> 
+									<option class="option" value="${companyInfo.cid }">${companyInfo.comName } ${companyInfo.comPocus }</option>
+								</c:forEach>
 								</select>
 							</li>
 						</ul>
@@ -71,5 +86,26 @@
 		</main>
 		<jsp:include page="../common/footer.jsp"></jsp:include>
 	</div>
+	<script type="text/javascript">
+			$(function(){
+    		$('.bCategory').change(function(){
+    			if($(this).val() == 'QnA') {
+    				$('.companyTheme').css("display","block");
+    				$('.bTtitle').val($('.company option:checked').text());
+        			$('.bTtitle').prop('readonly',true);
+        			$('.bTtitle').css("color","gray");
+    			}else{
+    				$('.companyTheme').css("display","none");
+    				$('.bTtitle').prop('readonly',false);
+        			$('.bTtitle').css("color","white");
+        			$('.bTtitle').val("");
+    			}
+    		});
+    		
+    		$('.company').change(function(){
+    			$('.bTtitle').val($('.company option:checked').text()+" 문의드립니다.");
+    		});
+		});
+    </script>
 </body>
 </html>

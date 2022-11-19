@@ -49,6 +49,13 @@
     min-height: 300px;
 }
 
+.boardDef.qnaDef {
+	min-height: 60px;
+	border-bottom: 1px solid gray;
+	display: flex;
+    align-items: center;
+}
+
 .boardDef > p, .comDef > p {
 	word-break: break-all;
 }

@@ -248,13 +248,19 @@ public class CompanyDao {
 //		System.out.println("[테마 예약시간 삭제]");
 	}
 	
+//	예약 삭제
+	public void deleteThemeReservation(Long tid) {
+		String sql = "DELETE FROM Reservation WHERE tid = ?";
+		jdbcTemplate.update(sql, tid);
+//		System.out.println("[테마 예약 삭제]");
+	}
+	
 //	테마 삭제
 	public void deleteTheme(Long tid) {
 		String sql = "DELETE FROM Theme WHERE tid = ?";
 		jdbcTemplate.update(sql, tid);
 //		System.out.println("[테마 삭제]");
 	}
-	
 	
 // ====================	Company Information Dao
 //	사업자 회원 정보 변경

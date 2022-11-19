@@ -148,4 +148,16 @@ public class BoardDao {
 			}
 		},bid);
 	}
+	
+	public List<Long> getCidByUid(long uid) {
+		String sql =  "SELECT DISTINCT cid FROM Reservation WHERE uid = ?";
+		return jdbcTemplate.query(sql, new RowMapper<Long>() {
+
+			@Override
+			public Long mapRow(ResultSet rs, int rowNum) throws SQLException {
+				return rs.getLong("cid");
+			}
+			
+		},uid);
+	}
 }

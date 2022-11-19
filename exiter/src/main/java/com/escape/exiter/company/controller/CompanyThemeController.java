@@ -61,6 +61,7 @@ public class CompanyThemeController {
 			Long tid = Long.parseLong(request.getParameter("tid"));
 			companyService.deleteThemeReservationTime(tid);
 			companyService.deleteThemePrice(tid);
+			companyService.deleteThemeReservation(tid);
 			companyService.deleteTheme(tid);
 			return "redirect:/company/company_theme";
 		}

@@ -102,9 +102,10 @@ if (comId == null){
   <td><div style="height: auto; padding: 10px 0;"><p>${companyInfo.TDef }</p></div></td>
   <td>
   <div>
-  	<form>
+  	<form class="delFrom">
   	<input name="tid" type="hidden" value="${companyInfo.tid }">
-  	<button type="submit" class="dBtn tdBtn" id="delete">삭제</button>
+  	<button type="button" class="dBtn tdBtn delete" id="delete">삭제</button>
+  	<input type="submit" style="visibility: hidden; position: absolute;">
   	</form>
   </div>
   </td>
@@ -115,6 +116,15 @@ if (comId == null){
   <!-- footer -->
   <jsp:include page="../common/copyright.jsp"></jsp:include>
   </main>
+   <div class="popUp">
+	  <div>
+		<p>예약된 회원이 있을 수 있습니다.<br>그래도 삭제하시겠습니까?</p>
+		<div class="popbtnBox">
+			<button type="button" class="dBtn tdBtn yes">삭제</button>
+			<button type="button" class="tdBtn rBtn no">취소</button>
+		</div>
+	  </div>
+  </div>
   <!-- Time Picker CDN -->
   <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
   <script>
@@ -189,6 +199,17 @@ if (comId == null){
 				error: function(data) {
 
 				}
+			});
+		});
+		
+		$('.delete').click(function(){
+			$('.popUp').css("display","flex");
+			var thisBtn = $(this);
+			$('.yes').click(function(){
+				$(thisBtn).parents('form').submit();
+			});
+			$('.no').click(function(){
+				$('.popUp').css("display","none");
 			});
 		});
 		

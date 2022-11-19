@@ -39,6 +39,8 @@ public interface CompanyService {
 	
 	void deleteThemeReservationTime(Long tid);
 	
+	void deleteThemeReservation(Long tid);
+	
 	void deleteTheme(Long tid);
 	
 	void updateCompanyInfo(CompanyCommand company);

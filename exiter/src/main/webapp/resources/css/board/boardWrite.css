@@ -1,6 +1,6 @@
 body {
 	background: #1b1b1b;
-	overflow: hidden;
+	overflow-x: hidden;
 }
 
 h2 {
@@ -44,6 +44,10 @@ textarea {
     padding: 15px;
     height: 40vh;
     font-size: 16px;
+}
+
+.companyTheme {
+	display: none;
 }
 
 button {

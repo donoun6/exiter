@@ -81,6 +81,7 @@ if (userId == null){
 					$('.selCate').addClass('changed1');
 				}else if($(this).text() == "QnA"){
 					$('.selCate').addClass('changed2');
+					
 				}
 				if($('.selCate').hasClass('noneTr')){
 					setTimeout(function() {
@@ -97,6 +98,23 @@ if (userId == null){
     				contentType: 'application/json; charset=UTF-8',
     				success: function(data) {
     					$("#ajaxReturn").html(data);
+    					if(category == "공지사항"){
+    						$('.category').css("background","#ff3b3b");
+    					}else if(category == "자유게시판"){
+    						$('.category').css("background","#956a93");
+    					}else if(category == "일행구하기"){
+    						$('.category').css("background","#357035");
+    					}else if(category == "QnA"){
+    						$('.category').css("background","#5a5ae7");
+    					}
+    					if(category == "QnA") {
+    						$('.comCnt').addClass("answer");
+    						$( '.answer:contains(0)' ).css("color","gray");
+    						$( '.answer:contains(1)' ).css("color","rgb(111,140,255)");
+    						$( '.comCnt:contains(0)' ).text("답변대기중");
+    						$( '.comCnt:contains(1)' ).text("답변완료");
+    						$('.com-img').css("display","none");
+    	    			}
     				}
     			});
     		});

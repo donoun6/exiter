@@ -117,30 +117,27 @@ CREATE TABLE Reservation (
 CREATE TABLE Board (
 	bid				BIGINT				NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	uid				BIGINT				NOT NULL,
+	cid				BIGINT				NULL,
 	bTitle			VARCHAR(100)		NOT NULL,
 	bDef			VARCHAR(3000)		NOT NULL,
 	bCategory		VARCHAR(10)			NOT NULL,
 	regDate			TIMESTAMP			NOT NULL DEFAULT	CURRENT_TIMESTAMP,
-	CONSTRAINT Board_uid_FK FOREIGN KEY (uid) REFERENCES User(uid)
+	CONSTRAINT Board_uid_FK FOREIGN KEY (uid) REFERENCES User(uid),
+	CONSTRAINT Board_cid_FK FOREIGN KEY (cid) REFERENCES Company(cid)
 )AUTO_INCREMENT = 1;
-
-SELECT * FROM Board b INNER JOIN User u ON b.uid = u.uid WHERE b.bid = 1
-
-SELECT count(*) as cnt FROM Board WHERE bCategory = '공지사항';
 
 CREATE TABLE BoardComment (
 	bcid			BIGINT				NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	uid				BIGINT				NOT NULL,
 	bid				BIGINT				NOT NULL,
+	cid				BIGINT				NULL,
 	bcDef			VARCHAR(500)		NOT NULL,
+	bcCheck			INT					NOT NULL DEFAULT 0,
 	regDate			TIMESTAMP			NOT NULL DEFAULT	CURRENT_TIMESTAMP,
 	CONSTRAINT BoardComment_uid_FK FOREIGN KEY (uid) REFERENCES User(uid),
-	CONSTRAINT BoardComment_bid_FK FOREIGN KEY (bid) REFERENCES Board(bid)
+	CONSTRAINT BoardComment_bid_FK FOREIGN KEY (bid) REFERENCES Board(bid),
+	CONSTRAINT BoardComment_cid_FK FOREIGN KEY (cid) REFERENCES Company(cid)
 )AUTO_INCREMENT = 1;
-
-SELECT * FROM BoardComment bc INNER JOIN Board b INNER JOIN User u ON bc.bid = b.bid AND bc.uid = u.uid WHERE bc.bid = 2
-
-SELECT count(bc.bid) FROM BoardComment bc INNER JOIN Board b ON bc.bid = b.bid WHERE b.bCategory = '자유게시판'
 
 CREATE TABLE Question (
 	qid				BIGINT				NOT NULL PRIMARY KEY AUTO_INCREMENT,

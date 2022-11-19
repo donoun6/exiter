@@ -50,7 +50,7 @@
 				<div class="boardDef">
 					<p>${boardInfo.BDef }</p>
 				</div>
-				<div class="comLine">댓글</div>
+				<div class="comLine">댓글 ${boardCommentCnt}개</div>
 				<c:forEach var="boardComment" items="${boardComment }">
 				<div class="commentBox">
 					<div class="comUserInfo">
@@ -82,6 +82,22 @@
 			$(function(){
     		$(document).ready(function(){
     			var category2 = $('.h-category').val();
+    			if(category2 == "QnA"){
+					$('.category').css("background","#5a5ae7");
+					$('.comLine').remove();
+					$('#board').remove();
+					$('.boardDef').addClass("qnaDef")
+				}
+    			if(category2 == "공지사항"){
+					$('.category').css("background","#ff3b3b");
+				}
+    			if(category2 == "자유게시판"){
+					$('.category').css("background","#956a93");
+				}
+    			if(category2 == "일행구하기"){
+					$('.category').css("background","#357035");
+				}
+    			
     			$.ajax({
     				async: true,
     				type: 'get',
@@ -90,7 +106,7 @@
     				dataType: 'json',
     				contentType: 'application/json; charset=UTF-8',
     				success: function(data) {
-    					console.log("dd")
+    					
     				}
     			});
     		});

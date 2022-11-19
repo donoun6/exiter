@@ -84,7 +84,12 @@ public class CompanyServiceImpl implements CompanyService{
 	public void deleteThemeReservationTime(Long tid) {
 		companyDao.deleteThemeReservationTime(tid);
 	}
-
+	
+	@Override
+	public void deleteThemeReservation(Long tid) {
+		companyDao.deleteThemeReservation(tid);
+	}
+	
 	@Override
 	public void deleteTheme(Long tid) {
 		companyDao.deleteTheme(tid);

@@ -33,6 +33,7 @@ public class BoardDaoTest {
 //		System.out.println(dao.getCommentCountByBid(1));
 //		System.out.println((dao.getBoardCountByCategory("공지사항")/10)+1);
 		
+//		System.out.println(dao.getCidByUid(1));
 		context.close();
 	}
 }

@@ -18,12 +18,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.escape.exiter.board.domain.BoardCommentDomain;
 import com.escape.exiter.board.domain.BoardDomain;
 import com.escape.exiter.board.service.BoardService;
+import com.escape.exiter.company.service.CompanyService;
 
 @Controller
 public class BoardController {
 	
 	@Autowired
 	BoardService boardService;
+	
+	@Autowired
+	CompanyService companyService;
 	
 	HttpSession session;
 	
@@ -80,6 +84,7 @@ public class BoardController {
 		
 		model.addAttribute("boardInfo",boardService.boardInfoByBid(bid));
 		model.addAttribute("boardComment",boardService.boardComentByBid(bid));
+		model.addAttribute("boardCommentCnt",boardService.getCommentCountByBid(bid));
 		model.addAttribute("board", new BoardCommentDomain());
 		session.removeAttribute("category2");
 		return "/board/boardDetail";
@@ -106,6 +111,15 @@ public class BoardController {
 			return "error/no_session";
 		}
 		model.addAttribute("board", new BoardDomain());
+		
+		long uid = (long) session.getAttribute("uid");
+		List<Object> list = new ArrayList<Object>();
+		for(int i = 0; i < boardService.getCidByUid(uid).size(); i++) {
+			list.add(companyService.companyInfo(boardService.getCidByUid(uid).get(i)));
+		}
+		
+		model.addAttribute("companyInfo",list);
+		
 		return "/board/boardWrite";
 	}
 	
