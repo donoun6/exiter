@@ -99,6 +99,16 @@ public class MyBoardController {
 		} else {
 			// qna 게시글 조회
 			mbList = myBoardService.getBoardQnaByUid(uid);
+			
+			// 댓글 업데이트 확인
+			for(MyBoard mb : mbList) {
+				if(mb.getBcCnt() != mb.getBcCheck()) {
+					mb.setBcUpdate(true);
+				} else {
+					mb.setBcUpdate(false);
+				}
+			}
+			
 			request.setAttribute("qna", "qna");
 		}
 		

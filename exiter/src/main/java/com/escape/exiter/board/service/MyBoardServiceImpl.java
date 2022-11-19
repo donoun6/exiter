@@ -45,4 +45,9 @@ public class MyBoardServiceImpl implements MyBoardService {
 	public void updateBcCheck(int bcCheck, long bid) {
 		myBoardDao.updateBcCheck(bcCheck, bid);
 	}
+
+	@Override
+	public int getBcCheck(long bid) {
+		return myBoardDao.findBcCheck(bid);
+	}
 }

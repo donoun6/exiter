@@ -121,6 +121,10 @@ table {
     white-space: nowrap;
 }
 
+.def.qna {
+	width: 70vw;
+}
+
 .grade img {
 	width: 18px;
     filter: invert(1);
@@ -132,13 +136,18 @@ table {
     color: rgba(255,255,255, .5);
 }
 
-.img-box {
+.img-box, .com-box {
 	position: absolute;
 	right: 0;
 	bottom: 0;
 	height: 100%;
 	padding: 10px;
 	box-sizing: border-box;
+}
+
+.com-box {
+	font-size: 14px;
+    top: calc(25%);
 }
 
 .com-img {
@@ -166,11 +175,14 @@ table {
     right: 50%;
 }
 
+.redDot {
+	color: #F74B64;
+    font-size: 1px;
+}
+
 .img-box .redDot {
 	margin-right: 80%;
     margin-top: -25%;
-    color: #F74B64;
-    font-size: 1px;
 }
 
 th, td {
@@ -190,4 +202,10 @@ th {
 	color: #fff;
 	text-align: left;
 	border-top: 1px solid #c6c9cc;
+}
+
+.empty-li {
+	text-align: center;
+    margin-top: 320px;
+    color: #737373;
 }

@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.escape.exiter.board.domain.BoardCommentDomain;
 import com.escape.exiter.board.domain.BoardDomain;
 import com.escape.exiter.board.service.BoardService;
+import com.escape.exiter.board.service.MyBoardService;
 import com.escape.exiter.company.service.CompanyService;
 
 @Controller
@@ -28,6 +29,9 @@ public class BoardController {
 	
 	@Autowired
 	CompanyService companyService;
+	
+	@Autowired
+	MyBoardService myBoardService;
 	
 	HttpSession session;
 	
@@ -80,6 +84,17 @@ public class BoardController {
 		if(session.getAttribute("userId") == null) {
 			model.addAttribute("session", "no");
 			return "error/no_session";
+		}
+		
+		long uid = (long)session.getAttribute("uid");
+		
+		// 내가 쓴 게시글 조회시 댓글 확인수 업데이트
+		if(boardService.boardInfoByBid(bid).get(0).getUid() == uid) {
+			int bcCheck = myBoardService.getBcCheck(bid);
+			// 확인한 댓글수와 실제 댓글수가 다르다면
+			if((int) boardService.getCommentCountByBid(bid) != bcCheck) {
+				myBoardService.updateBcCheck((int) boardService.getCommentCountByBid(bid), bid);
+			}
 		}
 		
 		model.addAttribute("boardInfo",boardService.boardInfoByBid(bid));

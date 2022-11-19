@@ -57,7 +57,9 @@ public class MyPageController {
 		String preUGrade = userService.getUGradeByUid(uid);
 		long beforeCnt = reservationService.getBeforeReservationCount(uid);
 		String newUGrade = "";
-		if(beforeCnt < 30 && !preUGrade.equals("방린이")) {
+		if(preUGrade.equals("관리자")) {
+			
+		}else if(beforeCnt < 30 && !preUGrade.equals("방린이")) {
 			// 지난 예약 개수 30  미만인 경우
 			userService.updateUGrade(uid, "방린이");
 			newUGrade = userService.getUGradeByUid(uid);

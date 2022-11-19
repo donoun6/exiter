@@ -71,6 +71,15 @@
     		    			elems[i].style.background = "#5a5ae7";
     		    		}
     		    	}
+    		    	// qna 답변여부 css 변경
+    		    	let elems2 = document.querySelectorAll('.comCnt');
+    		    	for(let i = 0; i < elems2.length; i++) {
+    		    		if(elems2[i].innerText == '답변완료') {
+    		    			elems2[i].style.color = "rgb(111,140,255)";
+    		    		} else if(elems2[i].innerText == '답변대기중') {
+    		    			elems2[i].style.color = "gray";
+    		    		}
+    		    	}
     			}
     		});
     	});

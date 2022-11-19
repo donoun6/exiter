@@ -8,4 +8,5 @@ public interface MyBoardService {
 	List<MyBoard> getBoardNotQnaByUid(long uid);
 	List<MyBoard> getBoardQnaByUid(long uid);
 	void updateBcCheck(int bcCheck, long bid);
+	int getBcCheck(long bid);
 }
