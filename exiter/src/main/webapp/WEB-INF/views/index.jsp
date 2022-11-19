@@ -69,8 +69,10 @@
 
 .left-box .title-box .tName {
 	margin-top: 10px;
+	line-height: 28px;
     font-size: 25px;
     color: #414aea;
+    word-break: keep-all;
 }
 
 .right-box img {

@@ -143,6 +143,7 @@ h3.title.on:before {
 .search-item .tName {
 	margin-top: 15px;
 	padding-right: 26px;
+	line-height: 26px;
 	font-size: 24px;
     color: #414aea;
 }
@@ -199,8 +200,10 @@ h3.title.on:before {
 
 .left-box .title-box .tName {
 	margin-top: 10px;
+	line-height: 28px;
     font-size: 25px;
     color: #414aea;
+    word-break: keep-all;
 }
 
 .right-box img {

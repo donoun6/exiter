@@ -108,8 +108,8 @@
         </div>
 
         <table class="bottom-list-box">
-          <tr><td><a href="<c:url value='/common/get_ready'/>">내가 쓴 게시글</a></td></tr>
-          <tr><td><a href="<c:url value='/common/get_ready'/>">내가 쓴 댓글</a></td></tr>
+          <tr><td><a href="<c:url value='/board/my_board'/>">내가 쓴 게시글</a></td></tr>
+          <tr><td><a href="<c:url value='/board/my_comment'/>">내가 쓴 댓글</a></td></tr>
           <tr><td><a href="<c:url value='/user/update_userInfo'/>">회원정보 변경</a></td></tr>
           <tr><td><a href="<c:url value='/user/logout_pop'/>">로그아웃</a></td></tr>
         </table>

@@ -403,6 +403,27 @@ INSERT INTO Theme (cid, tName, tCategory, tLevel, tNum, tDef, tTime, tImage)
 VALUES (41, '몽환의 숲', '판타지', 5, 6, '장덕구를 찾는 과정에서 나온 이름, 앨리스! 소녀가 살고있는 마을로 가보니 그녀의 행방조차 묘연하다. 김반장은 그녀가 마지막으로 목격된 몽환의숲으로 발걸음을 옮긴다. 숲 속에 도깨비가 산다는 전설은 뻥이겠지?
 ', 60, '몽환의숲.png');
 
+INSERT INTO Theme (cid, tName, tCategory, tLevel, tNum, tDef, tTime, tImage) 
+VALUES (2, '지난날을 잊었다', '감성', 3, 4, '남자는 하염없이 걷고 또 걸었다.
+긴 걸음 끝에 작은 사진관을 마주했다.
+
+문을 열고 들어가려는 찰나,
+연분홍빛 벚꽃잎이 콧등을 스쳤다.
+
+아, 봄이었구나.
+', 65, '지난날을잊었다.png');
+
+INSERT INTO Theme (cid, tName, tCategory, tLevel, tNum, tDef, tTime, tImage) 
+VALUES (2, '너의 겨울은 가고, 봄은 온다', '감성', 2, 6, '내 이름은 인카. 핀란드 산타마을 로바니에미의 산타클로스다.
+올해 선물 배달의 주인공을 배정받았는데, 바로 마을 최악의
+장난꾸러기 여자아이 안나. 매년 산타클로스가 오는 날이면
+굉장히 짓궂은 장난을 벌이며, 산타가 선물을 쉽게 배달할 수 없게
+집에 다양한 문제들을 만들어두는걸로 유명하다.
+나는 무려 52년간 단 한번도 배달을 실패한 적 없는 초특급 베테랑.
+한낱 9살 꼬마의 장난 따위에 실패할 내가 아니지!
+썰매 빼와라 루돌프. 휘바휘바~!
+', 60, '너의겨울은가고봄은온다.jpg');
+
 
 -- themePrice 임시 데이터
 INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (1, 1, 28000);
@@ -704,6 +725,18 @@ INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (43, 3, 60000);
 INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (43, 4, 72000);
 INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (43, 5, 90000);
 INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (43, 6, 105000);
+
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (44, 1, 23000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (44, 2, 45000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (44, 3, 60000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (44, 4, 72000);
+
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (45, 1, 23000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (45, 2, 45000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (45, 3, 60000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (45, 4, 72000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (45, 5, 90000);
+INSERT INTO ThemePrice (tid, tpNum, tPrice) VALUES (45, 6, 105000);
 
 
 -- ThemeReservationTime 임시 데이터
@@ -1144,3 +1177,23 @@ INSERT INTO ThemeReservationTime (tid, trTime) VALUES (43, '06:15 PM');
 INSERT INTO ThemeReservationTime (tid, trTime) VALUES (43, '07:50 PM');
 INSERT INTO ThemeReservationTime (tid, trTime) VALUES (43, '09:25 PM');
 INSERT INTO ThemeReservationTime (tid, trTime) VALUES (43, '11:00 PM');
+
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (44, '10:20 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (44, '11:55 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (44, '01:30 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (44, '03:05 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (44, '04:40 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (44, '06:15 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (44, '07:50 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (44, '09:25 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (44, '11:00 PM');
+
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (45, '10:20 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (45, '11:55 AM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (45, '01:30 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (45, '03:05 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (45, '04:40 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (45, '06:15 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (45, '07:50 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (45, '09:25 PM');
+INSERT INTO ThemeReservationTime (tid, trTime) VALUES (45, '11:00 PM');

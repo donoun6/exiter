@@ -43,8 +43,8 @@ public class MyPageController {
 		
 		// 로그인 안되어있을 경우
 		if (session == null) {
-		model.addAttribute("session", "no");
-		return "error/no_session";
+			model.addAttribute("session", "no");
+			return "error/no_session";
 		}
 		if(session.getAttribute("userId") == null) {
 			model.addAttribute("session", "no");

@@ -86,7 +86,7 @@
         			</tr>
         		</table>
         		<div class="another-box">
-        			<h6 class="another-title">테마 더보기<span>&nbsp;></span></h6>
+        			<h6 class="another-title">카페의 다른 테마 더보기<span>&nbsp;></span></h6>
         			<div class="another-items">
 	        			<c:choose>
 		        			<c:when test="${not empty anotherList}">
@@ -94,11 +94,17 @@
           							<div class="swiper-wrapper">
 					        			<c:forEach var="another" items="${anotherList}">
 					        				<div class="another swiper-slide">
-					        					<a href="${another.tid}"><img alt="${another.TName}" src="/exiter/resources/images/theme/${another.TImage}"></a>
-					        					<p class="another-name">${another.TName}</p>
+					        					<a href="${another.tid}">
+						        					<img alt="${another.TName}" src="/exiter/resources/images/theme/${another.TImage}">
+						        					<p class="another-name">${another.TName}</p>
+					        					</a>
 					        				</div>
 					        			</c:forEach>
-					        			<div class="another swiper-slide">&middot; &middot; &middot;</div>
+					        			<div class="dot swiper-slide">
+					        				<span>●</span>
+					        				<span>●</span>
+					        				<span>●</span>
+					        			</div>
 			        				</div>
 			        			</div>
 		        			</c:when>
@@ -170,12 +176,22 @@
 		    } 
 		});
 		
+		if($('.another').length == 1) {
+			let add = '<div class="dot swiper-slide">'
+					+ '<span>●</span>'
+					+ '<span>●</span>'
+					+ '<span>●</span>'
+					+ '</div>';
+			$('.swiper-wrapper').append(add);
+		}
+		
 		// swiper
 		var swiper = new Swiper(".mySwiper", {
 	      slidesPerView: 2.5,
 	      spaceBetween: 10,
 	      freeMode: true,
 	    });
+		
     </script>
 </body>
-</html>
+</html>lo
