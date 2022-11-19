@@ -28,6 +28,11 @@ public class BoardServiceImpl implements BoardService{
 	}
 	
 	@Override
+	public List<BoardCommand> QnaInfoByCid(long cid) {
+		return boardDao.QnaInfoByCid(cid);
+	}
+	
+	@Override
 	public long getBoardCountByCategory(String category) {
 		return boardDao.getBoardCountByCategory(category);
 	}
@@ -41,7 +46,11 @@ public class BoardServiceImpl implements BoardService{
 	public void addBoardComment(BoardCommentDomain board) {
 		boardDao.addBoardComment(board);
 	}
-
+	@Override
+	public void addQnaComment(BoardCommentDomain board) {
+		boardDao.addQnaComment(board);
+	}
+	
 	@Override
 	public List<BoardCommentCommand> boardComentByBid(long bid) {
 		return boardDao.boardComentByBid(bid);
@@ -56,4 +65,5 @@ public class BoardServiceImpl implements BoardService{
 	public List<Long> getCidByUid(long uid) {
 		return boardDao.getCidByUid(uid);
 	}
+
 }

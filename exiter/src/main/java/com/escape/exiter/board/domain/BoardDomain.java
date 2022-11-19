@@ -14,6 +14,7 @@ import lombok.ToString;
 public class BoardDomain {
 	private long bid;
 	private long uid;
+	private long Cid;
 	private String bTtitle;
 	private String bDef;
 	private String bCategory;

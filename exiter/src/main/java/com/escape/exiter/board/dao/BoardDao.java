@@ -26,9 +26,9 @@ public class BoardDao {
 	
 //	게시글 등록
 	public void addBoard(BoardDomain board) {
-		String sql = "INSERT INTO Board (uid,bTitle,bDef,bCategory) "
-				+ "VALUES (?,?,?,?)";
-		jdbcTemplate.update(sql,board.getUid(),board.getBTtitle(),board.getBDef(),board.getBCategory());
+		String sql = "INSERT INTO Board (uid,cid,bTitle,bDef,bCategory) "
+				+ "VALUES (?,?,?,?,?)";
+		jdbcTemplate.update(sql,board.getUid(),board.getCid(),board.getBTtitle(),board.getBDef(),board.getBCategory());
 //		System.out.println("[게시글 등록]\n" + board.toString() + "\n");
 	}
 	
@@ -58,6 +58,34 @@ public class BoardDao {
 			}
 			
 		},category);
+	}
+	
+//	QnA 정보
+	public List<BoardCommand> QnaInfoByCid(long cid) {
+		String sql ="SELECT * FROM Board b INNER JOIN User u ON b.uid = u.uid WHERE b.cid = ? ORDER BY b.bid DESC";
+		return jdbcTemplate.query(sql, new RowMapper<BoardCommand>() {
+
+			@Override
+			public BoardCommand mapRow(ResultSet rs, int rowNum) throws SQLException {
+				BoardCommand board = new BoardCommand();
+				board.setBid(rs.getLong("bid"));
+				board.setBTitle(rs.getString("bTitle"));
+				board.setBDef(rs.getString("bDef"));
+				board.setBCategory(rs.getString("bCategory"));
+				board.setRegDate(rs.getDate("regDate"));
+				board.setUid(rs.getLong("uid"));
+				board.setUserId(rs.getString("userId"));
+				board.setUPasswd(rs.getString("uPasswd"));
+				board.setUName(rs.getString("uName"));
+				board.setUPhone(rs.getString("uPhone"));
+				board.setUGrade(rs.getString("uGrade"));
+				board.setUType(rs.getString("uType").charAt(0));
+				board.setUCheck(rs.getBoolean("uCheck"));
+//				System.out.println("[게시글 정보]\n" + board.toString() + "\n");
+				return board;
+			}
+			
+		},cid);
 	}
 	
 //	카테고리별 게시물 개수
@@ -105,6 +133,14 @@ public class BoardDao {
 		String sql = "INSERT INTO BoardComment (uid,bid,bcDef) "
 				+ "VALUES(?,?,?)";
 		jdbcTemplate.update(sql,board.getUid(),board.getBid(),board.getBcDef());
+//		System.out.println("[댓글 등록]\n" + board.toString() + "\n");
+	}
+	
+//	답변 등록
+	public void addQnaComment(BoardCommentDomain board) {
+		String sql = "INSERT INTO BoardComment (cid,bid,bcDef) "
+				+ "VALUES(?,?,?)";
+		jdbcTemplate.update(sql,board.getCid(),board.getBid(),board.getBcDef());
 //		System.out.println("[댓글 등록]\n" + board.toString() + "\n");
 	}
 	

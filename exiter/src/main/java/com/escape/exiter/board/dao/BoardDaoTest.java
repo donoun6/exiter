@@ -25,7 +25,8 @@ public class BoardDaoTest {
 		
 //	boardComment test
 //		boardComment.setUid(1);
-//		boardComment.setBid(1);
+//		boardComment.setCid(1);
+//		boardComment.setBid(3);
 //		boardComment.setBcDef("테스트");
 //		dao.addBoardComment(boardComment);
 //		dao.boardComentByBid(1);

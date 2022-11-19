@@ -14,6 +14,7 @@ import lombok.ToString;
 public class BoardCommentDomain {
 	private long bcid;
 	private long uid;
+	private long cid;
 	private long bid;
 	private String bcDef;
 	private Date regDate;
