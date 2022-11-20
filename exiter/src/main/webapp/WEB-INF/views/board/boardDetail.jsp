@@ -65,6 +65,20 @@
 					</div>
 				</div>
 				</c:forEach>
+				<c:forEach var="qnaComment" items="${qnaComment }">
+				<div class="commentBox">
+					<div class="comUserInfo">
+						<div>
+							<span>${qnaComment.comPocus }-</span>
+							<span>${qnaComment.comName } 담당자</span>
+						</div>
+						<span class="date">${qnaComment.regDate }</span>
+					</div>
+					<div class="comDef">
+						<pre>${qnaComment.bcDef }</pre>
+					</div>
+				</div>
+				</c:forEach>
 				<input class="h-category" type="hidden" value="${boardInfo.BCategory }">
 				<form:form modelAttribute="board" method="post">
 					<p>댓글 쓰기</p>

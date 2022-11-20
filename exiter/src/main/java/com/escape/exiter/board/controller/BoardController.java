@@ -96,9 +96,9 @@ public class BoardController {
 				myBoardService.updateBcCheck((int) boardService.getCommentCountByBid(bid), bid);
 			}
 		}
-		
 		model.addAttribute("boardInfo",boardService.boardInfoByBid(bid));
 		model.addAttribute("boardComment",boardService.boardComentByBid(bid));
+		model.addAttribute("qnaComment",boardService.qnaComentByBid(bid));
 		model.addAttribute("boardCommentCnt",boardService.getCommentCountByBid(bid));
 		model.addAttribute("board", new BoardCommentDomain());
 		session.removeAttribute("category2");

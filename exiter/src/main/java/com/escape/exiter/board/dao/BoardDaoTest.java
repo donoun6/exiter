@@ -29,11 +29,11 @@ public class BoardDaoTest {
 //		boardComment.setBid(3);
 //		boardComment.setBcDef("테스트");
 //		dao.addBoardComment(boardComment);
-//		dao.boardComentByBid(1);
 		
+//		dao.boardComentByBid(3);
 //		System.out.println(dao.getCommentCountByBid(1));
 //		System.out.println((dao.getBoardCountByCategory("공지사항")/10)+1);
-		
+		System.out.println(dao.qnaComentByBid(1));
 //		System.out.println(dao.getCidByUid(1));
 		context.close();
 	}

@@ -26,10 +26,17 @@ public class BoardDao {
 	
 //	게시글 등록
 	public void addBoard(BoardDomain board) {
-		String sql = "INSERT INTO Board (uid,cid,bTitle,bDef,bCategory) "
-				+ "VALUES (?,?,?,?,?)";
-		jdbcTemplate.update(sql,board.getUid(),board.getCid(),board.getBTtitle(),board.getBDef(),board.getBCategory());
-//		System.out.println("[게시글 등록]\n" + board.toString() + "\n");
+		if(board.getCid() == 0) {
+			String sql = "INSERT INTO Board (uid,bTitle,bDef,bCategory) "
+					+ "VALUES (?,?,?,?)";
+			jdbcTemplate.update(sql,board.getUid(),board.getBTtitle(),board.getBDef(),board.getBCategory());
+//			System.out.println("[게시글 등록]\n" + board.toString() + "\n");
+		}else {
+			String sql = "INSERT INTO Board (uid,cid,bTitle,bDef,bCategory) "
+					+ "VALUES (?,?,?,?,?)";
+			jdbcTemplate.update(sql,board.getUid(),board.getCid(),board.getBTtitle(),board.getBDef(),board.getBCategory());
+//			System.out.println("[게시글 등록]\n" + board.toString() + "\n");
+		}
 	}
 	
 //	게시글 정보
@@ -172,6 +179,32 @@ public class BoardDao {
 			}
 		},bid);
 	}
+	
+//	QnA 답변 정보 bid로 가져오기
+	public List<BoardCommentCommand> qnaComentByBid(long bid) {
+		String sql ="SELECT * FROM BoardComment bc INNER JOIN Board b INNER JOIN Company c ON bc.bid = b.bid AND bc.cid = c.cid WHERE bc.bid = ?";
+		return jdbcTemplate.query(sql, new RowMapper<BoardCommentCommand>() {
+
+			@Override
+			public BoardCommentCommand mapRow(ResultSet rs, int rowNum) throws SQLException {
+				BoardCommentCommand board = new BoardCommentCommand();
+				board.setBcid(rs.getLong("bcid"));
+				board.setBcDef(rs.getString("bcDef"));
+				board.setRegDate(rs.getDate("regDate"));
+				board.setBid(rs.getLong("bid"));
+				board.setBTitle(rs.getString("bTitle"));
+				board.setBDef(rs.getString("bDef"));
+				board.setBCategory(rs.getString("bCategory"));
+				board.setUid(rs.getLong("cid"));
+				board.setComId(rs.getString("comId"));
+				board.setComName(rs.getString("comName"));
+				board.setComPocus(rs.getString("comPocus"));
+//				System.out.println("[댓글 정보]\n" + board.toString() + "\n");
+				return board;
+			}
+		},bid);
+	}
+	
 	
 //	댓글 갯수 가져오기
 	public long getCommentCountByBid(long bid) {

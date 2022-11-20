@@ -55,7 +55,13 @@ public class BoardServiceImpl implements BoardService{
 	public List<BoardCommentCommand> boardComentByBid(long bid) {
 		return boardDao.boardComentByBid(bid);
 	}
+	
+	@Override
+	public List<BoardCommentCommand> qnaComentByBid(long bid) {
+		return boardDao.qnaComentByBid(bid);
+	}
 
+	
 	@Override
 	public long getCommentCountByBid(long bid) {
 		return boardDao.getCommentCountByBid(bid);

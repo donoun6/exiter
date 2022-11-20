@@ -27,6 +27,10 @@ public class BoardCommentCommand {
 	private String uGrade;
 	private char uType;
 	private boolean uCheck;
+	private long cid;
+	private String comId;
+	private String comName;
+	private String comPocus;
 	public BoardCommentCommand() {
 	}
 }

@@ -12,8 +12,10 @@
 					<td>
 						<div class="boardInfo">
 							<a href="/exiter/board/boardDetail/${boardInfo.bid }"></a>
-							<span class="category">${boardInfo.BCategory }</span>
-							<span class="title">${boardInfo.BTitle }</span>
+							<div style="width: 75vw; height: 3vh; overflow: hidden;">
+								<span class="category">${boardInfo.BCategory }</span>
+								<span class="title">${boardInfo.BTitle }</span>
+							</div>
 							<p class="def">${boardInfo.BDef }</p>
 							<div class="user">
 								<span class="grade">${boardInfo.UGrade }</span>

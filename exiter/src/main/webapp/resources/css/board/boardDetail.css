@@ -86,11 +86,12 @@
 	font-size: 14px;
 }
 
-.comDef {
-	margin-top: 10px;
+pre {
+	font-family: "twayFly";
     font-size: 14px;
+    white-space: pre-wrap;
+    margin-top: 20px;
 }
-
 form {
 	margin: 10px;
     padding: 10px;
