@@ -9,22 +9,19 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-public class MyBoard {
-	private long bid;
+public class MyComment {
+	private long bcid;
 	private long uid;
+	private long bid;
 	private long cid;
-	private String bTitle;
-	private String bDef;
-	private String bCategory;
-	private int bcCheck;
+	private String bcDef;
 	private Date regDate;
-	private String userId;
-	private String uGrade;
+	private String bTitle;
+	private String bCategory;
 	private int bcCnt;
-	private boolean bcUpdate;
 	private String bTime;
 	
-	public MyBoard() {
+	public MyComment() {
 		
 	}
 }

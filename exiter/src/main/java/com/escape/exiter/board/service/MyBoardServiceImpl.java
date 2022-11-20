@@ -33,6 +33,7 @@ public class MyBoardServiceImpl implements MyBoardService {
 	public List<MyBoard> getBoardQnaByUid(long uid) {
 		List<MyBoard> mbList = myBoardDao.findBoardQnaByUid(uid);
 		
+		// 각 게시글의 댓글수 조회
 		for(MyBoard mb : mbList) {
 			int bcCnt = (int) boardService.getCommentCountByBid(mb.getBid());
 			mb.setBcCnt(bcCnt);

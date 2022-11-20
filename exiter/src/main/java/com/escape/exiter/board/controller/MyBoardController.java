@@ -47,30 +47,6 @@ public class MyBoardController {
 	}
 	
 	/**
-	 * 내가 쓴 댓글 조회
-	 * @param request
-	 * @param model
-	 * @return
-	 */
-	@GetMapping("/board/my_comment")
-	public String myCommentsForm(HttpServletRequest request, Model model) {
-
-		session = request.getSession(false);
-		
-		// 로그인 안되어있을 경우
-		if (session == null) {
-			model.addAttribute("session", "no");
-			return "error/no_session";
-		}
-		if(session.getAttribute("userId") == null) {
-			model.addAttribute("session", "no");
-			return "error/no_session";
-		}
-		
-		return "board/my_comment";
-	}
-	
-	/**
 	 * 카테고리에 따라 내가 쓴 게시글 조회 (ajax 활용)
 	 * @param category
 	 * @param request

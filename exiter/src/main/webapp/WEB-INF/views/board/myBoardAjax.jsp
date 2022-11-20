@@ -15,7 +15,14 @@
 								<span class="category">${mb.BCategory}</span>
 								<span class="title">${mb.BTitle}</span>
 								<p class="def">${mb.BDef}</p>
-								<span class="date">${mb.regDate}</span>
+								<c:choose>
+									<c:when test="${not empty mb.BTime}">
+										<span class="date">${mb.BTime}</span>
+									</c:when>
+									<c:otherwise>
+										<span class="date">${mb.regDate}</span>
+									</c:otherwise>
+								</c:choose>
 								<div class="img-box"><div class="com-img"></div>
 									<c:if test="${mb.bcUpdate}">
 										<span class="redDot">●</span>
@@ -36,7 +43,14 @@
 								<span class="category">${mb.BCategory}</span>
 								<span class="title">${mb.BTitle}</span>
 								<p class="def qna">${mb.BDef}</p>
-								<span class="date">${mb.regDate}</span>
+								<c:choose>
+									<c:when test="${not empty mb.BTime}">
+										<span class="date">${mb.BTime}</span>
+									</c:when>
+									<c:otherwise>
+										<span class="date">${mb.regDate}</span>
+									</c:otherwise>
+								</c:choose>
 								<div class="com-box">
 									<c:if test="${mb.bcUpdate}">
 										<span class="redDot">●</span>
@@ -56,7 +70,7 @@
 				</c:forEach>
 			</c:if>
 			<c:if test="${empty mbList}">
-				<p class="empty-li">작성한 게시글이 없습니다.</p>
+				<p class="empty-li">작성하신 게시글이 없습니다.</p>
 			</c:if>
 		</table>
 	</div>
