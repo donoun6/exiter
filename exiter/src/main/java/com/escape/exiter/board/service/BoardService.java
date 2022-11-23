@@ -19,4 +19,6 @@ public interface BoardService {
 	List<BoardCommentCommand> qnaComentByBid(long bid);
 	long getCommentCountByBid(long bid);
 	List<Long> getCidByUid(long uid);
+	void deleteBoard(String bid);
+	void deleteBoardComment(String bcid);
 }

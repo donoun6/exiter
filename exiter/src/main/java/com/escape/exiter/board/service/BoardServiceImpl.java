@@ -72,4 +72,14 @@ public class BoardServiceImpl implements BoardService{
 		return boardDao.getCidByUid(uid);
 	}
 
+	@Override
+	public void deleteBoard(String bid) {
+		boardDao.deleteBoard(bid);
+	}
+
+	@Override
+	public void deleteBoardComment(String bcid) {
+		boardDao.deleteBoardComment(bcid);
+	}
+
 }

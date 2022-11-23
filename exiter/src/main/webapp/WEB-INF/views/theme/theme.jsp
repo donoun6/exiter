@@ -68,7 +68,7 @@
         			<img alt="${theme.getTName()}" src="/exiter/resources/images/theme/${theme.getTImage()}">
         		</div>
         	</div>
-        	<div class="def-box">${theme.getTDef()}</div>
+        	<pre class="def-box">${theme.getTDef()}</pre>
         	<button class="s-btn res" onclick="location.href='/exiter/theme/reservation/${theme.getTid()}'">예약하기</button>
         	<div class="company-info">
         		<h5 class="info">카페 정보</h5>

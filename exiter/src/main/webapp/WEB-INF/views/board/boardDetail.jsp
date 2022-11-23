@@ -50,6 +50,12 @@
 				<div class="boardDef">
 					<p>${boardInfo.BDef }</p>
 				</div>
+				<c:if test="${boardInfo.uid  eq uid}">
+					<form style="background: none; border: none; position: relative;">
+						<input type="hidden" name="d-bid" value="${boardInfo.bid }">
+						<button style="position: absolute;right: 0;top: -10px;width: 70px;height: 30px;border-radius: 10px;background: #464646;color: white;font-family: &quot;twayFly&quot;;border: none;">삭제</button>
+					</form>
+				</c:if>
 				<div class="comLine">댓글 ${boardCommentCnt}개</div>
 				<c:forEach var="boardComment" items="${boardComment }">
 				<div class="commentBox">
@@ -61,8 +67,14 @@
 						<span class="date">${boardComment.regDate }</span>
 					</div>
 					<div class="comDef">
-						<p>${boardComment.bcDef }</p>
+						<p style="margin-top: 10px;width: 80%;">${boardComment.bcDef }</p>
 					</div>
+					<c:if test="${boardComment.uid  eq uid}">
+						<form style="background: none; border: none; position: relative; margin: 0; padding: 0;">
+							<input type="hidden" name="d-bcid" value="${boardComment.bcid }">
+						    <button style="position: absolute;right: 0;top: -20px;background: gray;width: 60px;height: 25px;border-radius: 10px;color: white;border: none;font-family: &quot;twayFly&quot;;">삭제</button>
+					    </form>
+					</c:if>
 				</div>
 				</c:forEach>
 				<c:forEach var="qnaComment" items="${qnaComment }">

@@ -107,6 +107,9 @@ h3.tName {
 	line-height: 18px;
 	font-size: 14px;
     color: #aaa;
+    font-family: "twayFly";
+    font-size: 14px;
+    white-space: pre-wrap;
 }
 
 .company-info {

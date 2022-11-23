@@ -229,4 +229,21 @@ public class BoardDao {
 			
 		},uid);
 	}
+	
+//	게시글 삭제
+	public void deleteBoard(String bid) {
+		String sql = "DELETE FROM BoardComment WHERE bid = ?";
+		jdbcTemplate.update(sql, bid);
+		
+		String sql2 = "DELETE FROM Board WHERE bid = ?";
+		jdbcTemplate.update(sql2, bid);
+//		System.out.println("[게시글 삭제]");
+	}
+	
+//	댓글 삭제
+	public void deleteBoardComment(String bcid) {
+		String sql = "DELETE FROM BoardComment WHERE bcid = ?";
+		jdbcTemplate.update(sql, bcid);
+//		System.out.println("[댓글 삭제]");
+	}
 }

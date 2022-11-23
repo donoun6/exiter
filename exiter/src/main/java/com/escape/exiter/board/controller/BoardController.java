@@ -102,6 +102,17 @@ public class BoardController {
 		model.addAttribute("boardCommentCnt",boardService.getCommentCountByBid(bid));
 		model.addAttribute("board", new BoardCommentDomain());
 		session.removeAttribute("category2");
+		String dBid = request.getParameter("d-bid");
+		String dBcid = request.getParameter("d-bcid");
+		if(dBid != null) {
+			boardService.deleteBoard(dBid);
+			return "redirect:/board/board";
+		}
+		if(dBcid != null) {
+			boardService.deleteBoardComment(dBcid);
+			return "redirect:/board/boardDetail/"+bid;
+		}
+		
 		return "/board/boardDetail";
 	}
 	
