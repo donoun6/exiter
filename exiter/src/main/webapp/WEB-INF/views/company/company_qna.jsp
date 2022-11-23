@@ -83,7 +83,7 @@ if (comId == null){
   				<textarea class="bcDef" name="bcDef" placeholder="답변내용을 작성하세요."></textarea>
   				<input type="hidden" value="${cid }" name="cid">
 				<input type="hidden" value="${qnaInfo.bid }" name="bid">
-  				<input class="addBtn" type="submit" value="등록">
+  				<input class="addBtn" type="submit" value="등록" style="position: absolute; right: 2%; top: 15%; width: 5%; height: 70%; border-radius: 10px; font-family: &quot;twayFly&quot;; border: 1px solid;">
   			</form:form>
   		</td>
   	</tr>

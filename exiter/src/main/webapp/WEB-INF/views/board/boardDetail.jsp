@@ -51,7 +51,7 @@
 					<p>${boardInfo.BDef }</p>
 				</div>
 				<c:if test="${boardInfo.uid  eq uid}">
-					<form style="background: none; border: none; position: relative;">
+					<form class="deletForm" style="background: none; border: none; position: relative;">
 						<input type="hidden" name="d-bid" value="${boardInfo.bid }">
 						<button style="position: absolute;right: 0;top: -10px;width: 70px;height: 30px;border-radius: 10px;background: #464646;color: white;font-family: &quot;twayFly&quot;;border: none;">삭제</button>
 					</form>
@@ -113,6 +113,7 @@
 					$('.comLine').remove();
 					$('#board').remove();
 					$('.boardDef').addClass("qnaDef")
+					$('.deletForm').remove();
 				}
     			if(category2 == "공지사항"){
 					$('.category').css("background","#ff3b3b");
